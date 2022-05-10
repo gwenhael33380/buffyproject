@@ -1,0 +1,65 @@
+
+
+#nav-bar{
+  background-color: $brown;
+
+  @include flex(space-between, center);
+}
+
+.logo-nav-bar{
+  width: 5%;
+  padding: 3px;
+  padding-left: 20px;
+  padding-top: 10px;
+
+}
+
+
+.nav-bar-list{
+  display: flex;
+  justify-content: flex-end;
+  .disconnect &{
+    width: calc(95% - 360px);
+  }
+  .connect &{
+    width: calc(95% - 195px);
+
+  }
+
+
+}
+.title-nav-bar2{
+  padding-left: 50px;
+
+}
+.title-nav-bar{
+  color: $white;
+transition-duration: 3s;
+}
+.title-nav-bar:hover{
+  text-decoration: underline;
+}
+
+.btn-nav{
+  color: $white;
+  padding: 7px 15px;
+  border-radius: 25px;
+  margin-right: 15px;
+}
+.btn-nav-bar1{
+  background-color: $green;
+
+}
+
+.btn-nav-bar2{
+  background-color: $red;
+}
+
+.content-btn-nav{
+ .disconnect & {
+    width: 300px;
+ }
+  .connect & {
+    width: 150px;
+  }
+}

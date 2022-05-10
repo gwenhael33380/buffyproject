@@ -1,0 +1,94 @@
+/*
+opérateur de comparaison
+    == tester une égalité
+    != tester une différence
+    > tester une supériorité
+    < tester une infériorité
+    >= tester une supériorité ou une égalité
+    <= tester une infériorité ou une égalité
+*/
+
+// mixin flexbox
+@mixin flex($just, $align, $dir: row, $wrap: nowrap) {
+  display: flex;
+  justify-content: $just;
+  align-items: $align;
+  @if($dir != row) {
+    flex-direction: $dir;
+  }
+  @if($wrap != nowrap) {
+    flex-wrap: $wrap;
+  }
+}
+
+// mixin background-image
+@mixin background($fileName, $pos, $size, $repeat: repeat) {
+  // concaténation en scss #{$variable}
+  background-image: url('#{$imgPath}#{$fileName}');
+  background-position: $pos;
+  background-size: $size;
+  @if($repeat != repeat) {
+    background-repeat: $repeat;
+  }
+}
+
+// mixin format de police
+@mixin font($family, $size, $align: initial, $spacing: initial) {
+  font-family: $family;
+  font-size: #{$size}px;
+  @if($align != initial) {
+    text-align: $align;
+  }
+  @if($spacing != initial) {
+    letter-spacing: #{$spacing}em;
+  }
+}
+// cette mixin sur les medias queries n'est à utiliser
+// si vous avez un plugin pour les trier au moment
+// de la compilation
+
+// mixin responsive
+@mixin respond($breakpoint) {
+  @if($breakpoint == 'phone') {
+    @media(max-width: 576px) {
+      @content;
+    }
+  }
+  @else if($breakpoint == 'tab-port') {
+    @media(max-width: 767px) {
+      @content;
+    }
+  }
+  @else if ($breakpoint == 'tab') {
+    @media(max-width: 991px) {
+      @content;
+    }
+  }
+  @else if ($breakpoint == 'tab-land') {
+    @media(max-width: 1023px) {
+      @content;
+    }
+  }
+  @else if ($breakpoint == 'laptop') {
+    @media(max-width: 1199px) {
+      @content;
+    }
+  }
+  @else if ($breakpoint == 'large') {
+    @media(max-width: 1399px) {
+      @content;
+    }
+  }
+}
+
+// mixin création de font-face
+@mixin font-face($font-family, $fileName, $weight: normal, $style: normal) {
+  @font-face {
+    font-family: $font-family;
+    font-weight: $weight;
+    font-style: $style;
+    src: url('#{$filePath}#{$fileName}.eot');
+    src: url('#{$filePath}#{$fileName}.eot?#iefix') format('embedded-opentype'), url('#{$filePath}#{$fileName}.ttf') format('truetype');
+  }
+
+}
