@@ -13,6 +13,7 @@ require dirname(__DIR__) . '/functions.php';
     <link rel="stylesheet" href="<?php echo HOME_URL . 'assets/css/dist/main.min.css'; ?>">
 </head>
 <body>
+<header class="nav-bar-fixed">
     <nav id="nav-bar" <?php echo isset($_SESSION['user_id']) ? 'class="connect"' : 'class="disconnect"'; ?> >
         <div class="logo-nav-bar">
             <img src="<?php echo HOME_URL . 'assets/img/src/source/Logo_with.png'; ?>" alt="">
@@ -28,8 +29,9 @@ require dirname(__DIR__) . '/functions.php';
             <a class="btn-nav btn-nav-bar1" href="">S'inscrire</a>
             <a class="btn-nav btn-nav-bar2" href="">Connexion</a>
         </div>
+</header>
 
-    </nav>
+</nav>
 
 
 

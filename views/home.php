@@ -2,7 +2,6 @@
 require __DIR__ . '/header.php';
 
 ?>
-    <h1></h1>
     <main>
         <!--    Section 1 title and first section-->
         <section class="section-1-home">
@@ -34,7 +33,7 @@ require __DIR__ . '/header.php';
                         <img class="img-acces-blog" src="<?php echo HOME_URL . 'assets/img/src/source/sarah-michelle-gellar.jpg'; ?>" alt="">
                     </div>
                     <div class="content-button-acces-blog">
-                        <a class="button-acces-blog" href="">BLOG</a>
+                        <a class="button-acces-blog" href="<?php echo HOME_URL . 'views/blog.php'; ?>">BLOG</a>
                     </div>
                 </div>
             </div>
@@ -50,7 +49,7 @@ require __DIR__ . '/header.php';
                 <div class="content-img-flex-contact">
 
                     <div class="content-button-acces-contact">
-                        <a class="button-acces-contact"href="">contact</a>
+                        <a class="button-acces-contact"href="<?php echo HOME_URL . 'views/contact.php'; ?>">contact</a>
                     </div>
                     <div >
                         <img class="img-acces-contact" src="<?php echo HOME_URL . 'assets/img/src/source/buffy-the-vampire-slayer-.jpg'; ?>" alt="">

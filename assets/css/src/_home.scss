@@ -2,9 +2,11 @@
 
 .section-1-home{
   background-image: url(../../img/dist/source/buffy_cover2.jpg);
-  background-size: cover;
+  background-size: 100%;
   min-height: calc(100vh - 104px);
-  box-sizing: border-box;
+    width: 100%;
+    background-repeat: no-repeat;
+  margin-top: 80.14px;
 
 
 }

@@ -1,7 +1,14 @@
 
-
+.nav-bar-fixed{
+  position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+      z-index: 50;
+}
 #nav-bar{
   background-color: $brown;
+
 
   @include flex(space-between, center);
 }
