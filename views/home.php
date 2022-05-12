@@ -46,13 +46,15 @@ require __DIR__ . '/header.php';
             <div class="content-title-acces-contact">
                 <h2 class="title-acces-contact">contact</h2>
             </div>
-            <div class="content-img-flex-contact">
+            <div class="content-contact">
+                <div class="content-img-flex-contact">
 
-                <div class="content-button-acces-contact">
-                    <a class="button-acces-contact"href="">contact</a>
-                </div>
-                <div >
-                    <img class="img-acces-contact" src="<?php echo HOME_URL . 'assets/img/src/source/buffy-the-vampire-slayer-redim.png'; ?>" alt="">
+                    <div class="content-button-acces-contact">
+                        <a class="button-acces-contact"href="">contact</a>
+                    </div>
+                    <div >
+                        <img class="img-acces-contact" src="<?php echo HOME_URL . 'assets/img/src/source/buffy-the-vampire-slayer-.jpg'; ?>" alt="">
+                    </div>
                 </div>
             </div>
 

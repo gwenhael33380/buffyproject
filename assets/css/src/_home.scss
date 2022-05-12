@@ -96,7 +96,7 @@
 }
 .content-img-acces-blog{
   background-color: $brown;
-  width: 100%;
+  width: 80%;
   margin: auto;
   border-radius: 10px;
 }
@@ -143,16 +143,25 @@
   text-align: center;
   padding: 30px 0px;
 }
+.content-contact{
+  display: flex;
+  justify-content: center;
+}
 .content-img-flex-contact{
   @extend .content-img-flex-blog;
+  background-color: $green-o;
+  border-radius: 10px;
+    width: 80%;
 
 }
+
 .img-acces-contact{
   margin: 120px 0px;
-  padding-left: 90px;
+  padding-right: 90px;
+
 }
 .content-button-acces-contact{
-
+    margin: auto;
 }
 .button-acces-contact{
   padding: 20px 50px;
