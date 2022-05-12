@@ -42,6 +42,7 @@
 .title-nav-bar{
   color: $white;
 transition-duration: 3s;
+  font-family: rbt-r;
 }
 .title-nav-bar:hover{
   text-decoration: underline;
@@ -52,14 +53,18 @@ transition-duration: 3s;
   padding: 7px 15px;
   border-radius: 25px;
   margin-right: 15px;
+    text-transform: uppercase;
+
 }
 .btn-nav-bar1{
   background-color: $green;
+  font-family: rbt-r;
 
 }
 
 .btn-nav-bar2{
   background-color: $red;
+    font-family: rbt-r;
 }
 
 .content-btn-nav{

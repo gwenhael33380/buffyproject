@@ -1,0 +1,10 @@
+//Font Face
+
+@include font-face('cinzel', 'CinzelDecorative-Black', 300);
+@include font-face('cinzelBold', 'CinzelDecorative-Bold', 700);
+@include font-face('cinzelRegular', 'CinzelDecorative-Regular', 900);
+
+@include font-face('rbt-t', 'Roboto-Thin', 400);
+@include font-face('rbt-r', 'Roboto-Regular', 400);
+@include font-face('rbt-b', 'Roboto-Bold', 700);
+@include font-face('rbt-i', 'Roboto-Italic', 700);

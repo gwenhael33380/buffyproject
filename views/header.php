@@ -21,7 +21,7 @@ require dirname(__DIR__) . '/functions.php';
         <ul class="nav-bar-list">
             <li class="title-nav-bar2"><a class="title-nav-bar" href="<?= HOME_URL; ?>">ACCUEIL</a></li>
             <li class="title-nav-bar2"><a class="title-nav-bar" href="<?php echo HOME_URL . 'views/blog.php'; ?>">BLOG</a></li>
-            <li class="title-nav-bar2"><a class="title-nav-bar" href="<?php echo HOME_URL . 'views/profil.php'; ?>">PROFIl</a></li>
+            <li class="title-nav-bar2"><a class="title-nav-bar" href="<?php echo HOME_URL . 'views/profil.php'; ?>">PROFIL</a></li>
             <li class="title-nav-bar2"><a class="title-nav-bar" href="<?php echo HOME_URL . 'views/contact.php'; ?>">CONTACT</a></li>
             <li class="title-nav-bar2"><a class="title-nav-bar" href="<?php echo HOME_URL . 'views/dashboard.php'; ?>">DASHBOARD</a></li>
         </ul>

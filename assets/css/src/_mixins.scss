@@ -81,14 +81,13 @@ opérateur de comparaison
   }
 }
 
-// mixin création de font-face
+// mixin création de fonts-face
 @mixin font-face($font-family, $fileName, $weight: normal, $style: normal) {
   @font-face {
     font-family: $font-family;
     font-weight: $weight;
     font-style: $style;
-    src: url('#{$filePath}#{$fileName}.eot');
-    src: url('#{$filePath}#{$fileName}.eot?#iefix') format('embedded-opentype'), url('#{$filePath}#{$fileName}.ttf') format('truetype');
+    src: url('#{$filePath}#{$fileName}.ttf') format('truetype');
   }
 
 }

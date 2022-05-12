@@ -8,23 +8,25 @@ require __DIR__ . '/header.php';
 
             </div>
             <div class="content-title-contact">
-                <h2 class="title-form-contact">Fomrulaire de contact</h2>
+                <h2 class="title-form-contact">Formulaire de contact</h2>
             </div>
-            <div>
+            <div class="content-form-contact">
                 <form action="<?=HOME_URL. 'requests/form_post.php'?>" method="post">
-                    <div>
-                        <label for="email">email<span class="red"></span>*</label>
-                        <input type="text" id="email" name="email" value="" placeholder="email..."/>
+                    <div class="field-contact">
+                        <label class="form-label"for="email">Email<span class="red">*</span></label>
+                        <input class="input-form" type="text" id="email" name="email" value="" placeholder="email..."/>
                     </div>
-                    <div>
-                        <label for="subject">sujet <span class="red">*</span> </label>
-                        <input type="text" name="subject" value="" placeholder="sujet..." />
+                    <div class="field-contact">
+                        <label class="form-label" for="subject">Sujet <span class="red">*</span> </label>
+                        <input class="input-form" type="text" name="subject" value="" placeholder="sujet..." />
                     </div>
-                    <div>
-                        <label for="message">Votre message<span class="red">*</span></label>
-                        <textarea name="message" cols="40" rows="5" placeholder="60 cartactères minimum..."></textarea>
+                    <div class="field-contact">
+                        <label class="form-label" for="message">Votre message<span class="red">*</span></label>
+                        <textarea class="textarea-form" name="message" cols="40" rows="5" placeholder="60 cartactères minimum..."></textarea>
                     </div>
-                    <button class="button-form" type="submit">envoyer </button>
+                    <div class="content-button-form-contact">
+                        <button class="button-form" type="submit">envoyer </button>
+                    </div>
                 </form>
             </div>
         </section>
