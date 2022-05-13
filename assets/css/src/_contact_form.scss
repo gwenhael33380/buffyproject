@@ -19,7 +19,7 @@
   font-size: 75px;
   letter-spacing: 5px;
   font-family: rbt-t;
-  text-shadow: 3px 0px 10px $black;
+
 }
 .content-form-contact{
   width: 80%;
@@ -43,7 +43,10 @@
   justify-content: center;
 }
 .form-label{
-  padding: 5px 0;
+  padding: 40px 0 10px 10px;
+    font-family: rbt-r;
+  font-size: 15px;
+
 }
 .input-form,
 .textarea-form{
@@ -52,7 +55,46 @@
   border-radius: 8px;
   padding: 15px;
 }
+.textarea-form{
+  padding-bottom:50px ;
+  width: 130%;
+}
+.content-button-form-contact{
+margin-top: 25px;
+}
 .button-form{
-
+border: none;
+  background-color: transparent;
+  color: $white;
+  font-family: rbt-r;
+  position: relative;
+  font-size: 20px;
+  overflow: hidden;
+  padding: 12px 50px;
+  border-radius: 25px;
+  cursor: pointer;
+  box-shadow: 0px -0px 0px 0px rgba(143, 64, 248, .5),
+  0px 0px 0px 0px rgba(39, 200, 255, .5);
+  transition: all .2s;
 }
 
+.button-form::after{
+  content: "";
+  width: 400px;
+  height: 400px;
+  background: linear-gradient(225deg,
+  #27d86c 0%, #26caf8 50%, #c625d0 100%);
+  position: absolute;
+  top: -50px;
+  left: -100px;
+  z-index: -1;
+transition: all .2s;
+}
+.button-form:hover::after {
+  transform: rotate(150deg);
+}
+.button-form:hover{
+  transform: translate(0, -6px);
+  box-shadow: 10px -10px 25px 0 rgba(143, 64, 248, .25),
+  -10px 10px 25px 0px rgba(39, 200, 255, .25);
+}

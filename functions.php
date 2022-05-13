@@ -1,4 +1,5 @@
 <?php
+session_start();
 define('HOME_URL', 'http://buffyproject/');
 define('PATH_PROJECT', __DIR__);
 

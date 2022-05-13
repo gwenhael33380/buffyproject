@@ -14,11 +14,11 @@ require __DIR__ . '/header.php';
                 <form action="<?=HOME_URL. 'requests/form_post.php'?>" method="post">
                     <div class="field-contact">
                         <label class="form-label"for="email">Email<span class="red">*</span></label>
-                        <input class="input-form" type="text" id="email" name="email" value="" placeholder="email..."/>
+                        <input class="input-form" type="text" id="email" name="email" placeholder="email..."/>
                     </div>
                     <div class="field-contact">
                         <label class="form-label" for="subject">Sujet <span class="red">*</span> </label>
-                        <input class="input-form" type="text" name="subject" value="" placeholder="sujet..." />
+                        <input class="input-form" type="text" name="subject" placeholder="sujet..." />
                     </div>
                     <div class="field-contact">
                         <label class="form-label" for="message">Votre message<span class="red">*</span></label>

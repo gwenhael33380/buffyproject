@@ -19,15 +19,54 @@ require dirname(__DIR__) . '/functions.php';
             <img src="<?php echo HOME_URL . 'assets/img/src/source/Logo_with.png'; ?>" alt="">
         </div>
         <ul class="nav-bar-list">
+
             <li class="title-nav-bar2"><a class="title-nav-bar" href="<?= HOME_URL; ?>">ACCUEIL</a></li>
             <li class="title-nav-bar2"><a class="title-nav-bar" href="<?php echo HOME_URL . 'views/blog.php'; ?>">BLOG</a></li>
             <li class="title-nav-bar2"><a class="title-nav-bar" href="<?php echo HOME_URL . 'views/profil.php'; ?>">PROFIL</a></li>
             <li class="title-nav-bar2"><a class="title-nav-bar" href="<?php echo HOME_URL . 'views/contact.php'; ?>">CONTACT</a></li>
-            <li class="title-nav-bar2"><a class="title-nav-bar" href="<?php echo HOME_URL . 'views/dashboard.php'; ?>">DASHBOARD</a></li>
+            <?php if(isset($_SESSION['id_user'])) : ?>
+                <li class="title-nav-bar2"><a class="title-nav-bar" href="<?php echo HOME_URL . 'views/dashboard.php'; ?>">DASHBOARD</a></li>
+            <?php endif; ?>
         </ul>
         <div class="content-btn-nav">
-            <a class="btn-nav btn-nav-bar1" href="">S'inscrire</a>
-            <a class="btn-nav btn-nav-bar2" href="">Connexion</a>
+            <div>
+                <ul class="nav-connect">
+                    <?php if(isset($_SESSION['id_user'])) : ?>
+                        <li class="disconnect cursor_pointer">
+                            <a href="<?= HOME_URL . 'requests/disconnect.php'; ?>">Se déconnecter</a>
+                        </li>
+                        <?php if(isset($_SESSION['role_slug']) && $_SESSION['role_slug'] == 'administrator' ) : ?>
+                            <li class="dashboard cursor_pointer">
+                                <a href="<?= HOME_URL . 'views/dashboard.php'; ?>">Dashboard</a>
+                            </li>
+                        <?php endif; ?>
+
+                        <!-- si non connecté -->
+                    <?php else : ?>
+                        <li class="connect cursor_pointer">
+                            <span class="to_connect btn-nav btn-nav-bar2">CONNEXION</span>
+                            <div class="modal_connect">
+                                <form action="<?php echo HOME_URL . 'requests/login_post.php'; ?>" method="POST">
+                                    <p>Se connecter</p>
+                                    <div>
+                                        <label for="email">Email</label>
+                                        <input type="text" name="email" id="email">
+                                    </div>
+                                    <div>
+                                        <label for="password">Mot de passe</label>
+                                        <input type="password" name="password" id="password">
+                                    </div>
+                                    <button type="submit">Envoyer</button>
+                                </form>
+                            </div>
+                        </li>
+                        <li>
+                            <a class="btn-nav btn-nav-bar1" href="<?php echo HOME_URL . 'views/subscribe.php'; ?>">S'inscrire</a>
+                        </li>
+
+                    <?php endif; ?>
+                </ul>
+            </div>
         </div>
 </header>
 

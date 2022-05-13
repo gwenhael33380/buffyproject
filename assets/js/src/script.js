@@ -1,2 +1,4 @@
 'use strict';
-let title = document.getElementsByTagName('h1');
+$(".to_connect").on('click', function() {
+			$(this).next().slideToggle();
+		});

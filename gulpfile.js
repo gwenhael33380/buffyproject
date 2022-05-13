@@ -66,7 +66,7 @@ gulp.task('style', function() {
 gulp.task('scripts', function() {
 	return gulp.src([
 		'./assets/libs/jquery/jquery-3.6.0.min.js',
-		'./assets/libs/fontawesome/js/all.min.js',
+		// './assets/libs/fontawesome/js/all.min.js',
 		'./assets/js/src/**/*.js'
 	])
 	.pipe(sourcemaps.init())

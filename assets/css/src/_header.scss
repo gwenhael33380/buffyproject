@@ -66,6 +66,11 @@ transition-duration: 3s;
   background-color: $red;
     font-family: rbt-r;
 }
+.nav-connect{
+  align-items: center;
+  display: flex;
+
+}
 
 .content-btn-nav{
  .disconnect & {
@@ -74,4 +79,16 @@ transition-duration: 3s;
   .connect & {
     width: 150px;
   }
+}
+
+//modal connect
+
+.modal_connect {
+	display: none;
+	position: absolute;
+	color: #000;
+	background-color: #fff;
+	padding: 20px;
+	border: 2px solid #000;
+	border-radius: 10px;
 }
