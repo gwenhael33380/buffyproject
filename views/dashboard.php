@@ -22,6 +22,7 @@ $req = $db->query("
 ");
 $req->execute();
 $results = $req->fetchAll(PDO::FETCH_OBJ); ?>
+<div class="dashboard"></div>
     <h1>Liste des utilisateurs</h1>
 <!--   --><?php //var_dump($results);?>
     <main> <!-- j'ajoute le "main" car le script JS fait appel à lui pour retrouver la popup DELETE -->

@@ -37,7 +37,7 @@ require dirname(__DIR__) . '/functions.php';
                 <ul class="nav-connect">
                     <?php if(isset($_SESSION['id_user'])) : ?>
                         <li class="disconnect cursor_pointer">
-                            <a href="<?= HOME_URL . 'requests/disconnect.php'; ?>">Se déconnecter</a>
+                            <a href="<?= HOME_URL . 'requests/disconnect.php'; ?>">SE DECONNECTER</a>
                         </li>
                         <!-- si non connecté -->
                     <?php else : ?>
