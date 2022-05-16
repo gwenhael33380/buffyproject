@@ -19,11 +19,15 @@ require dirname(__DIR__) . '/functions.php';
             <img src="<?php echo HOME_URL . 'assets/img/src/source/Logo_with.png'; ?>" alt="">
         </div>
         <ul class="nav-bar-list">
-
+            <?php
+	if(isset($_GET['msg'])) {
+		echo $_GET['msg'];
+	} ?>
             <li class="title-nav-bar2"><a class="title-nav-bar" href="<?= HOME_URL; ?>">ACCUEIL</a></li>
             <li class="title-nav-bar2"><a class="title-nav-bar" href="<?php echo HOME_URL . 'views/blog.php'; ?>">BLOG</a></li>
             <li class="title-nav-bar2"><a class="title-nav-bar" href="<?php echo HOME_URL . 'views/profil.php'; ?>">PROFIL</a></li>
             <li class="title-nav-bar2"><a class="title-nav-bar" href="<?php echo HOME_URL . 'views/contact.php'; ?>">CONTACT</a></li>
+
             <?php if(isset($_SESSION['id_user'])) : ?>
                 <li class="title-nav-bar2"><a class="title-nav-bar" href="<?php echo HOME_URL . 'views/dashboard.php'; ?>">DASHBOARD</a></li>
             <?php endif; ?>

@@ -1,13 +1,13 @@
 <?php
 require __DIR__ . '/header.php';
 
+
 ?>
     <main>
         <!--    Section 1 title and first section-->
         <section class="section-1-home">
 
             <div class="content-btn-nav-sect-1" >
-                <div><?php echo $_GET ['msg'] ?></div>
                 <a class="btn-nav-sec-1 bgc-btn-sec1" href="">Contact</a>
                 <a class="btn-nav-sec-1 bgc-btn-sec2" href="">Blog</a>
             </div>
