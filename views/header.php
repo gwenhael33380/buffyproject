@@ -27,8 +27,8 @@ require dirname(__DIR__) . '/functions.php';
             <li class="title-nav-bar2"><a class="title-nav-bar" href="<?php echo HOME_URL . 'views/blog.php'; ?>">BLOG</a></li>
             <li class="title-nav-bar2"><a class="title-nav-bar" href="<?php echo HOME_URL . 'views/profil.php'; ?>">PROFIL</a></li>
             <li class="title-nav-bar2"><a class="title-nav-bar" href="<?php echo HOME_URL . 'views/contact.php'; ?>">CONTACT</a></li>
+            <?php if(isset($_SESSION['role_slug']) && $_SESSION['role_slug'] == 'administrator' ) : ?>
 
-            <?php if(isset($_SESSION['id_user'])) : ?>
                 <li class="title-nav-bar2"><a class="title-nav-bar" href="<?php echo HOME_URL . 'views/dashboard.php'; ?>">DASHBOARD</a></li>
             <?php endif; ?>
         </ul>
@@ -39,12 +39,6 @@ require dirname(__DIR__) . '/functions.php';
                         <li class="disconnect cursor_pointer">
                             <a href="<?= HOME_URL . 'requests/disconnect.php'; ?>">Se déconnecter</a>
                         </li>
-                        <?php if(isset($_SESSION['role_slug']) && $_SESSION['role_slug'] == 'administrator' ) : ?>
-                            <li class="dashboard cursor_pointer">
-                                <a href="<?= HOME_URL . 'views/dashboard.php'; ?>">Dashboard</a>
-                            </li>
-                        <?php endif; ?>
-
                         <!-- si non connecté -->
                     <?php else : ?>
                         <li class="connect cursor_pointer">
