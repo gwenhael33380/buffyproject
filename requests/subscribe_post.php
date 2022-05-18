@@ -14,7 +14,7 @@ $required_fields = array($first_name, $last_name, $pseudo, $email);
 
 $error_upload 	= array(3,6,7,8);
 $error_size 	= array(1,2);
-$enabled_ext 	= array('jpg', 'jpeg', 'png');
+$enabled_ext 	= array('jpg', 'jpeg', 'png', 'gif');
 
 $default_img_id = 1;
 $size_max 		= 1048576;
