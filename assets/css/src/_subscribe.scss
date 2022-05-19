@@ -1,5 +1,93 @@
 // CSS fomulaire de souscription
 
 .main_subscribe{
-  padding-top: 120px;
+
+}
+.bg-img-subscribe{
+  background-image: url(../../img/dist/source/background_subscribe2.jpg);
+  background-size: 100%;
+  min-height: calc(50vh - 92px);
+  max-height: 40vh;
+  width: 100%;
+  background-repeat: no-repeat;
+  margin-top: 80.14px;
+
+}
+.content_title_subscribe{
+  background-color: $green-o;
+  margin-top: 7%;
+}
+.title-subscribe{
+  text-align: center;
+  padding: 40px 0;
+  font-size: 75px;
+  letter-spacing: 5px;
+  font-family: rbt-t;
+}
+.file_form{
+  width: 80%;
+  margin: 4% auto auto;
+}
+.field-subscribe{
+  display: flex;
+  flex-direction: column;
+  width: 33%;
+  margin: 0 auto;
+}
+
+.content-button-form-contact{
+  display: flex;
+  justify-content: center;
+}
+.label-subscribe{
+  padding: 40px 0 10px 10px;
+  font-family: rbt-r;
+  font-size: 15px;
+}
+.input-form-subscribe{
+  border: none;
+  box-shadow: 4px 1px 10px 0 rgba(0, 0, 0, .15);
+  border-radius: 8px;
+  padding: 15px;
+}
+.input-margin{
+  margin-top: 8px;
+}
+.text-mdp{
+  margin-top: 12px;
+  margin-bottom: 25px;
+  font-family: rbt-i;
+  font-style: italic;
+  font-size: 13px;
+  text-decoration: underline;
+
+}
+.label-picture-subscribe{
+  font-family: rbt-i;
+  font-size: 13px;
+  text-decoration: underline;
+  margin-bottom: 12px;
+  margin-top: 7px;
+
+}
+.flex-label-subscribe{
+  display: flex;
+  flex-direction: column-reverse;
+
+}
+.button-submit-subscribe{
+
+  background-color: $red;
+  color: white;
+  border: none;
+  font-family: rbt-r;
+  padding: 8px 24px;
+  border-radius: 25px;
+  margin-right: 15px;
+  text-transform: uppercase;
+  font-size: 15px;
+}
+.button-submit-subscribe:hover{
+  transition-duration: .3s;
+  background-color: $green;
 }

@@ -1,4 +1,5 @@
 <?php
+require dirname(__DIR__) . '/functions.php';
 require __DIR__ . '/header.php';
 
 ?>

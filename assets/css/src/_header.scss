@@ -41,7 +41,7 @@
 }
 .title-nav-bar{
   color: $white;
-transition-duration: 3s;
+transition-duration: 1s;
   font-family: rbt-r;
 }
 .title-nav-bar:hover{
@@ -54,6 +54,7 @@ transition-duration: 3s;
   border-radius: 25px;
   margin-right: 15px;
     text-transform: uppercase;
+  cursor: pointer;
 
 }
 .btn-nav-bar1{

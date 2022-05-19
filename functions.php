@@ -2,7 +2,7 @@
 session_start();
 define('HOME_URL', 'http://buffyproject/');
 define('PATH_PROJECT', __DIR__);
-
+define('IMG_URL', HOME_URL . 'assets/img/');
 
 // function pour rediriger vers la homePage si $enable_access existe et n'est pas nul
 function enabled_access(Array $enabled_access) {

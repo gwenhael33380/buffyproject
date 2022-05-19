@@ -1,4 +1,7 @@
 <?php
+require dirname(__DIR__) . '/functions.php';
+require_once PATH_PROJECT . '/connect.php';
+
 require __DIR__ . '/header.php';
 
 

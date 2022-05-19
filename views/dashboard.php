@@ -1,9 +1,11 @@
 <?php
+require dirname(__DIR__) . '/functions.php';
+require_once PATH_PROJECT . '/connect.php';
 require __DIR__ . '/header.php';
 
 // recap de tous les utilisateurs
 // avec leur nom, prénom, pseudo, email, role, nombre d'articles, nombre de commentaires
-require_once PATH_PROJECT . '/connect.php';
+
 enabled_access(array('administrator'));
 
 $req = $db->query("
