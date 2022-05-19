@@ -53,7 +53,7 @@ $result = $req->fetch(PDO::FETCH_OBJ); ?>
                 </div>
                 <div class="user_right">
                     <!-- update user -->
-                    <a href="<?php echo HOME_URL . 'views/dashboard_update.php?id=' . $result->id; ?>"><i class="fa-solid fa-pencil"></i></a>
+                    <a href="<?php echo HOME_URL . 'views/user_update.php?id=' . $result->id; ?>"><i class="fa-solid fa-pencil"></i></a>
 
                     <!-- delete user -->
                     <a class="delete_user" href="<?php echo HOME_URL . 'requests/dashboard_delete_post.php?id=' . $result->id; ?>"><i class="fa-solid fa-trash-can"></i></a>
