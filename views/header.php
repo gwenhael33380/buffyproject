@@ -20,6 +20,7 @@
             <img src="<?php echo HOME_URL . 'assets/img/src/source/Logo_with.png'; ?>" alt="">
         </div>
         <ul class="nav-bar-list">
+
             <?php
 	if(isset($_GET['msg'])) {
 		echo $_GET['msg'];
@@ -39,7 +40,7 @@
                 <ul class="nav-connect">
                     <?php if(isset($_SESSION['id_user'])) : ?>
                         <li class="disconnect cursor_pointer">
-                            <a href="<?= HOME_URL . 'requests/disconnect.php'; ?>">SE DECONNECTER</a>
+                            <a class="button-disconnect" href="<?= HOME_URL . 'requests/disconnect.php'; ?>">SE DECONNECTER</a>
                         </li>
                         <!-- si non connecté -->
                     <?php else : ?>

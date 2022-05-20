@@ -37,108 +37,103 @@ if($id_user) {
 // $repeat = TRUE;
 ?>
 
-    <h1 class="title">Formulaire de mise à jour de <?php echo sanitize_html($user->first_name . ' ' . $user->last_name); ?></h1>
-    <main>
+    <main class="main-user-update">
+        <div class="bg-img-user-update"></div>
+            <div class="content-title-user-update">
+                 <h1 class="title-form-update">Formulaire de mise à jour de <?php echo sanitize_html($user->first_name); ?></h1>
+            </div>
 
         <?php
         $articles = array();
         $comments = array();
-
-
-
-
-                ?>
-                <div class="file_form">
-                    <form action="<?php echo HOME_URL . 'requests/user_update_post.php'; ?>" method="POST" enctype="multipart/form-data">
-                        <div>
-                            <label for="first_name">Prénom</label>
-                            <input type="text" id="first_name" name="first_name" value="<?php echo sanitize_html($user->first_name); ?>">
-                        </div>
-                        <div>
-                            <label for="last_name">Nom</label>
-                            <input type="text" id="last_name" name="last_name" value="<?php echo sanitize_html($user->last_name); ?>">
-                        </div>
-                        <div>
-                            <label for="pseudo">Pseudo</label>
-                            <input type="hidden" name="initial_pseudo" value="<?php echo sanitize_html($user->pseudo); ?>">
-                            <input type="text" id="pseudo" name="pseudo" value="<?php echo sanitize_html($user->pseudo); ?>">
-                        </div>
-                        <div>
-                            <label for="email">Email</label>
-                            <input type="hidden" name="initial_email" value="<?php echo sanitize_html($user->email); ?>">
-                            <input type="text" id="email" name="email" value="<?php echo sanitize_html($user->email); ?>">
-                        </div>
-
-                        <div>
-                            <label for="password">Modifié le mot de passe<span class="red">*</span></label>
-                            <input type="password" id="password" name="password" autocomplete="new-password">
-                            <!-- On répete 2 fois le mot de passe pour vérifier qu'il est exact -->
-                            <input type="password" id="password2" name="password2">
-                            <p>Mot de passe entre 8 et 16 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial, et pas d'espace</p>
-
-                        </div>
-
-                        <div>
-                            
-                            <label for="picture">Ajouter une image (jpg, jpeg, png, gif)</label>
-                            <input type="hidden" name="id_image" value="<?php echo $user->id_image; ?>">
-                            <input type="hidden" name="initial_image" value="<?php echo sanitize_html($user->file_name); ?>">
-                            <input type="hidden" name="MAX_FILE_SIZE" value="1048576"> <!-- 1Mo = 1024*1024 octets -->
-                            <input type="file" id="picture" name="picture" accept="image/*">
-                            <!-- TYPE MIME -->
-                            <!-- https://developer.mozilla.org/fr/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types -->
-                            <!-- https://developer.mozilla.org/fr/docs/Web/HTML/Attributes/accept -->
-
-                            <!-- si plusieurs fichiers à récupérer en même temps -->
-                            <!-- <input type="file" id="picture" name="picture[]" multiple> -->
-
-                            <div class="current_img"><img src="<?php echo IMG_URL . 'dist/profil/' . sanitize_html($user->file_name); ?>"alt=""></div>
-                        </div>
-                      
-
-                        <input type="hidden" name="id_user" value="<?php echo $user->id; ?>">
-                        <button type="submit">Mettre à jour l'utilisateur</button>
-                    </form>
+        ?>
+        <div class="file_form">
+            <form action="<?php echo HOME_URL . 'requests/user_update_post.php'; ?>" method="POST" enctype="multipart/form-data">
+                <div class="flex-form-user-update">
+                    <label class="label-user-update" for="first_name">Prénom </label>
+                    <input class="input-user-update" type="text" id="first_name" name="first_name" value="<?php echo sanitize_html($user->first_name); ?>">
                 </div>
+                <div class="flex-form-user-update">
+                    <label class="label-user-update" for="last_name">Nom </label>
+                    <input class="input-user-update" type="text" id="last_name" name="last_name" value="<?php echo sanitize_html($user->last_name); ?>">
+                </div>
+                <div class="flex-form-user-update">
+                    <label class="label-user-update" for="pseudo">Pseudo </label>
+                    <input type="hidden" name="initial_pseudo" value="<?php echo sanitize_html($user->pseudo); ?>">
+                    <input class="input-user-update" type="text" id="pseudo" name="pseudo" value="<?php echo sanitize_html($user->pseudo); ?>">
+                </div>
+                <div class="flex-form-user-update">
+                    <label class="label-user-update" for="email">Email </label>
+                    <input type="hidden" name="initial_email" value="<?php echo sanitize_html($user->email); ?>">
+                    <input class="input-user-update" type="text" id="email" name="email" value="<?php echo sanitize_html($user->email); ?>">
+                </div>
+
+                <div class="flex-form-user-update">
+                    <label class="label-user-update" for="password">Modifié le mot de passe </label>
+                    <input class="input-user-update" type="password" id="password" name="password" autocomplete="new-password" placeholder="Entrez le nouveau mot de passe...">
+                    <!-- On répete 2 fois le mot de passe pour vérifier qu'il est exact -->
+                    <input class="input-user-update" type="password" id="password2" name="password2" placeholder="Retapez votre mot de passe...">
+                    <p class="text-mdp-user-update">Mot de passe entre 8 et 16 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial, et pas d'espace</p>
+
+                </div>
+
+                <div class="content-change-img-user-update">
+
+                    <input type="hidden" name="id_image" value="<?php echo $user->id_image; ?>">
+                    <input type="hidden" name="initial_image" value="<?php echo sanitize_html($user->file_name); ?>">
+                    <input type="hidden" name="MAX_FILE_SIZE" value="1048576"> <!-- 1Mo = 1024*1024 octets -->
+                    <input type="file" id="picture" name="picture" accept="image/*">
+                    <label class="label-update-picture" for="picture">Ajouter une image (jpg, jpeg, png, gif)</label>
+
+
+
+                    <div class="current_img"><img src="<?php echo IMG_URL . 'dist/profil/' . sanitize_html($user->file_name); ?>"alt=""></div>
+                </div>
+                <div  class="content-button-submit">
+                    <input type="hidden" name="id_user" value="<?php echo $user->id; ?>">
+                    <button class="button-submit-user_update" type="submit">Mettre à jour l'utilisateur</button>
+                </div>
+            </form>
+        </div>
+        <?php
+
+        if($user->id_article != NULL) :
+            // ouverture du buffer (mise en cache)
+            ob_start(); ?>
+            <div class="article">
+                <div>
+                    <p><?php echo sanitize_html($user->title); ?></p>
+                    <p>Résumé : <?php echo sanitize_html($user->content); ?></p>
+                </div>
+
+                <div>
+                    <!-- update article -->
+                    <a href="<?php echo HOME_URL . 'views/update_article.php?id=' . $user->id_article; ?>"><i class="fa-solid fa-pencil"></i></a>
+
+                    <!-- delete article -->
+                    <a class="delete_article" href="<?php echo HOME_URL . 'requests/delete_article_post.php?id=' . $user->id_article; ?>"><i class="fa-solid fa-trash-can"></i></a>
+                </div>
+            </div>
             <?php
+            // récupération du buffer et stockage dans une variable
+            $articles[] = ob_get_clean();
+        endif;
+        if($user->id_comment != NULL) :
+            ob_start(); ?>
+            <div class="comment">
+                <p>Commentaire : <?php echo sanitize_html($user->comment_content); ?></p>
+                <div>
+                    <!-- update comment -->
+                    <a href="<?php echo HOME_URL . 'views/comment_update.php?id=' . $user->id_comment; ?>"><i class="fa-solid fa-pencil"></i></a>
 
-            if($user->id_article != NULL) :
-                // ouverture du buffer (mise en cache)
-                ob_start(); ?>
-                <div class="article">
-                    <div>
-                        <p><?php echo sanitize_html($user->title); ?></p>
-                        <p>Résumé : <?php echo sanitize_html($user->content); ?></p>
-                    </div>
-
-                    <div>
-                        <!-- update article -->
-                        <a href="<?php echo HOME_URL . 'views/update_article.php?id=' . $user->id_article; ?>"><i class="fa-solid fa-pencil"></i></a>
-
-                        <!-- delete article -->
-                        <a class="delete_article" href="<?php echo HOME_URL . 'requests/delete_article_post.php?id=' . $user->id_article; ?>"><i class="fa-solid fa-trash-can"></i></a>
-                    </div>
+                    <!-- delete comment -->
+                    <a class="delete_comment" href="<?php echo HOME_URL . 'requests/delete_comment_post.php?id=' . $user->id_comment; ?>"><i class="fa-solid fa-trash-can"></i></a>
                 </div>
-                <?php
-                // récupération du buffer et stockage dans une variable
-                $articles[] = ob_get_clean();
-            endif;
-            if($user->id_comment != NULL) :
-                ob_start(); ?>
-                <div class="comment">
-                    <p>Commentaire : <?php echo sanitize_html($user->comment_content); ?></p>
-                    <div>
-                        <!-- update comment -->
-                        <a href="<?php echo HOME_URL . 'views/comment_update.php?id=' . $user->id_comment; ?>"><i class="fa-solid fa-pencil"></i></a>
 
-                        <!-- delete comment -->
-                        <a class="delete_comment" href="<?php echo HOME_URL . 'requests/delete_comment_post.php?id=' . $user->id_comment; ?>"><i class="fa-solid fa-trash-can"></i></a>
-                    </div>
-
-                </div>
-                <?php
-                $comments[] = ob_get_clean();
-            endif;
+            </div>
+            <?php
+            $comments[] = ob_get_clean();
+        endif;
 
 
         // var_dump($articles);

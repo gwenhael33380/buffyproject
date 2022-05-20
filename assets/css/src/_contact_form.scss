@@ -23,12 +23,9 @@
   font-family: rbt-t;
 
 }
-.flex-contact-form{
-  display: flex;
-  justify-content: space-around;
-}
+
 .content-form-contact{
-  width: 250%;
+  width: 100%;
   margin: 4% auto auto;
 
 }
@@ -79,25 +76,4 @@ border: none;
 }
 .button-form:hover{
   background-color: $green;
-}
-.content_img-contact{
-padding-top: 100px;
-  padding-left: 150px;
-
-}
-.content_img-contact2{
-  padding-top: 350px;
-  padding-right: 150px;
-}
-.img_contact{
-
-  width: 1500px;
-
-
-}
-.img_contact2{
-
-
-  width: 1000px;
-
 }

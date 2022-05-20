@@ -6,7 +6,7 @@ require PATH_PROJECT . '/views/header.php';
 $msg_not_connect = '<div class="red">vous n\'êtes pas connecté</div>';
 $user_id = ($_SESSION['id_user']);
 
-var_dump($_SESSION);
+
 
 
 if(empty($user_id)){
@@ -29,40 +29,56 @@ $req = $db->prepare("
 	GROUP BY u.id
 	ORDER BY r.id ASC
 ");
-var_dump($db->errorInfo());
+
 $req->execute(array($user_id));
 $result = $req->fetch(PDO::FETCH_OBJ); ?>
-<div class="profil_user"></div>
-<h1>utilisateur</h1>
 
-<!--   --><?php //var_dump($results);?>
-<main> <!-- j'ajoute le "main" car le script JS fait appel à lui pour retrouver la popup DELETE -->
-    <div class="users">
+    <main>
+        <div class="bg-page-profil"></div>
+        <div class="content-space-personel">
+            <h1 class="space-personel">espace personnel</h1>
+        </div>
+        <div class="content-profil-user">
+            <div class="profil_user">
+                <h2 class="title-first-name">Bonjour <?php echo sanitize_html($result->first_name); ?></h2>
+            </div>
+        </div>
+        <div class="users">
             <?php  $count_article = $result->count_article;
-            $count_comment = $result->count_comment; ?>?>
+            $count_comment = $result->count_comment; ?>
             <div class="user">
                 <div class="user_left">
-                    <img src=" <?php echo HOME_URL.'assets/img/src/profil/' . sanitize_html($result->file_name); ?>">
-                    <p>Nom : <?php echo sanitize_html($result->last_name); ?></p>
-                    <p>Prénom : <?php echo sanitize_html($result->first_name); ?></p>
-                    <p>Pseudo : <?php echo sanitize_html($result->pseudo); ?></p>
-                    <p>Email : <?php echo sanitize_html($result->email); ?></p>
-                    <p>Rôle : <?php echo $result->role_name; ?></p>
-                    <p>Nombre article<?php echo plural($count_article); ?> : <?php echo $count_article; ?></p>
-                    <p>Nombre de commentaire<?php echo plural($count_comment); ?> : <?php echo $count_comment; ?></p>
+                    <!--                   sanitize_html -> élimine la faille XSS-->
+                    <div class="content-img-profil">
+                        <img class="img-profil" src=" <?php echo HOME_URL.'assets/img/src/profil/' . sanitize_html($result->file_name); ?>">
+                    </div>
+                    <p class="information-user"><span class="span-information-user">Nom</span> : <?php echo sanitize_html($result->last_name); ?></p>
+                    <p class="information-user"><span class="span-information-user">Prénom</span> : <?php echo sanitize_html($result->first_name); ?></p>
+                    <p class="information-user"><span class="span-information-user">Pseudo</span> : <?php echo sanitize_html($result->pseudo); ?></p>
+                    <p class="information-user"><span class="span-information-user">Email</span> : <?php echo sanitize_html($result->email); ?></p>
+                    <p class="information-user"><span class="span-information-user">Rôle</span> : <?php echo $result->role_name; ?></p>
+                    <!--                    La fonction plural permet de mettre au pluriel si supperieur a 1 -->
+                    <p class="information-user"><span class="span-information-user">Nombre article</span> <?php echo plural($count_article); ?> : <?php echo $count_article; ?></p>
+                    <p class="information-user"><span class="span-information-user">Nombre de commentaire</span> <?php echo plural($count_comment); ?> : <?php echo $count_comment; ?></p>
                 </div>
                 <div class="user_right">
-                    <!-- update user -->
-                    <a href="<?php echo HOME_URL . 'views/user_update.php?id=' . $result->id; ?>"><i class="fa-solid fa-pencil"></i></a>
 
-                    <!-- delete user -->
-                    <a class="delete_user" href="<?php echo HOME_URL . 'requests/users_delete_post.php?id=' . $result->id; ?>"><i class="fa-solid fa-trash-can"></i></a>
+                    <!-- Mettre a jour l'utilisateur -->
+                    <div class="content-button-profil">
+                        <a class="button-modifie-profil"href="<?php echo HOME_URL . 'views/user_update.php?id=' . $result->id; ?>">modifier le profil</a>
+
+                    </div>
+                    <div class="content-button-profil2">
+                        <a class="button-delete_user" href="<?php echo HOME_URL . 'requests/users_delete_post.php?id=' . $result->id; ?>">supprimer le profil</i></a>
+
+                    </div>
+                    <!-- Suppression de l'utilisateur -->
                 </div>
 
             </div>
 
-    </div>
-</main>
+        </div>
+    </main>
 
 
 

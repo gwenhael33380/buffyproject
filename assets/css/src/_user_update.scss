@@ -1,3 +1,91 @@
-.title{
-  padding-top: 150px;
+.main-user-update{
+
+}
+.bg-img-user-update{
+  background-image: url(../../img/dist/source/bg-img-user-update7.png);
+  background-size: 100%;
+  min-height: calc(55vh - 92px);
+  width: 100%;
+  background-repeat: no-repeat;
+
+}
+.content-title-user-update{
+
+
+  background-color: $green-o;
+;
+}
+.title-form-update{
+text-align: center;
+  font-size: 40px;
+  text-align: center;
+  padding: 30px 0px;
+  font-family: rbt-t;
+}
+.flex-form-user-update{
+  display: flex;
+  flex-direction: column;
+  width: 33%;
+  margin: 0 auto;
+}
+.input-user-update{
+  border: none;
+  box-shadow: 4px 1px 10px 0 rgba(0, 0, 0, .15);
+  border-radius: 8px;
+  padding: 15px;
+}
+.label-user-update{
+  padding: 40px 0 10px 10px;
+  font-family: rbt-r;
+  font-size: 15px;
+}
+.label-update-picture{
+  margin-top: 12px;
+  margin-bottom: 25px;
+  margin-left: -38px;
+  font-family: rbt-i;
+  font-style: italic;
+  font-size: 13px;
+  text-decoration: underline;
+}
+.current_img{
+  width: 35%;
+}
+.text-mdp-user-update{
+  margin-top: 12px;
+  margin-bottom: 25px;
+  font-family: rbt-i;
+  font-style: italic;
+  font-size: 13px;
+  text-decoration: underline;
+}
+
+.content-change-img-user-update{
+  display: flex;
+  justify-content: center;
+align-items: center;
+  flex-direction: column;
+  margin: auto;
+}
+
+.content-button-submit{
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+}
+.button-submit-user_update{
+  background-color: $red;
+  color: white;
+  border: none;
+  font-family: rbt-r;
+  padding: 12px 24px;
+  border-radius: 25px;
+  margin-right: 15px;
+  text-transform: uppercase;
+  font-size: 15px;
+  transition-duration: .3s;
+}
+.button-submit-user_update:hover {
+
+  background-color: $green;
 }

@@ -11,13 +11,6 @@ require __DIR__ . '/header.php';
             <div class="content-title-contact">
                 <h2 class="title-form-contact">Formulaire de contact</h2>
             </div>
-            <div class="flex-contact-form">
-                <div class="content_img-contact">
-                    <img class="img_contact" src="<?php echo HOME_URL . 'assets/img/src/source/img-page-contact'; ?>" alt="">
-                </div>
-
-
-
                 <div class="content-form-contact">
                     <form action="<?=HOME_URL. 'requests/form_post.php'?>" method="post">
                         <div class="field-contact">
@@ -36,18 +29,9 @@ require __DIR__ . '/header.php';
                         <div class="content-button-form-contact">
                             <button class="button-form" type="submit">envoyer </button>
                         </div>
-
                     </form>
-                    <div >
-                    </div>
                 </div>
-                <div class="content_img-contact2">
-                    <img class="img_contact2"src="<?php echo HOME_URL . 'assets/img/src/source/img-page-contact2'; ?>" alt="">
-
-                </div>
-            </div>
         </section>
-
     </main>
 
 

@@ -1,3 +1,103 @@
-.test{
-  margin-top: 200px;
+.bg-page-profil{
+  background-image: url(../../img/dist/source/bg-profil2.jpg);
+  background-size: 100%;
+  min-height: calc(50vh - 92px);
+  max-height: 40vh;
+  width: 100%;
+  background-repeat: no-repeat;
+  margin-top: 80.14px;
+}
+.content-space-personel{
+  background-color: $green-o;
+  margin-top: 90px;
+}
+.space-personel{
+
+  color: $black;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 40px 0px;
+  font-size: 75px;
+  letter-spacing: 7px;
+  font-family: rbt-t;
+}
+.content-profil-user{
+  display: flex;
+  justify-content: center;
+}
+.profil_user {
+  margin-top: 120px;
+  border-top: 1px solid black;
+  width: 80%;
+  border-bottom: 1px solid black;
+  font-size: 60px;
+}
+.title-first-name{
+  text-align: center;
+  padding: 30px 0px;
+  font-family: rbt-t;
+
+}
+.users{
+  display: flex;
+  justify-content: center;
+}
+.content-img-profil{
+  display: flex;
+  justify-content: center;
+  margin-top: 90px;
+  margin-bottom: 25px;
+
+
+}
+.img-profil{
+  width: 50%;
+  border-radius: 10px;
+
+}
+.information-user{
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 20px ;
+  font-family: rbt-r;
+}
+.span-information-user{
+text-decoration: underline;
+}
+.user_right{
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+
+}
+.content-button-profil{
+margin-right: 30px;
+}
+.content-button-profil2{
+  margin-left: 30px;
+}
+.button-modifie-profil{
+  padding: 15px 35px;
+  font-size: 17px;
+  border-radius: 30px;
+  color: $white;
+  transition-duration: .4s;
+  text-transform: uppercase;
+  background-color: $green;
+  margin-left: 10px;
+}
+.button-modifie-profil:hover{
+  background-color: $red;
+}
+.button-delete_user{
+  padding: 15px 35px;
+  font-size: 17px;
+  border-radius: 30px;
+  color: $white;
+  transition-duration: .4s;
+  text-transform: uppercase;
+  background-color: $red;
+}
+.button-delete_user:hover{
+  background-color: $green;
 }

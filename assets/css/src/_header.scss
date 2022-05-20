@@ -46,6 +46,7 @@ transition-duration: 1s;
 }
 .title-nav-bar:hover{
   text-decoration: underline;
+
 }
 
 .btn-nav{
@@ -60,12 +61,19 @@ transition-duration: 1s;
 .btn-nav-bar1{
   background-color: $green;
   font-family: rbt-r;
-
+  transition-duration: .4s;
+}
+.btn-nav-bar1:hover{
+  background-color: $red;
 }
 
 .btn-nav-bar2{
   background-color: $red;
     font-family: rbt-r;
+  transition-duration: .4s;
+}
+.btn-nav-bar2:hover{
+  background-color: $green;
 }
 .nav-connect{
   align-items: center;
@@ -81,7 +89,16 @@ transition-duration: 1s;
     width: 150px;
   }
 }
-
+.button-disconnect{
+  background-color: $red;
+  color: $white;
+  padding: 10px 15px;
+  border-radius: 25px;
+transition-duration: .4s;
+}
+.button-disconnect:hover{
+  background-color: $green;
+}
 //modal connect
 
 .modal_connect {
