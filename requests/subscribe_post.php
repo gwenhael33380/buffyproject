@@ -3,7 +3,7 @@ require dirname(__DIR__) . '/functions.php';
 require_once PATH_PROJECT . '/connect.php';
 $send_request = false;
 
-$id_role = 3; // il est fixe, donc on le détermine en "dur"
+$id_role = 3; // il est fixe, le role en "dur"
 $first_name = mb_ucfirst($_POST['first_name']); // seulement la première lettre en majuscule
 $last_name 	= mb_strtoupper(trim($_POST['last_name'])); // tout en majuscule
 $pseudo 	= trim($_POST['pseudo']);
@@ -49,7 +49,7 @@ else :
         $req->execute();
         $result = $req->fetch(PDO::FETCH_OBJ);
 
-        if($result->count_pseudo) : // si > 0
+        if($result->count_pseudo) :
             $msg_error = 'Ce pseudo existe déjà';
         else :
             $req = $db->prepare("
@@ -65,7 +65,7 @@ else :
             $result = $req->fetch(PDO::FETCH_OBJ);
 
             if($result->count_email) : // si > 0
-                $msg_error = 'Vous avez déjà un compte avec cet email';
+                $msg_error = 'Ce compte existe deja avec cet adresse email';
             endif;
         endif;
     endif;
@@ -92,26 +92,19 @@ else :
             elseif($image_size > $size_max) :
                 $msg_error = '<div class="red">Fichier trop volumineux, ne pas dépasser 1Mo</div>';
             else :
-                // on créé un nom de fichier unique et aléatoire pour éviter les doublons dans le FTP (sur le serveur dans le dossier assets/img)
 
-                // https://www.php.net/manual/fr/function.uniqid.php
+
+
                 $img_name = uniqid() . '_' . $recept_img;
 
-                // facultatif :
-                // on crée le dossier img s'il n'existe pas
-                // https://www.php.net/manual/fr/function.mkdir.php
-                // https://www.php.net/manual/fr/function.chmod.php
 
-                // le @ n'affichera pas l'erreur (notice ou warning) si la fonction en retourne une
+
+
                 @mkdir(PATH_PROJECT . '/assets/img/src/profil/', 0755);
 
-                // je crée une variable pour spécifier l'endroit où je vais stocker mon image
+                // je crée une variable de stockage de l'image
                 $img_folder = PATH_PROJECT . '/assets/img/src/profil/';
-                // var_dump($img_folder);
                 $dir = $img_folder . $img_name;
-                // var_dump($dir);
-
-                // https://www.php.net/manual/fr/function.move-uploaded-file.php
                 $move_file = move_uploaded_file($tmp_name, $dir);
 
                 if($move_file) :

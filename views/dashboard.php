@@ -26,14 +26,15 @@ $req->execute();
 $results = $req->fetchAll(PDO::FETCH_OBJ); ?>
 <div class="dashboard"></div>
     <h1>Liste des utilisateurs</h1>
-<!--   --><?php //var_dump($results);?>
-    <main> <!-- j'ajoute le "main" car le script JS fait appel à lui pour retrouver la popup DELETE -->
-        <div class="users">
+
+    <main>
+        <div class="users-dashboard">
             <?php foreach($results as $result) :
                 $count_article = $result->count_article;
                 $count_comment = $result->count_comment; ?>
                 <div class="user">
                     <div class="user_left">
+<!--                        sanitize_html permet d'évité l'injection SQL-->
                         <img src=" <?php echo HOME_URL.'assets/img/src/profil/' . sanitize_html($result->file_name); ?>">
                         <p>Nom : <?php echo sanitize_html($result->last_name); ?></p>
                         <p>Prénom : <?php echo sanitize_html($result->first_name); ?></p>
@@ -44,10 +45,10 @@ $results = $req->fetchAll(PDO::FETCH_OBJ); ?>
                         <p>Nombre de commentaire<?php echo plural($count_comment); ?> : <?php echo $count_comment; ?></p>
                     </div>
                     <div class="user_right">
-                        <!-- update user -->
+                        <!-- mise à jour de l'utilisateur -->
                         <a href="<?php echo HOME_URL . 'views/dashboard_update.php?id=' . $result->id; ?>"><i class="fa-solid fa-pencil"></i></a>
 
-                        <!-- delete user -->
+                        <!-- suppressiond de l'utilisateur -->
                         <a class="delete_user" href="<?php echo HOME_URL . 'requests/dashboard_delete_post.php?id=' . $result->id; ?>"><i class="fa-solid fa-trash-can"></i></a>
                     </div>
 
