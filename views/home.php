@@ -26,7 +26,15 @@ require __DIR__ . '/header.php';
                 </div>
             </div>
         </section>
-        <!--    Section 3 blog access-->
+        <div class="container">
+            <div class="carousel__panorama">
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+            </div>
+        </div>
         <section class="section-3-h">
             <div class="content-title-acces-blog">
                 <h2 class="title-acces-blog">le blog</h2>

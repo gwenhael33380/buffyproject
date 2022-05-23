@@ -20,6 +20,9 @@
         <div class="footer-end"></div>
         <div class="footer-end2"></div>
     </footer>
+    <script type="text/javascript" src="<?php echo HOME_URL . 'assets/js2/test.js'; ?>"></script>
+    <diV></diV>
+
     <script type="text/javascript" src="<?php echo HOME_URL . 'assets/js/dist/scripts.min.js'; ?>"></script>
 </body>
 </html>

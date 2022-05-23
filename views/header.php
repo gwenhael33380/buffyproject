@@ -1,4 +1,19 @@
 <?php
+$sName = explode("/", $_SERVER['SCRIPT_NAME']);
+foreach( $sName AS $value ) {
+    if( substr($value, -4, 4) == ".php" ) {
+        $currentPage = $value;
+
+        // OU
+        //----- (si on veut la page sans le .php)
+
+        $currentArray = explode(".", $value);
+        $currentPage = $currentArray[0];
+    }
+}
+
+
+
 
 
 ?>
@@ -10,7 +25,9 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title><?php echo "page : ".$currentPage; ?></title>
+    <link rel="shortcut icon" href="<?= HOME_URL . '/favicon.ico'; ?>" type="image/x-icon">
+    <link rel="icon" href=""<?= HOME_URL . '/favicon.ico'; ?>" type="image/x-icon">
     <link rel="stylesheet" href="<?php echo HOME_URL . 'assets/css/dist/main.min.css'; ?>">
 </head>
 <body>
@@ -22,9 +39,9 @@
         <ul class="nav-bar-list">
 
             <?php
-	if(isset($_GET['msg'])) {
-		echo $_GET['msg'];
-	} ?>
+            if(isset($_GET['msg'])) {
+                echo $_GET['msg'];
+            } ?>
             <li class="title-nav-bar2"><a class="title-nav-bar" href="<?= HOME_URL; ?>">ACCUEIL</a></li>
             <li class="title-nav-bar2"><a class="title-nav-bar" href="<?php echo HOME_URL . 'views/blog.php'; ?>">BLOG</a></li>
             <li class="title-nav-bar2"><a class="title-nav-bar" href="<?php echo HOME_URL . 'views/user_profil.php'; ?>">PROFIL</a></li>
