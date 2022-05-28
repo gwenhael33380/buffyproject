@@ -50,7 +50,7 @@ $result = $req->fetch(PDO::FETCH_OBJ); ?>
                 <div class="user_left">
                     <!--                   sanitize_html -> élimine la faille XSS-->
                     <div class="content-img-profil">
-                        <img class="img-profil" src=" <?php echo HOME_URL.'assets/img/src/profil/' . sanitize_html($result->file_name); ?>">
+                        <img class="img-profil" src=" <?php echo HOME_URL.'assets/img/dist/profil/' . sanitize_html($result->file_name); ?>">
                     </div>
                     <p class="information-user"><span class="span-information-user">Nom</span> : <?php echo sanitize_html($result->last_name); ?></p>
                     <p class="information-user"><span class="span-information-user">Prénom</span> : <?php echo sanitize_html($result->first_name); ?></p>

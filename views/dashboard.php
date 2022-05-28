@@ -52,8 +52,41 @@ $results = $req->fetchAll(PDO::FETCH_OBJ); ?>
                         <a class="delete_user" href="<?php echo HOME_URL . 'requests/dashboard_delete_post.php?id=' . $result->id; ?>"><i class="fa-solid fa-trash-can"></i></a>
                     </div>
 
+
+
                 </div>
             <?php endforeach; ?>
+<?php foreach($results as $result) :
+    $count_article = $result->count_article;
+    $count_comment = $result->count_comment; ?>
+            <table>
+                <thead>
+                <tr>
+
+                    <td rowspan="4">Nom</td>
+                    <td rowspan="4">Prénom</td>
+                    <td rowspan="4">Pseudo</td>
+                    <td rowspan="4">Email</td>
+                    <td>Rôle</td>
+                    <td rowspan="4">Nombre d'articles</td>
+                    <td rowspan="4">Nombre de commentaire</td>
+                </tr>
+                <tbody>
+                <tr>
+
+                    <td><?php echo sanitize_html($result->last_name); ?></td>
+                    <td><?php echo sanitize_html($result->first_name); ?></td>
+                    <td><?php echo sanitize_html($result->pseudo); ?></td>
+                    <td> <?php echo sanitize_html($result->email); ?></td>
+                    <td> <?php echo $result->role_name; ?></td>
+                    <td> <?php echo plural($count_article); ?> : <?php echo $count_article; ?></td>
+                    <td> <?php echo plural($count_comment); ?> : <?php echo $count_comment; ?></td>
+                </tr>
+                </tbody>
+                </tr>
+                </thead>
+            </table>
+<?php endforeach; ?>
         </div>
     </main>
 <?php

@@ -4,7 +4,7 @@ require_once PATH_PROJECT . '/connect.php';
 $send_request = false;
 $initial_img = $_POST['initial_image'];
 
-
+var_dump($_POST); die;
 
 // a traiter dans le user update
 $initial_pseudo = $_POST['initial_pseudo'];
@@ -65,9 +65,7 @@ else :
 
         $req->execute();
         $result = $req->fetch(PDO::FETCH_OBJ);
-    var_dump($email);
-    var_dump($initial_email);
-    var_dump($same_email);
+
         if($result->count_pseudo && !$same_pseudo) : // si > 0
             $msg_error = 'Ce pseudo existe déjà';
         elseif(!$same_email) :
