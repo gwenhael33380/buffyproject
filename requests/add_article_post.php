@@ -120,7 +120,7 @@ else :
             // si TRUE l'insertion s'est bien déroulé
             // si FALSE une erreur s'est produite
             $result = $req->execute();
-
+²
             if($result) :
                 $msg_success = 'Article correctement créé';
             else:
