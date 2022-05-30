@@ -34,11 +34,9 @@ foreach( $sName AS $value ) {
 <header class="nav-bar-fixed">
     <nav id="nav-bar" <?php echo isset($_SESSION['user_id']) ? 'class="connect"' : 'class="disconnect"'; ?> >
         <div class="logo-nav-bar">
-            <img src="<?php echo HOME_URL . 'assets/img/src/source/Logo_with.png'; ?>" alt="">
+            <a href="<?= HOME_URL; ?>"><img src="<?php echo HOME_URL . 'assets/img/src/source/Logo_with.png'; ?>" alt="Logo du site"></a>
         </div>
         <ul class="nav-bar-list">
-
-
             <li class="title-nav-bar2"><a class="title-nav-bar" href="<?= HOME_URL; ?>">ACCUEIL</a></li>
             <li class="title-nav-bar2"><a class="title-nav-bar" href="<?php echo HOME_URL . 'views/blog.php'; ?>">BLOG</a></li>
             <li class="title-nav-bar2"><a class="title-nav-bar" href="<?php echo HOME_URL . 'views/user_profil.php'; ?>">PROFIL</a></li>

@@ -3,9 +3,9 @@
         <div class="footer-font-awsome">
             <p class="text-footer">Pour mieux suivre le site</p>
             <div class="content-fa">
-                <i class="fa-color fa-brands fa-facebook-f"></i>
-                <i class="fa-c fa-brands fa-twitter"></i>
-                <i class="fa-c fa-brands fa-instagram"></i>
+                <a href="<?= HOME_URL; ?>"> <i class="fa-color fa-brands fa-facebook-f"></i></a>
+                <a href="<?= HOME_URL; ?>"> <i class="fa-c fa-brands fa-twitter"></i></a>
+                <a href="<?= HOME_URL; ?>"> <i class="fa-c fa-brands fa-instagram"></i></a>
             </div>
         </div>
         <div class="content-link-footer">
@@ -14,7 +14,7 @@
             <a class="link-footer" href="">Mentions légal</a>
         </div>
         <div class="copyright">
-            <p class="text-copyright">Fais par Gwen-Haël</p>
+            <p class="text-copyright">Fait par Gwen-Haël</p>
             <p class="text-copyright-m text-copyright">© 2022 - BuffyProjetct TOUS DROITS RÉSERVÉ</p>
         </div>
         <div class="footer-end"></div>
