@@ -59,7 +59,7 @@ foreach( $sName AS $value ) {
                         <!-- si non connecté -->
                     <?php else : ?>
                         <li class="connect cursor_pointer">
-                            <span class="to_connect btn-nav btn-nav-bar2">CONNEXION</span>
+                            <span id="to_connect" class="to_connect btn-nav btn-nav-bar2">CONNEXION</span>
                             <div class="modal_connect">
                                 <form action="<?php echo HOME_URL . 'requests/login_post.php'; ?>" method="POST">
                                     <p>Se connecter</p>
@@ -71,7 +71,7 @@ foreach( $sName AS $value ) {
                                         <label for="password">Mot de passe</label>
                                         <input type="password" name="password" id="password">
                                     </div>
-                                    <button type="submit">Envoyer</button>
+                                    <button id="popup-btn" type="submit">Envoyer</button>
                                 </form>
                             </div>
                         </li>

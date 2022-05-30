@@ -1,9 +1,24 @@
+const modal_connect = document.querySelector(".modal_connect");
+const to_connect = document.getElementById("to_connect");
+const popupBtn = document.getElementById("popup-btn");
+
+
+to_connect.addEventListener("click", () => {
+	modal_connect.style.right = "10px";
+});
+
+popupBtn.addEventListener("click", () => {
+	modal_connect.style.right = "-1500px";
+});
+
+
+
+
+
+
 (function($) {
 	"use strict";
-	console.log('turlutu')
-	$(".to_connect").on('click', function() {
-		$(this).next().slideToggle();
-	});
+
 	function getExt(filename) {
 		return filename.substring(filename.lastIndexOf('.')+1, filename.length) || filename;
 	}
