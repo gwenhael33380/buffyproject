@@ -4,7 +4,7 @@ require_once PATH_PROJECT . '/connect.php';
 $send_request = false;
 $initial_img = $_POST['initial_image'];
 
-var_dump($_POST); die;
+
 
 // a traiter dans le user update
 $initial_pseudo = $_POST['initial_pseudo'];

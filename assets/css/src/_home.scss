@@ -5,12 +5,15 @@
 .section-1-home{
   background-image: url(../../img/dist/source/buffy_cover2.jpg);
   background-size: 100%;
-  min-height: calc(100vh - 104px);
+  min-height: calc(100vh - 52px);
     width: 100%;
     background-repeat: no-repeat;
-  margin-top: 80.14px;
+  margin-top: 5%;
 
 
+}
+.msg-connexion{
+  padding-top: 1.5%;
 }
 
 //button section1
@@ -18,16 +21,18 @@
 .content-btn-nav-sect-1{
   display: flex;
   justify-content: space-around;
-  align-items: center;
-  height: 90vh;
+  padding-top: 17%;
+
 }
 .btn-nav-sec-1{
-  padding: 15px 35px;
+  padding: 12px 25px;
   font-size: 17px;
   border-radius: 30px;
   color: $white;
   transition-duration: .4s;
   text-transform: uppercase;
+  font-family: rbt-r;
+  font-size: 13px;
 }
 .bgc-btn-sec1{
   background-color: $red;
@@ -112,23 +117,24 @@
   align-items: center;
 }
 .img-acces-blog{
-  width: 70%;
-  margin: 120px 0px;
+  width: 50%;
+  margin: 75px 0px;
   padding-left: 90px;
-  border-radius: 7px;
+
 
 }
 .content-button-acces-blog{
   margin: auto;
 }
 .button-acces-blog{
-  padding: 15px 35px;
+  padding: 12px 25px;
   border-radius: 30px;
   color: $white;
   transition-duration: .4s;
   background-color: $green;
   display: inline-block;
-    font-size: 23px;
+  font-size: 15px;
+  font-family: rbt-r;
 
 }
 .button-acces-blog:hover{
@@ -163,9 +169,10 @@
 }
 
 .img-acces-contact{
-  margin: 120px 0px;
-  padding-right: 30%;
-  width: 70%;
+  margin: auto;
+  padding: 75px 0px;
+
+  width: 50%;
   border-radius: 7px;
 
 }
@@ -173,8 +180,9 @@
     margin: auto;
 }
 .button-acces-contact{
-  padding: 15px 35px;
-  font-size: 23px;
+  padding: 12px 25px;
+  font-size: 15px;
+  font-family: rbt-r;
   border-radius: 30px;
   color: $white;
   transition-duration: .4s;

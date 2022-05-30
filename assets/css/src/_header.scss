@@ -36,13 +36,13 @@
 
 }
 .title-nav-bar2{
-  padding-left: 50px;
-
+  padding-left:7%;
 }
 .title-nav-bar{
   color: $white;
 transition-duration: 1s;
   font-family: rbt-r;
+  font-size: 11px;
 }
 .title-nav-bar:hover{
   text-decoration: underline;
@@ -56,6 +56,7 @@ transition-duration: 1s;
   margin-right: 15px;
     text-transform: uppercase;
   cursor: pointer;
+  font-size: 11px;
 
 }
 .btn-nav-bar1{
@@ -71,6 +72,7 @@ transition-duration: 1s;
   background-color: $red;
     font-family: rbt-r;
   transition-duration: .4s;
+
 }
 .btn-nav-bar2:hover{
   background-color: $green;
@@ -78,23 +80,17 @@ transition-duration: 1s;
 .nav-connect{
   align-items: center;
   display: flex;
+  padding-right: 30px;
 
 }
 
-.content-btn-nav{
- .disconnect & {
-    width: 300px;
- }
-  .connect & {
-    width: 150px;
-  }
-}
 .button-disconnect{
   background-color: $red;
   color: $white;
   padding: 10px 15px;
   border-radius: 25px;
 transition-duration: .4s;
+  font-size: 11px;
 }
 .button-disconnect:hover{
   background-color: $green;

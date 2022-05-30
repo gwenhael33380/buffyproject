@@ -10,6 +10,12 @@ require __DIR__ . '/header.php';
         <!--    Section 1 title and first section-->
         <section class="section-1-home">
 
+          <div class="msg-connexion">
+              <?php
+              if(isset($_GET['msg'])) {
+                  echo $_GET['msg'];
+              } ?>
+          </div>
             <div class="content-btn-nav-sect-1" >
                 <a class="btn-nav-sec-1 bgc-btn-sec1" href="">Contact</a>
                 <a class="btn-nav-sec-1 bgc-btn-sec2" href="">Blog</a>
@@ -41,9 +47,7 @@ require __DIR__ . '/header.php';
             </div>
             <div class="content-img-acces-blog">
                 <div class="content-img-flex-blog">
-                    <div>
                         <img class="img-acces-blog" src="<?php echo HOME_URL . 'assets/img/src/source/sarah-michelle-gellar.jpg'; ?>" alt="">
-                    </div>
                     <div class="content-button-acces-blog">
                         <a class="button-acces-blog" href="<?php echo HOME_URL . 'views/blog.php'; ?>">BLOG</a>
                     </div>
@@ -63,13 +67,14 @@ require __DIR__ . '/header.php';
                     <div class="content-button-acces-contact">
                         <a class="button-acces-contact"href="<?php echo HOME_URL . 'views/contact.php'; ?>">contact</a>
                     </div>
-                    <div >
+
                         <img class="img-acces-contact" src="<?php echo HOME_URL . 'assets/img/src/source/buffy-the-vampire-slayer-.jpg'; ?>" alt="">
-                    </div>
+
                 </div>
             </div>
 
         </section>
+
 
     </main>
 

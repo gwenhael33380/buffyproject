@@ -38,10 +38,7 @@ foreach( $sName AS $value ) {
         </div>
         <ul class="nav-bar-list">
 
-            <?php
-            if(isset($_GET['msg'])) {
-                echo $_GET['msg'];
-            } ?>
+
             <li class="title-nav-bar2"><a class="title-nav-bar" href="<?= HOME_URL; ?>">ACCUEIL</a></li>
             <li class="title-nav-bar2"><a class="title-nav-bar" href="<?php echo HOME_URL . 'views/blog.php'; ?>">BLOG</a></li>
             <li class="title-nav-bar2"><a class="title-nav-bar" href="<?php echo HOME_URL . 'views/user_profil.php'; ?>">PROFIL</a></li>
@@ -53,7 +50,7 @@ foreach( $sName AS $value ) {
 
         </ul>
         <div class="content-btn-nav">
-            <div>
+
                 <ul class="nav-connect">
                     <?php if(isset($_SESSION['id_user'])) : ?>
                         <li class="disconnect cursor_pointer">
@@ -84,7 +81,7 @@ foreach( $sName AS $value ) {
 
                     <?php endif; ?>
                 </ul>
-            </div>
+
         </div>
 </header>
 
