@@ -6,8 +6,8 @@
   background-image: url(../../img/dist/source/buffy_cover2.jpg);
   background-size: 100%;
   min-height: calc(100vh - 52px);
-    width: 100%;
-    background-repeat: no-repeat;
+  width: 100%;
+  background-repeat: no-repeat;
   margin-top: 5%;
 
 
@@ -170,7 +170,7 @@
   align-items: center;
   background-color: $green-o;
   border-radius: 10px;
-    width: 90%;
+  width: 90%;
 
 }
 
@@ -183,7 +183,7 @@
 
 }
 .content-button-acces-contact{
-    margin: auto;
+  margin: auto;
 }
 .button-acces-contact{
   padding: 15px 40px;
@@ -242,9 +242,9 @@
   .content-img-flex-contact{
     flex-direction: column-reverse;
 
-.content-button-acces-contact{
-  margin-bottom: 50px;
-}
+    .content-button-acces-contact{
+      margin-bottom: 50px;
+    }
   }
   .img-acces-contact{
     margin: 75px 0 50px 0;
@@ -272,7 +272,7 @@
     width: 70%;
   }
   .img-acces-contact{
-   width: 70%;
+    width: 70%;
   }
 }
 

@@ -69,40 +69,9 @@ require __DIR__ . '/header.php';
                     </div>
 
                         <img class="img-acces-contact" src="<?php echo HOME_URL . 'assets/img/src/source/buffy-the-vampire-slayer-.jpg'; ?>" alt="">
-
                 </div>
             </div>
-
         </section>
-
-
     </main>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <?php
 require PATH_PROJECT . '/views/footer.php';
