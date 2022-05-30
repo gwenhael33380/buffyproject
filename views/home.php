@@ -28,7 +28,7 @@ require __DIR__ . '/header.php';
             </div>
             <div class="spacing-home">
                 <div class="content-text-personage">
-                    <h2 class="title-personage">les personnages</h2>
+                    <h2 class="title-personage">Buffy Project</h2>
                 </div>
             </div>
         </section>

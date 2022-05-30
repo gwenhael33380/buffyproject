@@ -36,13 +36,13 @@
 
 }
 .title-nav-bar2{
-  padding-left:7%;
+  padding-left:5%;
 }
 .title-nav-bar{
   color: $white;
 transition-duration: 1s;
   font-family: rbt-r;
-  font-size: 11px;
+  font-size: 17px;
 }
 .title-nav-bar:hover{
   text-decoration: underline;
@@ -56,7 +56,7 @@ transition-duration: 1s;
   margin-right: 15px;
     text-transform: uppercase;
   cursor: pointer;
-  font-size: 11px;
+  font-size: 17px;
 
 }
 .btn-nav-bar1{
@@ -90,7 +90,7 @@ transition-duration: 1s;
   padding: 10px 15px;
   border-radius: 25px;
 transition-duration: .4s;
-  font-size: 11px;
+  font-size: 17px;
 }
 .button-disconnect:hover{
   background-color: $green;

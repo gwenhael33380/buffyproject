@@ -68,3 +68,15 @@ footer{
   background-color: $brown;
   padding: 25px;
 }
+
+//Media query
+
+@media screen and (max-width: 767px) {
+  .content-link-footer{
+    flex-direction: column;
+  }
+  .link-footer{
+    padding: 15px 0px;
+    width: auto;
+  }
+}

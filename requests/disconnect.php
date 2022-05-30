@@ -6,4 +6,4 @@ unset($_SESSION);
 // on détruit la session
 session_destroy();
 
-header('Location: ' . HOME_URL . '?msg=<div class="green">Vous êtes bien déconnecté</div>');
+header('Location: ' . HOME_URL . '?msg=<div class="red">Vous êtes bien déconnecté</div>');
