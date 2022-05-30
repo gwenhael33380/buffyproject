@@ -4,7 +4,7 @@ const popupBtn = document.getElementById("popup-btn");
 
 
 to_connect.addEventListener("click", () => {
-	modal_connect.style.right = "10px";
+	modal_connect.style.right = "37%";
 });
 
 popupBtn.addEventListener("click", () => {

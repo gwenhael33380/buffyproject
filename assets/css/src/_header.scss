@@ -70,7 +70,7 @@ transition-duration: 1s;
 
 .btn-nav-bar2{
   background-color: $red;
-    font-family: rbt-r;
+  font-family: rbt-r;
   transition-duration: .4s;
 
 }
@@ -98,14 +98,14 @@ transition-duration: 1s;
 //modal connect
 
 .modal_connect {
-  background: $red;
-  margin-top: 40px;
+  background: $brown;
+  margin-top: 15%;
   width: 400px;
   padding: 100px 30px;
   border-radius: 10px;
   position: fixed;
   right: -1500px;
-  transition: 0.4s ease;
+  transition: 1.5s ease;
 
 
 }
