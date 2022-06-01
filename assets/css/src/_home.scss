@@ -85,7 +85,11 @@
   padding: 30px 0px;
   font-family: cinzel;
 }
+
+
 //carousel
+
+
 .cards-wrapper {
   display: flex;
   justify-content: center;
@@ -95,10 +99,10 @@
   max-height: 100%;
 }
 .card {
-  margin: 0 0.5em;
+  margin: 0 1.5em;
   box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
   border: none;
-  border-radius: 0;
+  border-radius: 5px;
 }
 .carousel-inner {
   padding: 1em;
@@ -112,11 +116,59 @@
   top: 50%;
   transform: translateY(-50%);
 }
-@media (min-width: 768px) {
-  .card img {
-    height: 11em;
-  }
+.bg-carousel{
+  background: radial-gradient($green-o, #3b0707 70%);
+  padding: 150px 0;
+  margin-top: 100px;
 }
+
+.card-title{
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.content-link-carousel{
+  display: flex;
+  justify-content: center;
+
+}
+
+.btn-carousel{
+  background-color: rgba(59, 7, 7, 0.74);
+  color: $white;
+  padding: 10px 15px;
+  border-radius: 25px;
+  transition-duration: .5s;
+  font-size: 13px;
+  font-family: "Roboto Thin";
+  font-weight: bold;
+}
+.btn-carousel:hover{
+  background-color: $green;
+  color: $black ;
+
+}.btn-carousel2{
+   background-color: $green;
+  color: $black;
+  padding: 10px 15px;
+  border-radius: 25px;
+  transition-duration: .5s;
+  font-size: 13px;
+  font-family: "Roboto Thin";
+  font-weight: bold;
+}
+.btn-carousel2:hover{
+
+  background-color: rgba(59, 7, 7, 0.74);
+  color: $white ;
+
+}
+//@media (min-width: 768px) {
+//  .card img {
+//    height: 11em;
+//  }
+//}
 //section 3 acces blog
 
 
