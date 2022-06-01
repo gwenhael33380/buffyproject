@@ -32,8 +32,6 @@
     width: calc(95% - 195px);
 
   }
-
-
 }
 .title-nav-bar2{
   padding-left:5%;
@@ -49,7 +47,6 @@ transition-duration: 1s;
   color: $white;
 
 }
-
 .btn-nav{
   color: $white;
   padding: 7px 15px;
@@ -64,19 +61,24 @@ transition-duration: 1s;
   background-color: $green;
   font-family: rbt-r;
   transition-duration: .4s;
+  color: $black;
 }
 .btn-nav-bar1:hover{
   background-color: $red;
+  text-decoration: none;
+  color: $white;
 }
 
 .btn-nav-bar2{
   background-color: $red;
   font-family: rbt-r;
   transition-duration: .4s;
+  color: $white;
 
 }
 .btn-nav-bar2:hover{
   background-color: $green;
+  color: $black;
 }
 .nav-connect{
   align-items: center;
@@ -95,6 +97,7 @@ transition-duration: 1s;
 }
 .button-disconnect:hover{
   background-color: $green;
+  color: $black;
 }
 //modal connect
 

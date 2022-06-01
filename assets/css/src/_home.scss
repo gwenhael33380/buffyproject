@@ -43,12 +43,18 @@
 .bgc-btn-sec2{
   background-color: $green;
   padding: 12px 40px;
+  color: $black;
 }
 .bgc-btn-sec1:hover{
   background-color: $green;
+  color: $black;
+  text-decoration: none;
 }
 .bgc-btn-sec2:hover{
   background-color: $red;
+  color: $white;
+  text-decoration: none;
+
 }
 
 // section 2 title and caroussel
@@ -150,7 +156,7 @@
 
 }.btn-carousel2{
    background-color: $green;
-  color: $black;
+  color: $white;
   padding: 10px 15px;
   border-radius: 25px;
   transition-duration: .5s;
@@ -215,7 +221,7 @@
 .button-acces-blog{
   padding: 15px 50px;
   border-radius: 30px;
-  color: $white;
+  color: $black;
   transition-duration: .4s;
   background-color: $green;
   display: inline-block;
@@ -225,6 +231,8 @@
 }
 .button-acces-blog:hover{
   background-color: $red;
+  text-decoration: none;
+  color: $white;
 }
 
 //section 4
@@ -281,6 +289,8 @@
 }
 .button-acces-contact:hover{
   background-color: $green;
+  text-decoration: none;
+  color: $black;
 
 
 }
