@@ -1,6 +1,7 @@
 <?php
 require dirname(__DIR__) . '/functions.php';
 require_once PATH_PROJECT . '/connect.php';
+define('TITLE', 'Accueil');
 
 require __DIR__ . '/header.php';
 
@@ -29,6 +30,7 @@ require __DIR__ . '/header.php';
             <div class="spacing-home">
                 <div class="content-text-personage">
                     <h2 class="title-personage">Buffy Project</h2>
+                    <?php var_dump($_SERVER);?>
                 </div>
             </div>
             <div class="bg-carousel">

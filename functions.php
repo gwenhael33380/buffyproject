@@ -4,6 +4,29 @@ define('HOME_URL', 'http://buffyproject/');
 define('PATH_PROJECT', __DIR__);
 define('IMG_URL', HOME_URL . 'assets/img/');
 
+//define URL of site.
+define('URL_HOME','views/home.php');
+define('URL_SUBSCRIBE','views/subscribe.php');
+define('URL_USER_PROFIL','views/user_profil.php');
+define('URL_USER_UPDATE','views/user_update.php');
+define('URL_BLOG','views/blog.php');
+define('URL_ADD_ARTICLE','views/add_article.php');
+define('URL_UPDATE_ARTICLE','views/update_article.php');
+define('URL_DASHBOARD','views/dashboard.php');
+define('URL_DASHBOARD_UPDATE','views/dashboard_update.php');
+define('URL_CONTACT','views/contact.php');
+
+
+
+// function pour vérifier si l'url courant correspond à celle du lien
+function current_url($url) {
+    $request_uri = substr($_SERVER['REQUEST_URI'], 1); // pour enlever le slash
+    if($request_uri == $url) {
+        return TRUE;
+    }
+    return FALSE;
+}
+
 // function pour rediriger vers la homePage si $enable_access existe et n'est pas nul
 function enabled_access(Array $enabled_access) {
 	// if($_SERVER['REQUEST_URI'] != '/') : // je verifie que je ne suis pas dans la page home sinon boucle infinie

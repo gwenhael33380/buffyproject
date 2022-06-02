@@ -2,6 +2,7 @@
 <?php
 require dirname(__DIR__) . '/functions.php';
 require_once PATH_PROJECT . '/connect.php';
+define('TITLE', 'Ajout d\'un article');
 require __DIR__ . '/header.php';
 // les roles qui ont accès à la page
 // les autres seront redirigés vers la page HOME
@@ -9,8 +10,10 @@ enabled_access(array('administrator', 'editor'));
 
 $title = isset($_GET['title']) ? $_GET['title'] : FALSE;
 $content = isset($_GET['content']) ? $_GET['content'] : FALSE;
-?>
 
+
+?>
+<main>
     <h1 class="title-add-article">Formulaire d'ajout d'un article</h1>
 
     <div class="file_form">
@@ -49,6 +52,6 @@ $content = isset($_GET['content']) ? $_GET['content'] : FALSE;
             <button type="submit">Valider</button>
         </form>
     </div>
-
+</main>
 <?php
 require __DIR__ . '/footer.php';

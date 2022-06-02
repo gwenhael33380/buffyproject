@@ -1,20 +1,4 @@
 <?php
-$sName = explode("/", $_SERVER['SCRIPT_NAME']);
-foreach( $sName AS $value ) {
-    if( substr($value, -4, 4) == ".php" ) {
-        $currentPage = $value;
-
-        // OU
-        //----- (si on veut la page sans le .php)
-
-        $currentArray = explode(".", $value);
-        $currentPage = $currentArray[0];
-    }
-}
-
-
-
-
 
 ?>
 
@@ -25,9 +9,9 @@ foreach( $sName AS $value ) {
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title><?php echo $currentPage; ?></title>
     <link rel="shortcut icon" href="<?= HOME_URL . '/favicon.ico'; ?>" type="image/x-icon">
     <link rel="icon" href=""<?= HOME_URL . '/favicon.ico'; ?>" type="image/x-icon">
+    <title>Buffy Project | <?php echo TITLE; ?></title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
     <link rel="stylesheet" href="<?php echo HOME_URL . 'assets/css/dist/main.min.css'; ?>">
@@ -48,6 +32,7 @@ foreach( $sName AS $value ) {
 
             <?php if(isset($_SESSION['role_slug']) && $_SESSION['role_slug'] == 'administrator' ) : ?>
                 <li class="title-nav-bar2"><a class="title-nav-bar" href="<?php echo HOME_URL . 'views/dashboard.php'; ?>">DASHBOARD</a></li>
+
             <?php endif; ?>
 
         </ul>

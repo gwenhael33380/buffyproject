@@ -1,7 +1,7 @@
 <?php
 require dirname(__DIR__) . '/functions.php';
 require_once PATH_PROJECT . '/connect.php';
-
+define('TITLE', 'Formulaire d\'inscription');
 require __DIR__ . '/header.php';
 
 // les roles qui ont accès à la page

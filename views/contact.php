@@ -1,5 +1,6 @@
 <?php
 require dirname(__DIR__) . '/functions.php';
+define('TITLE', 'Page de contact');
 require __DIR__ . '/header.php';
 
 ?>

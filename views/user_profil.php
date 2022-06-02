@@ -2,6 +2,7 @@
 
 require dirname(__DIR__) . '/functions.php';
 require_once PATH_PROJECT . '/connect.php';
+define('TITLE', 'Votre profil');
 require PATH_PROJECT . '/views/header.php';
 $msg_not_connect = '<div class="red">vous n\'êtes pas connecté</div>';
 $user_id = ($_SESSION['id_user']);

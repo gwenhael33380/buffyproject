@@ -1,6 +1,7 @@
 <?php
 require dirname(__DIR__) . '/functions.php';
 require_once PATH_PROJECT . '/connect.php';
+define('TITLE', 'Dashboard');
 require __DIR__ . '/header.php';
 
 // recap de tous les utilisateurs

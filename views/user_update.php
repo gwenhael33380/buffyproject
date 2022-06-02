@@ -3,6 +3,7 @@
 // avec leur nom, prénom, pseudo, email, role,  lien vers les articles (update) et rajout de bouton de suppression (si admin), lien vers les commentaires (update) et rajout de bouton de suppression (si admin)
 require dirname(__DIR__) . '/functions.php';
 require_once PATH_PROJECT . '/connect.php';
+define('TITLE', 'Mise à jour du profil');
 require __DIR__ . '/header.php';
 
 //enabled_access(array('administrator'));

@@ -1,6 +1,7 @@
 <?php
 require dirname(__DIR__) . '/functions.php';
 require_once PATH_PROJECT . '/connect.php';
+define('TITLE', 'Mise à jour d\'un article');
 require __DIR__ . '/header.php';
 
 enabled_access(array('administrator'));
@@ -8,7 +9,7 @@ $id_article = intval($_GET['id']); // si le $_GET n'est pas numerique, il ne pou
 
 if($id_article) {
     $req = $db->prepare("
-		SELECT a.id, a.title, a.content, a.content_2, a.id_image, i.id_article, i.file_name
+		SELECT  a.id id_article,  a.title, a.content, a.content_2, a.id_image, i.file_name, i.alt
 		FROM articles a
 		LEFT JOIN images i
 		ON a.id_image = i.id
@@ -45,6 +46,8 @@ if($id_article) {
             </div>
             <div>
                 <label for="picture">Mettre à jour l'image (jpg, jpeg, png, gif)</label>
+                <input type="hidden" name="current_img" value="<?php echo sanitize_html($article->file_name); ?>">
+                <input type="hidden" name="id_image" value="<?php echo sanitize_html($article->id_image); ?>">
                 <input type="hidden" name="MAX_FILE_SIZE" value="1048576"> <!-- 1Mo = 1024*1024 octets -->
                 <input type="file" id="picture" name="picture" accept="image/*">
                 <!-- TYPE MIME -->
@@ -54,16 +57,20 @@ if($id_article) {
                 <!-- si plusieurs fichiers à récupérer en même temps -->
                 <!-- <input type="file" id="picture" name="picture[]" multiple> -->
 
-                <div class="content-img-profil">
-                    <img class="img-profil" src=" <?php echo HOME_URL .'assets/img/dist/articles/' . sanitize_html($article->file_name); ?>">
-                </div>
+                <div class="current_img"><img src="<?php echo IMG_URL . 'dist/articles/' . sanitize_html($article->file_name); ?>"></div>
+                <?php var_dump($article); ?>
             </div>
             <div class="msg_error"></div>
             <div class="current_img">
                 <img src="<?php echo $file_name; ?>" alt="">
             </div>
-            <input type="hidden" name="id_article" value="<?php echo $article->id; ?>">
-            <input type="hidden" name="current_img" value="<?php echo $article->id_image; ?>">
+<!--            --><?php //var_dump($article); ?>
+            <div>
+                <label for="alt">Veuillez renseigner une description courte de l'image</label>
+                <input id="input-alt"type="text" name="alt" value="<?php echo sanitize_html($article->alt); ?>" >
+            </div>
+            <input type="hidden" name="id_article" value="<?php echo $article->id_article; ?>">
+
             <button type="submit">Mettre à jour l'article</button>
         </form>
     </div>
