@@ -110,7 +110,8 @@ require __DIR__ . '/header.php';
                 <p>Écrit par <?php echo sanitize_html($article->first_name . ' ' . $article->last_name); ?></p>
                 <p>Date : <?= $article->created_at; ?></p>
                 <!-- https://www.php.net/manual/fr/function.substr.php -->
-                <p>Résumé : <?= sanitize_html(substr($article->content, 0, 70)); ?> ... <span class="display_content cursor_pointer red" data-id-article="<?php echo $id_article; ?>">Lire l'article complet</span></p>
+                <p>Résumé : <?= sanitize_html(substr($article->content, 0, 70)); ?> ... <span class="display_content cursor_pointer red"="<?php echo $id_article; ?>"><a
+                                href="">Lire l'article complet</a> </span></p>
 
 
                 <?php
