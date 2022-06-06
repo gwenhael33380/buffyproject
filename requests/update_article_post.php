@@ -24,6 +24,7 @@ if(in_array('', $required_field)) :
 else :
 
     $picture 	= $_FILES['picture'];
+
     $error 		= $picture['error'];
     $curr_img 	= $_POST['current_img'];
 
@@ -68,30 +69,28 @@ else :
                 // je crée une variable pour spécifier l'endroit où je vais stocker mon image
                 $img_folder = PATH_PROJECT . '/assets/img/src/articles/';
 
-                // var_dump($img_folder);
+                //var_dump($img_folder);
                 $dir = $img_folder . $img_name;
                 var_dump($dir);
                 var_dump($curr_img);
 
                 // https://www.php.net/manual/fr/function.move-uploaded-file.php
                 $move_file = move_uploaded_file($tmp_name, $dir);
-                var_dump($move_file);
+                var_dump($tmp_name);
                 if($move_file) :
                     if($curr_img != $default_picture)
+
                         // https://www.php.net/manual/fr/function.unlink.php
                         unlink($img_folder . $curr_img);
 
+
                     $set_request = TRUE;
-                    $request_image =  "UPDATE images SET file_name = :file_name, alt = :alt WHERE id_image = :id_image";
+                    $request_image =  "UPDATE images SET file_name = :file_name, alt = :alt WHERE id = :id_image";
                 else :
                     $set_request = FALSE;
                 endif;
-
             endif;
-
-
         endif;
-
         if($set_request) :
             $req = $db->prepare("
                     
@@ -101,18 +100,17 @@ else :
 				");
 
 
+            $req->bindValue(':id', $id, PDO::PARAM_INT);
             $req->bindValue(':id_user', intval($_SESSION['id_user']), PDO::PARAM_INT); // integer
-            
+            $req->bindValue(':title', $title, PDO::PARAM_STR);
+            $req->bindValue(':content', $text, PDO::PARAM_STR);
+            $req->bindValue(':content_2', $text_2, PDO::PARAM_STR);
             if(!empty($request_image)) {
             $req->bindValue(':id_image', $id_image, PDO::PARAM_INT);
             $req->bindValue(':file_name', $img_name, PDO::PARAM_STR);
             $req->bindValue(':alt', $alt, PDO::PARAM_STR);
             }
-            $req->bindValue(':title', $title, PDO::PARAM_STR);
-            $req->bindValue(':content', $text, PDO::PARAM_STR);
-            $req->bindValue(':content_2', $text_2, PDO::PARAM_STR);
 
-            $req->bindValue(':id', $id, PDO::PARAM_INT);
 
 
             // $result va stocker le résultat de ma requete UPDATE

@@ -132,6 +132,7 @@ else :
 
                 // https://www.php.net/manual/fr/function.move-uploaded-file.php
                 $move_file = move_uploaded_file($tmp_name, $dir);
+                var_dump($move_file);die;
 
                 if($move_file) :
                     $send_request = TRUE;
@@ -205,7 +206,6 @@ else :
             endif;
         endif;
     endif;
-
 endif;
 
 if(isset($msg_error)) {

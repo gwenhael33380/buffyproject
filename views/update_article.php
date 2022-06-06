@@ -23,6 +23,7 @@ if($id_article) {
     $article = $req->fetch(PDO::FETCH_OBJ);
 
 
+
     $file_name = HOME_URL . 'assets/img/dist/article/' . $article->file_name;
 }
 
@@ -58,7 +59,7 @@ if($id_article) {
                 <!-- <input type="file" id="picture" name="picture[]" multiple> -->
 
                 <div class="current_img"><img src="<?php echo IMG_URL . 'dist/articles/' . sanitize_html($article->file_name); ?>"></div>
-                <?php var_dump($article); ?>
+                <?php var_dump($article->id_image); ?>
             </div>
             <div class="msg_error"></div>
             <div class="current_img">
