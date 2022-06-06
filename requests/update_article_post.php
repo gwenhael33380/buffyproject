@@ -7,6 +7,8 @@ $text 		= trim($_POST['text']);
 $text_2 	= trim($_POST['text2']);
 $alt        = trim($_POST['alt']);
 $id_image   =intval($_POST['id_image']);
+
+
 $required_field = array($title, $text, $text_2, $alt); // champs obligatoires
 
 
@@ -81,7 +83,7 @@ else :
                     if($curr_img != $default_picture)
 
                         // https://www.php.net/manual/fr/function.unlink.php
-                        unlink($img_folder . $curr_img);
+//                        unlink($img_folder . $curr_img);
 
 
                     $set_request = TRUE;
