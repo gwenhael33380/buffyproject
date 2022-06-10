@@ -7,6 +7,9 @@ $text = trim($_POST['text']);
 $id = intval($_POST['id_comment']);
 $id_article = intval($_POST['id_article']);
 
+
+
+
 if(in_array('', $_POST)) :
     $msg_error = 'Merci de ne pas laisser un commentaire vide';
     header('Location:' . HOME_URL . 'views/update_comment.php?id=' . $id . '&msg=' . $msg_error);
@@ -16,7 +19,7 @@ else :
 		UPDATE comments SET comment_content = :content
 		WHERE id = :id -- condition pour ne mettre à jour que l'id du commentaire, pas les autres
 	");
-    // var_dump($db->errorInfo());
+
 
     $req->bindValue(':content', $text, PDO::PARAM_STR); // string
     $req->bindValue(':id', $id, PDO::PARAM_INT); // integer

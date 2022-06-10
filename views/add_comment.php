@@ -3,7 +3,6 @@ require dirname(__DIR__) . '/functions.php';
 require_once PATH_PROJECT . '/connect.php';
 require __DIR__ . '/header.php';
 enabled_access(array('administrator', 'editor', 'user'));
-// require_once PATH_PROJECT . '/connect.php';
 
 $id_article = intval($_GET['id']); // si le $_GET n'est pas numerique, il ne pourra pas le transformer en integer
 ?>

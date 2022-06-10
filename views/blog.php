@@ -46,19 +46,6 @@ require __DIR__ . '/header.php';
     ");
 
 
-    var_dump($db->errorInfo());// affiche les erreurs SQL
-    // on veut récupérer les résultats de la requête donc on utilise un fetch
-
-    // Ici on utilise fetchAll pour obtenir tous les résultats d'un seul coup
-    // il faudra donc les stocker dans une variable avant de l'utiliser
-
-    // par defaut, nous obtiendrons un tableau de tableaux
-    // $articles = $req->fetchAll(); // résultat de la requête
-    // il peut s'ecrire aussi
-    // $articles = $req->fetchAll(PDO::FETCH_ASSOC);
-
-    // si vous voulez un resultat en forme de tableau contenant des objets
-
     $offset = ($current_page - 1) * $per_page;
 
     $req->bindValue(':offset', $offset, PDO::PARAM_INT);
@@ -66,33 +53,26 @@ require __DIR__ . '/header.php';
     $req->execute();
     $articles = $req->fetchAll(PDO::FETCH_OBJ);
 
-
-
     if(isset($_SESSION['role_slug'])) $role_slug = $_SESSION['role_slug'];
 
     ?>
-
     <h1 class="titleBlog">Buffy Contre Les Vampires Le Blog <?php if(isset($role_slug) && $role_slug == 'administrator') echo "<span><a href=\"" . HOME_URL . "views/add_article.php\"><i class=\"fa-solid fa-circle-plus\"></i></a></span>"; ?></h1>
-
     <main>
-
+        <div class="msg-add-comment">
+            <?php
+            if(isset($_GET['msg'])) {
+                echo $_GET['msg'];
+            } ?>
+        </div>
         <?php
-
 
         include PATH_PROJECT . '/views/pagination.php';
         foreach($articles as $article) :
 
             $id_article = $article->id;
             ?>
-            <!--
-            exercice :
-            ajouter, pour chaque article les icones éditer et supprimer :
-            - pour les admins = éditer, supprimer pour tous les articles
-            - pour les éditeurs = éditer seulement pour les articles qu'ils ont écrit
-            -->
-            <article class="article">
-                <!-- Bouton action sur l'article si connecté et différent de user -->
 
+            <article class="article">
                     <div class="article_action">
                         <!-- update article -->
                         <?php if(isset($role_slug) && $role_slug == "administrator" ) : ?>

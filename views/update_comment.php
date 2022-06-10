@@ -4,6 +4,7 @@ require_once PATH_PROJECT . '/connect.php';
 require __DIR__ . '/header.php';
 enabled_access(array('administrator', 'editor', 'user'));
 $id_comment = intval($_GET['id']); // si le $_GET n'est pas numerique, il ne pourra pas le transformer en integer
+$id_article = intval($_GET['id_article']);
 
 if($id_comment) {
     $req = $db->prepare("
@@ -27,10 +28,12 @@ if($id_comment) {
                 <label for="text">Contenu du commentaire</label>
                 <textarea id="text" name="text" rows="10"><?php echo sanitize_html($comment->comment_content); ?></textarea>
             </div>
+            <input type="hidden" name="id_article" value="<?php echo $id_article; ?>">
             <input type="hidden" name="id_comment" value="<?php echo $comment->id; ?>">
             <button type="submit">Mettre à jour le commentaire</button>
         </form>
     </div>
 
 <?php
+var_dump($id_article);
 require __DIR__ . '/footer.php';

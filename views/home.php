@@ -30,7 +30,6 @@ require __DIR__ . '/header.php';
             <div class="spacing-home">
                 <div class="content-text-personage">
                     <h2 class="title-personage">Buffy Project</h2>
-                    <?php var_dump($_SERVER);?>
                 </div>
             </div>
             <div class="bg-carousel">

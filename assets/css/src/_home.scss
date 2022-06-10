@@ -1,4 +1,6 @@
 //background the section 1
+
+
 .green{
   color: green;
 }
@@ -9,8 +11,6 @@
   width: 100%;
   background-repeat: no-repeat;
   margin-top: 5%;
-
-
 }
 .msg-connexion{
   padding-top: 2%;
@@ -123,7 +123,7 @@
   transform: translateY(-50%);
 }
 .bg-carousel{
-  background: radial-gradient($green-o, #3b0707 70%);
+  background: linear-gradient($white, $brown-o , $white);
   padding: 150px 0;
   margin-top: 100px;
 }
@@ -170,12 +170,7 @@
   color: $white ;
 
 }
-//@media (min-width: 768px) {
-//  .card img {
-//    height: 11em;
-//  }
-//}
-//section 3 acces blog
+
 
 
 .section-3-h{
@@ -304,7 +299,6 @@
   .section-1-home{
     margin-bottom: -15%;
   }
-
 }
 @media screen and (max-width: 1199px) {
   .section-1-home{
@@ -314,8 +308,6 @@
     font-size: 10px;
   }
 }
-
-
 @media screen and (max-width: 1023px) {
   .section-1-home{
     margin-bottom: -33%;
@@ -343,8 +335,6 @@
     padding: 0;
   }
 }
-
-
 @media screen and (max-width: 991px) {
   .section-1-home{
     margin-bottom: -36%;
@@ -358,7 +348,6 @@
 }@media screen and (max-width: 657px) {
   .section-1-home{
     margin-bottom: -79%;
-
   }
   .img-acces-blog{
     width: 70%;
@@ -367,10 +356,8 @@
     width: 70%;
   }
 }
-
 @media screen and (max-width: 576px) {
   .section-1-home{
     margin-bottom: -95%;
-
   }
 }

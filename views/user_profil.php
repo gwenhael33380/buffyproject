@@ -59,25 +59,20 @@ $result = $req->fetch(PDO::FETCH_OBJ); ?>
                     <p class="information-user"><span class="span-information-user">Email</span> : <?php echo sanitize_html($result->email); ?></p>
                     <p class="information-user"><span class="span-information-user">Rôle</span> : <?php echo $result->role_name; ?></p>
                     <!--                    La fonction plural permet de mettre au pluriel si supperieur a 1 -->
-                    <p class="information-user"><span class="span-information-user">Nombre article</span> <?php echo plural($count_article); ?> : <?php echo $count_article; ?></p>
-                    <p class="information-user"><span class="span-information-user">Nombre de commentaire</span> <?php echo plural($count_comment); ?> : <?php echo $count_comment; ?></p>
+                    <p class="information-user"><span class="span-information-user">Nombre d'article</span> <?php echo plural($count_article); ?> : <?php echo $count_article; ?></p>
+                    <p class="information-user"><span class="span-information-user">Nombre de commentaire</span><?php echo plural($count_comment); ?> : <?php echo $count_comment; ?></p>
                 </div>
                 <div class="user_right">
-
                     <!-- Mettre a jour l'utilisateur -->
                     <div class="content-button-profil">
                         <a class="button-modifie-profil"href="<?php echo HOME_URL . 'views/user_update.php?id=' . $result->id; ?>">modifier le profil</a>
-
                     </div>
                     <div class="content-button-profil2">
                         <a class="button-delete_user" href="<?php echo HOME_URL . 'requests/users_delete_post.php?id=' . $result->id; ?>">supprimer le profil</i></a>
-
                     </div>
                     <!-- Suppression de l'utilisateur -->
                 </div>
-
             </div>
-
         </div>
     </main>
 
