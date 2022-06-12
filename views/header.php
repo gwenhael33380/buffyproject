@@ -16,27 +16,28 @@
 
     <link rel="stylesheet" href="<?php echo HOME_URL . 'assets/css/dist/main.min.css'; ?>">
 </head>
-<body>
+<body >
 <header class="nav-bar-fixed">
-    <nav id="nav-bar" <?php echo isset($_SESSION['user_id']) ? 'class="connect"' : 'class="disconnect"'; ?> >
-        <div class="logo-nav-bar">
-            <a href="<?= HOME_URL; ?>"><img src="<?php echo HOME_URL . 'assets/img/src/source/Logo_with.png'; ?>" alt="Logo du site"></a>
-        </div>
-        <ul class="nav-bar-list">
-            <li class="title-nav-bar2"><a class="title-nav-bar" href="<?= HOME_URL; ?>">ACCUEIL</a></li>
-            <li class="title-nav-bar2"><a class="title-nav-bar" href="<?php echo HOME_URL . 'views/blog.php'; ?>">BLOG</a></li>
-            <?php if(isset($_SESSION['id_user'])) : ?>
-            <li class="title-nav-bar2"><a class="title-nav-bar" href="<?php echo HOME_URL . 'views/user_profil.php'; ?>">PROFIL</a></li>4
-            <?php endif; ?>
-            <li class="title-nav-bar2"><a class="title-nav-bar" href="<?php echo HOME_URL . 'views/contact.php'; ?>">CONTACT</a></li>
+    <div class="display-nav">
+        <nav id="nav-bar" <?php echo isset($_SESSION['user_id']) ? 'class="connect"' : 'class="disconnect"'; ?> >
+            <div class="logo-nav-bar">
+                <a href="<?= HOME_URL; ?>"><img src="<?php echo HOME_URL . 'assets/img/src/source/Logo_with.png'; ?>" alt="Logo du site"></a>
+            </div>
+            <ul class="nav-bar-list">
+                <li class="title-nav-bar2"><a class="title-nav-bar" href="<?= HOME_URL; ?>">ACCUEIL</a></li>
+                <li class="title-nav-bar2"><a class="title-nav-bar" href="<?php echo HOME_URL . 'views/blog.php'; ?>">BLOG</a></li>
+                <?php if(isset($_SESSION['id_user'])) : ?>
+                    <li class="title-nav-bar2"><a class="title-nav-bar" href="<?php echo HOME_URL . 'views/user_profil.php'; ?>">PROFIL</a></li>4
+                <?php endif; ?>
+                <li class="title-nav-bar2"><a class="title-nav-bar" href="<?php echo HOME_URL . 'views/contact.php'; ?>">CONTACT</a></li>
 
-            <?php if(isset($_SESSION['role_slug']) && $_SESSION['role_slug'] == 'administrator' ) : ?>
-                <li class="title-nav-bar2"><a class="title-nav-bar" href="<?php echo HOME_URL . 'views/dashboard.php'; ?>">DASHBOARD</a></li>
+                <?php if(isset($_SESSION['role_slug']) && $_SESSION['role_slug'] == 'administrator' ) : ?>
+                    <li class="title-nav-bar2"><a class="title-nav-bar" href="<?php echo HOME_URL . 'views/dashboard.php'; ?>">DASHBOARD</a></li>
 
-            <?php endif; ?>
+                <?php endif; ?>
 
-        </ul>
-        <div class="content-btn-nav">
+            </ul>
+            <div class="content-btn-nav">
 
                 <ul class="nav-connect">
                     <?php if(isset($_SESSION['id_user'])) : ?>
@@ -49,16 +50,18 @@
                             <span id="to_connect" class="to_connect btn-nav btn-nav-bar2">CONNEXION</span>
                             <div class="modal_connect">
                                 <form action="<?php echo HOME_URL . 'requests/login_post.php'; ?>" method="POST">
-                                    <p>Se connecter</p>
-                                    <div>
-                                        <label for="email">Email</label>
-                                        <input type="text" name="email" id="email">
+                                    <p class="modal-connect-title" >Se connecter</p>
+                                    <div class="content-form-modal">
+                                        <label class="label-modal-connect" for="email">Email</label>
+                                        <input  class="input-modal-connect" type="text" name="email" id="email">
                                     </div>
-                                    <div>
-                                        <label for="password">Mot de passe</label>
-                                        <input type="password" name="password" id="password">
+                                    <div class="content-form-modal">
+                                        <label class="label-modal-connect" for="password">Mot de passe</label>
+                                        <input  class="input-modal-connect" type="password" name="password" id="password">
                                     </div>
-                                    <button id="popup-btn" type="submit">Envoyer</button>
+                                    <div class="content-button-connected">
+                                        <button id="popup-btn" type="submit">Se connecter</button>
+                                    </div>
                                 </form>
                             </div>
                         </li>
@@ -69,10 +72,12 @@
                     <?php endif; ?>
                 </ul>
 
-        </div>
+            </div>
+        </nav>
+    </div>
 </header>
 
-</nav>
+
 
 
 

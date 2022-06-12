@@ -56,45 +56,69 @@ require __DIR__ . '/header.php';
     if(isset($_SESSION['role_slug'])) $role_slug = $_SESSION['role_slug'];
 
     ?>
-    <h1 class="titleBlog">Buffy Contre Les Vampires Le Blog <?php if(isset($role_slug) && $role_slug == 'administrator') echo "<span><a href=\"" . HOME_URL . "views/add_article.php\"><i class=\"fa-solid fa-circle-plus\"></i></a></span>"; ?></h1>
+
     <main>
-        <div class="msg-add-comment">
-            <?php
-            if(isset($_GET['msg'])) {
-                echo $_GET['msg'];
-            } ?>
+        <div class="content-bgi-blog"></div>
+        <div class="content-title-blog" >
+            <h1 class="title-blog">Buffy Contre Les Vampires Le Blog <?php if(isset($role_slug) && $role_slug == 'administrator') echo "<span><a href=\"" . HOME_URL . "views/add_article.php\"><i class=\"fa-solid fa-circle-plus\"></i></a></span>"; ?></h1>
         </div>
-        <?php
+        <section>
+            <div class="content-content-article-blog" >
+                <div class="content-article-blog" >
+                    <h2 class="article-title">Les articles</h2>
+                </div>
+            </div>
 
-        include PATH_PROJECT . '/views/pagination.php';
-        foreach($articles as $article) :
+            <div class="msg-add-comment">
+                <?php
+                if(isset($_GET['msg'])) {
+                    echo $_GET['msg'];
+                } ?>
+            </div>
+            <?php
 
-            $id_article = $article->id;
-            ?>
 
-            <article class="article">
-                    <div class="article_action">
-                        <!-- update article -->
-                        <?php if(isset($role_slug) && $role_slug == "administrator" ) : ?>
-                            <a href="<?php echo HOME_URL . 'views/update_article.php?id=' . $id_article; ?>"><i class="fa-solid fa-pencil fa-2x"></i></a>
-                        <?php endif; ?>
-                        <!-- delete article -->
-                        <?php if(isset($role_slug) && $role_slug == 'administrator') : ?>
-                            <a class="delete_article" href="<?php echo HOME_URL . 'requests/delete_article_post.php?id=' . $id_article; ?>"><i class="fa-solid fa-trash-can fa-2x"></i></a>
-                        <?php endif; ?>
+            foreach($articles as $article) :
+
+                $id_article = $article->id;
+                ?>
+                <div class="content2-preview-article-blog" >
+                <article class="article preview-article-blog">
+
+                    <div class="content-preview-img-blog">
+                        <img class="preview-img-article-blog" src="<?php echo HOME_URL.'assets/img/dist/articles/' . sanitize_html($article->file_name);?>" alt="<?php echo sanitize_html($article->alt) ?> ">
+
+                    </div>
+                    <div class="content-preview-article">
+
+                        <h2>Titre de l'article : <?php echo sanitize_html($article->title); ?></h2>
+                        <p>Écrit par <?php echo sanitize_html($article->first_name . ' ' . $article->last_name); ?></p>
+                        <p>Date : <?= $article->created_at; ?></p>
+                        <!-- https://www.php.net/manual/fr/function.substr.php -->
+                        <p>Résumé : <?= sanitize_html(substr($article->content, 0, 120)); ?> ...</p>
                     </div>
 
-
-                <h2><?php echo sanitize_html($article->title); ?></h2>
-                <img src="<?php echo HOME_URL.'assets/img/dist/articles/' . sanitize_html($article->file_name);?>" alt="<?php echo sanitize_html($article->alt) ?> ">
-                <p>Écrit par <?php echo sanitize_html($article->first_name . ' ' . $article->last_name); ?></p>
-                <p>Date : <?= $article->created_at; ?></p>
-                <!-- https://www.php.net/manual/fr/function.substr.php -->
-                <p>Résumé : <?= sanitize_html(substr($article->content, 0, 70)); ?> ...<a class="red"
-                                href="<?php echo HOME_URL . 'views/article.php?id=' .  $article->id; ?>">Lire l'article complet...</a></p>
-
-            </article>
-        <?php endforeach; ?>
+                    <div class="content-article-action" >
+                        <div class="article_action">
+                            <!-- update article -->
+                            <?php if(isset($role_slug) && $role_slug == "administrator" ) : ?>
+                                <a href="<?php echo HOME_URL . 'views/update_article.php?id=' . $id_article; ?>"><i class="fa-solid fa-pencil fa-2x"></i></a>
+                            <?php endif; ?>
+                            <!-- delete article -->
+                            <?php if(isset($role_slug) && $role_slug == 'administrator') : ?>
+                                <a class="delete_article" href="<?php echo HOME_URL . 'requests/delete_article_post.php?id=' . $id_article; ?>"><i class="fa-solid fa-trash-can fa-2x"></i></a>
+                            <?php endif; ?>
+                        </div>
+                        <div>
+                            <a class="red" href="<?php echo HOME_URL . 'views/article.php?id=' .  $article->id; ?>">Lire l'article complet...</a>
+                        </div>
+                    </div>
+                </article>
+                </div>
+            <?php endforeach; ?>
+            <?php include PATH_PROJECT . '/views/pagination.php'; ?>
+        </section>
     </main>
+
 <?php
 require PATH_PROJECT . '/views/footer.php';

@@ -1,10 +1,10 @@
 
 .nav-bar-fixed{
   position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-      z-index: 50;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 50;
 }
 #nav-bar{
   background-color: $brown;
@@ -39,27 +39,28 @@
 .title-nav-bar{
   color: $white;
 transition-duration: 1s;
-  font-family: rbt-r;
-  font-size: 17px;
+  font-family: robot-cond;
+  font-size: 20px;
 }
 .title-nav-bar:hover{
   text-decoration: underline;
   color: $white;
-
 }
+
 .btn-nav{
   color: $white;
   padding: 7px 15px;
   border-radius: 25px;
   margin-right: 15px;
-    text-transform: uppercase;
+  text-transform: uppercase;
   cursor: pointer;
   font-size: 17px;
 
 }
 .btn-nav-bar1{
   background-color: $green;
-  font-family: rbt-r;
+  font-family: robot-cond;
+
   transition-duration: .4s;
   color: $black;
 }
@@ -71,7 +72,7 @@ transition-duration: 1s;
 
 .btn-nav-bar2{
   background-color: $red;
-  font-family: rbt-r;
+  font-family: robot-cond;
   transition-duration: .4s;
   color: $white;
 
@@ -90,9 +91,10 @@ transition-duration: 1s;
 .button-disconnect{
   background-color: $red;
   color: $white;
+  font-family: robot-cond;
   padding: 10px 15px;
   border-radius: 25px;
-transition-duration: 1s;
+  transition-duration: 1s;
   font-size: 17px;
 }
 .button-disconnect:hover{
@@ -105,11 +107,81 @@ transition-duration: 1s;
   background: $brown;
   margin-top: 15%;
   width: 400px;
-  padding: 100px 30px;
+  padding: 30px 30px;
   border-radius: 10px;
   position: fixed;
   right: -1500px;
   transition: 1.5s ease;
 
+}
+
+.content-form-modal{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.modal-connect-title{
+  text-align: center;
+  text-align: center;
+  font-family: anton;
+  padding: 10px 0;
+  font-size: 25px;
+  color: $white;
+  letter-spacing: 1px;
+}
+
+.label-modal-connect{
+  font-family: robot-cond;
+  color: $white;
+  margin: 10px 0 5px 10px;
 
 }
+
+.input-modal-connect{
+  border-radius: 20px;
+  padding: 7px 5px;
+}
+
+.content-button-connected{
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+}
+
+#popup-btn{
+  color: $white;
+  padding: 7px 15px;
+  border-radius: 25px;
+  margin-right: 15px;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size: 17px;
+  font-family: robot-cond;
+  background-color: $red;
+  border: none;
+}
+
+#popup-btn:hover{
+  background-color: $green;
+  color: $black;
+}
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 1023px) {
+  .nav-bar-list{
+    display: none;
+  }
+  .content-btn-nav{
+    display: none;
+  }
+// css sidebar
+
+  }

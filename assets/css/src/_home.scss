@@ -34,7 +34,7 @@
   color: $white;
   transition-duration: .4s;
   text-transform: uppercase;
-  font-family: rbt-r;
+  font-family: robot-cond;
   font-size: 20px;
 }
 .bgc-btn-sec1{
@@ -71,38 +71,147 @@
   text-transform: uppercase;
   padding: 40px 0px;
   font-size: 65px;
-  letter-spacing: 7px;
-  font-family: lato-bold;
-  color: rgba(0, 0, 0, 0.67);
+  letter-spacing: 1px;
+  font-family: robot-cond;
+  text-shadow: 5px 1px 6px rgba(0,0,0,0.38);
 }
 .spacing-home{
-  padding-top: 100px;
+  margin-top: 100px;
   display: flex;
   justify-content: center;
-
-}
-.content-text-personage{
-  border-top: 3px solid $black;
-  border-bottom: 3px solid $black;
-  width: 80%;
   background-image: url(../../img/dist/source/25yr.jpg);
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  background-color: rgba(25,38,50,.7);
-  filter: blur(5px);
+  border-top: 3px solid $black;
+  border-bottom: 3px solid $black;
+}
+.content-text-personage{
+  width: 100%;
+  background-color: rgba(25,38,50,.70);
 }
 .title-personage{
-  text-transform: uppercase;
-  font-size: 45px;
+
+  font-size: 70px;
   text-align: center;
-  padding: 30px 0px;
+  padding: 50px 0px;
   font-family: lato-b;
   color: $white;
 
 }
 
+
+//presentation of the site with access to registration
+
+.content-presentation{
+
+margin-top: 100px;
+  padding: 50px;
+
+}
+
+.content-text-presentation{
+  display: flex;
+  justify-content: space-around;
+  background-color: $green-o;
+  width: 75%;
+  margin: auto;
+  border-radius: 10px;
+}
+
+.content-img-presentation{
+
+}
+
+.img-presentation{
+  margin-left: 20%;
+  margin-top: 15%;
+  margin-bottom: 20%;
+
+  padding-right:50px ;
+width:900px ;
+
+}
+
+.flex-column-present{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.content-title-presentation{
+  margin-top: 45px;
+  margin-bottom: 50px;
+  text-align: center;
+  font-family: lato-b;
+  font-size: 35px;
+  color: $black;
+}
+
+.paragraph-presentation{
+  width: 70%;
+
+}
+
+.text-presentation{
+
+  width: 100%;
+  font-size: 15px;
+  font-family: robslab-r;
+  margin-left: 25%;
+  margin-bottom: 25px;
+
+
+}
+
+.content-button-presentation{
+  display: flex;
+  justify-content: center;
+  margin-top: 7%;
+  margin-bottom: 10%;
+}
+
+.button-presentation{
+  color: $white;
+  padding: 7px 15px;
+  border-radius: 25px;
+  margin-right: 15px;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size: 20px;
+  background-color: $red;
+  font-family: robot-cond;
+  transition-duration: 0.5s;
+
+}
+.button-presentation:hover{
+  text-decoration: none;
+  background-color: $green;
+  color: $black;
+
+}
+
+
+.content-content-title{
+  display: flex;
+  justify-content: center;
+  margin: 100px auto;
+}
+
+.content-title-carousel{
+  width:  70%;
+  border-top: 3px solid $black;
+  border-bottom: 3px solid $black;
+}
+
+.title-acces-carousel{
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 40px;
+  padding: 30px;
+  font-family: robot-cond;
+}
 
 //carousel
 
@@ -143,6 +252,7 @@
   font-size: 20px;
   text-align: center;
   margin-bottom: 25px;
+  font-family: robot-cond;
 }
 
 .content-link-carousel{
@@ -152,14 +262,13 @@
 }
 
 .btn-carousel{
-  background-color: rgba(59, 7, 7, 0.74);
+  background-color: $red;
   color: $white;
   padding: 10px 15px;
   border-radius: 25px;
   transition-duration: .5s;
-  font-size: 13px;
-  font-family: "Roboto Thin";
-  font-weight: bold;
+  font-size: 15px;
+  font-family: robot-cond;
 }
 .btn-carousel:hover{
   background-color: $green;
@@ -167,13 +276,13 @@
 
 }.btn-carousel2{
    background-color: $green;
-  color: $white;
+  color: $black;
   padding: 10px 15px;
   border-radius: 25px;
   transition-duration: .5s;
-  font-size: 13px;
-  font-family: "Roboto Thin";
-  font-weight: bold;
+  font-size: 15px;
+   font-family: robot-cond;
+
 }
 .btn-carousel2:hover{
 
@@ -232,7 +341,7 @@
   background-color: $green;
   display: inline-block;
   font-size: 20px;
-  font-family: rbt-r;
+  font-family: robot-cond;
 
 }
 .button-acces-blog:hover{
@@ -284,7 +393,7 @@
 .button-acces-contact{
   padding: 15px 40px;
   font-size: 20px;
-  font-family: rbt-r;
+  font-family: robot-cond;
   border-radius: 30px;
   color: $white;
   transition-duration: .4s;

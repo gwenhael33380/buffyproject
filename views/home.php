@@ -9,7 +9,7 @@ require __DIR__ . '/header.php';
 ?>
     <main>
         <!--    Section 1 title and first section-->
-        <section class="section-1-home">
+        <section class=" section-1-home">
 
             <div class="msg-connexion">
                 <?php
@@ -29,9 +29,44 @@ require __DIR__ . '/header.php';
             </div>
             <div class="spacing-home">
                 <div class="content-text-personage">
-                    <h2 class="title-personage">Buffy Project</h2>
+                    <h2 class="title-personage">#Bienvenue sur Buffy Project</h2>
                 </div>
             </div>
+
+            <article class="content-presentation">
+                <div class="content-text-presentation" >
+                    <div class="content-img-presentation">
+                        <img class="img-presentation" src="<?php echo HOME_URL . 'assets/img/src/source/buffy-presentation.png'; ?>" alt="Image de présentation">
+                    </div>
+                    <div>
+                        <div class="flex-column-present" >
+                            <h3 class="content-title-presentation">Bonjour et bienvenue sur le site Buffy Project</h3>
+                            <div class="paragraph-presentation">
+                                <p class="text-presentation" >Vous êtes ici dans une Fan zone, ce site s'adresse aux passionnés de la série et s'adresse aussi aux personnes qui souhaiterais en savoir plus sur l'univers fantastique de Buffy Contre Les Vampires</p>
+                                <p class="text-presentation">
+                                    Vous trouvez ici un certain nombre de ressources sur la série. Le site vous propose l'accès à un blog avec du contenu riche et varier. Pour participé, rien de plus simpe! Il vous suffis de créer un comte en cliquant sur le bouton juste en dessous et vous pourrez participé à la vie du site dès votre inscription finalisé. Nous vous souhaiton une bonne navigation et ... CTPM!
+                                </p>
+                            </div>
+                            <div>
+                                <div class="content-button-presentation" >
+                                    <a class="button-presentation" class="" href="<?php echo HOME_URL . 'views/subscribe.php'; ?>">S'inscrire</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </article>
+
+            <div class="content-content-title" >
+                <div class="content-title-carousel">
+                    <h3 class="title-acces-carousel" >Les personnages de la série</h3>
+                </div>
+
+            </div>
+
+            <!--            Carousel-->
+
             <div class="bg-carousel">
                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
