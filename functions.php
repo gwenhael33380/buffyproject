@@ -27,7 +27,7 @@ function current_url($url) {
     return FALSE;
 }
 
-// function pour rediriger vers la homePage si $enable_access existe et n'est pas nul
+// function to redirect to homePage if $enable_access exists and is not null
 function enabled_access(Array $enabled_access) {
 	// if($_SERVER['REQUEST_URI'] != '/') : // je verifie que je ne suis pas dans la page home sinon boucle infinie
 		if(
@@ -48,9 +48,9 @@ function enabled_access(Array $enabled_access) {
 }
 
 
-// pour éliminer la faille XSS
+//eliminate the XSS flaw
 function sanitize_html($string) {
-	// https://www.php.net/manual/fr/function.htmlspecialchars.php
+
 	return htmlspecialchars(trim($string));
 }
 
@@ -65,7 +65,7 @@ function mb_ucfirst($string) {
     return mb_strtoupper($firstChar) . $then;
 }
 
-// function pour checker le password
+//function to check the password
 function check_password($pass) {
 	preg_match('#^(?=(.*[A-Z])+)(?=(.*[a-z])+)(?=(.*[\d])+)(?=.*\W)(?!.*\s).{8,16}$#', $pass, $match);
 	if(empty($match)) {
@@ -74,7 +74,7 @@ function check_password($pass) {
 	return TRUE;
 }
 
-// pour mettre au pluriel
+//plural function
 function plural($count) {
 	return $count > 1 ? 's' : '';
 }
