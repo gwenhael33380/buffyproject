@@ -94,12 +94,14 @@ transition-duration: 1s;
   font-family: robot-cond;
   padding: 10px 15px;
   border-radius: 25px;
-  transition-duration: 1s;
+  transition-duration: .5s;
   font-size: 17px;
+
 }
 .button-disconnect:hover{
   background-color: $green;
   color: $black;
+  text-decoration: none;
 }
 //modal connect
 

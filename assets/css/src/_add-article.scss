@@ -1,3 +1,5 @@
+//SCSS add article
+
 .bg-img-add-article{
   background-image: url(../../img/dist/source/bg-add-article2.png);
   background-size: 100%;
@@ -6,4 +8,113 @@
   width: 100%;
   background-repeat: no-repeat;
   margin-top: 80.14px;
+}
+
+.bg-color-add-article{
+  background-color: $bg-general;
+}
+
+.content-title-add-article{
+  background-color: $green-o;
+  margin-top: 4%;
+}
+
+.title-add-article{
+  color: $black;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 40px 0px;
+  font-size: 65px;
+  letter-spacing: 1px;
+  font-family: robot-cond;
+  text-shadow: 5px 1px 6px rgba(0,0,0,0.38);
+}
+
+.flex-form-add-article{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.label-title-add-article{
+  padding: 40px 0 10px 10px;
+  font-family: robot-cond;
+  font-size: 15px;
+}
+
+.input-add-article-title{
+  border: none;
+  box-shadow: 4px 1px 10px 0 rgba(0, 0, 0, .15);
+  border-radius: 8px;
+  padding: 15px;
+}
+
+.label-content-add-article{
+  padding: 40px 0 10px 10px;
+  font-family: robot-cond;
+  font-size: 15px;
+}
+.textarea-add-article-content{
+  border: none;
+  box-shadow: 4px 1px 10px 0 rgba(0, 0, 0, .15);
+  border-radius: 8px;
+  padding: 15px 15px 26%;
+
+}
+
+.content-add-img-article{
+  display: flex;
+  justify-content: center;
+  flex-direction: column-reverse;
+  margin-left: 25%;
+  margin-top: 1%;
+}
+
+.label-add-img-article{
+  font-family: robot-cond;
+  font-size: 15px;
+  margin-top: 3px;
+}
+
+.content-description-article{
+  display: flex;
+justify-content: center;
+  flex-direction: column;
+  width: 25%;
+  margin-left: 25%;
+}
+
+.label-content-add-article{
+  margin-top: 3px;
+}
+.input-alt-article{
+  border: none;
+  box-shadow: 4px 1px 10px 0 rgba(0, 0, 0, .15);
+  border-radius: 8px;
+  padding: 10px 0 10px 10px;
+}
+
+.content-button-add-article{
+  display: flex;
+  justify-content: center;
+  margin-top: 3%;
+  padding-bottom: 3%;
+}
+
+.button-submit-add-article{
+  background-color: $green-o;
+  color: $black;
+  font-family: robot-cond;
+  padding: 15px 20px;
+  border-radius: 25px;
+  transition-duration: .5s;
+  font-size: 17px;
+  text-transform: uppercase;
+  border: none;
+}
+
+.button-submit-add-article:hover{
+  background-color: $red;
+  color: $white;
 }

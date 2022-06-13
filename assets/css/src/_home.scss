@@ -130,14 +130,12 @@ margin-top: 100px;
   margin-bottom: 20%;
 
   padding-right:50px ;
-width:900px ;
+  min-width: 289px;
 
 }
 
 .flex-column-present{
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
+
 }
 
 .content-title-presentation{
@@ -150,7 +148,9 @@ width:900px ;
 }
 
 .paragraph-presentation{
-  width: 70%;
+  width: 40%;
+text-align: justify;
+  margin: 0 auto;
 
 }
 
@@ -159,8 +159,7 @@ width:900px ;
   width: 100%;
   font-size: 15px;
   font-family: robslab-r;
-  margin-left: 25%;
-  margin-bottom: 25px;
+  margin-bottom: 40px;
 
 
 }

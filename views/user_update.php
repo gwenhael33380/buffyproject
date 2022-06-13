@@ -75,19 +75,13 @@ if($id_user) {
                     <!-- On répete 2 fois le mot de passe pour vérifier qu'il est exact -->
                     <input class="input-user-update" type="password" id="password2" name="password2" placeholder="Retapez votre mot de passe...">
                     <p class="text-mdp-user-update">Mot de passe entre 8 et 16 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial, et pas d'espace</p>
-
                 </div>
-
                 <div class="content-change-img-user-update">
-
                     <input type="hidden" name="id_image" value="<?php echo $user->id_image; ?>">
                     <input type="hidden" name="initial_image" value="<?php echo sanitize_html($user->file_name); ?>">
                     <input type="hidden" name="MAX_FILE_SIZE" value="1048576"> <!-- 1Mo = 1024*1024 octets -->
                     <input type="file" id="picture" name="picture" accept="image/*">
                     <label class="label-update-picture" for="picture">Ajouter une image (jpg, jpeg, png, gif)</label>
-
-
-
                     <div class="current_img"><img src="<?php echo IMG_URL . 'dist/profil/' . sanitize_html($user->file_name); ?>"alt=""></div>
                 </div>
                 <div  class="content-button-submit">
