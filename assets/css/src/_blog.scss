@@ -102,7 +102,123 @@ width: 70%;
   width: 30%;
 }
 
+.title-preview-article{
+  font-family: robot-cond;
+  text-transform: uppercase;
+  color: $black;
+  font-size: 20px;
+  padding-bottom: 7px;
+}
+
+.title-preview-article:hover{
+  text-decoration: underline;
+  color: $brown;
+}
+
+.content-post-pseudo-preview{
+  font-family: robot-cond;
+  font-size: 14px;
+  text-transform: uppercase;
+  padding-bottom: 50px;
 
 
+}
+
+.content-pseudo-article-preview{
+  font-family: robot-cond;
+  color: $brown;
+  font-weight: 600;
+  text-transform: lowercase;
+  font-size: 14px;
+}
+
+.content-post-preview-article{
+  font-family: robot-cond;
+  font-size: 17px;
+  text-transform: uppercase;
+  padding-bottom: 25px;
+
+}
+
+.content-prewiew-article{
+  font-family: robslab-r;
+  font-size: 16px;
+  color: $black;
+  text-transform: lowercase;
+}
+
+.content-prewiew-article:hover{
+  text-decoration: underline;
+  color: $brown;
+}
+
+.content-post-time-preview{
+  font-family: robot-cond;
+  font-size: 17px;
+  text-transform: uppercase;
 
 
+}
+
+.content-time-preview{
+  font-family: robslab-r;
+  font-size: 16px;
+  color: $black;
+  text-transform: lowercase;
+
+}
+
+.content-article-action{
+
+
+}
+.update-article{
+  margin-left: 70%;
+  padding-right: 10%;
+}
+.delete_article{
+
+}
+
+.content-button-acces-article{
+  margin-left: 60%;
+  margin-top: 50%;
+}
+
+.content-button-acces-article:hover{
+
+}
+.button-prewiew-acces-blog{
+  font-size: 18px;
+  font-family: robot-cond;
+  color: $black;
+}
+
+.button-prewiew-acces-blog:hover{
+  text-decoration: underline;
+  color: $brown;
+
+}
+
+.navigation {
+  @include flex(center, center);
+  li {
+    padding: 5px 10px;
+    a {
+      text-decoration: none;
+    }
+  }
+  .futur_page {
+    font-weight: 700;
+  }
+  .active {
+    color: #fff;
+    background-color: $red;
+    border-radius: 5px;
+    cursor: default;
+  }
+  .disabled {
+    cursor: not-allowed;
+    opacity: 20%;
+  }
+}

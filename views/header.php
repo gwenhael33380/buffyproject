@@ -48,6 +48,8 @@
                     <?php else : ?>
                         <li class="connect cursor_pointer">
                             <span id="to_connect" class="to_connect btn-nav btn-nav-bar2">CONNEXION</span>
+
+<!--                            modal to connect-->
                             <div class="modal_connect">
                                 <form action="<?php echo HOME_URL . 'requests/login_post.php'; ?>" method="POST">
                                     <p class="modal-connect-title" >Se connecter</p>

@@ -18,8 +18,8 @@ require __DIR__ . '/header.php';
                 } ?>
             </div>
             <div class="content-btn-nav-sect-1" >
-                <a class="btn-nav-sec-1 bgc-btn-sec1" href="">Contact</a>
-                <a class="btn-nav-sec-1 bgc-btn-sec2" href="">Blog</a>
+                <a class="btn-nav-sec-1 bgc-btn-sec1" href="<?php echo HOME_URL . 'views/contact.php'; ?>">Contact</a>
+                <a class="btn-nav-sec-1 bgc-btn-sec2" href="<?php echo HOME_URL . 'views/blog.php'; ?>">Blog</a>
             </div>
         </section>
         <!--    Section 2 character carousel-->
@@ -40,11 +40,11 @@ require __DIR__ . '/header.php';
                     </div>
                     <div>
                         <div class="flex-column-present" >
-                            <h3 class="content-title-presentation">Bonjour et bienvenue sur le site Buffy Project</h3>
+                            <h3 class="content-title-presentation">Bonjour et bienvenue !</h3>
                             <div class="paragraph-presentation">
                                 <p class="text-presentation" >Vous êtes ici dans une Fan zone, ce site s'adresse aux passionnés de la série et s'adresse aussi aux personnes qui souhaiterais en savoir plus sur l'univers fantastique de Buffy Contre Les Vampires</p>
                                 <p class="text-presentation">
-                                    Vous trouvez ici un certain nombre de ressources sur la série. Le site vous propose l'accès à un blog avec du contenu riche et varier. Pour participé, rien de plus simpe! Il vous suffis de créer un comte en cliquant sur le bouton juste en dessous et vous pourrez participé à la vie du site dès votre inscription finalisé. Nous vous souhaiton une bonne navigation et ... CTPM!
+                                    Vous trouvez ici un certain nombre de ressources sur la série. Le site vous propose l'accès à un blog avec du contenu riche et varier. Pour participer, rien de plus simple ! Il vous suffit de créer un comte en cliquant sur le bouton juste en dessous et vous pourrez participer à la vie du site dès votre inscription finalisé. Nous vous souhaiton une bonne navigation et ... CTPM!
                                 </p>
                             </div>
                             <div>

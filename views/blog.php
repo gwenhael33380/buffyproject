@@ -31,7 +31,7 @@ else {
 
 //query prepare to display articles
 $req = $db->prepare("
-       SELECT a.id, a.id_user, a.title, a.content, a.created_at, a.id_image, u.first_name, u.last_name, i.file_name, i.alt
+       SELECT a.id, a.id_user, a.title, a.content, a.created_at, a.id_image, u.first_name, u.last_name, u.pseudo, i.file_name, i.alt
     FROM articles a
     LEFT JOIN users u
     ON  a.id_user = u.id
@@ -52,6 +52,10 @@ $req->bindValue(':offset', $offset, PDO::PARAM_INT);
 $req->bindValue(':per_page', $per_page, PDO::PARAM_INT);
 $req->execute();
 $articles = $req->fetchAll(PDO::FETCH_OBJ);
+
+
+
+
 
 if(isset($_SESSION['role_slug'])) $role_slug = $_SESSION['role_slug'];
 
@@ -85,35 +89,47 @@ if(isset($_SESSION['role_slug'])) $role_slug = $_SESSION['role_slug'];
             foreach($articles as $article) :
 
                 $id_article = $article->id;
+
+
+
+//                time conversion function
+                $origin_date_article = $article->created_at;
+                $timestamp = strtotime($origin_date_article);
+                $newDate = date("d-m-Y à h:i:s", $timestamp);
+
+
                 ?>
                 <article class="content2-preview-article-blog" >
                         <div class="article preview-article-blog">
                             <div class="content-preview-img-blog">
-                                <img class="preview-img-article-blog" src="<?php echo HOME_URL.'assets/img/dist/articles/' . sanitize_html($article->file_name);?>" alt="<?php echo sanitize_html($article->alt) ?> ">
+                                <a href="<?php echo HOME_URL . 'views/article.php?id=' .  $article->id; ?>"><img class="preview-img-article-blog" src="<?php echo HOME_URL.'assets/img/dist/articles/' . sanitize_html($article->file_name);?>" alt="<?php echo sanitize_html($article->alt) ?> "></a>
                             </div>
                             <div class="content-preview-article">
 
                                 <!--                        sanitize_html : call of the sanitize_html function-->
-                                <h2>Titre de l'article : <?php echo sanitize_html($article->title); ?></h2>
-                                <p>Écrit par <?php echo sanitize_html($article->first_name . ' ' . $article->last_name); ?></p>
-                                <p>Date : <?= $article->created_at; ?></p>
+                                <a href="<?php echo HOME_URL . 'views/article.php?id=' .  $article->id; ?>"><h2 class="title-preview-article" ><?php echo sanitize_html($article->title); ?></h2></a>
+                                <p class="content-post-pseudo-preview">Par : <span class="content-pseudo-article-preview"><?php echo sanitize_html($article->pseudo); ?></span></p>
 
                                 <!-- substr : returns a string segment with a value of 120 characters -->
-                                <p>Résumé : <?= sanitize_html(substr($article->content, 0, 120)); ?> ...</p>
+                                <p class="content-post-preview-article" >Résumé : <a href="<?php echo HOME_URL . 'views/article.php?id=' .  $article->id; ?>"><span class="content-prewiew-article"><?= sanitize_html(substr($article->content, 0, 120)); ?> ...</span> </p></a>
+                                <p class="content-post-time-preview">Publier le : <span class="content-time-preview" ><?php echo sanitize_html($newDate); ?></span> </p>
+
+
+
                             </div>
                             <div class="content-article-action" >
                                 <div class="article_action">
                                     <!-- update article -->
                                     <?php if(isset($role_slug) && $role_slug == "administrator" ) : ?>
-                                        <a href="<?php echo HOME_URL . 'views/update_article.php?id=' . $id_article; ?>"><i class="fa-solid fa-pencil fa-2x"></i></a>
+                                        <a class="update-article" href="<?php echo HOME_URL . 'views/update_article.php?id=' . $id_article; ?>"><i class="fa-solid fa-pencil fa-2x"></i></a>
                                     <?php endif; ?>
                                     <!-- delete article -->
                                     <?php if(isset($role_slug) && $role_slug == 'administrator') : ?>
                                         <a class="delete_article" href="<?php echo HOME_URL . 'requests/delete_article_post.php?id=' . $id_article; ?>"><i class="fa-solid fa-trash-can fa-2x"></i></a>
                                     <?php endif; ?>
                                 </div>
-                                <div>
-                                    <a class="red" href="<?php echo HOME_URL . 'views/article.php?id=' .  $article->id; ?>">Lire l'article complet...</a>
+                                <div class="content-button-acces-article">
+                                    <a class="button-prewiew-acces-blog" href="<?php echo HOME_URL . 'views/article.php?id=' .  $article->id; ?>">Lire l'article complet...</a>
                                 </div>
                             </div>
                         </div>

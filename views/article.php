@@ -21,6 +21,7 @@ $req->execute(array($id_article));
 $article = $req->fetch(PDO::FETCH_OBJ);
 
 
+//time conversion function
 $origin_date_article = $article->created_at;
 $timestamp = strtotime($origin_date_article);
 $newDate = date("d-m-Y à h:i:s", $timestamp );
