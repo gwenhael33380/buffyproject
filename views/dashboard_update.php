@@ -28,19 +28,11 @@ if($id_user) {
     $req->execute();
 
     $users = $req->fetchAll(PDO::FETCH_OBJ);
-
-
-
-    var_dump($users);
-
-
-
-
 }
 $id_user = 0;
 // $repeat = TRUE;
 ?>
-
+<main>
     <h1 class="title_dashboard">Formulaire de mise à jour de <?php echo sanitize_html($users[0]->first_name . ' ' . $users[0]->last_name); ?></h1>
     <main>
 
@@ -62,113 +54,52 @@ $id_user = 0;
                 ?>
                 <div class="file_form">
                     <form action="<?php echo HOME_URL . 'requests/dashboard_update_post.php'; ?>" method="POST" enctype="multipart/form-data">
-                        <div>
-                            <label for="first_name">Prénom</label>
-                            <input type="text" id="first_name" name="first_name" value="<?php echo sanitize_html($user->first_name); ?>">
+                        <div class="flex-form-user-update">
+                            <label class="label-user-update" for="first_name">Prénom </label>
+                            <input type="hidden" name="id_user" value="<?php echo sanitize_html($user->id); ?>">
+                            <input class="input-user-update" type="text" id="first_name" name="first_name" value="<?php echo sanitize_html($user->first_name); ?>">
+                        </div>
+                        <div class="flex-form-user-update">
+                            <label class="label-user-update" for="last_name">Nom </label>
+                            <input class="input-user-update" type="text" id="last_name" name="last_name" value="<?php echo sanitize_html($user->last_name); ?>">
+                        </div>
+                        <div class="flex-form-user-update">
+                            <label class="label-user-update" for="pseudo">Pseudo </label>
+                            <input type="hidden" name="initial_role" value="<?php echo sanitize_html($user->id_role); ?>">
+
+                            <input type="hidden" name="initial_pseudo" value="<?php echo sanitize_html($user->pseudo); ?>">
+                            <input class="input-user-update" type="text" id="pseudo" name="pseudo" value="<?php echo sanitize_html($user->pseudo); ?>">
+                        </div>
+                        <div class="flex-form-user-update">
+                            <label class="label-user-update" for="email">Email </label>
+                            <input type="hidden" name="initial_email" value="<?php echo sanitize_html($user->email); ?>">
+                            <input class="input-user-update" type="text" id="email" name="email" value="<?php echo sanitize_html($user->email); ?>">
                         </div>
                         <div>
-                            <label for="last_name">Nom</label>
-                            <input type="text" id="last_name" name="last_name" value="<?php echo sanitize_html($user->last_name); ?>">
-                        </div>
-                        <div>
-                            <label for="pseudo">Pseudo</label>
-                            <input type="text" id="pseudo" name="pseudo" value="<?php echo sanitize_html($user->pseudo); ?>">
-                        </div>
-                        <div>
-                            <label for="email">Email</label>
-                            <input type="text" id="email" name="email" value="<?php echo sanitize_html($user->email); ?>">
-                        </div>
-                        <div>
-                            <label for="role">Role</label>
-                            <select name="role" id="role">
+                            <label for="role_select">Role</label>
+                            <select name="role_select" id="role">
+
+
                                 <?php foreach ($roles as $role): ?>
                                     <option value="<?php echo $role->id ?>" <?php if($role->id == $user->id_role) echo 'selected'; ?>><?php echo $role->role_name; ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
-                        <div>
-                            <label for="picture">Modifié l'image (jpg, jpeg, png, gif)</label>
+                        <div class="content-change-img-user-update">
+                            <input type="hidden" name="id_image" value="<?php echo $user->id_image; ?>">
+                            <input type="hidden" name="initial_image" value="<?php echo sanitize_html($user->file_name); ?>">
                             <input type="hidden" name="MAX_FILE_SIZE" value="1048576"> <!-- 1Mo = 1024*1024 octets -->
                             <input type="file" id="picture" name="picture" accept="image/*">
-                            <!-- TYPE MIME -->
-                            <!-- https://developer.mozilla.org/fr/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types -->
-                            <!-- https://developer.mozilla.org/fr/docs/Web/HTML/Attributes/accept -->
-
-                            <!-- si plusieurs fichiers à récupérer en même temps -->
-                            <!-- <input type="file" id="picture" name="picture[]" multiple> -->
-
-
+                            <label class="label-update-picture" for="picture">Ajouter une image (jpg, jpeg, png, gif)</label>
+                            <div class="current_img"><img src="<?php echo IMG_URL . 'dist/profil/' . sanitize_html($user->file_name); ?>"alt=""></div>
                         </div>
-
-                        <input type="hidden" name="id_user" value="<?php echo $user->id; ?>">
                         <button type="submit">Mettre à jour l'utilisateur</button>
                     </form>
                 </div>
-            <?php
+
+            <?php var_dump($user->id);
             endif;
-            if($user->id_article != NULL) :
-                // ouverture du buffer (mise en cache)
-                ob_start(); ?>
-                <div class="article">
-                    <div>
-                        <p><?php echo sanitize_html($user->title); ?></p>
-                        <p>Résumé : <?php echo sanitize_html($user->content); ?></p>
-                    </div>
-
-                    <div>
-                        <!-- update article -->
-                        <a href="<?php echo HOME_URL . 'views/update_article.php?id=' . $user->id_article; ?>"><i class="fa-solid fa-pencil"></i></a>
-
-                        <!-- delete article -->
-                        <a class="delete_article" href="<?php echo HOME_URL . 'requests/delete_article_post.php?id=' . $user->id_article; ?>"><i class="fa-solid fa-trash-can"></i></a>
-                    </div>
-                </div>
-                <?php
-                // récupération du buffer et stockage dans une variable
-                $articles[] = ob_get_clean();
-            endif;
-            if($user->id_comment != NULL) :
-                ob_start(); ?>
-                <div class="comment">
-                    <p>Commentaire : <?php echo sanitize_html($user->comment_content); ?></p>
-                    <div>
-                        <!-- update comment -->
-                        <a href="<?php echo HOME_URL . 'views/comment_update.php?id=' . $user->id_comment; ?>"><i class="fa-solid fa-pencil"></i></a>
-
-                        <!-- delete comment -->
-                        <a class="delete_comment" href="<?php echo HOME_URL . 'requests/delete_comment_post.php?id=' . $user->id_comment; ?>"><i class="fa-solid fa-trash-can"></i></a>
-                    </div>
-
-                </div>
-                <?php
-                $comments[] = ob_get_clean();
-            endif;
-
-        endforeach;
-        // var_dump($articles);
-        // var_dump($comments);
-
-        ?>
-        <?php if(!empty($articles)) : ?>
-            <div class="articles">
-                <h2>Les articles</h2>
-                <?php
-                foreach($articles as $article) :
-                    echo $article;
-                endforeach; ?>
-            </div>
-        <?php endif; ?>
-        <?php if(!empty($comments)) : ?>
-            <div class="comments_dashboard">
-                <h2>Les commentaires</h2>
-                <?php
-                foreach($comments as $comment) :
-                    echo $comment;
-                endforeach; ?>
-            </div>
-        <?php
-        endif; ?>
+        endforeach;?>
     </main>
-<?php
-//include PATH_PROJECT . '/views/pop_up_delete.php';
-require __DIR__ . '/footer.php';
+    //include PATH_PROJECT . '/views/pop_up_delete.php';
+    require __DIR__ . '/footer.php';

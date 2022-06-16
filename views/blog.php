@@ -63,6 +63,7 @@ if(isset($_SESSION['role_slug'])) $role_slug = $_SESSION['role_slug'];
 
     <!--    blog page-->
     <main>
+
         <div class="content-bgi-blog"></div>
         <div class="content-title-blog" >
             <h1 class="title-blog">Buffy Contre Les Vampires Le Blog <?php if(isset($role_slug) && $role_slug == 'administrator') echo "<span><a href=\"" . HOME_URL . "views/add_article.php\"><i class=\"fa-solid fa-circle-plus\"></i></a></span>"; ?></h1>
@@ -99,8 +100,11 @@ if(isset($_SESSION['role_slug'])) $role_slug = $_SESSION['role_slug'];
 
 
                 ?>
-                <article class="content2-preview-article-blog" >
+                <article class="content2-preview-article-blog">
                         <div class="article preview-article-blog">
+                            <div id="article_id">
+                                <?php echo $article->id; ?>
+                            </div>
                             <div class="content-preview-img-blog">
                                 <a href="<?php echo HOME_URL . 'views/article.php?id=' .  $article->id; ?>"><img class="preview-img-article-blog" src="<?php echo HOME_URL.'assets/img/dist/articles/' . sanitize_html($article->file_name);?>" alt="<?php echo sanitize_html($article->alt) ?> "></a>
                             </div>
@@ -113,9 +117,6 @@ if(isset($_SESSION['role_slug'])) $role_slug = $_SESSION['role_slug'];
                                 <!-- substr : returns a string segment with a value of 120 characters -->
                                 <p class="content-post-preview-article" >Résumé : <a href="<?php echo HOME_URL . 'views/article.php?id=' .  $article->id; ?>"><span class="content-prewiew-article"><?= sanitize_html(substr($article->content, 0, 120)); ?> ...</span> </p></a>
                                 <p class="content-post-time-preview">Publier le : <span class="content-time-preview" ><?php echo sanitize_html($newDate); ?></span> </p>
-
-
-
                             </div>
                             <div class="content-article-action" >
                                 <div class="article_action">
@@ -125,7 +126,10 @@ if(isset($_SESSION['role_slug'])) $role_slug = $_SESSION['role_slug'];
                                     <?php endif; ?>
                                     <!-- delete article -->
                                     <?php if(isset($role_slug) && $role_slug == 'administrator') : ?>
-                                        <a class="delete_article" href="<?php echo HOME_URL . 'requests/delete_article_post.php?id=' . $id_article; ?>"><i class="fa-solid fa-trash-can fa-2x"></i></a>
+<!--                                        <a class="delete_article" ><i class="fa-solid fa-trash-can fa-2x"></i></a>-->
+
+
+                                        <button id="<?php echo $article->id; ?>" onclick="open_modal_delete(this); "><?php echo $article->id; ?><i class="fa-solid fa-trash-can fa-2x"></i></button>
                                     <?php endif; ?>
                                 </div>
                                 <div class="content-button-acces-article">
@@ -139,6 +143,15 @@ if(isset($_SESSION['role_slug'])) $role_slug = $_SESSION['role_slug'];
             <!--            the include function calls a file external to the page and includes it in the current page-->
             <?php include PATH_PROJECT . '/views/pagination.php'; ?>
         </section>
+        <div class="modal_delete_article"  id="modal_delete_article">
+            <div id="article_id"></div>
+            <div>
+                <button href="<?php echo HOME_URL . 'requests/delete_article_post.php?id=' . $id_article; ?>" onclick=" close_modal_and_do_delete();" >Oui</button>
+            </div>
+            <div>
+                <button onclick=" close_modal_and_cancel_delete();">Non</button>
+            </div>
+        </div>
     </main>
 
 <?php

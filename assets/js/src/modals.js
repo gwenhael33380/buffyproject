@@ -24,3 +24,19 @@ if(popupBtn) {
 
 
 // modal delete article blog page
+function open_modal_delete(elt) {
+    console.log(elt.id);
+    document.getElementById('modal_delete_article').style.right = '37%';
+    document.getElementById('article_id').innerHTML=elt.id;
+
+}
+function close_modal_and_cancel_delete() {
+    document.getElementById('modal_delete_article').style.right = '+10%';
+
+
+}
+function close_modal_and_do_delete() {
+    document.getElementById('modal_delete_article').style.right = '+10%';
+
+
+}

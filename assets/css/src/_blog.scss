@@ -1,5 +1,14 @@
 //Blog CSS
 
+.modal_delete_article{
+  right: -800px;
+  position: fixed;
+  margin: 0 auto;
+  top:500px;
+  width: 50%;
+  z-index: 99999999999;
+}
+
 .content-bgi-blog{
   background-image: url(../../img/dist/source/bg_blog.png);
   background-size: 100%;

@@ -39,7 +39,8 @@ $content = isset($_GET['content']) ? $_GET['content'] : FALSE;
                     <input class="input-alt-article" minlength="10" maxlength="40" placeholder="Veuillez renseigner 10 caractères, maximum 40..." id="input-alt" type="text" name="alt">
                 </div>
                 <div class="content-add-img-article">
-                    <label class="label-add-img-article" for="images">Ajouter une image (jpg, jpeg, png, gif) <span class="red" >*</span></label>
+                    <label class="label-add-img-article" for="images">Ajouter une image (jpg, jpeg, png, gif)<span class="red" >*</span>
+                        <br>  <span class="red">N'ajoutez que des images en mode paysage.  </span> Merci de respecté cette convention. Tout manquement à cette règle fera l'objet d'une suppression de l'article concerné ! Merci pour votre compréhension.</label>
                     <input type="hidden" name="MAX_FILE_SIZE" value="1048576"> <!-- 1Mo = 1024*1024 octets -->
                     <input type="file" id="images-add-article" name="images" accept="image/*">
                 </div>
@@ -53,7 +54,6 @@ $content = isset($_GET['content']) ? $_GET['content'] : FALSE;
                 <div class="content-button-add-article" >
                     <button class="button-submit-add-article" type="submit-button-add-article">Soumettre le formulaire</button>
                 </div>
-
             </form>
         </div>
     </div>

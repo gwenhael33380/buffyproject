@@ -9,7 +9,7 @@ $alt        = trim($_POST['alt']);
 $id_image   =intval($_POST['id_image']);
 
 
-$required_field = array($title, $text, $text_2, $alt); // champs obligatoires
+$required_field = array($title, $text,$alt); // champs obligatoires
 
 
 $id = intval($_POST['id_article']);
@@ -26,11 +26,8 @@ if(in_array('', $required_field)) :
 else :
 
     $picture 	= $_FILES['picture'];
-
     $error 		= $picture['error'];
     $curr_img 	= $_POST['current_img'];
-
-
 
     if(in_array($error, $fail_upload)) :
         $msg_error = 'Échec au moment de la transmission de l\'image, merci de renouveler votre envoi';
