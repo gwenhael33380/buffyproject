@@ -1,0 +1,116 @@
+//CSS page article
+
+.bg-color-page-article{
+  background-color: $bg-general;
+}
+
+.bg-img-page-article{
+  background-image: url(../../img/dist/source/bg-img-article.png);
+  background-size: 100%;
+  min-height: calc(50vh - 92px);
+  max-height: 40vh;
+  width: 100%;
+  background-repeat: no-repeat;
+  margin-top: 5%;
+}
+
+.content-title-page-article{
+  background-color: $green-o;
+  margin-top: 5%;
+}
+
+.title-page-article{
+  color: $black;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 40px 0px;
+  font-size: 65px;
+  letter-spacing: 1px;
+  font-family: robot-cond;
+  text-shadow: 5px 1px 6px rgba(0,0,0,0.38);
+}
+
+.spacing-content-title-article{
+  display: flex;
+  justify-content: center;
+  margin-top: 5%;
+}
+
+.content-title-article{
+  display: flex;
+  justify-content: center;
+  width: 70%;
+  margin-bottom: 5%;
+  border-top: 3px solid $black;
+  border-bottom: 3px solid $black;
+ }
+
+.title-article{
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 40px;
+  padding: 30px;
+  font-family: robot-cond;
+}
+
+.content-articles{
+
+
+}
+
+.content-img-and-content{
+  display: flex;
+  margin-bottom: 200px;
+}
+
+.content-img-article{
+
+}
+
+.img-article-current{
+width: 600px;
+  margin-left: 5%;
+}
+
+.content-text-article{
+  width: 40%;
+  margin-right: 5%;
+  margin-left: 2%;
+}
+
+.text-content-article{
+
+
+  text-align: start;
+  font-family: robslab-r;
+
+
+}
+
+.text-content-article-2{
+  width: 40%;
+  margin-left: 2%;
+
+  font-family: robslab-r;
+  text-align: end;
+}
+
+
+
+
+
+
+
+
+
+.content-prewiew-article-x3{
+  width: 30%;
+}
+
+.content-article-previews{
+  display: flex;
+  align-items: center;
+}
+.img-preview-article{
+width: 50%;
+}

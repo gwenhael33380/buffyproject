@@ -6,9 +6,9 @@ require __DIR__ . '/header.php';
 
 $id_article = $_GET['id'];
 $role_slug = $_SESSION['role_slug'];
-
+//request article
 $req = $db->prepare("
-    SELECT a.id, a.id_user, a.title, a.content, a.content_2, a.created_at, a.id_image, u.first_name, i.id as id_tab_img, i.file_name, i.alt
+    SELECT a.id, a.id_user, a.title, a.content, a.content_2, a.created_at, a.id_image, u.pseudo, i.id as id_tab_img, i.file_name, i.alt
     FROM articles a
     LEFT JOIN users u
     ON   a.id_user = u.id
@@ -26,33 +26,71 @@ $origin_date_article = $article->created_at;
 $timestamp = strtotime($origin_date_article);
 $newDate = date("d-m-Y à h:i:s", $timestamp );
 
+//Request preview article
+
+$req = $db->prepare("
+    SELECT a.id, a.title, a.id_image, i.file_name, i.alt
+    FROM articles a
+    LEFT JOIN images i
+    ON  i.id = a.id_image 
+    WHERE a.id
+    ORDER BY a.id DESC
+    LIMIT 3
+    
+    ");
+
+$req->execute();
+$articles_previews = $req->fetchAll(PDO::FETCH_OBJ);
+
+
 
 ?>
 
-    <main>
+    <main class="bg-color-page-article" >
         <section>
+            <div class="bg-img-page-article"></div>
             <div class="content-title-page-article">
                 <h1 class="title-page-article">Article</h1>
             </div>
-            <div class="content-title-article">
-                <h2 class="title-article"><?php echo sanitize_html($article->title); ?></h2>
+            <div class="spacing-content-title-article">
+                <div class="content-title-article">
+                    <h2 class="title-article"><?php echo sanitize_html($article->title); ?></h2>
+                </div>
             </div>
 
-            <artricle>
-                <div>
-                    <img src="" alt="">
-                    <p>Créer par : <?php echo sanitize_html($article->first_name); ?></p>
-                </div>
-                <div>
+            <div >
+                <artricle class="content-articles">
                     <div>
-                        <img src="<?php echo HOME_URL .'assets/img/dist/articles/' . sanitize_html($article->file_name) ; ?>" alt="<?php echo sanitize_html($article->alt) ;?> ">
-                        <p><?php echo sanitize_html($article->content); ?></p>
+                        <img src="" alt="">
+                        <p>Créer par : <?php echo sanitize_html($article->pseudo); ?></p>
                     </div>
-                    <p><?php echo sanitize_html($article->content_2); ?></p>
+                    <div>
+                        <div class="content-img-and-content">
+                            <div class="content-img-article" >
+                                <img class="img-article-current" src="<?php echo HOME_URL .'assets/img/dist/articles/' . sanitize_html($article->file_name) ; ?>" alt="<?php echo sanitize_html($article->alt) ;?> ">
+                            </div>
+                            <div class="content-text-article" >
+                                <p class="text-content-article" ><?php echo sanitize_html($article->content); ?></p>
+                            </div>
+                            <article class="content-prewiew-article-x3">
+                                <h2>A lire aussi</h2>
+                                <?php foreach ($articles_previews as $article_preview) :?>
+                                    <div class="content-article-previews">
+                                        <a href=""><h2><?php echo sanitize_html($article_preview->title); ?></h2></a>
+                                        <img class="img-preview-article" src="<?php echo HOME_URL .'assets/img/dist/articles/' . sanitize_html($article_preview->file_name) ; ?>" alt="<?php echo sanitize_html($article_preview->alt) ;?>">
+                                    </div>
+                                <?php endforeach ?>
 
-                </div>
-                <p> Créer et mise à jour le : <?php echo sanitize_html($newDate); ?></p>
-            </artricle>
+                            </article>
+                        </div>
+
+                        <p class="text-content-article-2" ><?php echo sanitize_html($article->content_2); ?></p>
+
+                    </div>
+                    <p> Créer et mise à jour le : <?php echo sanitize_html($newDate); ?></p>
+                </artricle>
+
+            </div>
 
 
             <?php
@@ -124,7 +162,6 @@ $newDate = date("d-m-Y à h:i:s", $timestamp );
                             $_SESSION['id_user'] != $article->id_user // id_user connecté != id_user de l'article
                         )
                     )
-
                 ) : ?>
                     <div>
                         <div class="msg-add-comment">
@@ -139,44 +176,7 @@ $newDate = date("d-m-Y à h:i:s", $timestamp );
                     </div>
                 <?php endif; ?>
             </div>
+
         </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     </main>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <?php require __DIR__ . '/footer.php';

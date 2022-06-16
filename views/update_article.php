@@ -62,9 +62,9 @@ if($id_article) {
                 <?php var_dump($article->id_image); ?>
             </div>
             <div class="msg_error"></div>
-            <div class="current_img">
-                <img src="<?php echo $file_name; ?>" alt="">
-            </div>
+<!--            <div class="current_img">-->
+<!--                <img src="--><?php //echo $file_name; ?><!--" alt="">-->
+<!--            </div>-->
 <!--            --><?php //var_dump($article); ?>
             <div>
                 <label for="alt">Veuillez renseigner une description courte de l'image</label>

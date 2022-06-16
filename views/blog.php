@@ -103,7 +103,6 @@ if(isset($_SESSION['role_slug'])) $role_slug = $_SESSION['role_slug'];
                 <article class="content2-preview-article-blog">
                         <div class="article preview-article-blog">
                             <div id="article_id">
-                                <?php echo $article->id; ?>
                             </div>
                             <div class="content-preview-img-blog">
                                 <a href="<?php echo HOME_URL . 'views/article.php?id=' .  $article->id; ?>"><img class="preview-img-article-blog" src="<?php echo HOME_URL.'assets/img/dist/articles/' . sanitize_html($article->file_name);?>" alt="<?php echo sanitize_html($article->alt) ?> "></a>
@@ -129,7 +128,7 @@ if(isset($_SESSION['role_slug'])) $role_slug = $_SESSION['role_slug'];
 <!--                                        <a class="delete_article" ><i class="fa-solid fa-trash-can fa-2x"></i></a>-->
 
 
-                                        <button id="<?php echo $article->id; ?>" onclick="open_modal_delete(this); "><?php echo $article->id; ?><i class="fa-solid fa-trash-can fa-2x"></i></button>
+                                        <a id="<?php echo $article->id; ?>" onclick="open_modal_delete(this);"><i class="fa-solid fa-trash-can fa-2x"></i></a>
                                     <?php endif; ?>
                                 </div>
                                 <div class="content-button-acces-article">
@@ -137,6 +136,12 @@ if(isset($_SESSION['role_slug'])) $role_slug = $_SESSION['role_slug'];
                                 </div>
                             </div>
                         </div>
+                        <div class="transform-border">
+                            <div class="beefore">
+                        </div>
+
+
+                    </div>
                 </article>
             <?php endforeach; ?>
 
@@ -146,7 +151,7 @@ if(isset($_SESSION['role_slug'])) $role_slug = $_SESSION['role_slug'];
         <div class="modal_delete_article"  id="modal_delete_article">
             <div id="article_id"></div>
             <div>
-                <button href="<?php echo HOME_URL . 'requests/delete_article_post.php?id=' . $id_article; ?>" onclick=" close_modal_and_do_delete();" >Oui</button>
+<!--                <a href="--><?php //echo HOME_URL . 'requests/delete_article_post.php?id=' . $id_article; ?><!--" onclick=" close_modal_and_do_delete();" >Oui</a>-->
             </div>
             <div>
                 <button onclick=" close_modal_and_cancel_delete();">Non</button>
