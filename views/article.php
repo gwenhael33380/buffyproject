@@ -43,6 +43,20 @@ $req->execute();
 $articles_previews = $req->fetchAll(PDO::FETCH_OBJ);
 
 
+$req = $db->prepare("
+    SELECT  u.id user_id, i.file_name, i.alt
+    FROM users u
+    LEFT JOIN images i
+    ON  i.id =  u.id
+    WHERE u.id
+    
+    
+    ");
+
+$req->execute();
+$user_img = $req->fetch(PDO::FETCH_OBJ);
+
+
 
 ?>
 
@@ -60,28 +74,22 @@ $articles_previews = $req->fetchAll(PDO::FETCH_OBJ);
 
             <div >
                 <artricle class="content-articles">
-                    <div>
-                        <img src="" alt="">
-                        <p>Créer par : <?php echo sanitize_html($article->pseudo); ?></p>
-                    </div>
+
                     <div>
                         <div class="content-img-and-content">
-                            <div class="content-img-article" >
-                                <img class="img-article-current" src="<?php echo HOME_URL .'assets/img/dist/articles/' . sanitize_html($article->file_name) ; ?>" alt="<?php echo sanitize_html($article->alt) ;?> ">
+                            <div class="flex-content-img-article">
+                                <div class="content-img-article" >
+                                    <div class="content-pseudo-creat-article" >
+                                        <img src="" alt="">
+                                        <p  >Publier par : <?php echo sanitize_html($article->pseudo); ?></p>
+                                    </div>
+                                    <img class="img-article-current" src="<?php echo HOME_URL .'assets/img/dist/articles/' . sanitize_html($article->file_name) ; ?>" alt="<?php echo sanitize_html($article->alt) ;?> ">
+                                </div>
                             </div>
+
                             <div class="content-text-article" >
                                 <p class="text-content-article" ><?php echo sanitize_html($article->content); ?></p>
                             </div>
-                            <article class="content-prewiew-article-x3">
-                                <h2>A lire aussi</h2>
-                                <?php foreach ($articles_previews as $article_preview) :?>
-                                    <div class="content-article-previews">
-                                        <a href=""><h2><?php echo sanitize_html($article_preview->title); ?></h2></a>
-                                        <img class="img-preview-article" src="<?php echo HOME_URL .'assets/img/dist/articles/' . sanitize_html($article_preview->file_name) ; ?>" alt="<?php echo sanitize_html($article_preview->alt) ;?>">
-                                    </div>
-                                <?php endforeach ?>
-
-                            </article>
                         </div>
 
                         <p class="text-content-article-2" ><?php echo sanitize_html($article->content_2); ?></p>
@@ -176,6 +184,16 @@ $articles_previews = $req->fetchAll(PDO::FETCH_OBJ);
                     </div>
                 <?php endif; ?>
             </div>
+            <article class="content-prewiew-article-x3">
+                <h2>A lire aussi</h2>
+                <?php foreach ($articles_previews as $article_preview) :?>
+                    <div class="content-article-previews">
+                        <a href=""><h2><?php echo sanitize_html($article_preview->title); ?></h2></a>
+                        <img class="img-preview-article" src="<?php echo HOME_URL .'assets/img/dist/articles/' . sanitize_html($article_preview->file_name) ; ?>" alt="<?php echo sanitize_html($article_preview->alt) ;?>">
+                    </div>
+                <?php endforeach ?>
+
+            </article>
 
         </section>
     </main>

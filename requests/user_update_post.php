@@ -1,17 +1,14 @@
 <?php
 require dirname(__DIR__) . '/functions.php';
 require_once PATH_PROJECT . '/connect.php';
+
+
 $send_request = false;
 $initial_img = $_POST['initial_image'];
-
-
 
 // a traiter dans le user update
 $initial_pseudo = $_POST['initial_pseudo'];
 $initial_email = $_POST['initial_email'];
-
-
-
 
 $id_image = intval($_POST['id_image']);
 $first_name = mb_ucfirst($_POST['first_name']); // seulement la première lettre en majuscule
@@ -26,12 +23,12 @@ else {
     $id_user = intval($_SESSION['id_user']);
 }
 $required_fields = array($first_name, $last_name, $pseudo, $email);
-
 $error_upload 	= array(3,6,7,8);
 $error_size 	= array(1,2);
 $enabled_ext 	= array('jpg', 'jpeg', 'png', 'gif');
 
 $default_img_id = 1;
+
 $size_max 		= 1048576;
 // same = identique
 $same_pseudo = $pseudo == $initial_pseudo? true : false;
@@ -111,26 +108,19 @@ else :
             elseif($image_size > $size_max) :
                 $msg_error = '<div class="red">Fichier trop volumineux, ne pas dépasser 1Mo</div>';
             else :
-                // on créé un nom de fichier unique et aléatoire pour éviter les doublons dans le FTP (sur le serveur dans le dossier assets/img)
+                // Création d'un nom de fichier unique et aléatoire pour éviter les doublons dans le FTP (sur le serveur dans le dossier assets/img)
 
-                // https://www.php.net/manual/fr/function.uniqid.php
+
                 $img_name = uniqid() . '_' . $recept_img;
 
-                // facultatif :
-                // on crée le dossier img s'il n'existe pas
-                // https://www.php.net/manual/fr/function.mkdir.php
-                // https://www.php.net/manual/fr/function.chmod.php
 
-                // le @ n'affichera pas l'erreur (notice ou warning) si la fonction en retourne une
                 @mkdir(PATH_PROJECT . '/assets/img/src/profil/', 0755);
 
-                // je crée une variable pour spécifier l'endroit où je vais stocker mon image
+                // initializing a variable to specify where I will store my image
                 $img_folder = PATH_PROJECT . '/assets/img/src/profil/';
-                // var_dump($img_folder);
                 $dir = $img_folder . $img_name;
-                // var_dump($dir);
 
-                // https://www.php.net/manual/fr/function.move-uploaded-file.php
+
                 $move_file = move_uploaded_file($tmp_name, $dir);
 
                 if($move_file) :
@@ -155,7 +145,7 @@ else :
                 elseif(!$same_email && !$same_pseudo) :
                     $request =  "UPDATE users SET first_name = :first_name, last_name = :last_name, pseudo = :pseudo, email = :email WHERE id = :id_user";
                 endif;
-                else :
+            else :
                 if($same_email && $same_pseudo) :
                     $request =  "UPDATE users SET first_name = :first_name, last_name = :last_name, password = :pass WHERE id = :id_user";
 
@@ -169,34 +159,45 @@ else :
                     $request =  "UPDATE users SET first_name = :first_name, last_name = :last_name, pseudo = :pseudo, email = :email, password = :pass WHERE id = :id_user";
                 endif;
             endif;
+            if ($id_image != $default_img_id){
 
-            $req = $db->prepare("
+                $req = $db->prepare("
                         UPDATE images SET file_name = :file_name WHERE id = :id_image; 
-                        $request
+                        $request;
                     ");
 
+            }else{
+                $sql2 = "INSERT INTO images (file_name) VALUES (:file_name); ";
+                $req2 = $db->prepare($sql2);
+                $req2->bindValue(':file_name', $img_name, PDO::PARAM_STR);
+                $res2 = $req2->execute();
 
+                $sql3 = "UPDATE users SET id_image = :image WHERE id = :id_user;";
+                $req = $db->prepare("$sql3  $request;" );
+                $image = $db->query('SELECT id FROM images WHERE id = LAST_INSERT_ID()')->fetch();
 
-            $req->bindValue(':first_name', $first_name, PDO::PARAM_STR);
-            $req->bindValue(':last_name', $last_name, PDO::PARAM_STR);
-            if(!$same_pseudo) {
-                $req->bindValue(':pseudo', $pseudo, PDO::PARAM_STR);
+                $req->bindValue(':first_name', $first_name, PDO::PARAM_STR);
+                $req->bindValue(':last_name', $last_name, PDO::PARAM_STR);
+                if(!$same_pseudo) {
+                    $req->bindValue(':pseudo', $pseudo, PDO::PARAM_STR);
 
+                }
+                if(!$same_email) {
+                    $req->bindValue(':email', $email, PDO::PARAM_STR);
+                }
+
+                // https://www.php.net/manual/fr/function.password-hash.php
+                $req->bindValue(':id_user', $id_user, PDO::PARAM_INT);
+                if(!$empty_pass) :
+                    $req->bindValue(':pass', password_hash($pass1, PASSWORD_DEFAULT), PDO::PARAM_STR);
+                endif;
+
+                $req->bindValue(':id_user', $id_user, PDO::PARAM_INT);
+                $req->bindValue(':image', $image['id']);
+                $result = $req->execute();
             }
-            if(!$same_email) {
-                $req->bindValue(':email', $email, PDO::PARAM_STR);
-            }
 
-            // https://www.php.net/manual/fr/function.password-hash.php
-            $req->bindValue(':id_user', $id_user, PDO::PARAM_INT);
-            if(!$empty_pass) :
-                $req->bindValue(':pass', password_hash($pass1, PASSWORD_DEFAULT), PDO::PARAM_STR);
-            endif;
-            $req->bindValue(':id_image', $id_image, PDO::PARAM_INT); // string
 
-            $req->bindValue(':file_name', $img_name, PDO::PARAM_STR); // string
-
-            $result = $req->execute();
 
             if($result) :
                 $msg_success = '<p class="red">Votre profil a bien ete mis a jours</p>';
