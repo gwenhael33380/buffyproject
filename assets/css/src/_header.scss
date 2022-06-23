@@ -175,7 +175,7 @@ transition-duration: 1s;
 
 
 
-
+//Media query nav bar
 
 @media screen and (max-width: 1023px) {
   .nav-bar-list{
@@ -184,6 +184,12 @@ transition-duration: 1s;
   .content-btn-nav{
     display: none;
   }
-// css sidebar
 
+
+}
+
+@media screen and (max-width: 486px) {
+  .logo-nav-bar{
+    width: 10%;
   }
+}

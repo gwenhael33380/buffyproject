@@ -5,21 +5,22 @@
   max-height: 40vh;
   width: 100%;
   background-repeat: no-repeat;
-  margin-top: 80.14px;
+  margin-top: 4.5%;
 }
 .content-space-personel{
   background-color: $green-o;
-  margin-top: 90px;
+  margin-top: 5%;
 }
 .space-personel{
 
+  padding: 40px 0;
   color: $black;
   text-align: center;
   text-transform: uppercase;
-  padding: 40px 0px;
-  font-size: 75px;
-  letter-spacing: 7px;
-  font-family: rbt-t;
+  font-size: 65px;
+  letter-spacing: 1px;
+  font-family: robot-cond;
+  text-shadow: 5px 1px 6px rgba(0,0,0,0.38);
 }
 .content-profil-user{
   display: flex;
@@ -27,16 +28,16 @@
 }
 .profil_user {
   margin-top: 120px;
-  border-top: 1px solid black;
+  border-top: 1px solid $black;
   width: 80%;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid $black;
   font-size: 60px;
 }
 .title-first-name{
   text-align: center;
   padding: 30px 0px;
-  font-family: rbt-t;
-
+  font-family: robot-cond;
+  font-size: 56px;
 }
 .users{
   display: flex;
@@ -51,7 +52,7 @@
 
 }
 .img-profil{
-  width: 50%;
+  width: 69%;
   border-radius: 10px;
 
 }
@@ -59,15 +60,17 @@
   text-align: center;
   margin-bottom: 15px;
   font-size: 20px ;
-  font-family: rbt-r;
+  font-family: robot-cond;
 }
 .span-information-user{
-text-decoration: underline;
+  font-family: robot-cond;
+font-weight: bold;
 }
 .user_right{
   display: flex;
   justify-content: center;
-  margin-top: 50px;
+  margin: 75px 0;
+  margin: 75px 0;
 
 }
 .content-button-profil{
@@ -80,14 +83,17 @@ margin-right: 30px;
   padding: 15px 35px;
   font-size: 17px;
   border-radius: 30px;
-  color: $white;
+  color: $black;
   transition-duration: .4s;
   text-transform: uppercase;
   background-color: $green;
   margin-left: 10px;
+
 }
 .button-modifie-profil:hover{
   background-color: $red;
+  text-decoration: none;
+  color: $white;
 }
 .button-delete_user{
   padding: 15px 35px;
@@ -100,4 +106,95 @@ margin-right: 30px;
 }
 .button-delete_user:hover{
   background-color: $green;
+  text-decoration: none;
+  color: $black;
+}
+
+//media query page profil
+
+@media screen and (max-width: 1448px) {
+  .bg-page-profil{
+    min-height: calc(42vh - 92px);
+  }
+}
+
+@media screen and (max-width: 1302px) {
+  .bg-page-profil{
+    min-height: calc(38vh - 92px);
+  }
+  .space-personel{
+    font-size: 55px;
+
+  }
+}
+
+@media screen and (max-width: 1216px) {
+  .bg-page-profil{
+    min-height: calc(36vh - 92px);
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .bg-page-profil{
+    min-height: calc(31vh - 92px);
+  }
+  .space-personel{
+    font-size: 47px;
+  }
+  .title-first-name{
+    font-size: 38px;
+  }
+  .img-profil{
+    width: 59%;
+  }
+
+}
+
+@media screen and (max-width: 767px) {
+  .bg-page-profil{
+    min-height: calc(27vh - 92px);
+  }
+  .space-personel{
+    font-size: 42px;
+  }
+  .title-first-name{
+    font-size: 33px;
+  }
+  .img-profil{
+    width: 55%;
+  }
+  .user_right{
+    flex-direction: column;
+    align-items: center;
+  }
+  .content-button-profil{
+    margin-right: 0;
+    margin-bottom: 9%;
+  }
+  .button-modifie-profil{
+   margin-left: 0;
+  }
+  .content-button-profil2{
+    margin-left: 0;
+  }
+
+}
+
+@media screen and (max-width: 576px) {
+  .bg-page-profil{
+    min-height: calc(22.5vh - 92px);
+  }
+  .space-personel{
+    font-size: 35px;
+  }
+  .title-first-name{
+    font-size: 30px;
+  }
+}
+
+@media screen and (max-width: 486px) {
+  .content-button-profil{
+
+    margin-bottom: 12%;
+  }
 }

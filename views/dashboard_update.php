@@ -75,9 +75,16 @@ $id_user = 0;
                             <input type="hidden" name="initial_email" value="<?php echo sanitize_html($user->email); ?>">
                             <input class="input-user-update" type="text" id="email" name="email" value="<?php echo sanitize_html($user->email); ?>">
                         </div>
+                        <div class="flex-form-user-update">
+                            <label class="label-user-update" for="password">Modifié le mot de passe </label>
+                            <input class="input-user-update" type="password" id="password" name="password" autocomplete="new-password" placeholder="Entrez le nouveau mot de passe...">
+                            <!-- On répete 2 fois le mot de passe pour vérifier qu'il est exact -->
+                            <input class="input-user-update" type="password" id="password2" name="password2" placeholder="Retapez votre mot de passe...">
+                            <p class="text-mdp-user-update">Mot de passe entre 8 et 16 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial, et pas d'espace</p>
+                        </div>
                         <div>
                             <label for="role_select">Role</label>
-                            <select name="role_select" id="role">
+                            <select name="role" id="role">
 
 
                                 <?php foreach ($roles as $role): ?>
