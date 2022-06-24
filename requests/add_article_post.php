@@ -18,7 +18,6 @@ else :
 
     $title 		= trim($_POST['title']);
     $text 		= trim($_POST['text']);
-    $text_2 		= trim($_POST['text2']);
     $picture 	= $_FILES['images'];
     $error 		= $picture['error'];
     $alt        = trim($_POST['alt']);
@@ -85,8 +84,8 @@ else :
 				  INSERT INTO images(file_name, alt)
                 VALUE   (:file_name, :alt);
 
-                INSERT INTO articles(id_user, title, content, content_2, id_image, created_at)
-				VALUES (:id_user, :title, :content, :content_2,LAST_INSERT_ID(), NOW())
+                INSERT INTO articles(id_user, title, content, id_image, created_at)
+				VALUES (:id_user, :title, :content,LAST_INSERT_ID(), NOW())
               
 			");
 
@@ -94,7 +93,6 @@ else :
             $req->bindValue(':id_user', intval($_SESSION['id_user']), PDO::PARAM_INT); // integer
             $req->bindValue(':title', $title, PDO::PARAM_STR); // string
             $req->bindValue(':content', $text, PDO::PARAM_STR); // string
-            $req->bindValue(':content_2', $text_2, PDO::PARAM_STR); // string
             $req->bindValue(':file_name', $img_name, PDO::PARAM_STR); // string
 
             $req->bindValue(':alt', $alt, PDO::PARAM_STR); // string

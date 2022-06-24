@@ -8,7 +8,7 @@ $id_article = $_GET['id'];
 $role_slug = $_SESSION['role_slug'];
 //request article
 $req = $db->prepare("
-    SELECT a.id, a.id_user, a.title, a.content, a.content_2, a.created_at, a.id_image, u.pseudo, i.id as id_tab_img, i.file_name, i.alt
+    SELECT a.id, a.id_user, a.title, a.content, a.created_at, a.id_image, u.pseudo, i.id as id_tab_img, i.file_name, i.alt
     FROM articles a
     LEFT JOIN users u
     ON   a.id_user = u.id
@@ -60,8 +60,24 @@ $user_img = $req->fetch(PDO::FETCH_OBJ);
 
 ?>
 
+    <!--Popup delete article-->
+    <div class="popupDeleteArticle">
+        <h3 class="title-popup-delete-article">Etes vous sûre de vouloir supprimer l'article ?</h3>
+        <p class="text-popup-delete-article" >Cette action est irreversible et entrainera la perte de toutes les données de l'article !</p>
+        <div class="content-button-popup-delete-article">
+            <button id="popupBtnDeleteArticle" class="button-delete-article button-delete-article-1" >Annulé</button>
+            <a  class="button-delete-user button-delete-article-2" href="<?php echo HOME_URL . 'requests/users_delete_post.php?id=' . $article->id; ?>" > OK</a>
+        </div>
+    </div>
+
     <main class="bg-color-page-article" >
         <section>
+            <div class="msg-add-comment">
+                <?php
+                if(isset($_GET['msg'])) {
+                    echo $_GET['msg'];
+                } ?>
+            </div>
             <div class="bg-img-page-article"></div>
             <div class="content-title-page-article">
                 <h1 class="title-page-article">Article</h1>
@@ -71,10 +87,8 @@ $user_img = $req->fetch(PDO::FETCH_OBJ);
                     <h2 class="title-article"><?php echo sanitize_html($article->title); ?></h2>
                 </div>
             </div>
-
             <div >
-                <artricle class="content-articles">
-
+                <article class="content-articles">
                     <div>
                         <div class="content-img-and-content">
                             <div class="flex-content-img-article">
@@ -86,21 +100,42 @@ $user_img = $req->fetch(PDO::FETCH_OBJ);
                                     <img class="img-article-current" src="<?php echo HOME_URL .'assets/img/dist/articles/' . sanitize_html($article->file_name) ; ?>" alt="<?php echo sanitize_html($article->alt) ;?> ">
                                 </div>
                             </div>
+                            <div class="preview-content-and-article-content">
+                                <div class="content-intergal-article">
 
-                            <div class="content-text-article" >
-                                <p class="text-content-article" ><?php echo sanitize_html($article->content); ?></p>
+                                    <div class="content-text-article" >
+                                        <div class="content-title-article-2">
+                                            <h2 class="title-article-2"><?php echo sanitize_html($article->title); ?></h2>
+                                        </div>
+                                        <p class="text-content-article" ><?php echo sanitize_html($article->content); ?></p>
+                                    </div>
+                                </div>
+                                <div class="content-prewiew-article-x3">
+                                    <h2 class="text-preview">A lire aussi</h2>
+                                    <?php foreach ($articles_previews as $article_preview) :?>
+                                        <article class="content-article-previews">
+                                            <div class="content-title-preview-article">
+                                                <h3><a class="link-preview-article" href=""><?php echo sanitize_html($article_preview->title); ?></a></h3>
+                                            </div>
+                                            <div class="content-img-preview-article">
+                                                <img class="img-preview-article" src="<?php echo HOME_URL .'assets/img/dist/articles/' . sanitize_html($article_preview->file_name) ; ?>" alt="<?php echo sanitize_html($article_preview->alt) ;?>">
+                                            </div>
+                                            <div class="content-border-bottom">
+                                                <div class="border-bottom"></div>
+                                            </div>
+                                        </article>
+                                    <?php endforeach ?>
+                                </div>
+
                             </div>
                         </div>
-
-                        <p class="text-content-article-2" ><?php echo sanitize_html($article->content_2); ?></p>
-
                     </div>
                     <p> Créer et mise à jour le : <?php echo sanitize_html($newDate); ?></p>
-                </artricle>
-
+                </article>
+                <div class="content-button-delete-article">
+                    <a class="button-delete_user btnDeleteArticle" >supprimer l'article'</i></a>
+                </div>
             </div>
-
-
             <?php
 
             // comme on a besoin d'une variable php pour aliemnter la requête, il faudra faire une requête préparée, pour éviter les injections SQL
@@ -172,29 +207,12 @@ $user_img = $req->fetch(PDO::FETCH_OBJ);
                     )
                 ) : ?>
                     <div>
-                        <div class="msg-add-comment">
-                            <?php
-                            if(isset($_GET['msg'])) {
-                                echo $_GET['msg'];
-                            } ?>
-                        </div>
                         <div>
                             <p><a href="<?php echo HOME_URL . 'views/add_comment.php?id=' . $id_article; ?>"> Ajouter un commentaire</a><i class="fa-solid fa-circle-plus"></i></p>
                         </div>
                     </div>
                 <?php endif; ?>
             </div>
-            <article class="content-prewiew-article-x3">
-                <h2>A lire aussi</h2>
-                <?php foreach ($articles_previews as $article_preview) :?>
-                    <div class="content-article-previews">
-                        <a href=""><h2><?php echo sanitize_html($article_preview->title); ?></h2></a>
-                        <img class="img-preview-article" src="<?php echo HOME_URL .'assets/img/dist/articles/' . sanitize_html($article_preview->file_name) ; ?>" alt="<?php echo sanitize_html($article_preview->alt) ;?>">
-                    </div>
-                <?php endforeach ?>
-
-            </article>
-
         </section>
     </main>
 <?php require __DIR__ . '/footer.php';

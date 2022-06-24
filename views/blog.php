@@ -85,13 +85,9 @@ if(isset($_SESSION['role_slug'])) $role_slug = $_SESSION['role_slug'];
 
             <!--            loop foreach for displaying items-->
             <?php
-
-
             foreach($articles as $article) :
 
                 $id_article = $article->id;
-
-
 
 //                time conversion function
                 $origin_date_article = $article->created_at;
@@ -148,15 +144,6 @@ if(isset($_SESSION['role_slug'])) $role_slug = $_SESSION['role_slug'];
             <!--            the include function calls a file external to the page and includes it in the current page-->
             <?php include PATH_PROJECT . '/views/pagination.php'; ?>
         </section>
-        <div class="modal_delete_article"  id="modal_delete_article">
-            <div id="article_id"></div>
-            <div>
-<!--                <a href="--><?php //echo HOME_URL . 'requests/delete_article_post.php?id=' . $id_article; ?><!--" onclick=" close_modal_and_do_delete();" >Oui</a>-->
-            </div>
-            <div>
-                <button onclick=" close_modal_and_cancel_delete();">Non</button>
-            </div>
-        </div>
     </main>
 
 <?php

@@ -1,0 +1,67 @@
+.popupDeleteArticle {
+  background: $brown-pop;
+  width: 700px;
+  padding: 5px;
+  border-radius: 10px;
+  position: fixed;
+  left: -50%;
+  transition: 0.6s ease;
+  margin-top: 20%;
+  transform: translate(-50%, -50%);
+}
+
+.title-popup-delete-article{
+  color: $white;
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 20px;
+  font-family: robot-cond;
+  padding-top: 15px;
+
+}
+
+.text-popup-delete-article{
+  color: $white;
+  text-align: center;
+  font-family: robot-cond;
+  padding-top: 15px;
+  margin-bottom: 25px;
+}
+
+.content-button-popup-delete-article{
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 15px;
+}
+
+.button-delete-article{
+  padding: 7px 23px;
+  border-radius: 30px;
+  color: $white;
+  text-transform: uppercase;
+  font-family: robot-cond;
+  font-size: 15px;
+  transition-duration: .4s;
+}
+
+.button-delete-article-1{
+  background-color: $red;
+  color: $white;
+}
+
+.button-delete-article-2{
+  background-color: $green;
+  color: $black;
+}
+
+.button-delete-article-1:hover{
+  background-color: $green;
+  color: $black;
+}
+
+.button-delete-article-2:hover{
+  background-color: $red;
+  color: $white;
+}
+
+

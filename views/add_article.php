@@ -24,19 +24,15 @@ $content = isset($_GET['content']) ? $_GET['content'] : FALSE;
             <form action="<?php echo HOME_URL . 'requests/add_article_post.php'; ?>" method="POST" enctype="multipart/form-data">
                 <div class="flex-form-add-article" >
                     <label class="label-title-add-article" for="title">Titre <span class="red" >*</span></label>
-                    <input class="input-add-article-title" type="text" id="title" name="title" minlength="3" maxlength="50" placeholder="Veuillez renseigner un titre"<?php if($title) echo $title; ?>">
+                    <input class="input-add-article-title" type="text" id="title" name="title" minlength="3" maxlength="100" placeholder="Veuillez renseigner un titre..."<?php if($title) echo $title; ?>">
                 </div>
                 <div class="flex-form-add-article" >
                     <label class="label-content-add-article" for="text">Contenu de l'article <span class="red" >*</span></label>
-                    <textarea class="textarea-add-article-content" id="text" name="text" rows="10" minlength="750" maxlength="3000" placeholder="Premier contenue à renseigner. Merci de renseigner un minimum de 750 caractères et un maximum de 3000..."><?php if($content) echo $content; ?></textarea>
-                </div>
-                <div class="flex-form-add-article" >
-                    <label class="label-content-add-article" for="text2">Contenu de l'article 2 (Facultatif)</label>
-                    <textarea class="textarea-add-article-content" id="text2" name="text2" rows="10" minlength="750" maxlength="3000" placeholder="Deuxième contenue à renseigner (Facultatif). Merci de renseigner un minimum de 750 caractères et un maximum de 3000..."><?php if($content) echo $content; ?></textarea>
+                    <textarea class="textarea-add-article-content" id="text" name="text" rows="10" minlength="750" maxlength="3000" placeholder="Contenu à renseigner, Merci de renseigner un minimum de 750 caractères et un maximum de 3000..."><?php if($content) echo $content; ?></textarea>
                 </div>
                 <div class="content-description-article">
                     <label class="label-content-add-article" for="alt">Veuillez renseigner une description courte de l'image <span class="red" >*</span></label>
-                    <input class="input-alt-article" minlength="10" maxlength="40" placeholder="Veuillez renseigner 10 caractères, maximum 40..." id="input-alt" type="text" name="alt">
+                    <input class="input-alt-article" minlength="10" maxlength="40" placeholder="Veuillez renseigner 10 caractères minimum, maximum 40..." id="input-alt" type="text" name="alt">
                 </div>
                 <div class="content-add-img-article">
                     <label class="label-add-img-article" for="images">Ajouter une image (jpg, jpeg, png, gif)<span class="red" >*</span>
