@@ -1,16 +1,14 @@
+//Header
 
-.nav-bar-fixed{
+#navbar{
+  @include flex(space-between, center);
+  background-color: $brown;
   position: fixed;
   width: 100%;
   top: 0;
   left: 0;
   z-index: 50;
-}
-#nav-bar{
-  background-color: $brown;
 
-
-  @include flex(space-between, center);
 }
 
 .logo-nav-bar{
@@ -60,10 +58,10 @@ transition-duration: 1s;
 .btn-nav-bar1{
   background-color: $green;
   font-family: robot-cond;
-
   transition-duration: .4s;
   color: $black;
 }
+
 .btn-nav-bar1:hover{
   background-color: $red;
   text-decoration: none;
@@ -106,13 +104,14 @@ transition-duration: 1s;
 //modal connect
 
 .modal_connect {
-  background: $brown;
-  margin-top: 15%;
+  background: $brown-pop;
+  margin-top: 20%;
   width: 400px;
   padding: 30px 30px;
   border-radius: 10px;
   position: fixed;
-  right: -1500px;
+  right: -50%;
+  transform: translate(-50%, -50%);
   transition: 1.5s ease;
 
 }
@@ -169,27 +168,28 @@ transition-duration: 1s;
   color: $black;
 }
 
-
-
-
-
-
-
 //Media query nav bar
 
 @media screen and (max-width: 1023px) {
+  .logo-nav-bar {
+    width: 7%;
+  }
   .nav-bar-list{
     display: none;
   }
   .content-btn-nav{
     display: none;
   }
+}
 
-
+@media screen and (max-width: 767px) {
+  .logo-nav-bar {
+    width: 9%;
+  }
 }
 
 @media screen and (max-width: 486px) {
   .logo-nav-bar{
-    width: 10%;
+    width: 11%;
   }
 }

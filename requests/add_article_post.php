@@ -2,25 +2,8 @@
 require dirname(__DIR__) . '/functions.php';
 require_once PATH_PROJECT . '/connect.php';
 
-// var_dump($_FILES); // superglobale pour récupérer les fichiers
 
-// si plusieurs fichiers sont envoyés par le formulaire, il faudra faire une boucle sur $_FILES pour les récupérer tous
 
-/*
-exemple de récupération :
-array (size=1)
-  'picture' =>
-    array (size=5)
-      'name' => string 'star_daft.jpg' (length=13)
-      'type' => string 'image/jpeg' (length=10)
-      'tmp_name' => string 'C:\wamp64\tmp\phpDCE0.tmp' (length=25)
-      'error' => int 0
-      'size' => int 48458
-
-on va s'attacher à la clé 'error' car c'est elle qui va définir le statut de l'upload
-
-https://www.php.net/manual/fr/features.file-upload.errors.php
-*/
 
 $fail_upload 		= array(3,6,7,8);
 $oversize_file 		= array(1,2);

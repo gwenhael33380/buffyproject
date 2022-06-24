@@ -17,9 +17,9 @@
     <link rel="stylesheet" href="<?php echo HOME_URL . 'assets/css/dist/main.min.css'; ?>">
 </head>
 <body >
-<header class="nav-bar-fixed">
+<header>
     <div class="display-nav">
-        <nav id="nav-bar" <?php echo isset($_SESSION['user_id']) ? 'class="connect"' : 'class="disconnect"'; ?> >
+        <nav id="navbar" <?php echo isset($_SESSION['user_id']) ? 'class="connect"' : 'class="disconnect"'; ?> >
             <div class="logo-nav-bar">
                 <a href="<?= HOME_URL; ?>"><img src="<?php echo HOME_URL . 'assets/img/src/source/Logo_with.png'; ?>" alt="Logo du site"></a>
             </div>
@@ -49,23 +49,7 @@
                         <li class="connect cursor_pointer">
                             <span id="to_connect" class="to_connect btn-nav btn-nav-bar2">CONNEXION</span>
 
-<!--                            modal to connect-->
-                            <div class="modal_connect">
-                                <form action="<?php echo HOME_URL . 'requests/login_post.php'; ?>" method="POST">
-                                    <p class="modal-connect-title" >Se connecter</p>
-                                    <div class="content-form-modal">
-                                        <label class="label-modal-connect" for="email">Email</label>
-                                        <input  class="input-modal-connect" type="text" name="email" id="email">
-                                    </div>
-                                    <div class="content-form-modal">
-                                        <label class="label-modal-connect" for="password">Mot de passe</label>
-                                        <input  class="input-modal-connect" type="password" name="password" id="password">
-                                    </div>
-                                    <div class="content-button-connected">
-                                        <button id="popup-btn" type="submit">Se connecter</button>
-                                    </div>
-                                </form>
-                            </div>
+
                         </li>
                         <li>
                             <a class="btn-nav btn-nav-bar1" href="<?php echo HOME_URL . 'views/subscribe.php'; ?>">S'inscrire</a>
@@ -76,6 +60,23 @@
 
             </div>
         </nav>
+    </div>
+    <!--                            modal to connect-->
+    <div class="modal_connect">
+        <form action="<?php echo HOME_URL . 'requests/login_post.php'; ?>" method="POST">
+            <p class="modal-connect-title" >Se connecter</p>
+            <div class="content-form-modal">
+                <label class="label-modal-connect" for="email">Email</label>
+                <input  class="input-modal-connect" type="text" name="email" id="email">
+            </div>
+            <div class="content-form-modal">
+                <label class="label-modal-connect" for="password">Mot de passe</label>
+                <input  class="input-modal-connect" type="password" name="password" id="password">
+            </div>
+            <div class="content-button-connected">
+                <button id="popup-btn" type="submit">Se connecter</button>
+            </div>
+        </form>
     </div>
 </header>
 

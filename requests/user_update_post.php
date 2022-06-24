@@ -33,7 +33,14 @@ $size_max         = 1048576;
 // same = identique
 $same_pseudo = $pseudo == $initial_pseudo ? true : false;
 $same_email = $email == $initial_email ? true : false;
-$same_picture = $picture == $initial_img ? true : false; // on verifie si l'image est identique à l'initial alors ? c'est vrai sinon : c'est faux
+
+if (empty($picture)){
+    $same_picture = true;
+
+}else{
+    $same_picture = false;
+}
+$same_picture = $picture == $id_image ? true : false; // on verifie si l'image est identique à l'initial alors ? c'est vrai sinon : c'est faux
 $pass1         = trim($_POST['password']);
 $pass2         = trim($_POST['password2']);
 $empty_pass = empty($pass1) && empty($pass2) ? true : false;

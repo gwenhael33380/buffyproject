@@ -7,7 +7,7 @@ require __DIR__ . '/header.php';
 
 
 ?>
-    <main>
+    <main class="bg-color-home-page" >
         <!--    Section 1 title and first section-->
         <section class=" section-1-home">
 
@@ -60,7 +60,7 @@ require __DIR__ . '/header.php';
 
             <div class="content-content-title" >
                 <div class="content-title-carousel">
-                    <h3 class="title-acces-carousel" >Les personnages de la série</h3>
+                    <h3 class="title-acces-carousel" >Le scooby gang</h3>
                 </div>
 
             </div>

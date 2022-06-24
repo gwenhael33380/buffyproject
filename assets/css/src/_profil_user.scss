@@ -103,6 +103,7 @@ margin-right: 30px;
   transition-duration: .4s;
   text-transform: uppercase;
   background-color: $red;
+  cursor: pointer;
 }
 .button-delete_user:hover{
   background-color: $green;
