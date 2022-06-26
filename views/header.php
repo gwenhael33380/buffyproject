@@ -3,17 +3,31 @@
 ?>
 
 <!doctype html>
+<!--language-->
 <html lang="fr">
 <head>
+
+<!--    character encoding-->
     <meta charset="UTF-8">
+
+<!--    display setup-->
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+<!--    Compatibility of Microsoft EADGE-->
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<!--    link Favicon-->
     <link rel="shortcut icon" href="<?= HOME_URL . '/favicon.ico'; ?>" type="image/x-icon">
     <link rel="icon" href=""<?= HOME_URL . '/favicon.ico'; ?>" type="image/x-icon">
+
+<!--    balise title dynamic-->
     <title>Buffy Project | <?php echo TITLE; ?></title>
+
+<!--    link CDN Bootstrap-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
+<!--    link css style-->
     <link rel="stylesheet" href="<?php echo HOME_URL . 'assets/css/dist/main.min.css'; ?>">
 </head>
 <body>
@@ -107,11 +121,11 @@
             <p class="modal-connect-title" >Se connecter</p>
             <div class="content-form-modal">
                 <label class="label-modal-connect" for="email">Email</label>
-                <input  class="input-modal-connect" type="text" name="email" id="email">
+                <input  class="input-modal-connect" type="text" name="email">
             </div>
             <div class="content-form-modal">
                 <label class="label-modal-connect" for="password">Mot de passe</label>
-                <input  class="input-modal-connect" type="password" name="password" id="password">
+                <input  class="input-modal-connect" type="password" name="password">
             </div>
             <div class="content-button-connected">
                 <button id="popup-btn" type="submit">Se connecter</button>
@@ -119,7 +133,7 @@
         </form>
     </div>
 
-    <!--    Modal connect side bar 1023px-->
+    <!--    Modal to connect side bar 1023px-->
     <div class="modal_connect_side_bar">
         <form action="<?php echo HOME_URL . 'requests/login_post.php'; ?>" method="POST">
             <p class="modal-connect-title-side-bar" >Se connecter</p>

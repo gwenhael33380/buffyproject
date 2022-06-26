@@ -45,27 +45,29 @@ var img = [
     })
 ];
 
+//Function retrieving the CSS source
 gulp.task('style', function() {
 	// on lui indique les fichiers sources
 	return gulp.src([
 		// './assets/libs/fontawesome/css/all.min.css',
-		'./assets/css/src/**/*.scss'
+		'./assets/css/src/**/*.scss' //Path to the CSS
 	])
-	.pipe(wait(1000)) // si votre projet est sur le disque D
+	.pipe(wait(1000)) //if your project is on a disk other than C:
 	.pipe(sourcemaps.init())
-	.pipe(sass().on('error', notify.onError()))
+	.pipe(sass().on('error', notify.onError())) //error notification in SASS
 	// .pipe(concat('main.min.css'))
 	.pipe(rename({suffix: '.min'}))
 	.pipe(postcss(plugins))
 	.pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest('./assets/css/dist'))
-    .pipe(notify({message: 'CSS bien compilé !!!', onLast: true}))
+    .pipe(gulp.dest('./assets/css/dist')) //Build path
+    .pipe(notify({message: 'CSS bien compilé !!!', onLast: true})) //Compilation CSS success message
     .pipe(bs.stream());
 });
 
+//Function retrieving the JavaScript source
 gulp.task('scripts', function() {
 	return gulp.src([
-		'./assets/libs/jquery/jquery-3.6.0.min.js',
+		// './assets/libs/jquery/jquery-3.6.0.min.js',
 		// './assets/libs/fontawesome/js/all.min.js',
 		'./assets/js/src/**/*.js'
 	])
@@ -73,25 +75,28 @@ gulp.task('scripts', function() {
 	.pipe(babel({
         presets: ['@babel/env']
     }))
-	.pipe(concat('scripts.min.js'))
+	.pipe(concat('scripts.min.js')) //js source name
 	.pipe(uglify())
 	.pipe(sourcemaps.write('.'))
-	.pipe(gulp.dest('./assets/js/dist'))
-	.pipe(notify({message: 'JS bien compilé !!!', onLast: true}))
+	.pipe(gulp.dest('./assets/js/dist')) //Build path
+	.pipe(notify({message: 'JS bien compilé !!!', onLast: true})) //Compilation JS success message
 });
 
+//Image minifier function
 gulp.task('image', function() {
 	return gulp.src('assets/img/src/**/*') // jpeg, jpg, png, svg
 	.pipe(imagemin(img))
 	.pipe(gulp.dest('./assets/img/dist'))
 });
 
+//PHP update
 gulp.task('dom', function() {
 	return gulp.src('./**/*.php')
 	.pipe(notify({message: 'PHP mis à jour !!!', onLast: true}))
     .pipe(bs.stream());
 });
 
+//Path for local server
 gulp.task('bs', function() {
 	bs.init({
 		// server: {
