@@ -58,7 +58,7 @@ if($id_user) {
 
 It also helps to protect against the XSS flaw -->
 
-    <main class="main-user-update">
+    <main class="main-user-update content">
         <div class="bg-img-user-update"></div>
             <div class="content-title-user-update">
                  <h1 class="title-form-update">Formulaire de mise à jour de <?php echo sanitize_html($user->first_name); ?></h1>

@@ -7,7 +7,7 @@ require __DIR__ . '/header.php';
 // les roles qui ont accès à la page
 // les autres seront redirigés vers la page HOME
 ?>
-    <main class="main_subscribe">
+    <main class="main_subscribe content">
         <div class="bg-img-subscribe"></div>
         <section>
            <div class="content_title_subscribe">

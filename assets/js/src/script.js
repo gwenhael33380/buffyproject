@@ -7,7 +7,7 @@
 		return filename.substring(filename.lastIndexOf('.')+1, filename.length) || filename;
 	}
 
-
+// function preview file
 	function previewFile(preview,input) {
 		const file = input[0].files[0];
 		const reader = new FileReader();

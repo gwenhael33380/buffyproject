@@ -1,0 +1,86 @@
+.content {
+
+  transition: 1s;
+}
+#side-bar {
+  display: none;
+  position: absolute;
+  width: 230px;
+  height: 100%;
+  background: $white;
+  top: 0;
+  right: -230px;
+  transition: 0.5s ease-out;
+  z-index: 1000000000000;
+  position: fixed;
+
+
+}
+.toggle-btn {
+  position: absolute;
+  top: 26px;
+  right: 270px;
+  cursor: pointer;
+  height: 50px;
+  width: 50px;
+}
+.toggle-btn span {
+  width: 60px;
+  height: 10px;
+  border-radius: 5px;
+  background: $white;
+  display: block;
+  margin-top: 4px;
+  transition: 0.3s ease;
+}
+#side-bar.active {
+  right: 0;
+
+}
+.active ~ .content {
+  opacity: 0.3;
+}
+.active span {
+  position: absolute;
+}
+.active span:nth-child(1) {
+  transform: rotate(45deg);
+}
+.active span:nth-child(2) {
+  opacity: 0;
+}
+.active span:nth-child(3) {
+  transform: rotate(-45deg);
+}
+
+@media screen and (max-width: 1023px)
+{
+  #side-bar {
+    display: block;
+  }
+}
+
+
+@media screen and (max-width: 862px) {
+  .toggle-btn{
+    top: 24px;
+  }
+  .toggle-btn span {
+    height: 8px;
+    margin-top: 6px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .toggle-btn span {
+    height: 7px;
+    margin-top: 7px;
+  }
+}
+
+@media screen and (max-width: 486px) {
+  .toggle-btn{
+    top: 17px;
+  }
+
+}

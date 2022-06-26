@@ -28,7 +28,7 @@ if($id_article) {
 }
 
 ?>
-
+<main class="content">
     <h1 class="title">Formulaire de mise à jour d'un article</h1>
 
     <div class="file_form">
@@ -75,6 +75,7 @@ if($id_article) {
             <button type="submit">Mettre à jour l'article</button>
         </form>
     </div>
+</main>
 
 <?php
 require __DIR__ . '/footer.php';

@@ -47,7 +47,7 @@ $result = $req->fetch(PDO::FETCH_OBJ);?>
         </div>
     </div>
 <!--main section-->
-    <main>
+    <main class="content">
         <div class="bg-page-profil"></div>
         <div class="content-space-personel">
             <h1 class="space-personel">espace personnel</h1>

@@ -62,7 +62,7 @@ if(isset($_SESSION['role_slug'])) $role_slug = $_SESSION['role_slug'];
 ?>
 
     <!--    blog page-->
-    <main>
+    <main class="content">
 
         <div class="content-bgi-blog"></div>
         <div class="content-title-blog" >

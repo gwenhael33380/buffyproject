@@ -25,10 +25,11 @@ $req = $db->query("
 ");
 $req->execute();
 $results = $req->fetchAll(PDO::FETCH_OBJ); ?>
-<div class="dashboard"></div>
-    <h1>Liste des utilisateurs</h1>
 
-    <main>
+
+    <main class="content">
+        <div class="dashboard"></div>
+        <h1>Liste des utilisateurs</h1>
         <div class="users-dashboard">
             <?php foreach($results as $result) :
                 $count_article = $result->count_article;

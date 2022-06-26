@@ -4,7 +4,7 @@ define('TITLE', 'Page de contact');
 require __DIR__ . '/header.php';
 
 ?>
-    <main class="main-page-contact">
+    <main class="main-page-contact content">
         <section>
             <div class="bg-page-contact">
 

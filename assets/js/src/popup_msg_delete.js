@@ -8,7 +8,7 @@ function fade_out() {
 
 // delete message erreur connect 5 sec
 
-//missing fields
+// missing fields
 setTimeout(fade_out_falure, 5000);
 
 function fade_out_falure() {

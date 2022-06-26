@@ -27,6 +27,7 @@
   position: fixed;
   width: 100%;
   z-index: 150;
+  margin-top: .5%;
 }
 
 .connect_user_success{
@@ -38,6 +39,7 @@
   position: fixed;
   width: 100%;
   z-index: 150;
+  margin-top: .5%;
 }
 
 .disconnect_user{
@@ -412,7 +414,6 @@
 .img-acces-contact{
   margin: auto;
   padding: 75px 0px;
-
   width: 50%;
   border-radius: 7px;
 
@@ -449,7 +450,23 @@
   .title-personage{
     font-size: 59px;
   }
+  .connect_user_success{
+    margin-top: 0.6%;
+  }
+  .connect_user_failure{
+    margin-top: 0.6%;
+  }
 }
+
+@media screen and (max-width: 1351px){
+  .connect_user_success{
+    margin-top: 2.5%;
+  }
+  .connect_user_failure{
+    margin-top: 2.5%;
+  }
+}
+
 @media screen and (max-width: 1302px) {
   .paragraph-presentation{
     width: 60%;
@@ -517,6 +534,13 @@
 @media screen and (max-width: 991px) {
   .section-1-home{
     min-height: calc(74vh - 52px);
+    margin-top: 8%;
+  }
+  .connect_user_success{
+    margin-top: 1.2%;
+  }
+  .connect_user_failure{
+    margin-top: 1.2%;
   }
   .btn-nav-sec-1{
     font-size: 13px;
@@ -543,6 +567,12 @@
   .section-1-home{
     min-height: calc(60vh - 52px);
   }
+  .connect_user_success{
+    margin-top: 2.1%;
+  }
+  .connect_user_failure{
+    margin-top: 2.1%;
+  }
   .btn-nav-sec-1{
     padding: 9px 21px;
     font-size: 13px;
@@ -555,9 +585,17 @@
     font-size: 40px;
   }
 
-}@media screen and (max-width: 657px) {
+}
+
+@media screen and (max-width: 657px) {
   .section-1-home{
     min-height: calc(53vh - 52px);
+  }
+  .connect_user_success{
+    margin-top: 4%;
+  }
+  .connect_user_failure{
+    margin-top: 4%;
   }
   .title-home {
     font-size: 37px;
@@ -572,9 +610,31 @@
     padding: 0 10px;
   }
 }
+
+@media screen and (max-width: 657px){
+  .section-1-home{
+    margin-top: 9%;
+  }
+  .connect_user_success{
+    margin-top: 3%;
+  }
+  .connect_user_failure{
+    margin-top: 3%;
+  }
+
+}
+
+
 @media screen and (max-width: 576px) {
   .section-1-home{
     min-height: calc(46vh - 52px);
+    margin-top: 12%;
+  }
+  .connect_user_success{
+    margin-top: 1%;
+  }
+  .connect_user_failure{
+    margin-top: 1%;
   }
   .title-home {
     font-size: 35px;
@@ -593,7 +653,13 @@
 @media screen and (max-width: 486px) {
   .section-1-home{
     min-height: calc(40vh - 52px);
-    margin-top: 9%;
+    margin-top: 14%;
+  }
+  .connect_user_success{
+    margin-top: 0%;
+  }
+  .connect_user_failure{
+    margin-top: 0%;
   }
   .title-home {
     font-size: 29px;

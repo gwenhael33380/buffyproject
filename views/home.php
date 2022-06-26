@@ -7,7 +7,7 @@ require __DIR__ . '/header.php';
 
 
 ?>
-    <main class="bg-color-home-page" >
+    <main class="bg-color-home-page content" >
         <!--    Section 1 title and first section-->
         <section class=" section-1-home">
 
