@@ -17,6 +17,8 @@ $pseudo     = trim($_POST['pseudo']);
 $email         = filter_var(mb_strtolower(trim($_POST['email'])), FILTER_VALIDATE_EMAIL);
 $picture    = $_FILES['picture'];
 
+
+
 if ($_SESSION['role_slug'] == 'administrator') {
     $id_user = intval($_POST['id_user']);
 } else {
@@ -34,20 +36,22 @@ $size_max         = 1048576;
 $same_pseudo = $pseudo == $initial_pseudo ? true : false;
 $same_email = $email == $initial_email ? true : false;
 
-if (empty($picture)){
+
+if ($picture['name'] == ''){
     $same_picture = true;
 
 }else{
     $same_picture = false;
 }
-$same_picture = $picture == $id_image ? true : false; // on verifie si l'image est identique à l'initial alors ? c'est vrai sinon : c'est faux
+
+
 $pass1         = trim($_POST['password']);
 $pass2         = trim($_POST['password2']);
 $empty_pass = empty($pass1) && empty($pass2) ? true : false;
 $match_pass = check_password($pass1); // je check pour voir s'il correspond au pat tern
 
 
-var_dump($_POST);die;
+
 
 if (in_array('', $required_fields)) :
     $msg_error = '<div class="red">Vous devez remplir le(s) champ(s) obligatoire(s)</div>';
@@ -183,7 +187,10 @@ else :
                 if (!$same_email) {
                     $req->bindValue(':email', $email, PDO::PARAM_STR);
                 }
-
+                if (!$empty_pass){
+                    $req->bindValue(':pass', password_hash($pass1, PASSWORD_DEFAULT), PDO::PARAM_STR);
+                }
+                $req->bindValue(':id_user', $id_user, PDO::PARAM_INT);
                 $req = $req->execute();
             } else {
 

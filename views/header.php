@@ -32,6 +32,8 @@
 </head>
 <body>
 <header>
+
+<!--    Contents link nav bar-->
     <div class="display-nav">
         <nav id="navbar" <?php echo isset($_SESSION['user_id']) ? 'class="connect"' : 'class="disconnect"'; ?> >
             <div class="logo-nav-bar">
@@ -76,7 +78,7 @@
         </nav>
     </div>
 
-    <!--                 Side bar               -->
+    <!--         Contents link side bar               -->
     <div id="side-bar">
         <div class="toggle-btn" id="btnSideBar">
             <span></span>
@@ -115,7 +117,7 @@
 
     </div>
 
-    <!--                            modal to connect-->
+    <!--                           Contents modal to connect-->
     <div class="modal_connect">
         <form action="<?php echo HOME_URL . 'requests/login_post.php'; ?>" method="POST">
             <p class="modal-connect-title" >Se connecter</p>
@@ -133,7 +135,7 @@
         </form>
     </div>
 
-    <!--    Modal to connect side bar 1023px-->
+    <!--   Contents modal to connect side bar 1023px-->
     <div class="modal_connect_side_bar">
         <form action="<?php echo HOME_URL . 'requests/login_post.php'; ?>" method="POST">
             <p class="modal-connect-title-side-bar" >Se connecter</p>
