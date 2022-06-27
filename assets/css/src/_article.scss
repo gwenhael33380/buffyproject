@@ -58,10 +58,6 @@ margin-bottom: 50px;
 
 }
 
-.content-img-and-content{
-
-}
-
 .flex-content-img-article{
   display: flex;
 
@@ -73,28 +69,45 @@ margin-bottom: 50px;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  width: 80%;
+  width: 100%;
   padding: 50px;
   margin-bottom: 200px;
-  border-radius: 10px;
-  background-color: $brown-o;
+  background-color: rgba(213, 183, 183, 0.25);
 
 }
 
 .content-pseudo-creat-article{
-  padding-right: 50%;
+  padding-right: 26%;
   padding-bottom: 10px;
-  color: $white;
+  color: $black;
+}
+
+.pseudo-created-by{
+font-family: robot-cond-b;
+}
+.pseudo-created-by-span{
+font-family: robot-cond;
+  color: $brown;
+}
+
+.creation-date-article{
+  font-family: robot-cond-b;
+
+}
+.creation-date-article-span{
+  font-family: robot-cond;
+  color: $brown;
 }
 
 .img-article-current{
-  width: 62%;
+  width: 38%;
   border-radius: 3px;
 
 }
 .preview-content-and-article-content{
   display: flex;
   justify-content: space-around;
+  margin-bottom: 4%;
 }
 
 .content-intergal-article{
@@ -116,9 +129,7 @@ margin-bottom: 50px;
 }
 
 .content-text-article{
-
-  width: 60%;
-
+  width: 73%;
   margin-left: 2%;
 }
 
@@ -145,11 +156,17 @@ margin-bottom: 50px;
 
 .content-prewiew-article-x3{
   width: 20%;
+  margin-top: -2%;
+  //background-color: rgba(76, 176, 79, 0.11);
+  padding-left: 44px;
+background-color: $green-o;
+  border-radius: 10px;
+  padding-top: 50px;
 }
 
 .text-preview{
   font-family: robot-cond;
-  font-size: 20px;
+  font-size: 27px;
   margin-bottom: 17px;
 
 }
@@ -167,13 +184,14 @@ margin-bottom: 50px;
 }
 
 .link-preview-article{
-font-family: robot-cond;
-  font-size: 17px;
+font-family: robslab-r;
+  font-size: 18px;
+  letter-spacing: .5px;
 
 }
 
 .img-preview-article{
-width: 100%;
+width: 81%;
 }
 
 .content-border-bottom{
@@ -187,4 +205,43 @@ width: 100%;
   top: 15px;
   left: 0;
   width: 80%;
+}
+
+.content-button-article{
+  display: flex;
+  justify-content: space-around;
+}
+
+.button-update-article{
+  padding: 15px 35px;
+  font-size: 17px;
+  border-radius: 30px;
+  color: $black;
+  transition-duration: .4s;
+  text-transform: uppercase;
+  background-color: $green;
+  margin-left: 10px;
+}
+
+.button-update-article:hover{
+  background-color: $red;
+  text-decoration: none;
+  color: $white;
+}
+
+.button-delete_article{
+  padding: 15px 35px;
+  font-size: 17px;
+  border-radius: 30px;
+  color: $white;
+  transition-duration: .4s;
+  text-transform: uppercase;
+  background-color: $red;
+  cursor: pointer;
+}
+
+.button-delete_article:hover{
+  background-color: $green;
+  text-decoration: none;
+  color: $black;
 }

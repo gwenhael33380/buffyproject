@@ -9,7 +9,7 @@
   position: absolute;
   width: 230px;
   height: 100%;
-  background: $white;
+  background: $brown-pop;
   top: 0;
   right: -230px;
   transition: 0.5s ease-out;
@@ -53,6 +53,30 @@
 }
 .active span:nth-child(3) {
   transform: rotate(-45deg);
+}
+
+.content-side-bar-home {
+  margin-top: 39%;
+  margin-bottom: 35px;
+  margin-left: 15px;
+}
+
+.content-button-side-bar{
+  margin-bottom: 35px;
+  margin-left: 15px;
+}
+
+.home-text-side-bar{
+
+  font-size: 26px;
+  color: $white;
+  font-family: robot-cond;
+  text-transform: uppercase;
+}
+
+.home-text-side-bar:hover{
+  color: $white;
+  text-decoration: underline;
 }
 
 @media screen and (max-width: 1023px)

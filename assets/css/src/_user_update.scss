@@ -3,6 +3,18 @@
 .main-user-update{
   background-color: $bg-general;
 }
+
+.error_update_user{
+  background-color: $green;
+  color: red;
+  padding: 10px;
+  font-family: robot-cond;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  z-index: 150;
+  margin-top: .5%;
+}
 .bg-img-user-update{
   background-image: url(../../img/dist/source/bg-img-user-update7.png);
   background-size: 100%;

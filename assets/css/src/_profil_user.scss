@@ -1,5 +1,17 @@
 //SCSS Profil user
 
+.update_user_success{
+  background-color: $green;
+  color: green;
+  padding: 10px;
+  font-family: robot-cond;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  z-index: 150;
+  margin-top: .5%;
+}
+
 .bg-page-profil{
   background-image: url(../../img/dist/source/bg-profil2.jpg);
   background-size: 100%;
@@ -13,6 +25,7 @@
   background-color: $green-o;
   margin-top: 5%;
 }
+
 .space-personel{
 
   padding: 40px 0;
@@ -28,6 +41,7 @@
   display: flex;
   justify-content: center;
 }
+
 .profil_user {
   margin-top: 120px;
   border-top: 1px solid $black;
@@ -35,52 +49,59 @@
   border-bottom: 1px solid $black;
   font-size: 60px;
 }
+
 .title-first-name{
   text-align: center;
   padding: 30px 0px;
   font-family: robot-cond;
   font-size: 56px;
 }
+
 .users{
   display: flex;
   justify-content: center;
 }
+
 .content-img-profil{
   display: flex;
   justify-content: center;
   margin-top: 90px;
   margin-bottom: 25px;
-
-
 }
+
 .img-profil{
   width: 69%;
   border-radius: 10px;
 
 }
+
 .information-user{
   text-align: center;
   margin-bottom: 15px;
   font-size: 20px ;
   font-family: robot-cond;
 }
+
 .span-information-user{
   font-family: robot-cond;
-font-weight: bold;
+  font-weight: bold;
 }
+
 .user_right{
   display: flex;
   justify-content: center;
   margin: 75px 0;
   margin: 75px 0;
-
 }
+
 .content-button-profil{
 margin-right: 30px;
 }
+
 .content-button-profil2{
   margin-left: 30px;
 }
+
 .button-modifie-profil{
   padding: 15px 35px;
   font-size: 17px;
@@ -90,13 +111,14 @@ margin-right: 30px;
   text-transform: uppercase;
   background-color: $green;
   margin-left: 10px;
-
 }
+
 .button-modifie-profil:hover{
   background-color: $red;
   text-decoration: none;
   color: $white;
 }
+
 .button-delete_user{
   padding: 15px 35px;
   font-size: 17px;
@@ -107,6 +129,7 @@ margin-right: 30px;
   background-color: $red;
   cursor: pointer;
 }
+
 .button-delete_user:hover{
   background-color: $green;
   text-decoration: none;

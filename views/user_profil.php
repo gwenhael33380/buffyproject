@@ -48,6 +48,11 @@ $result = $req->fetch(PDO::FETCH_OBJ);?>
     </div>
 <!--main section-->
     <main class="content">
+        <div class="msg-connexion">
+            <?php
+            if(isset($_GET['msg'])) {
+                echo $_GET['msg'];
+            } ?>
         <div class="bg-page-profil"></div>
         <div class="content-space-personel">
             <h1 class="space-personel">espace personnel</h1>

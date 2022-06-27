@@ -43,6 +43,8 @@ $req->execute();
 $articles_previews = $req->fetchAll(PDO::FETCH_OBJ);
 
 
+
+
 $req = $db->prepare("
     SELECT  u.id user_id, i.file_name, i.alt
     FROM users u
@@ -57,7 +59,6 @@ $req->execute();
 $user_img = $req->fetch(PDO::FETCH_OBJ);
 
 
-
 ?>
 
     <!--Popup delete article-->
@@ -70,6 +71,7 @@ $user_img = $req->fetch(PDO::FETCH_OBJ);
         </div>
     </div>
 
+<!--        Article-->
     <main class="bg-color-page-article" >
         <section>
             <div class="msg-add-comment">
@@ -95,7 +97,8 @@ $user_img = $req->fetch(PDO::FETCH_OBJ);
                                 <div class="content-img-article" >
                                     <div class="content-pseudo-creat-article" >
                                         <img src="" alt="">
-                                        <p  >Publier par : <?php echo sanitize_html($article->pseudo); ?></p>
+                                        <p  class="pseudo-created-by">Par : <span class="pseudo-created-by-span"><?php echo sanitize_html($article->pseudo); ?></span></p>
+                                        <p class="creation-date-article" >Publié le : <span class="creation-date-article-span"><?php echo sanitize_html($newDate); ?></span> </p>
                                     </div>
                                     <img class="img-article-current" src="<?php echo HOME_URL .'assets/img/dist/articles/' . sanitize_html($article->file_name) ; ?>" alt="<?php echo sanitize_html($article->alt) ;?> ">
                                 </div>
@@ -115,7 +118,7 @@ $user_img = $req->fetch(PDO::FETCH_OBJ);
                                     <?php foreach ($articles_previews as $article_preview) :?>
                                         <article class="content-article-previews">
                                             <div class="content-title-preview-article">
-                                                <h3><a class="link-preview-article" href=""><?php echo sanitize_html($article_preview->title); ?></a></h3>
+                                                <h3><a class="link-preview-article" href="<?php echo HOME_URL . 'views/article.php?id=' . $article_preview->id; ?>"><?php echo sanitize_html($article_preview->title); ?></a></h3>
                                             </div>
                                             <div class="content-img-preview-article">
                                                 <img class="img-preview-article" src="<?php echo HOME_URL .'assets/img/dist/articles/' . sanitize_html($article_preview->file_name) ; ?>" alt="<?php echo sanitize_html($article_preview->alt) ;?>">
@@ -130,11 +133,23 @@ $user_img = $req->fetch(PDO::FETCH_OBJ);
                             </div>
                         </div>
                     </div>
-                    <p> Créer et mise à jour le : <?php echo sanitize_html($newDate); ?></p>
                 </article>
-                <div class="content-button-delete-article">
-                    <a class="button-delete_user btnDeleteArticle" >supprimer l'article'</i></a>
+
+                <?php if(isset($role_slug) && $role_slug == "administrator" ) : ?>
+                <div class="content-button-article">
+
+                    <!-- Button update article -->
+                    <div class="content-button-update-article">
+                        <a class="button-update-article" href="<?php echo HOME_URL . 'views/update_article.php?id=' . $id_article; ?>">Mettre à jour</i></a>
+                    </div>
+
+                    <!-- delete article -->
+                    <div class="content-button-delete-article">
+                        <a class="button-delete_user btnDeleteArticle" >supprimer l'article</i></a>
+                    </div>
                 </div>
+                <?php endif; ?>
+
             </div>
             <?php
 

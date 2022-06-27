@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div>
+    <input id="search_filter" type="text">
+    <button id="search_button" >Search</button>
+</div>
+<div id="result">
+<p>a remplir</p>
+</div>
+<script>
+
+    document.getElementById("search_button").addEventListener('click', () => {
+        // alert(document.getElementById("search_filter").value)
+        document.getElementById("result").innerHTML=document.getElementById("search_filter").value
+        fetch('http://localhost:3000/views/finder.php')
+            .then( (result) => {
+              result.json()
+            })
+            .then(function(result)  {
+                alert(result)
+            })
+    });
+</script>
+</body>
+</html>

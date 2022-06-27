@@ -42,9 +42,9 @@ require __DIR__ . '/header.php';
                         <div class="flex-column-present" >
                             <h3 class="content-title-presentation">Bonjour et bienvenue !</h3>
                             <div class="paragraph-presentation">
-                                <p class="text-presentation" >Vous êtes ici dans une Fan zone, ce site s'adresse aux passionnés de la série et s'adresse aussi aux personnes qui souhaiterais en savoir plus sur l'univers fantastique de Buffy Contre Les Vampires</p>
+                                <p class="text-presentation" >Vous êtes ici dans une <strong>Fan zone</strong> ce site s'adresse aux passionnés de la série et s'adresse aussi aux personnes qui souhaiterais en savoir plus sur l'univers fantastique de <strong>Buffy Contre Les Vampires</strong></p>
                                 <p class="text-presentation">
-                                    Vous trouvez ici un certain nombre de ressources sur la série. Le site vous propose l'accès à un blog avec du contenu riche et varier. Pour participer, rien de plus simple ! Il vous suffit de créer un comte en cliquant sur le bouton juste en dessous et vous pourrez participer à la vie du site dès votre inscription finalisé. Nous vous souhaiton une bonne navigation et ... CTPM!
+                                    Vous trouvez ici un certain nombre de ressources sur la série. Le site vous propose l'<strong>accès à un blog</strong> avec du contenu riche et varier. Pour participer, rien de plus simple ! Il vous suffit de créer un comte en cliquant sur le bouton juste en dessous et vous pourrez participer à la vie du site dès votre inscription finalisé. Nous vous souhaiton une bonne navigation et ... <strong>CTPM</strong>!
                                 </p>
                             </div>
                             <div>

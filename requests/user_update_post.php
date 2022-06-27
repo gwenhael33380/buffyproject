@@ -54,14 +54,14 @@ $match_pass = check_password($pass1); // je check pour voir s'il correspond au p
 
 
 if (in_array('', $required_fields)) :
-    $msg_error = '<div class="red">Vous devez remplir le(s) champ(s) obligatoire(s)</div>';
+    $msg_error = '<p class="error_update_user">Merci de remplir le(s) champ(s) obligatoire(s)</p>';
     $empty_field = TRUE;
 else :
 
     if ($pass1 != $pass2 && !$empty_pass) :
-        $msg_error = 'Les mots de passe ne correspondent pas';
+        $msg_error = '<p class="error_update_user">Les mots de passe ne correspondent pas</p>';
     elseif (!$match_pass && !$empty_pass) :
-        $msg_error = 'Le mot de passe ne correspond pas au format exigé';
+        $msg_error = '<p class="error_update_user">Le mot de passe ne correspond pas au format exigé</p>';
     else :
         // on vérifie que le pseudo n'existe pas dans la BDD
         $req = $db->prepare("
@@ -77,7 +77,7 @@ else :
         $result = $req->fetch(PDO::FETCH_OBJ);
 
         if ($result->count_pseudo && !$same_pseudo) : // si > 0
-            $msg_error = 'Ce pseudo existe déjà';
+            $msg_error = '<p class="error_update_user">Ce pseudo existe déjà</p>';
         elseif (!$same_email) :
             $req = $db->prepare("
 				SELECT COUNT(id) count_email
@@ -92,7 +92,7 @@ else :
             $result = $req->fetch(PDO::FETCH_OBJ);
 
             if ($result->count_email && !$same_email) : // si > 0
-                $msg_error = 'Vous avez déjà un compte avec cet email';
+                $msg_error = '<p class="error_update_user">Vous avez déjà un compte avec cet email</p>';
             endif;
         endif;
     endif;
@@ -100,9 +100,9 @@ else :
     if (!isset($msg_error)) :
         $error = $picture['error'];
         if (in_array($error, $error_upload)) :
-            $msg_error = '<div class="red">Erreur au moment de l\'envoi</div>';
+            $msg_error = '<p class="error_update_user">Erreur au moment de l\'envoi</p>';
         elseif (in_array($error, $error_size)) :
-            $msg_error = '<div class="red">Fichier trop volumineux, ne pas dépasser 1Mo</div>';
+            $msg_error = '<p class="error_update_user">Fichier trop volumineux, ne pas dépasser 1Mo</p>';
         elseif ($error == 4) :
 
             $send_request = TRUE;
@@ -117,20 +117,19 @@ else :
 
             // on vérifie si l'extension est bien dans le tableau, sinon ce n'est pas une image
             if (!in_array($ext_img, $enabled_ext)) :
-                $msg_error = '<div class="red">Votre fichier n\'est pas une image png, jpg ou jpeg</div>';
+                $msg_error = '<p class="error_update_user">Votre fichier n\'est pas une image png, jpg ou jpeg</p>';
             elseif ($image_size > $size_max) :
-                $msg_error = '<div class="red">Fichier trop volumineux, ne pas dépasser 1Mo</div>';
+                $msg_error = '<p class="error_update_user">Fichier trop volumineux, ne pas dépasser 1Mo</p>';
             else :
-                // Création d'un nom de fichier unique et aléatoire pour éviter les doublons dans le FTP (sur le serveur dans le dossier assets/img)
 
-
+                //Creation of a unique and random file name to avoid duplicates in the FTP (on the server in the assets/img folder)
                 $img_name = uniqid() . '_' . $recept_img;
 
-
-                @mkdir(PATH_PROJECT . '/assets/img/src/profil/', 0755);
+//                create the folder if it does not exist
+                @mkdir(PATH_PROJECT . '/assets/img/dist/profil/', 0755);
 
                 // initializing a variable to specify where I will store my image
-                $img_folder = PATH_PROJECT . '/assets/img/src/profil/';
+                $img_folder = PATH_PROJECT . '/assets/img/dist/profil/';
                 $dir = $img_folder . $img_name;
 
 
@@ -225,9 +224,9 @@ else :
 
 
             if ($result) :
-                $msg_success = '<p class="red">Votre profil a bien ete mis a jours</p>';
+                $msg_success = '<p class="update_user_success">Votre profil a bien ete mis à jours</p>';
             else :
-                $msg_error = '<p class="red">erreur lors de la mise a jour du profil</p>';
+                $msg_error = '<p class="error_update_user">erreur lors de la mise à jour du profil</p>';
             endif;
         endif;
     endif;
@@ -236,7 +235,7 @@ endif;
 if (isset($msg_error)) {
     header('Location:' . HOME_URL . 'views/user_update.php?id=' . $id_user . '&msg=' . $msg_error);
 } else {
-    header('Location:' . HOME_URL . 'views/user_update.php?id=' . $id_user . '&msg=' . $msg_success);
+    header('Location:' . HOME_URL . 'views/user_profil.php?id=' . $id_user . '&msg=' . $msg_success);
 }
 
 //Lecorre@!33

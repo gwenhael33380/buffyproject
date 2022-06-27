@@ -113,20 +113,7 @@ if(isset($_SESSION['role_slug'])) $role_slug = $_SESSION['role_slug'];
                                 <p class="content-post-preview-article" >Résumé : <a href="<?php echo HOME_URL . 'views/article.php?id=' .  $article->id; ?>"><span class="content-prewiew-article"><?= sanitize_html(substr($article->content, 0, 120)); ?> ...</span> </p></a>
                                 <p class="content-post-time-preview">Publier le : <span class="content-time-preview" ><?php echo sanitize_html($newDate); ?></span> </p>
                             </div>
-                            <div class="content-article-action" >
-                                <div class="article_action">
-                                    <!-- update article -->
-                                    <?php if(isset($role_slug) && $role_slug == "administrator" ) : ?>
-                                        <a class="update-article" href="<?php echo HOME_URL . 'views/update_article.php?id=' . $id_article; ?>"><i class="fa-solid fa-pencil fa-2x"></i></a>
-                                    <?php endif; ?>
-                                    <!-- delete article -->
-                                    <?php if(isset($role_slug) && $role_slug == 'administrator') : ?>
-<!--                                        <a class="delete_article" ><i class="fa-solid fa-trash-can fa-2x"></i></a>-->
-
-
-                                        <a id="<?php echo $article->id; ?>" onclick="open_modal_delete(this);"><i class="fa-solid fa-trash-can fa-2x"></i></a>
-                                    <?php endif; ?>
-                                </div>
+                            <div class="content-article-action">
                                 <div class="content-button-acces-article">
                                     <a class="button-prewiew-acces-blog" href="<?php echo HOME_URL . 'views/article.php?id=' .  $article->id; ?>">Lire l'article complet...</a>
                                 </div>
