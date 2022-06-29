@@ -21,9 +21,15 @@ require __DIR__ . '/header.php';
                 <a class="btn-nav-sec-1 bgc-btn-sec1" href="<?php echo HOME_URL . 'views/contact.php'; ?>">Contact</a>
                 <a class="btn-nav-sec-1 bgc-btn-sec2" href="<?php echo HOME_URL . 'views/blog.php'; ?>">Blog</a>
             </div>
+            <div id="truc" class="content-arrow">
+                <a href="#scroll_section_2"><img class="img-arrow" src="<?php echo HOME_URL . 'assets/img/src/source/scroll_bottom.png'; ?>" alt="bouton de scroll"></a>
+                <div id="scroll_section_2"></div>
+            </div>
+
         </section>
         <!--    Section 2 character carousel-->
-        <section class="section-2-home">
+
+        <section  class="section-2-home">
             <div class="content-title-home">
                 <h1 class="title-home">accueil</h1>
             </div>

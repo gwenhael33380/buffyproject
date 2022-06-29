@@ -14,6 +14,30 @@
   margin-top: 5%;
 }
 
+#connect_user_failure{
+  background-color: $green;
+  color: red;
+  padding: 10px;
+  font-family: robot-cond;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  z-index: 150;
+  margin-top: .5%;
+}
+
+#delete_comment_success{
+  background-color: $green;
+  color: green;
+  padding: 10px;
+  font-family: robot-cond;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  z-index: 150;
+  margin-top: .5%;
+}
+
 .content-title-page-article{
   background-color: $green-o;
   margin-top: 5%;
@@ -244,4 +268,58 @@ width: 81%;
   background-color: $green;
   text-decoration: none;
   color: $black;
+}
+
+.spacing-content-title-comments{
+  display: flex;
+  justify-content: center;
+  margin-top: 5%;
+}
+
+.content-title-comments{
+  display: flex;
+  justify-content: center;
+  width: 70%;
+  margin-bottom: 5%;
+  border-top: 3px solid $black;
+  border-bottom: 3px solid $black;
+}
+
+.title-comments{
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 40px;
+  padding: 30px;
+  font-family: robot-cond;
+}
+
+.content-button-add-comment{
+margin-left: 21%;
+}
+.button-add-comment{
+
+}
+
+.comment{
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+.content-info-comment{
+  display: flex;
+
+
+}
+
+.content-img-profil-comment{
+  width: 25%;
+}
+
+
+.img-content-profil-user-comment{
+  clip-path:ellipse(33% 50%);
+}
+
+.info-content-comment{
+
 }

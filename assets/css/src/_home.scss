@@ -20,6 +20,7 @@
 
   font-size: 17px;
 }
+
 .connect_user_failure{
   background-color: $green;
   color: red;
@@ -91,6 +92,37 @@
   text-decoration: none;
 
 }
+
+//KeyFrames and scc arrow scroll
+
+@keyframes scroll_arrow {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-40px);
+  }
+}
+
+.content-arrow{
+  animation: scroll_arrow 2s ease-in 2s infinite alternate-reverse both;
+  margin-top: 19.5%;
+  a{
+    display: flex;
+    justify-content: center;
+  }
+
+}
+
+#scroll_section_2{
+
+}
+
+.img-arrow{
+  width: 3%;
+}
+
 
 // section 2 title and caroussel
 .section-2-home{

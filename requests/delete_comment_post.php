@@ -14,9 +14,9 @@ if($id_comment) {
     $result = $req->execute();
 
     if($result) {
-        header('Location:' . HOME_URL . 'views/article.php?id=' . $id_article .'&msg=<div class="green">Commentaire supprimé</div>');
+        header('Location:' . HOME_URL . 'views/article.php?id=' . $id_article .'&msg=<p id="delete_comment_success">Commentaire supprimé</p>');
     }
     else {
-        header('Location:' . HOME_URL . '?msg=<div class="red">Erreur lors de la suppression</div>');
+        header('Location:' . HOME_URL . '?msg=<p id="error_delete_comment">Erreur lors de la suppression</p>');
     }
 }

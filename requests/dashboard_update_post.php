@@ -220,4 +220,3 @@ if(isset($msg_error)) {
 else {
     header('Location:' . HOME_URL . 'views/dashboard*.php' . '?msg=' . $msg_success);
 }
-//Lecorre@!33
