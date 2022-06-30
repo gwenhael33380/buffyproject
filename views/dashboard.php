@@ -8,23 +8,7 @@ require __DIR__ . '/header.php';
 // avec leur nom, prénom, pseudo, email, role, nombre d'articles, nombre de commentaires
 
 enabled_access(array('administrator'));
-//
-//$req = $db->query("
-//	SELECT DISTINCT COUNT(c.id) count_comment, COUNT(a.id) count_article, u.*, r.id id_role, r.role_name, r.role_slug, a.id id_article, c.id id_comment, i.id as id_image, i.file_name
-//	FROM users u
-//	LEFT JOIN roles r
-//	ON u.id_role = r.id
-//	LEFT JOIN articles a
-//	ON a.id_user = u.id
-//	LEFT JOIN comments c
-//	ON c.id_user = u.id
-//	LEFT JOIN images i
-//	ON u.id_image = i.id
-//	GROUP BY u.id
-//	ORDER BY r.id ASC
-//");
-//$req->execute();
-//$results = $req->fetchAll(PDO::FETCH_OBJ); ?>
+ ?>
 
 
     <main class="content">
@@ -32,7 +16,7 @@ enabled_access(array('administrator'));
         <h1>Liste des utilisateurs</h1>
         <div>
             <input id="search_filter" type="text">
-            <button id="search_button" >Search</button>
+            <button id="search_button" >Recherche</button>
         </div>
 
         <div id="users_dashboard" class="users-dashboard">
@@ -50,7 +34,7 @@ enabled_access(array('administrator'));
         });
 
         function populate(filter) {
-            fetch('../requests/get_users.php?' + new URLSearchParams({
+            fetch('../requests/get_users_dashboard.php?' + new URLSearchParams({
                 filter: filter,
             }) )
                 .then( (raw) => {
@@ -59,19 +43,66 @@ enabled_access(array('administrator'));
                 .then((result) => {
                     let append = '';
                     result.forEach(element => {
-                        append += "<div>";
-                        append += "<span class='left_name' >";
-                        append += element.first_name;
-                        append += "</span>";
-                        append += "<span class='right_name'>";
-                        append += element.last_name;
-                        append += "</span>";
-                        append += "<span class='image_path'>";
-                        append += "<img src='<?php echo HOME_URL . 'assets/img/dist/profil/' ?>"
-                        append += element.file_name;
-                        append += "'>";
-                        append += "</span>";
+                        append += "<div class='content_user_dashboard'>";
+                             append += "<div class='user_dashboard'>";
+                                append += "<div class='content_img_dashboard'>";
+                                 append += "<img class='img_dashboard' src='<?php echo HOME_URL . 'assets/img/dist/profil/' ?>"
+                                 append += element.file_name;
+                                 append += "'>";
+                                 append += "</div>";
+                                 append += "<div class='content_desc_user'>";
+                                    append += "<div class='desc_user_dashboard'>";
+                                        append += "<p class='text_dashboard last_name_dashboard'>";
+                                        append += "Nom : ";
+                                        append += "<span class='span_text_dashboard'>";
+                                        append += element.last_name;
+                                        append += "</span>";
+                                        append += "</p>";
+                                        append += "<p class='text_dashboard first_name_dashboard'>";
+                                        append += "Prénom : ";
+                                        append += "<span class='span_text_dashboard'>";
+                                        append += element.first_name;
+                                        append += "</span>";
+                                        append += "</p>";
+                                        append += "<p class='text_dashboard pseudo_dashboard'>";
+                                        append += "Pseudo : ";
+                                        append += "<span class='span_text_dashboard'>";
+                                        append += element.pseudo;
+                                        append += "</span>";
+                                        append += "</p>";
+                                    append += "</div>";
+                                    append += "<div class='desc_user_dashboard_2'>";
+                                        append += "<p class='text_dashboard email_dashboard'>";
+                                        append += "Email : ";
+                                        append += "<span class='span_text_dashboard'>";
+                                        append += element.email;
+                                        append += "</span>";
+                                        append += "</p>";
+                                        append += "<p class='text_dashboard role_dashboard'>";
+                                        append += "Rôle : ";
+                                        append += "<span class='span_text_dashboard'>";
+                                        append += element.role_name;
+                                        append += "</span>";
+                                        append += "</p>";
+                                    append += "</div>";
+                                    append += "<div>";
+                                        append += "<div>";
+                                            url = "./dashboard_update.php?id=" +element.id;
+                                            append += "<a href=' "+url+" '><i class='fa-solid fa-pencil'></i></a>";
+                                        append += "</div>";
+                                        append += "<div>";
+                                             append += "<div id='button_delete_user_dashboard'>";
+                                             append += "<i class='fa-solid fa-trash-can'></i>";
+                                             append += "</div>";
+                                        append += "</div>";
+                                    append += "</div>";
+                                append += "</div>";
+                             append += "</div>";
                         append += "</div>";
+
+
+
+
                     })
 
                     document.getElementById("users_dashboard").innerHTML = append;

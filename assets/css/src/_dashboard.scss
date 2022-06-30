@@ -4,8 +4,55 @@
   padding-top: 150px;
 }
 
-.left_name{
-  color: #3b0707;
+#users_dashboard{
+
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+.user_dashboard{
+  border: 1px solid $black;
+  margin-bottom: 15px;
+}
+
+.content_img_dashboard{
+  display: flex;
+  justify-content: center;
+  padding-top: 3%;
+}
+
+.img_dashboard{
+  width: 30%;
+}
+
+.content_desc_user{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 45px;
+}
+
+.desc_user_dashboard{
+  padding-left: 15%;
+}
+.desc_user_dashboard_2{
+  padding-left: 14%;
+}
+
+.content_desc_user{
+  margin-top: 10px;
+
+}
+
+.desc_user_dashboard{
+}
+
+.text_dashboard{
+  font-family: robot-cond-b;
+  font-size: 17px;
+}
+
+.span_text_dashboard{
+  font-family: robot-cond;
 }
 
 .right_name{
