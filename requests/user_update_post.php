@@ -178,6 +178,7 @@ else :
                 $req = $db->prepare("
                         $request;                    
                     ");
+
                 $req->bindValue(':first_name', $first_name, PDO::PARAM_STR);
                 $req->bindValue(':last_name', $last_name, PDO::PARAM_STR);
                 if (!$same_pseudo) {

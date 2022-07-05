@@ -30,6 +30,20 @@
   text-shadow: 5px 1px 6px rgba(0,0,0,0.38);
 }
 
+.create_article_error{
+  background-color: #c6c198;
+  color: red;
+  padding: 10px;
+  font-family: robot-cond;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  z-index: 150;
+  margin-top: .5%;
+  top: 10.5%;
+}
+
+
 .flex-form-add-article{
   display: flex;
   flex-direction: column;
@@ -48,6 +62,12 @@
   box-shadow: 4px 1px 10px 0 rgba(0, 0, 0, .15);
   border-radius: 8px;
   padding: 15px;
+}
+
+.flex-counter-add-article{
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 5px;
 }
 
 .label-content-add-article{

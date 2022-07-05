@@ -16,7 +16,7 @@ if($id_article) {
 		WHERE a.id = :id
         
 	");
-    var_dump($db->errorInfo());
+
     $req->bindValue(':id', $id_article, PDO::PARAM_INT);
     $req->execute();
 
@@ -28,51 +28,63 @@ if($id_article) {
 }
 
 ?>
-<main class="content">
-    <h1 class="title">Formulaire de mise à jour d'un article</h1>
 
-    <div class="file_form">
+<!--    article update form. Warning !!! use of the class of the add article form-->
+<main class="content">
+    <div class="bg-img-add-article"></div>
+    <div class="msg_error">
+        <?php
+        if(isset($_GET['msg'])) {
+            echo $_GET['msg'];
+        } ?>
+    </div>
+    <div class="content_title_update_article">
+        <h1 class="title_update_article">Formulaire de mise à jour d'un article</h1>
+    </div>
+    <div class="file_form_update_article">
         <form action="<?php echo HOME_URL . 'requests/update_article_post.php'; ?>" method="POST" enctype="multipart/form-data">
-            <div>
-                <label for="title">Titre</label>
-                <input type="text" id="title" name="title" value="<?php echo sanitize_html($article->title); ?>">
+            <div class="flex-form-add-article">
+                <label class="label-title-add-article" for="title">Titre</label>
+                <input type="hidden" name="id_article" value="<?php echo $article->id_article; ?>">
+                <input id="input_title_update_article" class="input-add-article-title" minlength="3" maxlength="40"  type="text" id="title" name="title" placeholder="Veuillez renseigner un titre..." value="<?php echo sanitize_html($article->title); ?>">
+                <div class="flex-counter-add-article">
+                    <div id="counter_title_update_article">0</div>
+                    <div>/40</div>
+                </div>
             </div>
-            <div>
-                <label for="text">Contenu de l'article</label>
-                <textarea id="text" name="text" rows="10"><?php echo sanitize_html($article->content); ?></textarea>
+            <div class="flex-form-add-article">
+                <label class="label-content-add-article" for="text">Contenu de l'article</label>
+                <textarea id="input_textarea_update_article" class="textarea-add-article-content" minlength="750" maxlength="3000" name="text" rows="10" placeholder="Contenu à renseigner, Merci de renseigner un minimum de 750 caractères et un maximum de 3000..."><?php echo sanitize_html($article->content); ?></textarea>
+                <div class="flex-counter-add-article">
+                    <div id="counter_content_update_article" style="text-align:right">0</div>
+                    <div>/3000</div>
+                </div>
             </div>
-            <div>
-                <label for="text2">Contenu de l'article 2</label>
-                <textarea id="text2" name="text2" rows="10"><?php echo sanitize_html($article->content_2); ?></textarea>
+            <div class="content-description-article">
+                <label class="label-content-add-article" for="alt">Veuillez renseigner une description courte de l'image</label>
+                <input id="input_alt_update_article" class="input-alt-article" minlength="5" maxlength="40" type="text" placeholder="Veuillez renseigner 10 caractères minimum, maximum 40..." name="alt"  value="<?php echo sanitize_html($article->alt); ?>" >
+                <div class="flex-counter-add-article">
+                    <div id="counter_alt_update_article" style="text-align:right">0</div>
+                    <div>/40</div>
+                </div>
             </div>
-            <div>
-                <label for="picture">Mettre à jour l'image (jpg, jpeg, png, gif)</label>
+            <div class="content-add-img-article">
+                <label class="label-add-img-article" for="images">Ajouter une image (jpg, jpeg, png, gif)<span class="red" >*</span>
+                    <br>  <span class="red">N'ajoutez que des images en mode paysage.  </span> Merci de respecté cette convention. Tout manquement à cette règle fera l'objet d'une suppression de l'article concerné ! Merci pour votre compréhension.</label>
+
                 <input type="hidden" name="current_img" value="<?php echo sanitize_html($article->file_name); ?>">
                 <input type="hidden" name="id_image" value="<?php echo sanitize_html($article->id_image); ?>">
                 <input type="hidden" name="MAX_FILE_SIZE" value="1048576"> <!-- 1Mo = 1024*1024 octets -->
                 <input type="file" id="picture" name="picture" accept="image/*">
-                <!-- TYPE MIME -->
-                <!-- https://developer.mozilla.org/fr/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types -->
-                <!-- https://developer.mozilla.org/fr/docs/Web/HTML/Attributes/accept -->
 
-                <!-- si plusieurs fichiers à récupérer en même temps -->
-                <!-- <input type="file" id="picture" name="picture[]" multiple> -->
-
-                <div class="current_img"><img src="<?php echo IMG_URL . 'dist/articles/' . sanitize_html($article->file_name); ?>"></div>
-                <?php var_dump($article->id_image); ?>
+                <div class="content-current-img-update-article">
+                    <div class="current_img"><img src="<?php echo IMG_URL . 'dist/articles/' . sanitize_html($article->file_name); ?>"></div>
+                </div>
             </div>
-            <div class="msg_error"></div>
-<!--            <div class="current_img">-->
-<!--                <img src="--><?php //echo $file_name; ?><!--" alt="">-->
-<!--            </div>-->
-<!--            --><?php //var_dump($article); ?>
-            <div>
-                <label for="alt">Veuillez renseigner une description courte de l'image</label>
-                <input id="input-alt"type="text" name="alt" value="<?php echo sanitize_html($article->alt); ?>" >
-            </div>
-            <input type="hidden" name="id_article" value="<?php echo $article->id_article; ?>">
 
-            <button type="submit">Mettre à jour l'article</button>
+            <div class="content-button-add-article">
+                <button class="button-submit-add-article" type="submit">Mettre à jour l'article</button>
+            </div>
         </form>
     </div>
 </main>

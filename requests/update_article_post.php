@@ -4,7 +4,6 @@ require_once PATH_PROJECT . '/connect.php';
 
 $title 		= trim($_POST['title']);
 $text 		= trim($_POST['text']);
-$text_2 	= trim($_POST['text2']);
 $alt        = trim($_POST['alt']);
 $id_image   =intval($_POST['id_image']);
 
@@ -54,7 +53,7 @@ else :
             else :
                 // on créé un nom de fichier unique et aléatoire pour éviter les doublons dans le FTP (sur le serveur dans le dossier assets/img)
 
-                // https://www.php.net/manual/fr/function.uniqid.php
+
                 $img_name = uniqid() . '_' . $recept_img;
 
                 // facultatif :
@@ -63,10 +62,10 @@ else :
                 // https://www.php.net/manual/fr/function.chmod.php
 
                 // le @ n'affichera pas l'erreur (notice ou warning) si la fonction en retourne une
-                @mkdir(PATH_PROJECT . '/assets/img/src/articles/', 0755);
+                @mkdir(PATH_PROJECT . '/assets/img/dist/articles/', 0755);
 
                 // je crée une variable pour spécifier l'endroit où je vais stocker mon image
-                $img_folder = PATH_PROJECT . '/assets/img/src/articles/';
+                $img_folder = PATH_PROJECT . '/assets/img/dist/articles/';
 
                 //var_dump($img_folder);
                 $dir = $img_folder . $img_name;
@@ -79,8 +78,7 @@ else :
                 if($move_file) :
                     if($curr_img != $default_picture)
 
-                        // https://www.php.net/manual/fr/function.unlink.php
-//                        unlink($img_folder . $curr_img);
+                        unlink($img_folder . $curr_img);
 
 
                     $set_request = TRUE;
@@ -93,7 +91,7 @@ else :
         if($set_request) :
             $req = $db->prepare("
                     
-					UPDATE articles SET id_user = :id_user, title = :title, content =:content, content_2 = :content_2, created_at = NOW()
+					UPDATE articles SET id_user = :id_user, title = :title, content =:content, created_at = NOW()
 					WHERE id = :id;
                     $request_image
 				");
@@ -103,7 +101,6 @@ else :
             $req->bindValue(':id_user', intval($_SESSION['id_user']), PDO::PARAM_INT); // integer
             $req->bindValue(':title', $title, PDO::PARAM_STR);
             $req->bindValue(':content', $text, PDO::PARAM_STR);
-            $req->bindValue(':content_2', $text_2, PDO::PARAM_STR);
             if(!empty($request_image)) {
             $req->bindValue(':id_image', $id_image, PDO::PARAM_INT);
             $req->bindValue(':file_name', $img_name, PDO::PARAM_STR);
@@ -137,5 +134,5 @@ if(isset($msg_error)) {
     header('Location:' . HOME_URL . 'views/update_article.php?id=' . $id . '&msg=' . $msg_error . '&title=' . $title . '&content=' . $text);
 }
 else {
-    header('Location:' . HOME_URL . 'views/blog.php?id='.'?msg=<div class="green">' . $msg_success . '</div>');
+    header('Location:' . HOME_URL . 'views/blog.php?id='.'?msg=<div class="create_article_succes">' . $msg_success . '</div>');
 }

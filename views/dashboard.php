@@ -43,6 +43,8 @@ enabled_access(array('administrator'));
                 .then((result) => {
                     let append = '';
                     result.forEach(element => {
+                        url = "./dashboard_update.php?id=" +element.id;
+
                         append += "<div class='content_user_dashboard'>";
                              append += "<div class='user_dashboard'>";
                                 append += "<div class='content_img_dashboard'>";
@@ -87,11 +89,10 @@ enabled_access(array('administrator'));
                                     append += "</div>";
                                     append += "<div>";
                                         append += "<div>";
-                                            url = "./dashboard_update.php?id=" +element.id;
                                             append += "<a href=' "+url+" '><i class='fa-solid fa-pencil'></i></a>";
                                         append += "</div>";
                                         append += "<div>";
-                                             append += "<div id='button_delete_user_dashboard'>";
+                                             append += "<div class='button_delete_user_dashboard'>";
                                              append += "<i class='fa-solid fa-trash-can'></i>";
                                              append += "</div>";
                                         append += "</div>";
@@ -99,10 +100,6 @@ enabled_access(array('administrator'));
                                 append += "</div>";
                              append += "</div>";
                         append += "</div>";
-
-
-
-
                     })
 
                     document.getElementById("users_dashboard").innerHTML = append;

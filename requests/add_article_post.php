@@ -13,7 +13,6 @@ $size_max 			= 1048576;
 
 if(in_array('', $_POST)) :
     $msg_error = 'Merci de remplir le titre et le contenu de l\'article';
-// header('Location:' . HOME_URL . 'views/add_article.php?msg=' . $msg_error);
 else :
 
     $title 		= trim($_POST['title']);
@@ -57,10 +56,10 @@ else :
                 // https://www.php.net/manual/fr/function.chmod.php
 
                 // le @ n'affichera pas l'erreur (notice ou warning) si la fonction en retourne une
-                @mkdir(PATH_PROJECT . '/assets/img/src/articles/', 0755);
+                @mkdir(PATH_PROJECT . '/assets/img/dist/articles/', 0755);
 
                 // je crée une variable pour spécifier l'endroit où je vais stocker mon image
-                $img_folder = PATH_PROJECT . '/assets/img/src/articles/';
+                $img_folder = PATH_PROJECT . '/assets/img/dist/articles/';
                 // var_dump($img_folder);
                 $dir = $img_folder . $img_name;
                 // var_dump($dir);
@@ -89,7 +88,6 @@ else :
               
 			");
 
-            // https://www.php.net/manual/fr/function.intval.php
             $req->bindValue(':id_user', intval($_SESSION['id_user']), PDO::PARAM_INT); // integer
             $req->bindValue(':title', $title, PDO::PARAM_STR); // string
             $req->bindValue(':content', $text, PDO::PARAM_STR); // string
@@ -118,8 +116,11 @@ else :
 endif;
 
 if(isset($msg_error)) {
-    header('Location:' . HOME_URL . 'views/add_article.php?msg=' . $msg_error . '&title=' . $title . '&content=' . $text);
+    header('Location:' . HOME_URL . 'views/add_article.php?msg=<p class="create_article_error">' . $msg_error . '</p>');
 }
 else {
-    header('Location:' . HOME_URL . '?msg=<div class="green">' . $msg_success . '</div>');
+    header('Location:' . HOME_URL . 'views/blog.php?msg=<p class="create_article_success">' . $msg_success . '</p>');
+
 }
+
+

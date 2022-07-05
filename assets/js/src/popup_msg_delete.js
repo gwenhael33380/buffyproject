@@ -16,6 +16,10 @@ function msg_connect_failure() {
     $("#connect_user_falure, #connect_user_falure2, #connect_user_falure3, #connect_user_falure4").fadeOut().empty();
 }
 
+
+
+
+
 // Disconnect user
 setTimeout(disconnect_user, 3000);
 
@@ -43,7 +47,22 @@ function error_msg_update_user() {
 }
 
 
-// Article
+
+
+
+// message create article
+setTimeout(msg_create_article_succes, 3000);
+
+function msg_create_article_succes() {
+    $(".create_article_success").fadeOut().empty();
+}
+
+
+
+
+
+
+// comment
 
 // delete message update 3 sec and 3000ms
 setTimeout(msg_delete_comment_succes, 3000);

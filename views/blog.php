@@ -65,6 +65,13 @@ if(isset($_SESSION['role_slug'])) $role_slug = $_SESSION['role_slug'];
     <main class="content">
 
         <div class="content-bgi-blog"></div>
+        <!--            display of request $_GET messages-->
+        <div class="msg-connexion">
+            <?php
+            if(isset($_GET['msg'])) {
+                echo $_GET['msg'];
+            } ?>
+        </div>
         <div class="content-title-blog" >
             <h1 class="title-blog">Buffy Contre Les Vampires Le Blog <?php if(isset($role_slug) && $role_slug == 'administrator') echo "<span><a href=\"" . HOME_URL . "views/add_article.php\"><i class=\"fa-solid fa-circle-plus\"></i></a></span>"; ?></h1>
         </div>
@@ -75,13 +82,7 @@ if(isset($_SESSION['role_slug'])) $role_slug = $_SESSION['role_slug'];
                 </div>
             </div>
 
-            <!--            display of request $_GET messages-->
-            <div class="msg-add-comment">
-                <?php
-                if(isset($_GET['msg'])) {
-                    echo $_GET['msg'];
-                } ?>
-            </div>
+
 
             <!--            loop foreach for displaying items-->
             <?php
@@ -115,7 +116,7 @@ if(isset($_SESSION['role_slug'])) $role_slug = $_SESSION['role_slug'];
                             </div>
                             <div class="content-article-action">
                                 <div class="content-button-acces-article">
-                                    <a class="button-prewiew-acces-blog" href="<?php echo HOME_URL . 'views/article.php?id=' .  $article->id; ?>">Lire l'article complet...</a>
+                                    <a class="button-prewiew-acces-blog" href="<?php echo HOME_URL . 'views/article.php?id=' .  $article->id; ?>">Lire l'article...</a>
                                 </div>
                             </div>
                         </div>
