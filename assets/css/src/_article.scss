@@ -11,7 +11,7 @@
   max-height: 40vh;
   width: 100%;
   background-repeat: no-repeat;
-  margin-top: 5%;
+  margin-top: 4%;
 }
 
 #connect_user_failure{
@@ -79,7 +79,6 @@
 
 .content-articles{
 margin-bottom: 50px;
-
 }
 
 .flex-content-img-article{
@@ -97,7 +96,6 @@ margin-bottom: 50px;
   padding: 50px;
   margin-bottom: 200px;
   background-color: rgba(213, 183, 183, 0.25);
-
 }
 
 .content-pseudo-creat-article{
@@ -107,17 +105,18 @@ margin-bottom: 50px;
 }
 
 .pseudo-created-by{
-font-family: robot-cond-b;
+  font-family: robot-cond-b;
 }
+
 .pseudo-created-by-span{
-font-family: robot-cond;
+  font-family: robot-cond;
   color: $brown;
 }
 
 .creation-date-article{
   font-family: robot-cond-b;
-
 }
+
 .creation-date-article-span{
   font-family: robot-cond;
   color: $brown;
@@ -126,8 +125,8 @@ font-family: robot-cond;
 .img-article-current{
   width: 38%;
   border-radius: 3px;
-
 }
+
 .preview-content-and-article-content{
   display: flex;
   justify-content: space-around;
@@ -142,8 +141,8 @@ font-family: robot-cond;
   border-top: 2px solid $black;
   border-bottom: 2px solid $black;
   margin-bottom: 20px;
-
 }
+
 .title-article-2{
   text-align: center;
   text-transform: uppercase;
@@ -158,16 +157,12 @@ font-family: robot-cond;
 }
 
 .text-content-article{
-
-
   text-align: start;
   font-family: robslab-r;
   line-height: 25px;
   font-size: 16px;
   border-bottom: 2px solid $black;
   padding-bottom: 15px;
-
-
 }
 
 .text-content-article-2{
@@ -175,15 +170,13 @@ font-family: robot-cond;
   margin-left: 2%;
   font-size: 16px;
   font-family: robslab-r;
-
 }
 
 .content-prewiew-article-x3{
   width: 20%;
   margin-top: -2%;
-  //background-color: rgba(76, 176, 79, 0.11);
   padding-left: 44px;
-background-color: $green-o;
+  background-color: $green-o;
   border-radius: 10px;
   padding-top: 50px;
 }
@@ -192,15 +185,12 @@ background-color: $green-o;
   font-family: robot-cond;
   font-size: 27px;
   margin-bottom: 17px;
-
 }
 
 .content-article-previews{
   display: flex;
   flex-direction: column;
   margin-bottom: 25px;
-
-
 }
 
 .content-title-preview-article{
@@ -208,10 +198,9 @@ background-color: $green-o;
 }
 
 .link-preview-article{
-font-family: robslab-r;
+  font-family: robslab-r;
   font-size: 18px;
   letter-spacing: .5px;
-
 }
 
 .img-preview-article{
@@ -294,29 +283,27 @@ width: 81%;
 }
 
 .content-button-add-comment{
-
   display: flex;
   justify-content: end;
   margin-right: 10%;
   margin-bottom: 3%;
 }
 .button-add-comment{
-
   margin-right: 15%;
   font-family: robot-cond;
   font-size: 25px;
   color: $black;
   text-shadow: 1px 0px 1px rgba(0,0,0,0.50);
+}
 
+.flex-comments{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .button-add-comment:hover{
   color: $black!important;
-}
-
-.comment{
-  margin-left: 20%;
-  margin-right: 20%;
 }
 
 .content-info-comment{
@@ -328,15 +315,16 @@ width: 81%;
   overflow: hidden;
   width: 75px;
   height: 75px;
-
-
 }
+
 .img-content-profil-user-comment{
   width: 150px;
 }
+
 .info-content-comment{
   margin-left: 25px;
 }
+
 .content-info-comment-and-button-action{
   display: flex;
   justify-content: space-between;
@@ -344,21 +332,27 @@ width: 81%;
 
 .comment-posted-by{
   font-family: robot-cond-b;
-}
-
-.span-comment-posted-by{
-  font-family: robot-cond;
-  color: $brown;
+  .span-comment-posted-by{
+    font-family: robot-cond;
+    color: $brown;
+  }
 }
 
 .comment-published-on{
   font-family: robot-cond-b;
+  .span-comment-published-on{
+    font-family: robot-cond;
+    color: $brown;
+  }
 }
 
-.span-comment-published-on{
-  font-family: robot-cond;
-  color: $brown;
+.button-update-comment{
+  margin-right: 25px;
+  font-size: 25px;
+}
 
+.delete_comment{
+  font-size: 25px;
 }
 
 .comment_action{
@@ -378,4 +372,318 @@ width: 81%;
 
 .span-comment-in-html{
   font-family: robot-cond;
+}
+
+
+
+//Media Query page article
+
+
+
+@media screen and (max-width: 1416px){
+
+  .content-pseudo-creat-article{
+    padding-right: 22%;
+  }
+
+  .content-prewiew-article-x3{
+    height: 644px;
+  }
+
+  .button-add-comment{
+    margin-right: 7%;
+  }
+}
+
+@media screen and (max-width: 1356px){
+
+  .content-pseudo-creat-article{
+    padding-right: 21%;
+  }
+
+  .link-preview-article{
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 1302px){
+
+  .title-page-article{
+    font-size: 50px;
+  }
+
+  .content-title-article{
+    border-top: 2px solid $black;
+    border-bottom: 2px solid $black;
+  }
+
+  .title-article{
+   font-size: 35px;
+  }
+
+  .content-pseudo-creat-article{
+    padding-right: 20%;
+  }
+
+  .content-prewiew-article-x3{
+    height: 588px;
+  }
+
+  .content-title-comments{
+    border-top: 2px solid $black;
+    border-bottom: 2px solid $black;
+  }
+
+  .title-comments{
+    font-size: 35px;
+  }
+
+}
+
+@media screen and (max-width: 1168px){
+
+  .title-page-article{
+    font-size: 57px;
+  }
+
+  .title-article{
+    font-size: 33px;
+  }
+
+  .content-pseudo-creat-article{
+    padding-right: 18%;
+  }
+
+  .title-article-2{
+    font-size: 33px;
+    padding: 21px;
+  }
+
+  .content-text-article{
+    margin-left: 4%;
+  }
+
+  .content-prewiew-article-x3{
+    padding-right: 15px;
+  }
+
+  .img-preview-article{
+    width: 92%;
+  }
+
+  .title-comments{
+    font-size: 33px;
+  }
+
+  .content-comment-article{
+    width: 800px;
+  }
+}
+
+@media screen and (max-width: 991px){
+
+  .bg-img-page-article{
+    margin-top: 6%;
+  }
+
+  .title-page-article{
+    font-size: 52px;
+    padding: 30px 0;
+  }
+
+  .title-article{
+    font-size: 30px;
+  }
+
+  .content-pseudo-creat-article{
+    padding-right: 19%;
+  }
+
+  .img-article-current{
+    width: 44%;
+  }
+
+  .title-article-2{
+    font-size: 30px;
+  }
+
+  .content-prewiew-article-x3{
+    height: 632px;
+    width: 24%;
+    padding-right: 15px;
+    padding-left: 20px;
+  }
+
+  .img-preview-article{
+    width: 100%;
+  }
+
+  .title-comments{
+    font-size: 30px;
+  }
+
+  .button-add-comment{
+    margin-right: 11%;
+    font-size: 21px;
+  }
+
+  .content-comment-article{
+    width: 600px;
+  }
+}
+
+@media screen and (max-width: 767px){
+
+  .bg-img-page-article{
+    min-height: calc(42vh - 92px);
+    margin-top: 10%;
+  }
+
+  .title-page-article{
+    font-size: 45px;
+  }
+
+  .title-article{
+    padding: 20px;
+    font-size: 28px;
+  }
+
+  .content-pseudo-creat-article{
+    padding-right: 30%;
+  }
+
+  .img-article-current{
+    width: 64%;
+  }
+
+  .title-article-2{
+    font-size: 20px;
+  }
+
+  .content-img-article{
+    margin-bottom: 75px;
+  }
+
+  .content-intergal-article{
+    width: 100%;
+  }
+
+  .content-text-article{
+    width: 80%;
+    margin: 0 10%;
+  }
+
+  .text-content-article{
+   text-align: justify;
+  }
+
+  .content-prewiew-article-x3{
+   display: none;
+  }
+
+  .title-comments{
+    font-size: 28px;
+  }
+
+  .content-info-comment{
+    flex-direction: column;
+    margin-top: 25px;
+  }
+
+  .content-img-profil-comment{
+  margin-left: 45%;
+  }
+
+  .content-comment-article{
+   margin-top: 10px;
+  }
+}
+
+@media screen and (max-width: 576px){
+
+  .bg-img-page-article{
+    min-height: calc(33vh - 92px);
+  }
+
+  .title-page-article{
+    font-size: 40px;
+  }
+
+  .title-article{
+    font-size: 24px;
+  }
+
+  .content-pseudo-creat-article{
+    padding-right: 25%;
+  }
+
+  .img-article-current{
+    width: 71%;
+  }
+
+  .title-article-2{
+    font-size: 24px;
+  }
+
+  .title-comments{
+    font-size: 24px;
+  }
+
+  .button-update-comment{
+    font-size: 25px;
+  }
+
+  .delete_comment{
+    font-size: 25px;
+  }
+
+  .content-comment-article{
+    width: 500px;
+  }
+}
+
+@media screen and (max-width: 486px){
+
+  .bg-img-page-article{
+    min-height: calc(30vh - 92px);
+    margin-top: 10%;
+  }
+
+  .title-page-article{
+    font-size: 35px;
+  }
+
+  .title-article{
+    font-size: 22px;
+  }
+
+  .content-pseudo-creat-article{
+    padding-right: 17%;
+  }
+
+  .title-article-2{
+    font-size: 22px;
+  }
+
+  .button-update-article{
+    padding: 8px 21px;
+    font-size: 16px;
+  }
+
+  .button-delete_user{
+    padding: 8px 21px;
+    font-size: 16px;
+  }
+
+  .title-comments{
+    font-size: 22px;
+  }
+
+  .comment_action {
+    padding-right: 0;
+  }
+
+  .content-comment-article{
+    width: 400px;
+  }
 }

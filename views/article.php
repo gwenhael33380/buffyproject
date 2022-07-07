@@ -77,7 +77,7 @@ $user_img = $req->fetch(PDO::FETCH_OBJ);
         <!--        section 1 content article-->
         <section>
 
-<!--           Requests message-->
+            <!--           Requests message-->
             <div class="msg-add-comment">
                 <?php
                 if(isset($_GET['msg'])) {
@@ -184,59 +184,59 @@ $user_img = $req->fetch(PDO::FETCH_OBJ);
             <div class="comments">
                 <?php
                 if(
-                    isset($role_slug) // je vérifie si la variable existe (au cas où je suis déconnecté)
-                    &&
+                isset($role_slug) // je vérifie si la variable existe (au cas où je suis déconnecté)
+                &&
+                (
                     (
-                        (
-                            $role_slug == 'administrator'
-                            ||
-                            $role_slug == 'user'
-                        )
+                        $role_slug == 'administrator'
                         ||
-                        (
-                            $role_slug == 'editor'
-                            &&
-                            $_SESSION['id_user'] != $article->id_user // id_user connecté != id_user de l'article
-                        )
+                        $role_slug == 'user'
                     )
+                    ||
+                    (
+                        $role_slug == 'editor'
+                        &&
+                        $_SESSION['id_user'] != $article->id_user // id_user connecté != id_user de l'article
+                    )
+                )
                 ) : ?>
 
-                    <div class="content-button-add-comment">
-                        <a class="button-add-comment" href="<?php echo HOME_URL . 'views/add_comment.php?id=' . $id_article; ?>"> Ajouter un commentaire <i class="fa-solid fa-circle-plus"></i></a>
-                    </div>
+                <div class="content-button-add-comment">
+                    <a class="button-add-comment" href="<?php echo HOME_URL . 'views/add_comment.php?id=' . $id_article; ?>"> Ajouter un commentaire <i class="fa-solid fa-circle-plus"></i></a>
+                </div>
+                <div class="flex-comments">
+                    <?php endif; ?>
+                    <?php while($comment = $req->fetch(PDO::FETCH_OBJ)) :;
 
-                <?php endif; ?>
-                <?php while($comment = $req->fetch(PDO::FETCH_OBJ)) :;
-
-                    //time conversion function
-                    $origin_date_comment = $comment->created_at;
-                    $timestamp = strtotime($origin_date_comment);
-                    $newDateComment = date("d-m-Y à h:i:s", $timestamp );
+                        //time conversion function
+                        $origin_date_comment = $comment->created_at;
+                        $timestamp = strtotime($origin_date_comment);
+                        $newDateComment = date("d-m-Y à h:i:s", $timestamp );
 
 
-                ?>
-                    <div class="comment">
-                        <div>
-                            <div class="content-info-comment">
-                                <div class="content-img-profil-comment">
-                                    <img class="img-content-profil-user-comment" src="<?php echo HOME_URL .'assets/img/dist/profil/'.sanitize_html($comment->file_name); ?>">
-                                </div>
-                                <div class="info-content-comment">
-                                    <div class="content-info-comment-and-button-action"  >
-                                        <div>
-                                            <p class="comment-posted-by">Par : <span class="span-comment-posted-by"><?php echo sanitize_html($comment->pseudo) ?></span> </p>
-                                            <p class="comment-published-on">Publié le :<span class="span-comment-published-on"><?php echo $newDateComment; ?></span></p>
-                                        </div>
-                                        <div class="comment_action">
-                                            <?php
-                                            $enabled_comment = array('editor', 'user',);
-                                            if(
-                                                isset($role_slug)
-                                                &&
-                                                (
-                                                    $role_slug == "administrator"
-                                                    ||
+                        ?>
+                        <div class="comment">
+                            <div>
+                                <div class="content-info-comment">
+                                    <div class="content-img-profil-comment">
+                                        <img class="img-content-profil-user-comment" src="<?php echo HOME_URL .'assets/img/dist/profil/'.sanitize_html($comment->file_name); ?>">
+                                    </div>
+                                    <div class="info-content-comment">
+                                        <div class="content-info-comment-and-button-action"  >
+                                            <div>
+                                                <p class="comment-posted-by">Par : <span class="span-comment-posted-by"><?php echo sanitize_html($comment->pseudo) ?></span> </p>
+                                                <p class="comment-published-on">Publié le :<span class="span-comment-published-on"><?php echo $newDateComment; ?></span></p>
+                                            </div>
+                                            <div class="comment_action">
+                                                <?php
+                                                $enabled_comment = array('editor', 'user',);
+                                                if(
+                                                    isset($role_slug)
+                                                    &&
                                                     (
+                                                        $role_slug == "administrator"
+                                                        ||
+                                                        (
 //                                         (
 //                                         	$role_slug == 'editor' && $comment->id_user == $_SESSION['id_user']
 //                                         )
@@ -244,27 +244,28 @@ $user_img = $req->fetch(PDO::FETCH_OBJ);
 //                                         (
 //                                         	$role_slug == 'user' && $comment->id_user == $_SESSION['id_user']
 //                                         )
-                                                        in_array($role_slug,$enabled_comment) && $comment->id_user == $_SESSION['id_user']
+                                                            in_array($role_slug,$enabled_comment) && $comment->id_user == $_SESSION['id_user']
+                                                        )
                                                     )
-                                                )
-                                            ) :
-                                                $id_comment = $comment->id;
-                                                ?>
-                                                <!-- bouton éditer -->
-                                                <a href="<?php echo HOME_URL . 'views/update_comment.php?id=' . $id_comment . '&id_article=' . $id_article; ?>"><i class="fa-solid fa-pencil"></i></a>
-                                                <!-- bouton supprimer -->
-                                                <a class="delete_comment" href="<?php echo HOME_URL . 'requests/delete_comment_post.php?id=' . $id_comment . '&id_article=' . $id_article; ?>"><i class="fa-solid fa-trash-can"></i></a>
-                                            <?php endif; ?>
+                                                ) :
+                                                    $id_comment = $comment->id;
+                                                    ?>
+                                                    <!-- bouton éditer -->
+                                                    <a class="button-update-comment" href="<?php echo HOME_URL . 'views/update_comment.php?id=' . $id_comment . '&id_article=' . $id_article; ?>"><i class="fa-solid fa-pencil"></i></a>
+                                                    <!-- bouton supprimer -->
+                                                    <a class="delete_comment" href="<?php echo HOME_URL . 'requests/delete_comment_post.php?id=' . $id_comment . '&id_article=' . $id_article; ?>"><i class="fa-solid fa-trash-can"></i></a>
+                                                <?php endif; ?>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="content-comment-article">
-                                        <p class="comment-in-html">commentaire : <span class="span-comment-in-html"><?php echo sanitize_html($comment->comment_content); ?></span></p>
+                                        <div class="content-comment-article">
+                                            <p class="comment-in-html">commentaire : <span class="span-comment-in-html"><?php echo sanitize_html($comment->comment_content); ?></span></p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                <?php endwhile; ?>
+                    <?php endwhile; ?>
+                </div>
             </div>
         </section>
     </main>

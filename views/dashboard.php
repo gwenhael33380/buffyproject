@@ -12,8 +12,18 @@ enabled_access(array('administrator'));
 
 
     <main class="content">
+
         <div class="dashboard"></div>
         <h1>Liste des utilisateurs</h1>
+
+        <div id="popup_delete_user_dashboard">
+            <p>
+                supprimer l'utilisateur : <span id="id_user_dashboard" > </span>
+            </p>
+            <button id="button-delete_user_dashboard-yes">oui</button>
+            <button id="button_delete_user_dashboard-no">non</button>
+        </div>
+
         <div>
             <input id="search_filter" type="text">
             <button id="search_button" >Recherche</button>
@@ -92,7 +102,9 @@ enabled_access(array('administrator'));
                                             append += "<a href=' "+url+" '><i class='fa-solid fa-pencil'></i></a>";
                                         append += "</div>";
                                         append += "<div>";
-                                             append += "<div class='button_delete_user_dashboard'>";
+                                             append += "<div id_user='";
+                                             append += element.id;
+                                             append += "' class='button_delete_user_dashboard'>";
                                              append += "<i class='fa-solid fa-trash-can'></i>";
                                              append += "</div>";
                                         append += "</div>";
