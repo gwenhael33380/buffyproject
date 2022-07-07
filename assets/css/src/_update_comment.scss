@@ -1,5 +1,5 @@
 
-// !!!WARNING!!! the CSS3 class of the comment update page has been reused. The css of this page is that of the ADD comment page except those present in the update_comment file
+// !!!WARNING!!! the CSS class of the comment update page has been reused. The css of this page is that of the ADD comment page except those present in the update_comment file
 
 
 .bg-img-update-comment{
@@ -26,6 +26,9 @@
 
 @media screen and (max-width: 1356px) {
 
+  .bg-img-update-comment{
+    margin-top: 6.5%;
+  }
 }
 
 @media screen and (max-width: 1302px) {
@@ -34,20 +37,41 @@
 
 @media screen and (max-width: 1168px) {
 
+  .bg-img-update-comment{
+    min-height: calc(43vh - 92px);
+  }
 }
 
 @media screen and (max-width: 991px) {
 
+  .bg-img-update-comment{
+    margin-top: 8.5%;
+  }
+
+  .content-title-add-comment {
+    margin-top: 90px;
+  }
 }
 
 @media screen and (max-width: 767px) {
 
+  .bg-img-update-comment{
+    margin-top: 11.5%;
+  }
+  .content-title-add-comment {
+    margin-top: 20px;
+  }
 }
 
 @media screen and (max-width: 576px) {
-
+  .bg-img-update-comment{
+    min-height: calc(34vh - 92px);
+  }
 }
 
 @media screen and (max-width: 486px) {
-
+  .bg-img-update-comment{
+    margin-top: 12.5%;
+    min-height: calc(31vh - 92px);
+  }
 }

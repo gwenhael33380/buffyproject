@@ -3,7 +3,9 @@
 //Call of the function, connect, header files and call of the eneblad_acces() function
 require dirname(__DIR__) . '/functions.php';
 require_once PATH_PROJECT . '/connect.php';
+define('TITLE', 'Ajout d\'un commentaire');
 require __DIR__ . '/header.php';
+
 
 enabled_access(array('administrator', 'editor', 'user'));
 

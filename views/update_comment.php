@@ -1,6 +1,7 @@
 <?php
 require dirname(__DIR__) . '/functions.php';
 require_once PATH_PROJECT . '/connect.php';
+define('TITLE', 'Mise a jour du commentaire');
 require __DIR__ . '/header.php';
 enabled_access(array('administrator', 'editor', 'user'));
 $id_comment = intval($_GET['id']); // si le $_GET n'est pas numerique, il ne pourra pas le transformer en integer
