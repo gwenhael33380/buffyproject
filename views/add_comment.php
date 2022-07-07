@@ -27,7 +27,11 @@ $name_article = $_GET['title_article']; //if the $_GET is not numeric, it will n
                 <form action="<?php echo HOME_URL . 'requests/add_comment_post.php'; ?>" method="POST">
                     <div class="flex-form-add-comment">
                         <label class="label-add-comment" for="text">Votre commentaire</label>
-                        <textarea class="textarea-content-comment" name="text" rows="10"></textarea>
+                        <textarea id="textarea_add_comment" class="textarea-content-comment" maxlength="750"  name="text" rows="10"></textarea>
+                        <div class="flex-counter-add-article">
+                            <div id="counter_content_add_comment">0</div>
+                            <div>/750</div>
+                        </div>
                     </div>
 
                     <!-- we send the id of the article to be able to attach the comment -->

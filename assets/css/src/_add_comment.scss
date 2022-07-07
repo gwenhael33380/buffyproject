@@ -1,7 +1,12 @@
+
+
+//CCS add comment and update comment
+
+
+
 .bg-color-add-comment{
   background-color: $bg-general;
 }
-
 
 .bg-img-add-comment{
   background-image: url(../../img/dist/source/bg-profil2.jpg);
@@ -23,7 +28,6 @@
   border-top: 2px solid $black;
   width: 80%;
   border-bottom: 2px solid $black;
-
 }
 
 .title-add-comment{
@@ -32,21 +36,19 @@
   font-size: 40px;
   padding: 30px;
   font-family: robot-cond;
-
 }
 
 .flex-form-add-comment{
   display: flex;
   flex-direction: column;
   align-items: center;
-
 }
 
 .label-add-comment{
 
   font-family: robot-cond-b;
   font-size: 25px;
-  margin: 100px 0 10px 0;
+  margin: 100px 0 20px 0;
 }
 
 .textarea-content-comment{
@@ -55,7 +57,11 @@
   border-radius: 8px;
   padding: 15px 15px 8%;
   width: 60%;
-  margin-bottom: 50px;
+  margin-bottom: 5px;
+}
+
+.flex-counter-add-article{
+ margin-bottom: 50px;
 }
 
 .content-button-submit-add-comment{
@@ -79,4 +85,90 @@
 .button-submit-add-comment:hover{
   background-color: #ff7878;
   color: #fff;
+}
+
+
+//Media query add comment and update comment
+
+
+@media screen and (max-width: 1416px) {
+
+  .title-add-comment{
+    font-size: 35px;
+  }
+
+  .textarea-content-comment{
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 1356px) {
+
+  .bg-img-add-comment{
+    margin-top: 6.5%;
+  }
+}
+
+@media screen and (max-width: 1302px) {
+
+}
+
+@media screen and (max-width: 1168px) {
+
+  .title-add-comment {
+    font-size: 30px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+
+  .bg-img-add-comment {
+    margin-top: 7.5%;
+  }
+
+  .textarea-content-comment {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+
+  .bg-img-add-comment {
+    margin-top: 10.5%;
+    min-height: calc(39vh - 92px);
+  }
+
+  .content-title-add-comment {
+    margin-top: 60px;
+  }
+
+  .title-add-comment {
+    font-size: 22px;
+  }
+
+  .label-add-comment {
+    margin: 55px 0 20px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+
+  .bg-img-add-comment {
+    min-height: calc(33vh - 92px);
+  }
+
+  .title-add-comment {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 486px) {
+
+  .bg-img-add-comment {
+    min-height: calc(30vh - 92px);
+  }
+
+  .title-add-comment {
+    font-size: 15px;
+  }
 }

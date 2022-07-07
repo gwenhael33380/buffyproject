@@ -48,3 +48,24 @@ if (counter_input_update_article_3){
     });
 
 }
+
+// Counter add comment
+let counter_textarea_add_comment = document.getElementById('textarea_add_comment');
+
+
+if (counter_textarea_add_comment)
+    counter_textarea_add_comment.addEventListener('keyup', function() {
+        document.getElementById('counter_content_add_comment').innerHTML = counter_textarea_add_comment.value.length;
+    });
+
+
+
+// Counter update comment
+
+let counter_textarea_update_comment = document.getElementById('textarea_update_comment');
+
+
+if (counter_textarea_update_comment)
+    counter_textarea_update_comment.addEventListener('keyup', function() {
+        document.getElementById('counter_content_update_comment').innerHTML = counter_textarea_update_comment.value.length;
+    });
