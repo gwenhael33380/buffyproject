@@ -6,6 +6,7 @@ require __DIR__ . '/header.php';
 
 $id_article = $_GET['id'];
 $role_slug = $_SESSION['role_slug'];
+
 //request article
 $req = $db->prepare("
     SELECT a.id, a.id_user, a.title, a.content, a.created_at, a.id_image, u.pseudo, i.id as id_tab_img, i.file_name, i.alt
@@ -19,6 +20,9 @@ $req = $db->prepare("
 
 $req->execute(array($id_article));
 $article = $req->fetch(PDO::FETCH_OBJ);
+
+$name_article = $article->title;
+
 
 
 //time conversion function
@@ -202,7 +206,7 @@ $user_img = $req->fetch(PDO::FETCH_OBJ);
                 ) : ?>
 
                 <div class="content-button-add-comment">
-                    <a class="button-add-comment" href="<?php echo HOME_URL . 'views/add_comment.php?id=' . $id_article; ?>"> Ajouter un commentaire <i class="fa-solid fa-circle-plus"></i></a>
+                    <a class="button-add-comment" href="<?php echo HOME_URL . 'views/add_comment.php?id=' . $id_article . '&title_article=' . $name_article ?>"> Ajouter un commentaire <i class="fa-solid fa-circle-plus"></i></a>
                 </div>
                 <div class="flex-comments">
                     <?php endif; ?>
@@ -250,9 +254,9 @@ $user_img = $req->fetch(PDO::FETCH_OBJ);
                                                 ) :
                                                     $id_comment = $comment->id;
                                                     ?>
-                                                    <!-- bouton éditer -->
+                                                    <!-- bouton update -->
                                                     <a class="button-update-comment" href="<?php echo HOME_URL . 'views/update_comment.php?id=' . $id_comment . '&id_article=' . $id_article; ?>"><i class="fa-solid fa-pencil"></i></a>
-                                                    <!-- bouton supprimer -->
+                                                    <!-- bouton delete -->
                                                     <a class="delete_comment" href="<?php echo HOME_URL . 'requests/delete_comment_post.php?id=' . $id_comment . '&id_article=' . $id_article; ?>"><i class="fa-solid fa-trash-can"></i></a>
                                                 <?php endif; ?>
                                             </div>

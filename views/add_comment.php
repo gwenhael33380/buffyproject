@@ -1,25 +1,45 @@
 <?php
+
+//Call of the function, connect, header files and call of the eneblad_acces() function
 require dirname(__DIR__) . '/functions.php';
 require_once PATH_PROJECT . '/connect.php';
 require __DIR__ . '/header.php';
+
 enabled_access(array('administrator', 'editor', 'user'));
 
-$id_article = intval($_GET['id']); // si le $_GET n'est pas numerique, il ne pourra pas le transformer en integer
+$id_article = intval($_GET['id']); //if the $_GET is not numeric, it will not be able to transform it into an integer
+$name_article = $_GET['title_article']; //if the $_GET is not numeric, it will not be able to transform it into an integer
 ?>
-
-    <h1 class="title">Ajout de commentaire</h1>
-
-    <div class="file_form">
-        <form action="<?php echo HOME_URL . 'requests/add_comment_post.php'; ?>" method="POST">
-            <div>
-                <label for="text">Votre commentaire</label>
-                <textarea id="text" name="text" rows="10"></textarea>
+    <!--Page add comment-->
+    <main class="bg-color-add-comment">
+        <div class="bg-img-add-comment" ></div>
+        <section>
+            <div class="flex-content-title-add-comment">
+                <div class="content-title-add-comment">
+                    <h1 class="title-add-comment">Ajout de commentaire de l'article : <?php echo $name_article ?></h1>
+                </div>
             </div>
-            <!-- on envoie l'id de l'article pour pouvoir y rattacher le commentaire -->
-            <input type="hidden" name="id_article" value="<?php echo $id_article; ?>">
-            <button type="submit">Ajouter le commentaire</button>
-        </form>
-    </div>
 
+
+            <div class="file_form-add-comment">
+
+                <!--        URL where the form is sent-->
+                <form action="<?php echo HOME_URL . 'requests/add_comment_post.php'; ?>" method="POST">
+                    <div class="flex-form-add-comment">
+                        <label class="label-add-comment" for="text">Votre commentaire</label>
+                        <textarea class="textarea-content-comment" name="text" rows="10"></textarea>
+                    </div>
+
+                    <!-- we send the id of the article to be able to attach the comment -->
+                    <input type="hidden" name="id_article" value="<?php echo $id_article; ?>">
+
+                    <div class="content-button-submit-add-comment">
+                        <button class="button-submit-add-comment" type="submit">Ajouter le commentaire</button>
+
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
 <?php
 require __DIR__ . '/footer.php';
