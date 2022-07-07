@@ -30,7 +30,7 @@ $name_article = $_GET['title_article']; //if the $_GET is not numeric, it will n
                     <div class="flex-form-add-comment">
                         <label class="label-add-comment" for="text">Votre commentaire</label>
                         <textarea id="textarea_add_comment" class="textarea-content-comment" maxlength="750"  name="text" rows="10"></textarea>
-                        <div class="flex-counter-add-article">
+                        <div class="flex-counter-add-article margin-counter-add-article">
                             <div id="counter_content_add_comment">0</div>
                             <div>/750</div>
                         </div>

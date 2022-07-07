@@ -40,8 +40,8 @@ $content = isset($_GET['content']) ? $_GET['content'] : FALSE;
                 <div class="flex-form-add-article" >
                     <label class="label-content-add-article" for="text">Contenu de l'article <span class="red" >*</span></label>
                     <textarea id="input_textarea_add_article" class="textarea-add-article-content" id="text" name="text" rows="10" minlength="750" maxlength="3000" placeholder="Contenu à renseigner, Merci de renseigner un minimum de 750 caractères et un maximum de 3000..."><?php if($content) echo $content; ?></textarea>
-                    <div>
-                        <div id="counter_content_add_article" style="text-align:right">0</div>
+                    <div class="flex-counter-add-article">
+                        <div id="counter_content_add_article">0</div>
                         <div>/3000</div>
                     </div>
                 </div>
@@ -49,7 +49,7 @@ $content = isset($_GET['content']) ? $_GET['content'] : FALSE;
                     <label class="label-content-add-article" for="alt">Veuillez renseigner une description courte de l'image <span class="red" >*</span></label>
                     <input id="input_alt_add_article" class="input-alt-article" minlength="5" maxlength="40" placeholder="Veuillez renseigner 5 caractères minimum, maximum 40..." type="text" name="alt">
                     <div class="flex-counter-add-article">
-                        <div id="counter_alt_add_article" style="text-align:right">0</div>
+                        <div id="counter_alt_add_article">0</div>
                         <div>/40</div>
                     </div>
                 </div>

@@ -7,7 +7,7 @@
   max-height: 40vh;
   width: 100%;
   background-repeat: no-repeat;
-  margin-top: 80.14px;
+  margin-top: 5%;
 }
 
 .bg-color-add-article{
@@ -137,4 +137,89 @@ justify-content: center;
 .button-submit-add-article:hover{
   background-color: $red;
   color: $white;
+}
+
+
+
+//Média query ADD Article
+
+
+@media screen and (max-width: 1416px) {
+  .title-add-article{
+    font-size: 60px;
+  }
+}
+
+@media screen and (max-width: 1356px) {
+
+}
+
+@media screen and (max-width: 1302px) {
+
+  .bg-img-add-article {
+    margin-top: 6%;
+  }
+
+  .title-add-article{
+    font-size: 55px;
+  }
+}
+
+@media screen and (max-width: 1168px) {
+
+  .bg-img-add-article {
+    min-height: calc(46vh - 92px);
+  }
+
+  .title-add-article{
+    font-size: 50px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+
+  .bg-img-add-article {
+    margin-top: 8%;
+    min-height: calc(41vh - 92px);
+  }
+
+  .title-add-article{
+    font-size: 45px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+
+  .bg-img-add-article {
+    margin-top: 11%;
+    min-height: calc(35vh - 92px);
+  }
+
+  .title-add-article{
+    font-size: 35px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+
+  .bg-img-add-article {
+    margin-top: 12%;
+    min-height: calc(30vh - 92px);
+  }
+
+  .title-add-article{
+    font-size: 27px;
+  }
+}
+
+@media screen and (max-width: 486px) {
+
+  .bg-img-add-article {
+    margin-top: 13.5%;
+    min-height: calc(28vh - 92px);
+  }
+
+  .title-add-article{
+    font-size: 23px;
+  }
 }
