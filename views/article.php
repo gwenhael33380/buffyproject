@@ -1,7 +1,15 @@
 <?php
+
+//call function
 require dirname(__DIR__) . '/functions.php';
+
+//call connect
 require_once PATH_PROJECT . '/connect.php';
+
+//title tag definition
 define('TITLE', 'Article');
+
+//call header
 require __DIR__ . '/header.php';
 
 $id_article = $_GET['id'];
@@ -47,22 +55,6 @@ $req->execute();
 $articles_previews = $req->fetchAll(PDO::FETCH_OBJ);
 
 
-
-
-$req = $db->prepare("
-    SELECT  u.id user_id, i.file_name, i.alt
-    FROM users u
-    LEFT JOIN images i
-    ON  i.id =  u.id
-    WHERE u.id
-    
-    
-    ");
-
-$req->execute();
-$user_img = $req->fetch(PDO::FETCH_OBJ);
-
-
 ?>
 
     <!--Popup delete article-->
@@ -104,8 +96,7 @@ $user_img = $req->fetch(PDO::FETCH_OBJ);
                         <div class="content-img-and-content">
                             <div class="flex-content-img-article">
                                 <div class="content-img-article" >
-                                    <div class="content-pseudo-creat-article" >
-                                        <img src="" alt="">
+                                    <div class="content-pseudo-creat-article">
                                         <p  class="pseudo-created-by">Par : <span class="pseudo-created-by-span"><?php echo sanitize_html($article->pseudo); ?></span></p>
                                         <p class="creation-date-article" >Publié le : <span class="creation-date-article-span"><?php echo sanitize_html($newDate); ?></span> </p>
                                     </div>
@@ -124,6 +115,8 @@ $user_img = $req->fetch(PDO::FETCH_OBJ);
                                 </div>
                                 <div class="content-prewiew-article-x3">
                                     <h2 class="text-preview">A lire aussi</h2>
+
+<!--                                    foreach loop-->
                                     <?php foreach ($articles_previews as $article_preview) :?>
                                         <article class="content-article-previews">
                                             <div class="content-title-preview-article">
@@ -142,7 +135,7 @@ $user_img = $req->fetch(PDO::FETCH_OBJ);
                         </div>
                     </div>
                 </article>
-
+<!--                if rol_slug exists and it is equal to administrator, then we display the update and delete article buttons-->
                 <?php if(isset($role_slug) && $role_slug == "administrator" ) : ?>
                     <div class="content-button-article">
 
@@ -170,7 +163,7 @@ $user_img = $req->fetch(PDO::FETCH_OBJ);
 
             <?php
 
-            // comme on a besoin d'une variable php pour aliemnter la requête, il faudra faire une requête préparée, pour éviter les injections SQL
+            //request prepared comments
             $req = $db->prepare("
                 SELECT c.id, c.id_user, c.comment_content, c.created_at, u.pseudo, i.file_name
                 FROM comments c
@@ -181,14 +174,15 @@ $user_img = $req->fetch(PDO::FETCH_OBJ);
 				WHERE c.id_article = ?
                 ORDER BY c.created_at DESC
 			");
-            // Ici on exécute la requête préparée en remplaçant la variable "?" en attente par $id_article
+
+            //Here we execute the prepared statement by replacing the variable "?" pending by $id_article
             $req->execute(array($id_article));
             ?>
 
             <div class="comments">
                 <?php
                 if(
-                isset($role_slug) // je vérifie si la variable existe (au cas où je suis déconnecté)
+                isset($role_slug) //$role_slug is equal to administrator or user or editor and the session exists, then we display the add comment button
                 &&
                 (
                     (
@@ -206,6 +200,8 @@ $user_img = $req->fetch(PDO::FETCH_OBJ);
                 ) : ?>
 
                 <div class="content-button-add-comment">
+
+<!--                    button with redirection on the page for adding comments, we inject the url with the id of the article and the title-->
                     <a class="button-add-comment" href="<?php echo HOME_URL . 'views/add_comment.php?id=' . $id_article . '&title_article=' . $name_article ?>"> Ajouter un commentaire <i class="fa-solid fa-circle-plus"></i></a>
                 </div>
                 <div class="flex-comments">
@@ -233,6 +229,8 @@ $user_img = $req->fetch(PDO::FETCH_OBJ);
                                             </div>
                                             <div class="comment_action">
                                                 <?php
+
+//                                                condition for editing and deleting a comment
                                                 $enabled_comment = array('editor', 'user',);
                                                 if(
                                                     isset($role_slug)
@@ -241,19 +239,15 @@ $user_img = $req->fetch(PDO::FETCH_OBJ);
                                                         $role_slug == "administrator"
                                                         ||
                                                         (
-//                                         (
-//                                         	$role_slug == 'editor' && $comment->id_user == $_SESSION['id_user']
-//                                         )
-//                                         ||
-//                                         (
-//                                         	$role_slug == 'user' && $comment->id_user == $_SESSION['id_user']
-//                                         )
                                                             in_array($role_slug,$enabled_comment) && $comment->id_user == $_SESSION['id_user']
                                                         )
                                                     )
                                                 ) :
                                                     $id_comment = $comment->id;
                                                     ?>
+
+<!--                                                                 link of update and delete buttons how to change comment id and article id variable-->
+
                                                     <!-- bouton update -->
                                                     <a class="button-update-comment" href="<?php echo HOME_URL . 'views/update_comment.php?id=' . $id_comment . '&id_article=' . $id_article; ?>"><i class="fa-solid fa-pencil"></i></a>
                                                     <!-- bouton delete -->

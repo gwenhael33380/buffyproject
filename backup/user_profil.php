@@ -18,30 +18,24 @@ if(empty($user_id)){
 
 }
 
-$req_count_article = "SELECT COUNT(a.id) count_article, u.*, a.id id_article
-	FROM users u
-	LEFT JOIN articles a
-	ON a.id_user = u.id
-	WHERE u.id;";
-
-$req_count_comment = "SELECT COUNT(c.id) count_comment, u.id, u.id_role, u.first_name, u.last_name, u.pseudo, u.email, r.id id_role, r.role_name, r.role_slug, c.id id_comment, i.id as id_image, i.file_name
+$req = $db->prepare("
+	SELECT DISTINCT COUNT(c.id) count_comment, COUNT(a.id) count_article, u.*, r.id id_role, r.role_name, r.role_slug, a.id id_article, c.id id_comment, i.id as id_image, i.file_name
 	FROM users u
 	LEFT JOIN roles r
 	ON u.id_role = r.id
+	LEFT JOIN articles a
+	ON a.id_user = u.id
 	LEFT JOIN comments c
 	ON c.id_user = u.id
 	LEFT JOIN images i
 	ON u.id_image = i.id
-	WHERE u.id;";
-
-$req = $db->prepare("$req_count_article $req_count_comment");
-
-
+	WHERE u.id = ?
+	GROUP BY u.id
+	ORDER BY r.id ASC
+");
 
 $req->execute(array($user_id));
-$result = $req->fetch(PDO::FETCH_OBJ);
-var_dump($result);die;
-?>
+$result = $req->fetch(PDO::FETCH_OBJ);?>
 
 <!--popup delete user-->
     <div class="popup">
@@ -55,7 +49,6 @@ var_dump($result);die;
             <a  class="button-delete-user button-delete-2" href="<?php echo HOME_URL . 'requests/users_delete_post.php?id=' . $result->id; ?>" > OK</a>
         </div>
     </div>
-
 <!--main section-->
     <main class="content">
         <div class="msg-connexion">

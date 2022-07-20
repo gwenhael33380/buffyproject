@@ -13,6 +13,8 @@ require __DIR__ . '/header.php';
 
             <div class="msg-connexion">
                 <?php
+
+//                message $_GET
                 if(isset($_GET['msg'])) {
                     echo $_GET['msg'];
                 } ?>
@@ -27,8 +29,8 @@ require __DIR__ . '/header.php';
             </div>
 
         </section>
-        <!--    Section 2 character carousel-->
 
+        <!--    Section 2 character carousel-->
         <section  class="section-2-home">
             <div class="content-title-home">
                 <h1 class="title-home">accueil</h1>
@@ -55,24 +57,20 @@ require __DIR__ . '/header.php';
                             </div>
                             <div>
                                 <div class="content-button-presentation" >
-                                    <a class="button-presentation" class="" href="<?php echo HOME_URL . 'views/subscribe.php'; ?>">S'inscrire</a>
+                                    <a class="button-presentation" href="<?php echo HOME_URL . 'views/subscribe.php'; ?>">S'inscrire</a>
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </article>
-
             <div class="content-content-title" >
                 <div class="content-title-carousel">
                     <h3 class="title-acces-carousel" >Le scooby gang</h3>
                 </div>
-
             </div>
 
             <!--            Carousel-->
-
             <div class="bg-carousel">
                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
@@ -244,6 +242,8 @@ require __DIR__ . '/header.php';
             </div>
         </section>
         <section class="section-3-h">
+
+            <!--            section 3 blog acces-->
             <div class="content-title-acces-blog">
                 <h2 class="title-acces-blog">le blog</h2>
             </div>
@@ -258,23 +258,21 @@ require __DIR__ . '/header.php';
         </section>
 
         <!--        Section 4 page contact acces-->
-
         <section class="section-4-home">
             <div class="content-title-acces-contact">
                 <h2 class="title-acces-contact">contact</h2>
             </div>
             <div class="content-contact">
                 <div class="content-img-flex-contact">
-
                     <div class="content-button-acces-contact">
                         <a class="button-acces-contact"href="<?php echo HOME_URL . 'views/contact.php'; ?>">contact</a>
                     </div>
-
                     <img class="img-acces-contact" src="<?php echo HOME_URL . 'assets/img/src/source/buffy-the-vampire-slayer-.jpg'; ?>" alt="image représentant l'accès à la page contact">
                 </div>
             </div>
         </section>
-
     </main>
+
+<!--call footer-->
 <?php
 require PATH_PROJECT . '/views/footer.php';

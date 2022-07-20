@@ -1,7 +1,7 @@
 <?php
 require dirname(__DIR__) . '/functions.php';
 require_once PATH_PROJECT . '/connect.php';
-
+enabled_access(array('administrator', 'editor', 'user'));
 
 $send_request = false;
 $initial_img = $_POST['initial_image'];
@@ -37,13 +37,14 @@ $same_pseudo = $pseudo == $initial_pseudo ? true : false;
 $same_email = $email == $initial_email ? true : false;
 
 
+var_dump($picture['name']);
 if ($picture['name'] == ''){
     $same_picture = true;
 
 }else{
     $same_picture = false;
 }
-
+//var_dump($same_picture);die;
 
 $pass1         = trim($_POST['password']);
 $pass2         = trim($_POST['password2']);
@@ -191,11 +192,21 @@ else :
                     $req->bindValue(':pass', password_hash($pass1, PASSWORD_DEFAULT), PDO::PARAM_STR);
                 }
                 $req->bindValue(':id_user', $id_user, PDO::PARAM_INT);
+
                 $req = $req->execute();
             } else {
 
+                $sql_d ="DELETE FROM images WHERE id = :id_image";
+
+                $stmt = $db->prepare($sql_d);
+
+                $stmt->bindValue(':id_image', $id_image, PDO::PARAM_INT);
+
+                $stmt->execute();
+
                 $sql2 = "INSERT INTO images (file_name) VALUES (:file_name); ";
                 $req2 = $db->prepare($sql2);
+
                 $req2->bindValue(':file_name', $img_name, PDO::PARAM_STR);
                 $res2 = $req2->execute();
 

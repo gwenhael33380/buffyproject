@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 define('HOME_URL', 'http://buffyproject/');
 define('PATH_PROJECT', __DIR__);
 define('IMG_URL', HOME_URL . 'assets/img/');
@@ -76,6 +77,6 @@ function check_password($pass) {
 
 //plural function
 function plural($count) {
-	return $count > 1 ? 's' : '';
+	return $count > 1 ? '<span class="plural_function">s</span>' : '';
 }
 

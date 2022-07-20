@@ -1,11 +1,18 @@
 <?php
+
+//call function
 require dirname(__DIR__) . '/functions.php';
+
+//call connect
 require_once PATH_PROJECT . '/connect.php';
+
+//title tag definition
 define('TITLE', 'Le blog');
+
+//call header
 require __DIR__ . '/header.php';
 
-
-
+//query used to count the articles
 $req = $db->query("
     SELECT COUNT(id) AS count_article
     FROM articles
@@ -16,12 +23,12 @@ $count_articles = $result->count_article;
 
 
 
-$per_page = 5; // nombre d'articles par page
-$number_pages = ceil($count_articles / $per_page); // ceil arrondi au chiffre supérieur
+$per_page = 5; //number of articles per page
+$number_pages = ceil($count_articles / $per_page); //ceil rounded up
 
-// on détermine si l'utilisateur a déjà navigué :
-// si oui, on récupére la page courante
-// si non, on remet à la première page
+// we determine if the user has already navigated:
+// if yes, we retrieve the current page
+// if not, we go back to the first page
 if(isset($_GET['page']) && $_GET['page'] > 0 && $_GET['page'] <= $number_pages) {
     $current_page = $_GET['page'];
 }
@@ -39,22 +46,25 @@ $req = $db->prepare("
     ON a.id_image = i.id
     
     ORDER BY a.created_at DESC
-    -- offset va dire à partir de quel tuple la requete commence
-    -- per_page indique le nombre de résultat à afficher
-    -- LIMIT toujours à la fin de la requête
+    -- offset will say from which tuple the query starts
+    -- per_page indicates the number of results to display
+    -- LIMIT should always be written at the end of the query
     LIMIT :offset, :per_page
     ");
 
 
 $offset = ($current_page - 1) * $per_page;
 
+//bindValue of the request
 $req->bindValue(':offset', $offset, PDO::PARAM_INT);
 $req->bindValue(':per_page', $per_page, PDO::PARAM_INT);
+
+
+//execute the query
 $req->execute();
+
+//we get all the results of the query and we inject them into the variable $articles
 $articles = $req->fetchAll(PDO::FETCH_OBJ);
-
-
-
 
 
 if(isset($_SESSION['role_slug'])) $role_slug = $_SESSION['role_slug'];
@@ -73,6 +83,8 @@ if(isset($_SESSION['role_slug'])) $role_slug = $_SESSION['role_slug'];
             } ?>
         </div>
         <div class="content-title-blog" >
+
+<!--            if $role_slug exists and if the role is administrator, then we display the icon for adding an article-->
             <h1 class="title-blog">Buffy Contre Les Vampires Le Blog <?php if(isset($role_slug) && $role_slug == 'administrator') echo "<span><a href=\"" . HOME_URL . "views/add_article.php\"><i class=\"fa-solid fa-circle-plus\"></i></a></span>"; ?></h1>
         </div>
         <section>
@@ -135,4 +147,5 @@ if(isset($_SESSION['role_slug'])) $role_slug = $_SESSION['role_slug'];
     </main>
 
 <?php
+//call footer
 require PATH_PROJECT . '/views/footer.php';

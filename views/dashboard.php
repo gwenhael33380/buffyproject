@@ -8,120 +8,68 @@ require __DIR__ . '/header.php';
 // avec leur nom, prénom, pseudo, email, role, nombre d'articles, nombre de commentaires
 
 enabled_access(array('administrator'));
- ?>
+
+$req = $db->query("
+	SELECT DISTINCT COUNT(c.id) count_comment, COUNT(a.id) count_article, u.*, r.id id_role, r.role_name, r.role_slug, a.id id_article, c.id id_comment, i.id as id_image, i.file_name
+	FROM users u
+	LEFT JOIN roles r
+	ON u.id_role = r.id
+	LEFT JOIN articles a
+	ON a.id_user = u.id
+	LEFT JOIN comments c
+	ON c.id_user = u.id
+	LEFT JOIN images i
+	ON u.id_image = i.id
+	GROUP BY u.id
+	ORDER BY r.id ASC
+");
+$req->execute();
+$results = $req->fetchAll(PDO::FETCH_OBJ); ?>
+
+    <style type="text/css">
+        .highlighted{
+            background-color: #2BA6CB; color:#FFF
+        }
+    </style>
 
 
     <main class="content">
-
         <div class="dashboard"></div>
         <h1>Liste des utilisateurs</h1>
+        <label for="">Filtrer les pseudos</label>
+        <input type="text" name="category" id="categoryFilter" placeholder="Trouver un utilisateur">
+        <div id="filter" class="users-dashboard filter side-nav">
 
-        <div id="popup_delete_user_dashboard">
-            <p>
-                supprimer l'utilisateur : <span id="id_user_dashboard" > </span>
-            </p>
-            <button id="button-delete_user_dashboard-yes">oui</button>
-            <button id="button_delete_user_dashboard-no">non</button>
-        </div>
+            <?php foreach($results as $result) :
+                $count_article = $result->count_article;
+                $count_comment = $result->count_comment; ?>
+                <div class="user">
+                    <div class="user_left">
 
-        <div>
-            <input id="search_filter" type="text">
-            <button id="search_button" >Recherche</button>
-        </div>
+                        <!--                        sanitize_html permet d'évité l'injection SQL-->
+<!--                        <img class="img-user-profil-dashboard" src=" --><?php //echo HOME_URL.'assets/img/dist/profil/' . sanitize_html($result->file_name); ?><!--">-->
+                        <p class="info-user-dashboard">Nom : <?php echo sanitize_html($result->last_name); ?></p>
+                        <p class="info-user-dashboard">Prénom : <?php echo sanitize_html($result->first_name); ?></p>
+                        <p class="info-user-dashboard">Pseudo : <span id="search_pseudo"><?php echo sanitize_html($result->pseudo); ?></span></p>
+                        <p class="info-user-dashboard">Email : <?php echo sanitize_html($result->email); ?></p>
+                        <p class="info-user-dashboard">Rôle : <?php echo $result->role_name; ?></p>
 
-        <div id="users_dashboard" class="users-dashboard">
+                        <p class="info-user-dashboard">Nombre article<?php echo plural($count_article); ?> : <?php echo $count_article; ?></p>
+                        <p class="info-user-dashboard">Nombre de commentaire<?php echo plural($count_comment); ?> : <?php echo $count_comment; ?></p>
+                    </div>
+                    <div class="user_right">
+<p></p>
+                        <!-- mise à jour de l'utilisateur -->
+                        <a href="<?php echo HOME_URL . 'views/dashboard_update.php?id=' . $result->id; ?>"><i class="fa-solid fa-pencil"></i></a>
 
-
+                        <!-- suppression de l'utilisateur -->
+                        <a class="delete_user" href="<?php echo HOME_URL . 'requests/dashboard_delete_post.php?id=' . $result->id; ?>"><i class="fa-solid fa-trash-can"></i></a>
+                    </div>
+                </div>
+            <?php endforeach; ?>
         </div>
     </main>
-    <script>
-        document.getElementById("users_dashboard").innerHTML='vide';
 
-        document.getElementById("search_button").addEventListener('click', () => {
-            filter = document.getElementById("search_filter").value
-            console.log(filter);
-            populate(filter);
-        });
-
-        function populate(filter) {
-            fetch('../requests/get_users_dashboard.php?' + new URLSearchParams({
-                filter: filter,
-            }) )
-                .then( (raw) => {
-                    return raw.json();
-                })
-                .then((result) => {
-                    let append = '';
-                    result.forEach(element => {
-                        url = "./dashboard_update.php?id=" +element.id;
-
-                        append += "<div class='content_user_dashboard'>";
-                             append += "<div class='user_dashboard'>";
-                                append += "<div class='content_img_dashboard'>";
-                                 append += "<img class='img_dashboard' src='<?php echo HOME_URL . 'assets/img/dist/profil/' ?>"
-                                 append += element.file_name;
-                                 append += "'>";
-                                 append += "</div>";
-                                 append += "<div class='content_desc_user'>";
-                                    append += "<div class='desc_user_dashboard'>";
-                                        append += "<p class='text_dashboard last_name_dashboard'>";
-                                        append += "Nom : ";
-                                        append += "<span class='span_text_dashboard'>";
-                                        append += element.last_name;
-                                        append += "</span>";
-                                        append += "</p>";
-                                        append += "<p class='text_dashboard first_name_dashboard'>";
-                                        append += "Prénom : ";
-                                        append += "<span class='span_text_dashboard'>";
-                                        append += element.first_name;
-                                        append += "</span>";
-                                        append += "</p>";
-                                        append += "<p class='text_dashboard pseudo_dashboard'>";
-                                        append += "Pseudo : ";
-                                        append += "<span class='span_text_dashboard'>";
-                                        append += element.pseudo;
-                                        append += "</span>";
-                                        append += "</p>";
-                                    append += "</div>";
-                                    append += "<div class='desc_user_dashboard_2'>";
-                                        append += "<p class='text_dashboard email_dashboard'>";
-                                        append += "Email : ";
-                                        append += "<span class='span_text_dashboard'>";
-                                        append += element.email;
-                                        append += "</span>";
-                                        append += "</p>";
-                                        append += "<p class='text_dashboard role_dashboard'>";
-                                        append += "Rôle : ";
-                                        append += "<span class='span_text_dashboard'>";
-                                        append += element.role_name;
-                                        append += "</span>";
-                                        append += "</p>";
-                                    append += "</div>";
-                                    append += "<div>";
-                                        append += "<div>";
-                                            append += "<a href=' "+url+" '><i class='fa-solid fa-pencil'></i></a>";
-                                        append += "</div>";
-                                        append += "<div>";
-                                             append += "<div id_user='";
-                                             append += element.id;
-                                             append += "' class='button_delete_user_dashboard'>";
-                                             append += "<i class='fa-solid fa-trash-can'></i>";
-                                             append += "</div>";
-                                        append += "</div>";
-                                    append += "</div>";
-                                append += "</div>";
-                             append += "</div>";
-                        append += "</div>";
-                    })
-
-                    document.getElementById("users_dashboard").innerHTML = append;
-                })
-                .catch(function(error) {
-                    console.log('undefined error');
-                })
-        }
-        populate('');
-    </script>
 <?php
 
 require PATH_PROJECT . '/views/footer.php';

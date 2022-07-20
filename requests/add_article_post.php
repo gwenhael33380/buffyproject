@@ -1,22 +1,28 @@
 <?php
+//call function
 require dirname(__DIR__) . '/functions.php';
+
+//call connect
 require_once PATH_PROJECT . '/connect.php';
 
+//the roles that have access to the page
+//the others will be redirected to the HOME page
+enabled_access(array('administrator'));
 
-
-
+//initialization of variables with error handling, format and size
 $fail_upload 		= array(3,6,7,8);
 $oversize_file 		= array(1,2);
 $default_picture 	= 'no-image.jpg';
 $extension 			= array('png', 'jpg', 'jpeg', 'gif');
 $size_max 			= 1048576;
 
+//processing of the data received in the $_POST and processing. start of condition processing with received data
 if(in_array('', $_POST)) :
     $msg_error = 'Merci de remplir le titre et le contenu de l\'article';
 else :
 
     $title 		= trim($_POST['title']);
-    $text 		= trim($_POST['text']);
+    $text 		= $_POST['text'];
     $picture 	= $_FILES['images'];
     $error 		= $picture['error'];
     $alt        = trim($_POST['alt']);
@@ -38,33 +44,27 @@ else :
             // https://www.php.net/manual/fr/function.pathinfo.php
             $ext_img = strtolower(pathinfo($recept_img, PATHINFO_EXTENSION));
 
-            // on vérifie si l'extension est bien dans le tableau, sinon ce n'est pas une image
+            // we check if the extension is in the table, otherwise it is not an image
             if(!in_array($ext_img, $extension)) :
                 $msg_error = 'Votre fichier n\'est pas une image png, jpg, jpeg ou gif';
             elseif($image_size > $size_max) :
                 $msg_error = 'La taille de votre fichier ne doit pas dépasser 1 Mo';
 
             else :
-                // on créé un nom de fichier unique et aléatoire pour éviter les doublons dans le FTP (sur le serveur dans le dossier assets/img)
-
-                // https://www.php.net/manual/fr/function.uniqid.php
+                //we created a unique and random file name to avoid duplicates in the FTP (on the server in the assets/img folder)
                 $img_name = uniqid() . '_' . $recept_img;
 
-                // facultatif :
-                // on crée le dossier img s'il n'existe pas
-                // https://www.php.net/manual/fr/function.mkdir.php
-                // https://www.php.net/manual/fr/function.chmod.php
+                // optional :
+                // we create the img folder if it does not exist
 
-                // le @ n'affichera pas l'erreur (notice ou warning) si la fonction en retourne une
+                // the @ will not display the error (notice or warning) if the function returns one
                 @mkdir(PATH_PROJECT . '/assets/img/dist/articles/', 0755);
 
-                // je crée une variable pour spécifier l'endroit où je vais stocker mon image
+                // I create a variable to specify where I will store my image
                 $img_folder = PATH_PROJECT . '/assets/img/dist/articles/';
-                // var_dump($img_folder);
                 $dir = $img_folder . $img_name;
-                // var_dump($dir);
 
-                // https://www.php.net/manual/fr/function.move-uploaded-file.php
+                //storage in image variable stored in temp folder
                 $move_file = move_uploaded_file($tmp_name, $dir);
 
                 if($move_file) :
@@ -72,13 +72,12 @@ else :
                 else :
                     $set_request = FALSE;
                 endif;
-
             endif;
-
-
         endif;
 
         if($set_request) :
+
+//            insertion of the processed data into the database
             $req = $db->prepare("
 				  INSERT INTO images(file_name, alt)
                 VALUE   (:file_name, :alt);
@@ -88,16 +87,17 @@ else :
               
 			");
 
+
+//            bind values
             $req->bindValue(':id_user', intval($_SESSION['id_user']), PDO::PARAM_INT); // integer
             $req->bindValue(':title', $title, PDO::PARAM_STR); // string
             $req->bindValue(':content', $text, PDO::PARAM_STR); // string
             $req->bindValue(':file_name', $img_name, PDO::PARAM_STR); // string
-
             $req->bindValue(':alt', $alt, PDO::PARAM_STR); // string
 
-            // $result va stocker le résultat de ma requete INSERT INTO
-            // si TRUE l'insertion s'est bien déroulé
-            // si FALSE une erreur s'est produite
+            // $result will store the result of my INSERT INTO query
+            // if TRUE the insertion was successful
+            // if FALSE an error has occurred
             $result = $req->execute();
 
             if($result) :
@@ -115,6 +115,7 @@ else :
 
 endif;
 
+//redirect after data processing with option error or success messages
 if(isset($msg_error)) {
     header('Location:' . HOME_URL . 'views/add_article.php?msg=<p class="create_article_error">' . $msg_error . '</p>');
 }

@@ -1,12 +1,18 @@
 <?php
 
-//Call of the function, connect, header files and call of the eneblad_acces() function
+//call function
 require dirname(__DIR__) . '/functions.php';
+
+//call connect
 require_once PATH_PROJECT . '/connect.php';
+
+//title tag definition
 define('TITLE', 'Ajout d\'un commentaire');
+
+//call header
 require __DIR__ . '/header.php';
 
-
+//enabled targeted role access
 enabled_access(array('administrator', 'editor', 'user'));
 
 $id_article = intval($_GET['id']); //if the $_GET is not numeric, it will not be able to transform it into an integer
@@ -21,8 +27,6 @@ $name_article = $_GET['title_article']; //if the $_GET is not numeric, it will n
                     <h1 class="title-add-comment">Ajout de commentaire de l'article : <?php echo $name_article ?></h1>
                 </div>
             </div>
-
-
             <div class="file_form-add-comment">
 
                 <!--        URL where the form is sent-->
@@ -38,14 +42,14 @@ $name_article = $_GET['title_article']; //if the $_GET is not numeric, it will n
 
                     <!-- we send the id of the article to be able to attach the comment -->
                     <input type="hidden" name="id_article" value="<?php echo $id_article; ?>">
-
                     <div class="content-button-submit-add-comment">
                         <button class="button-submit-add-comment" type="submit">Ajouter le commentaire</button>
-
                     </div>
                 </form>
             </div>
         </section>
     </main>
+
 <?php
+//call footer
 require __DIR__ . '/footer.php';

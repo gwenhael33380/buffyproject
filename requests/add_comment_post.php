@@ -1,31 +1,36 @@
 <?php
+//call function
 require dirname(__DIR__) . '/functions.php';
+
+//call connect
 require_once PATH_PROJECT . '/connect.php';
 
 $text = trim($_POST['text']);
 $id_article = intval($_POST['id_article']);
 
-
+//processing of the data received in the $_POST and processing. start of condition processing with received data
 if(in_array('', $_POST)) :
     $msg_error = 'Merci de ne pas laisser un commentaire vide';
     header('Location:' . HOME_URL . 'views/add_comment.php?id=' . $id_article . '&msg=' . $msg_error);
 
 else :
+    //            insertion of the processed data into the database
     $req = $db->prepare("
 		INSERT INTO comments(id_user, id_article, comment_content, created_at)
 		VALUES (:id_user, :id_article, :content, NOW())
 	");
 
-    // https://www.php.net/manual/fr/function.intval.php
+//            bind values
     $req->bindValue(':id_user', intval($_SESSION['id_user']), PDO::PARAM_INT); // integer
     $req->bindValue(':id_article', $id_article, PDO::PARAM_INT); // integer
     $req->bindValue(':content', $text, PDO::PARAM_STR); // string
 
-    // $result va stocker le résultat de ma requete INSERT INTO
-    // si TRUE l'insertion s'est bien déroulé
-    // si FALSE une erreur s'est produite
+    // $result will store the result of my INSERT INTO query
+    // if TRUE the insertion was successful
+    // if FALSE an error has occurred
     $result = $req->execute();
 
+    //redirect after data processing with option error or success messages
     if($result) {
         header('Location:' . HOME_URL . 'views/article.php?id=' . $id_article . '&msg=<div class="green">Commentaire ajouté</div>');
     }

@@ -1,11 +1,16 @@
 <?php
-require dirname(__DIR__) . '/functions.php';
-require_once PATH_PROJECT . '/connect.php';
-define('TITLE', 'Formulaire d\'inscription');
-require __DIR__ . '/header.php';
 
-// les roles qui ont accès à la page
-// les autres seront redirigés vers la page HOME
+//call function
+require dirname(__DIR__) . '/functions.php';
+
+//call connect
+require_once PATH_PROJECT . '/connect.php';
+
+//title tag definition
+define('TITLE', 'Formulaire d\'inscription');
+
+//call header
+require __DIR__ . '/header.php';
 ?>
     <main class="main_subscribe content">
         <div class="bg-img-subscribe"></div>
@@ -14,18 +19,20 @@ require __DIR__ . '/header.php';
             <h1 class="title-subscribe">Formulaire d'inscription</h1>
             </div>
             <div class="file_form">
+
+<!--                form with the link to the processing of the subscription content-->
                 <form class="form-subscribe"action="<?php echo HOME_URL . 'requests/subscribe_post.php'; ?>" method="POST" enctype="multipart/form-data">
                     <div class="field-subscribe">
                         <label class="label-subscribe"f or="first_name">Prénom<span class="red">*</span></label>
-                        <input class="input-form-subscribe" type="text" id="first_name" name="first_name" placeholder="Entrez votre prénom..."E>
+                        <input class="input-form-subscribe" type="text" id="first_name" name="first_name" minlength="3" placeholder="Entrez votre prénom...">
                     </div>
                     <div class="field-subscribe">
                         <label class="label-subscribe" for="last_name">Nom<span class="red">*</span></label>
-                        <input class="input-form-subscribe" type="text" id="last_name" name="last_name" placeholder="Entrez votre nom...">
+                        <input class="input-form-subscribe" type="text" id="last_name" name="last_name" minlength="3" placeholder="Entrez votre nom...">
                     </div>
                     <div class="field-subscribe">
                         <label class="label-subscribe" for="pseudo">Pseudo<span class="red">*</span></label>
-                        <input class="input-form-subscribe" type="text" id="pseudo" name="pseudo" placeholder="Entrez votre psedo...">
+                        <input class="input-form-subscribe" type="text" id="pseudo" name="pseudo" placeholder="Entrez votre pseudo...">
                     </div>
                     <div class="field-subscribe">
                         <label class="label-subscribe" for="email">Email<span class="red">*</span></label>
@@ -35,10 +42,10 @@ require __DIR__ . '/header.php';
                     <div class="field-subscribe">
                         <label class="label-subscribe" for="password">Mot de passe<span class="red">*</span></label>
                         <input class="input-form-subscribe" type="password" id="password" name="password" placeholder="Veuillez choisir votre mot de passe">
-                        <!-- On répete 2 fois le mot de passe pour vérifier qu'il est exact -->
+
+                        <!-- Repeat the password twice to verify that it is correct. -->
                         <input class="input-form-subscribe input-margin" type="password" id="password2" name="password2" placeholder="Veuillez retapez votre mot de passe">
                         <p class="text-mdp">Le mot de passe doit comprendre entre 8 et 16 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial, et pas d'espace</p>
-
                     </div>
                     <div class="field-subscribe flex-label-subscribe">
                         <label class="label-picture-subscribe" for="picture">Ajouter une image au format (jpg, jpeg, png, gif)</label>
@@ -46,6 +53,8 @@ require __DIR__ . '/header.php';
                         <input  type="file" id="picture" name="picture" accept="image/*">
 
                         <?php
+
+//                        $_GET message
                         if(isset($_GET['msg_error'])) {
                             echo $_GET['msg_error'];
                         } ?>
@@ -60,4 +69,6 @@ require __DIR__ . '/header.php';
     </main>
 
 <?php
+
+//call footer
 require __DIR__ . '/footer.php';

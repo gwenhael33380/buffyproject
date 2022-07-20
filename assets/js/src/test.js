@@ -1,27 +1,47 @@
-const popupBtnDeleteUserDashboard = document.getElementsByClassName("button_delete_user_dashboard");
+(function($){
 
-document.getElementById("button-delete_user_dashboard-yes").addEventListener("click", (evt) => {
-    const id = document.getElementById("id_user_dashboard");
-    console.log(id.textContent);
+    $('#categoryFilter').focus().keyup(function(event){
+        let input = $(this);
+        let val  = input.val();
 
-});
+        // Si rien est tapé, on affiche tout
+        if(val == ''){
+            $('#filter div div p span').show();
+            $('#filter').removeClass('highlighted');
+            return true;
+        }
 
-// document.getElementById("button-delete_user_dashboard-no").addEventListener("click", (evt) => {
-// });
+        // On construit l'expression à partir de ce qui est tapé (.*)e(.*)x(.*)e(.*)m(.*)p(.*)l(.*)e(.*)
+        let regexp = '\\b(.*)';
+        for(let i in val){
+            regexp += '('+val[i]+')(.*)';
+        }
+        regexp += '\\b';
+        $('#filter div div p span').show();
 
+        // On parcourt chaque élément de la liste
+        $('#filter div div p span').each(function(){
+            let span = $(this);
+            let results = span.text().match(new RegExp(regexp,'i'));
 
-for ( let i = 0; i < popupBtnDeleteUserDashboard.length; i++ ){
-    console.log('hello');
+            // le text match
+            if(results){
+                let string = '';
+                for(let i in results){
+                    if(i > 0){
+                        if(i%2 == 0){
+                            string += '<span class="highlighted">'+results[i]+'</span>';
+                        }else{
+                            string += results[i];
+                        }
+                    }
+                }
+                span.empty().append(string);
+            }else{
+                span.parent().parent().toggle();
+            }
+        })
+    });
 
-     popupBtnDeleteUserDashboard[i].addEventListener("click", (evt) => {
-        let elt = evt.currentTarget;
-         console.log(elt);
+})(jQuery);
 
-         let id = elt.getAttribute("id_user");
-         document.getElementById("id_user_dashboard").innerHTML=id
-         console.log(id);
-         // console.log('cpicpi');
-//     // popup.style.left = "50%";
-//     // console.log(btn3);
-});
-}

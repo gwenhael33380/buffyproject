@@ -700,7 +700,79 @@
     padding: 27px 0;
   }
   .btn-nav-sec-1{
-    padding: 6px 15px;
-    font-size: 11px;
+    padding: 10px 20px;
+    font-size: 13px;
   }
 }
+
+@media screen and (max-width: 320px) {
+  .logo-nav-bar{
+    width: 25%;
+  }
+
+  toggle-btn{
+    top: 14px;
+  }
+
+  .active>div{
+  right: 175px;
+  }
+
+  .section-1-home{
+    margin-top: 22%;
+    min-height: calc(33vh - 52px);
+  }
+
+  .title-personage {
+    font-size: 20px;
+  }
+
+  .content-presentation {
+    margin-top: 4px;
+  }
+
+  .img-presentation{
+    min-width: 0;
+    width: 80%;
+  }
+
+  .title-acces-carousel{
+    font-size: 28px;
+    padding: 14px;
+  }
+
+  .bg-carousel{
+    padding: 0;
+  }
+
+  .title-acces-blog{
+    font-size: 28px;
+  }
+
+  .title-acces-contact{
+    font-size: 28px;
+  }
+
+  .img-acces-blog{
+    width: 80%;
+  }
+  .button-acces-blog{
+    padding: 11px 32px;
+    font-size: 17px;
+  }
+
+  .img-acces-contact{
+    width: 80%;
+  }
+
+  .button-acces-contact{
+    padding: 11px 32px;
+    font-size: 17px;
+  }
+
+  .text-footer {
+    font-size: 20px;
+
+  }
+}
+

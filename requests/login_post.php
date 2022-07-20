@@ -3,12 +3,14 @@
 require dirname(__DIR__) . '/functions.php';
 require_once PATH_PROJECT . '/connect.php';
 
+//checks the data entered by the user and checks if he meets the connection conditions
 if(in_array('', $_POST)) :
     $msg_error = "<p id=\"connect_user_falure\" class=\"connect_user_failure\">Merci de remplir tous les champs</p>";
 else :
 
+                                                        //email verification feature
     $email = filter_var(strtolower(trim($_POST['email'])), FILTER_VALIDATE_EMAIL);
-    if(!$email) : // Si $email est égale à  FALSE
+    if(!$email) : //if $email is FALSE
         $msg_error = "<p id=\"connect_user_falure2\" class=\"connect_user_failure\">Merci de renseigner un email valide</p>";
     else :
         $req = $db->prepare("
@@ -38,7 +40,7 @@ else :
             if (!password_verify($password, $result->password)) :
                 $msg_error = "<p id=\"connect_user_falure4\" class=\"connect_user_failure\">Le mot de passe ou l'identifiant ne sont pas valides</p>";
             else :
-                // we called session_start() in functions.php and login_post.php
+                // now, we create the session from the information retrieved from the database
                 $_SESSION['id_user'] 	= $result->id;
                 $_SESSION['id_role'] 	= $result->id_role;
                 $_SESSION['first_name'] = $result->first_name;
