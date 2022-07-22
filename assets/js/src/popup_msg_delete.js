@@ -71,12 +71,12 @@ function msg_create_article_error() {
 setTimeout(msg_delete_comment_success, 3000);
 
 function msg_delete_comment_success() {
-    $("#delete_comment_success").fadeOut().empty();
+    $("#add_comment_success").fadeOut().empty();
 }
 
 // delete message erreur update 5 sec and 5000ms
 setTimeout(msg_error_delete_comment, 5000);
 
 function msg_error_delete_comment() {
-    $("#connect_user_failure").fadeOut().empty();
+    $("#add_comment_error").fadeOut().empty();
 }

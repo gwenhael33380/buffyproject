@@ -1,5 +1,20 @@
-//SCSS page article
 
+//message add comment
+#add_comment_success {
+  background-color: #c6c198;
+  color: green;
+  padding: 10px;
+  font-family: robot-cond;
+  text-align: center;
+  position: fixed;
+  top: 11%;
+  width: 100%;
+  z-index: 150;
+}
+
+
+
+//SCSS page article
 .bg-color-page-article{
   background-color: $bg-general;
 }
@@ -382,6 +397,10 @@ width: 81%;
 
 @media screen and (max-width: 1416px){
 
+  #add_comment_success{
+    top: 9%;
+  }
+
   .content-pseudo-creat-article{
     padding-right: 22%;
   }
@@ -396,6 +415,10 @@ width: 81%;
 }
 
 @media screen and (max-width: 1356px){
+
+  #add_comment_success{
+    top: 12%;
+  }
 
   .content-pseudo-creat-article{
     padding-right: 21%;
@@ -441,6 +464,10 @@ width: 81%;
 }
 
 @media screen and (max-width: 1168px){
+
+  #add_comment_success{
+    top: 11%;
+  }
 
   .title-page-article{
     font-size: 57px;
@@ -606,6 +633,10 @@ width: 81%;
 
 @media screen and (max-width: 576px){
 
+  #add_comment_success{
+    top: 9%;
+  }
+
   .bg-img-page-article{
     min-height: calc(33vh - 92px);
   }
@@ -699,5 +730,54 @@ width: 81%;
   .content-img-profil-comment{
     width: 90px;
     height: 90px;
+  }
+}
+
+@media screen and (max-width: 320px){
+
+  .popupDeleteArticle{
+    left: -120%;
+  }
+
+  .bg-img-page-article {
+    min-height: calc(25vh - 94px);
+    margin-top: 22%;
+  }
+
+  .title-page-article {
+    font-size: 30px;
+    padding: 24px 0;
+  }
+
+  .title-article {
+    font-size: 17px;
+  }
+
+  .title-article-2 {
+    font-size: 17px;
+  }
+
+  .content-img-profil-comment {
+    margin-left: 36%;
+  }
+
+  .content-comment-article {
+    width: 264px;
+  }
+
+  .info-content-comment {
+    margin-left: 3px;
+  }
+
+  .content-info-comment-and-button-action{
+    flex-direction: column;
+  }
+
+  .comment_action{
+    margin: 15px 0;
+  }
+
+  .delete_comment{
+    margin-left: 186px;
   }
 }

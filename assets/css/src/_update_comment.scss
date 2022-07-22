@@ -12,10 +12,7 @@
   margin-top: 4.5%;
 }
 
-
-
-
-//Media query CSS page update comment
+                                                              //Media query CSS page update comment
 
 
 
@@ -64,14 +61,20 @@
 }
 
 @media screen and (max-width: 576px) {
+
   .bg-img-update-comment{
     min-height: calc(34vh - 92px);
   }
 }
 
 @media screen and (max-width: 486px) {
+
   .bg-img-update-comment{
     margin-top: 12.5%;
     min-height: calc(31vh - 92px);
   }
+}
+
+@media screen and (max-width: 320px){
+
 }

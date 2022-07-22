@@ -20,7 +20,9 @@ enabled_access(array('administrator'));
 ?>
 <main class="bg-color-add-article" >
     <div class="bg-img-add-article"></div>
-    <div class="msg-add-comment red">
+    <div class="msg-add-comment">
+
+        <!--           Requests message-->
         <?php
 
         //if content is present in the $_GET variable then it will be generated in this tag

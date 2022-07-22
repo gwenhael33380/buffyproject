@@ -12,19 +12,31 @@ define('TITLE', 'Ajout d\'un commentaire');
 //call header
 require __DIR__ . '/header.php';
 
+$id_article = intval($_GET['id']); //if the $_GET is not numeric, it will not be able to transform it into an integer
+
+
 //enabled targeted role access
 enabled_access(array('administrator', 'editor', 'user'));
 
-$id_article = intval($_GET['id']); //if the $_GET is not numeric, it will not be able to transform it into an integer
-$name_article = $_GET['title_article']; //if the $_GET is not numeric, it will not be able to transform it into an integer
+
+
 ?>
     <!--Page add comment-->
     <main class="bg-color-add-comment">
-        <div class="bg-img-add-comment" ></div>
         <section>
+            <div class="bg-img-add-comment" ></div>
+            <div class="msg-connexion">
+
+                <?php
+
+                //                message $_GET
+                if(isset($_GET['msg'])) {
+                    echo $_GET['msg'];
+                } ?>
+            </div>
             <div class="flex-content-title-add-comment">
                 <div class="content-title-add-comment">
-                    <h1 class="title-add-comment">Ajout de commentaire de l'article : <?php echo $name_article ?></h1>
+                    <h1 class="title-add-comment">Ajout de commentaire de l'article</h1>
                 </div>
             </div>
             <div class="file_form-add-comment">

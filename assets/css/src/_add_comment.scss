@@ -1,9 +1,20 @@
 
 
+//message error add comment
+#add_comment_error {
+  background-color: #c6c198;
+  color: red;
+
+  padding: 10px;
+  font-family: robot-cond;
+  text-align: center;
+  position: fixed;
+  top: 11%;
+  width: 100%;
+  z-index: 150;
+}
+
 //CCS add comment and update comment
-
-
-
 .bg-color-add-comment{
   background-color: $bg-general;
 }
@@ -33,9 +44,12 @@
 .title-add-comment{
   text-align: center;
   text-transform: uppercase;
-  font-size: 40px;
+  font-size: 30px;
   padding: 30px;
   font-family: robot-cond;
+  .name-article-add-comment {
+    font-family: rbt-t;
+  }
 }
 
 .flex-form-add-comment{
@@ -93,6 +107,10 @@
 
 @media screen and (max-width: 1416px) {
 
+  #add_comment_error{
+    top: 9%;
+  }
+
   .title-add-comment{
     font-size: 35px;
   }
@@ -104,6 +122,9 @@
 
 @media screen and (max-width: 1356px) {
 
+  #add_comment_error{
+    top: 12%;
+  }
   .bg-img-add-comment{
     margin-top: 6.5%;
   }
@@ -114,6 +135,10 @@
 }
 
 @media screen and (max-width: 1168px) {
+
+  #add_comment_error{
+    top: 11%;
+  }
 
   .title-add-comment {
     font-size: 30px;
@@ -153,6 +178,10 @@
 
 @media screen and (max-width: 576px) {
 
+  #add_comment_error{
+    top: 9%;
+  }
+
   .bg-img-add-comment {
     min-height: calc(33vh - 92px);
   }
@@ -170,5 +199,16 @@
 
   .title-add-comment {
     font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 320px){
+
+  .bg-img-add-comment {
+    margin-top: 16.5%;
+  }
+
+  .title-add-comment {
+    font-size: 18px;
   }
 }

@@ -28,14 +28,14 @@ else :
     // $result will store the result of my INSERT INTO query
     // if TRUE the insertion was successful
     // if FALSE an error has occurred
-    $result = $req->execute();
+//    $result = $req->execute();
 
     //redirect after data processing with option error or success messages
     if($result) {
-        header('Location:' . HOME_URL . 'views/article.php?id=' . $id_article . '&msg=<p id="#add_comment_success">Commentaire ajouté</p>');
+        header('Location:' . HOME_URL . 'views/article.php?id=' . $id_article . '&msg=<p id="add_comment_success">Commentaire ajouté</p>');
     }
     else {
-        header('Location:' . HOME_URL . 'views/add_comment.php?id=' . $id_article . '&msg=<p id="#add_comment_error"> Erreur lors de l\'ajout du commentaire</p>');
+        header('Location:' . HOME_URL . 'views/add_comment.php?id=' . $id_article . '&msg=<p id="add_comment_error"> Erreur lors de l\'ajout du commentaire</p>');
     }
 
 endif;

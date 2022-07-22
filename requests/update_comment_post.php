@@ -33,10 +33,10 @@ else :
 
     //redirection to the article if the comment update is successful or a redirection to the comment update page.
     if($result) {
-        header('Location:' . HOME_URL . 'views/article.php?id=' . $id_article . '&msg=<div class="green">commentaire mis à jour</div>');
+        header('Location:' . HOME_URL . 'views/article.php?id=' . $id_article . '&msg=<p id="update_comment_success"commentaire mis à jour</p>');
     }
     else {
-        header('Location:' . HOME_URL . 'views/update_comment.php?id=' . $id . '&msg=<div class="red">Erreur, merci de renouveler votre mise à jour</div>');
+        header('Location:' . HOME_URL . 'views/update_comment.php?id=' . $id . '&msg=<p id="update_comment_error">Erreur, merci de renouveler votre mise à jour</p>');
     }
 
 endif;

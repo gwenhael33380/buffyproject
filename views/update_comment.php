@@ -1,22 +1,16 @@
 <?php
 
-//call function
-require dirname(__DIR__) . '/functions.php';
+require dirname(__DIR__) . '/functions.php'; //call function
+require_once PATH_PROJECT . '/connect.php'; //call connect
 
-//call connect
-require_once PATH_PROJECT . '/connect.php';
+define('TITLE', 'Mise a jour du commentaire'); //title tag definition
 
-//title tag definition
-define('TITLE', 'Mise a jour du commentaire');
+require __DIR__ . '/header.php'; //call header
 
-//call header
-require __DIR__ . '/header.php';
+enabled_access(array('administrator', 'editor', 'user')); //enabled targeted role access
 
-//enabled targeted role access
-enabled_access(array('administrator', 'editor', 'user'));
-
-$id_comment = intval($_GET['id']); // si le $_GET n'est pas numerique, il ne pourra pas le transformer en integer
-$id_article = intval($_GET['id_article']);
+$id_comment = intval($_GET['id']); // if the $_GET is not numeric, it will not be able to transform it into an integer
+$id_article = intval($_GET['id_article']);//            //                  //                      //          //
 
 if($id_comment) {
 //    request from previous comment
@@ -26,11 +20,11 @@ if($id_comment) {
 		WHERE id = :id
 	");
 
-//    bind values
-    $req->bindValue(':id', $id_comment, PDO::PARAM_INT);
 
-    //    execution of the request
-    $req->execute();
+    $req->bindValue(':id', $id_comment, PDO::PARAM_INT); //    bind values
+
+
+    $req->execute(); //    execution of the request
 
 //    we get only one result of the query
     $comment = $req->fetch(PDO::FETCH_OBJ);
@@ -39,9 +33,19 @@ if($id_comment) {
     <main>
         <section>
             <div class="bg-img-update-comment"></div>
+            <div>
+
+                <!--           Requests message-->
+                <?php
+
+                //if content is present in the $_GET variable then it will be generated in this tag
+                if(isset($_GET['msg'])) {
+                    echo $_GET['msg'];
+                } ?>
+            </div>
             <div class="flex-content-title-add-comment">
                 <div class="content-title-add-comment">
-                    <h1 class="title-add-comment">Mise à jour du commentaire : </h1>
+                    <h1 class="title-add-comment">Mise à jour du commentaire</h1>
 
                 </div>
             </div>
