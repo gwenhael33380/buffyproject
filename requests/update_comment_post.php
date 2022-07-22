@@ -29,7 +29,7 @@ else :
     // $result will store the result of my UPDATE request
     // if TRUE the insertion was successful
     // if FALSE an error has occurred
-//    $result = $req->execute();
+    $result = $req->execute();
 
     //redirection to the article if the comment update is successful or a redirection to the comment update page.
     if($result) {
