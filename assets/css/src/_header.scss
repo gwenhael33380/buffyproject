@@ -241,11 +241,13 @@ transition-duration: 1s;
 
 
 @media screen and (max-width: 1356px) {
+
   .logo-nav-bar {
     width: 8%;
   }
 }
 @media screen and (max-width: 1023px) {
+
   .logo-nav-bar {
     width: 10%;
   }
@@ -258,18 +260,21 @@ transition-duration: 1s;
 }
 
 @media screen and (max-width: 767px) {
+
   .logo-nav-bar {
     width: 13%;
   }
 }
 
 @media screen and (max-width: 606px) {
+
   .logo-nav-bar {
     width: 14%;
   }
 }
 
 @media screen and (max-width: 566px) {
+
   .logo-nav-bar {
     width: 15%;
   }
@@ -277,7 +282,15 @@ transition-duration: 1s;
 
 
 @media screen and (max-width: 486px) {
+
   .logo-nav-bar{
     width: 16%;
+  }
+}
+
+@media screen and (max-width: 320px){
+
+  .logo-nav-bar{
+    width: 25%;
   }
 }

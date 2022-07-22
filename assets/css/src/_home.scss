@@ -706,17 +706,6 @@
 }
 
 @media screen and (max-width: 320px) {
-  .logo-nav-bar{
-    width: 25%;
-  }
-
-  toggle-btn{
-    top: 14px;
-  }
-
-  .active>div{
-  right: 175px;
-  }
 
   .section-1-home{
     margin-top: 22%;
@@ -756,6 +745,7 @@
   .img-acces-blog{
     width: 80%;
   }
+
   .button-acces-blog{
     padding: 11px 32px;
     font-size: 17px;
@@ -768,11 +758,6 @@
   .button-acces-contact{
     padding: 11px 32px;
     font-size: 17px;
-  }
-
-  .text-footer {
-    font-size: 20px;
-
   }
 }
 

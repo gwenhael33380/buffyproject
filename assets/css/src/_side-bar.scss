@@ -89,7 +89,7 @@
 
 @media screen and (max-width: 862px) {
   .toggle-btn{
-    top: 24px;
+    top: 23px;
   }
   .toggle-btn span {
     height: 8px;
@@ -104,9 +104,25 @@
   }
 }
 
+@media screen and (max-width: 576px){
+  .toggle-btn {
+    top: 14px;
+  }
+}
+
+
 @media screen and (max-width: 486px) {
   .toggle-btn{
-    top: 17px;
+    top: 13px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  toggle-btn{
+    top: 14px;
   }
 
+  .active>div{
+    right: 175px;
+  }
 }

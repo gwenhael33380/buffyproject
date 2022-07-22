@@ -1,47 +1,49 @@
-(function($){
+function filter(pattern) {
+    // l'utilisateur a entré son filtre
+    // il peut ajouter des jokers '*'
+    // ils sont convertis en expression régulière
+    let regexp = '';
+    for(let c of pattern) {
+        if(c=='*')
+            regexp += '(.*)';
+        else
+            regexp += c;
+    }
 
-    $('#categoryFilter').focus().keyup(function(event){
-        let input = $(this);
-        let val  = input.val();
-
-        // Si rien est tapé, on affiche tout
-        if(val == ''){
-            $('#filter div div p span').show();
-            $('#filter').removeClass('highlighted');
-            return true;
-        }
-
-        // On construit l'expression à partir de ce qui est tapé (.*)e(.*)x(.*)e(.*)m(.*)p(.*)l(.*)e(.*)
-        let regexp = '\\b(.*)';
-        for(let i in val){
-            regexp += '('+val[i]+')(.*)';
-        }
-        regexp += '\\b';
-        $('#filter div div p span').show();
-
-        // On parcourt chaque élément de la liste
-        $('#filter div div p span').each(function(){
-            let span = $(this);
-            let results = span.text().match(new RegExp(regexp,'i'));
-
-            // le text match
-            if(results){
-                let string = '';
-                for(let i in results){
-                    if(i > 0){
-                        if(i%2 == 0){
-                            string += '<span class="highlighted">'+results[i]+'</span>';
-                        }else{
-                            string += results[i];
-                        }
-                    }
-                }
-                span.empty().append(string);
-            }else{
-                span.parent().parent().toggle();
+    // on sélectionne toutes les divs 'user'
+    const users = document.querySelectorAll('.user');
+    users.forEach(user => {
+        console.log("--- "+pattern);
+        // par défaut elles sont, pour l'instant, visibles
+        user.style.display = 'block';
+        // mais cachées si pas volontairement montrées
+        let flag = false;
+        // on parcourt tous les 'spans' de la 'div' courante
+        for( child of user.children) {
+            console.log("+++ " + regexp);
+            // on applique l'expression régulière
+            let str = child.innerText.match(new RegExp(regexp,'i'));
+            // s'il y a un match
+            if(str != null) {
+                console.log("filtered : " + str + "/" + child.innerText);
+                // la 'div' parente mérite d'être vue
+                flag = true;
+                // pas la peine d'aller plus loin
+                break;
             }
-        })
+        }
+        // aucune 'span' n'a matché
+        // la div courante est masquée
+        if(flag == false) {
+            user.style.display = 'none';
+        }
     });
+}
 
-})(jQuery);
+const filter_field = document.getElementById('filter');
+filter_field.addEventListener("keyup", function() {
+    console.log("Filter " + this.value);
+    filter(this.value);
+});
 
+console.log('coucou');

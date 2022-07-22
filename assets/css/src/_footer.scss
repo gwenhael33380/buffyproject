@@ -87,3 +87,21 @@
 
   }
 }
+
+@media screen and (max-width: 320px){
+  .text-footer {
+    font-size: 20px
+  }
+
+  .fa-facebook-f{
+    margin-right: -14px;
+  }
+
+  .fa-twitter {
+    margin-right: 60px;
+  }
+
+  .fa-facebook-f, .fa-twitter, .fa-instagram{
+    font-size: 50px;
+  }
+}

@@ -20,7 +20,7 @@ function msg_connect_failure() {
 
 
 
-// Disconnect user
+                                                            // Disconnect user
 setTimeout(disconnect_user, 3000);
 
 function disconnect_user() {
@@ -28,14 +28,12 @@ function disconnect_user() {
 }
 
 
-
-
-// User update
+                                                            // User update
 
 // delete message update 3 sec and 3000ms
-setTimeout(msg_update_succes, 3000);
+setTimeout(msg_update_success, 3000);
 
-function msg_update_succes() {
+function msg_update_success() {
     $(".update_user_success").fadeOut().empty();
 }
 
@@ -50,24 +48,29 @@ function error_msg_update_user() {
 
 
 
-// message create article
-setTimeout(msg_create_article_succes, 3000);
+                                                            // message create article
+setTimeout(msg_create_article_success, 3000);
 
-function msg_create_article_succes() {
+// delete message update 3 sec and 3000ms
+function msg_create_article_success() {
     $(".create_article_success").fadeOut().empty();
+}
+
+setTimeout(msg_create_article_error, 5000);
+
+// delete message erreur update 5 sec and 5000ms
+function msg_create_article_error() {
+    $(".create_article_error").fadeOut().empty();
 }
 
 
 
-
-
-
-// comment
+                                                            // comments
 
 // delete message update 3 sec and 3000ms
-setTimeout(msg_delete_comment_succes, 3000);
+setTimeout(msg_delete_comment_success, 3000);
 
-function msg_delete_comment_succes() {
+function msg_delete_comment_success() {
     $("#delete_comment_success").fadeOut().empty();
 }
 

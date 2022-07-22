@@ -18,29 +18,32 @@ if(empty($user_id)){
 
 }
 
-$req_count_article = "SELECT COUNT(a.id) count_article, u.*, a.id id_article
-	FROM users u
-	LEFT JOIN articles a
-	ON a.id_user = u.id
-	WHERE u.id;";
+$req = $db->prepare("
 
-$req_count_comment = "SELECT COUNT(c.id) count_comment, u.id, u.id_role, u.first_name, u.last_name, u.pseudo, u.email, r.id id_role, r.role_name, r.role_slug, c.id id_comment, i.id as id_image, i.file_name
-	FROM users u
-	LEFT JOIN roles r
-	ON u.id_role = r.id
-	LEFT JOIN comments c
-	ON c.id_user = u.id
-	LEFT JOIN images i
-	ON u.id_image = i.id
-	WHERE u.id;";
+	SELECT DISTINCT 
+	    
+	    (SELECT COUNT(c.id) count_comment FROM comments c WHERE c.id_user = :user_id) total_comments, 
+	    (SELECT COUNT(a.id) count_article FROM articles a WHERE a.id_user = :user_id) total_articles, 
+	       
+	        u.*, r.id id_role, r.role_name, r.role_slug, a.id id_article, c.id id_comment, i.id as id_image, i.file_name
+            FROM users u
+            LEFT JOIN roles r
+            ON u.id_role = r.id
+            LEFT JOIN articles a
+            ON a.id_user = u.id
+            LEFT JOIN comments c
+            ON c.id_user = u.id
+            LEFT JOIN images i
+            ON u.id_image = i.id
+            GROUP BY u.id
+            ORDER BY r.id ASC
+    ");
+$req->bindValue(':user_id', $user_id, PDO::PARAM_INT);
 
-$req = $db->prepare("$req_count_article $req_count_comment");
-
-
-
-$req->execute(array($user_id));
+$result= $req->execute();
 $result = $req->fetch(PDO::FETCH_OBJ);
-var_dump($result);die;
+
+
 ?>
 
 <!--popup delete user-->
@@ -73,8 +76,8 @@ var_dump($result);die;
             </div>
         </div>
         <div class="users">
-            <?php  $count_article = $result->count_article;
-            $count_comment = $result->count_comment;?>
+            <?php  $count_article = $result->total_articles;
+            $count_comment = $result->total_comments;?>
             <div class="user">
                 <div class="user_left">
                     <!--                   sanitize_html -> élimine la faille XSS-->
