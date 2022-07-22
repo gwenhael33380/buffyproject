@@ -62,7 +62,7 @@ $articles_previews = $req->fetchAll(PDO::FETCH_OBJ);
         <h3 class="title-popup-delete-article">Etes vous sûre de vouloir supprimer l'article ?</h3>
         <p class="text-popup-delete-article" >Cette action est irreversible et entrainera la perte de toutes les données de l'article !</p>
         <div class="content-button-popup-delete-article">
-            <button id="popupBtnDeleteArticle" class="button-delete-article button-delete-article-1" >Annulé</button>
+            <button id="popupBtnDeleteArticle" class="button-delete-article button-delete-article-1" >Annuler</button>
             <a  class="button-delete-user button-delete-article-2" href="<?php echo HOME_URL . 'requests/users_delete_post.php?id=' . $article->id; ?>" > OK</a>
         </div>
     </div>

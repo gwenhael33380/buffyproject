@@ -41,22 +41,26 @@
   text-transform: uppercase;
   font-family: robot-cond;
   font-size: 15px;
+  border: none;
   transition-duration: .4s;
 }
 
 .button-delete-article-1{
   background-color: $red;
   color: $white;
+
 }
 
 .button-delete-article-2{
   background-color: $green;
   color: $black;
+
 }
 
 .button-delete-article-1:hover{
   background-color: $green;
   color: $black;
+
 }
 
 .button-delete-article-2:hover{

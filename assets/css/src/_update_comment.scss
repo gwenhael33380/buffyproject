@@ -2,6 +2,8 @@
 // !!!WARNING!!! the CSS class of the comment update page has been reused. The css of this page is that of the ADD comment page except those present in the update_comment file
 
 
+
+
 .bg-img-update-comment{
   background-image: url(../../img/dist/source/bg-img-update-comment.png);
   background-size: 100%;
@@ -12,24 +14,18 @@
   margin-top: 4.5%;
 }
 
+.margin-content-button-update-comment{
+ margin-top: 25px;
+}
+
                                                               //Media query CSS page update comment
 
-
-
-
-@media screen and (max-width: 1416px) {
-
-}
 
 @media screen and (max-width: 1356px) {
 
   .bg-img-update-comment{
     margin-top: 6.5%;
   }
-}
-
-@media screen and (max-width: 1302px) {
-
 }
 
 @media screen and (max-width: 1168px) {
@@ -77,4 +73,8 @@
 
 @media screen and (max-width: 320px){
 
+  .bg-img-update-comment {
+    margin-top: 22.5%;
+
+  }
 }

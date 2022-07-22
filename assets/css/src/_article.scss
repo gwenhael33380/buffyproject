@@ -12,7 +12,41 @@
   z-index: 150;
 }
 
+#update_comment_success {
+  background-color: #c6c198;
+  color: green;
+  padding: 10px;
+  font-family: robot-cond;
+  text-align: center;
+  position: fixed;
+  top: 11%;
+  width: 100%;
+  z-index: 150;
+}
 
+#update_comment_error{
+  background-color: #c6c198;
+  color: red;
+  padding: 10px;
+  font-family: robot-cond;
+  text-align: center;
+  position: fixed;
+  top: 11%;
+  width: 100%;
+  z-index: 150;
+}
+
+#error_delete_comment{
+  background-color: #c6c198;
+  color: red;
+  padding: 10px;
+  font-family: robot-cond;
+  text-align: center;
+  position: fixed;
+  top: 11%;
+  width: 100%;
+  z-index: 150;
+}
 
 //SCSS page article
 .bg-color-page-article{
@@ -63,7 +97,7 @@
   text-align: center;
   text-transform: uppercase;
   padding: 40px 0px;
-  font-size: 65px;
+  font-size: 60px;
   letter-spacing: 1px;
   font-family: robot-cond;
   text-shadow: 5px 1px 6px rgba(0,0,0,0.38);
@@ -114,6 +148,7 @@ margin-bottom: 50px;
 }
 
 .content-pseudo-creat-article{
+  margin-left: 35px;
   padding-right: 26%;
   padding-bottom: 10px;
   color: $black;
@@ -397,7 +432,7 @@ width: 81%;
 
 @media screen and (max-width: 1416px){
 
-  #add_comment_success{
+  #add_comment_success, #update_comment_error, #update_comment_success, #error_delete_comment{
     top: 9%;
   }
 
@@ -416,7 +451,7 @@ width: 81%;
 
 @media screen and (max-width: 1356px){
 
-  #add_comment_success{
+  #add_comment_success, #update_comment_error, #update_comment_success,#error_delete_comment{
     top: 12%;
   }
 
@@ -465,7 +500,7 @@ width: 81%;
 
 @media screen and (max-width: 1168px){
 
-  #add_comment_success{
+  #add_comment_success, #update_comment_error, #update_comment_success, #error_delete_comment{
     top: 11%;
   }
 
@@ -633,7 +668,7 @@ width: 81%;
 
 @media screen and (max-width: 576px){
 
-  #add_comment_success{
+  #add_comment_success, #update_comment_error, #update_comment_success, #error_delete_comment{
     top: 9%;
   }
 

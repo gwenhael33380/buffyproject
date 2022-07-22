@@ -24,6 +24,6 @@ if($id_comment) {
         header('Location:' . HOME_URL . 'views/article.php?id=' . $id_article .'&msg=<p id="delete_comment_success">Commentaire supprimé</p>');
     }
     else {
-        header('Location:' . HOME_URL . '?msg=<p id="error_delete_comment">Erreur lors de la suppression</p>');
+        header('Location:' . HOME_URL .'views/article.php?id=' . $id_article . '&msg=<p id="error_delete_comment">Erreur lors de la suppression</p>');
     }
 }

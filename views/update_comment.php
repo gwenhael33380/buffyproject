@@ -64,7 +64,7 @@ if($id_comment) {
                             <div>/750</div>
                         </div>
                     </div>
-                    <div class="content-button-submit-add-comment">
+                    <div class="content-button-submit-add-comment margin-content-button-update-comment">
                         <button class="button-submit-add-comment" type="submit">Mettre à jour le commentaire</button>
                     </div>
                 </form>
