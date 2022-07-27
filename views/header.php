@@ -80,75 +80,16 @@
                 </nav>
             </div>
 
-            <!--         Contents link side bar 1024px              -->
-            <div id="side-bar">
-                <div class="toggle-btn" id="btnSideBar">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-                <ul>
-                    <li class="content-side-bar-home"><a class="home-text-side-bar" href="<?= HOME_URL; ?>">ACCUEIL</a></li>
-                    <li class="content-button-side-bar"><a class="home-text-side-bar" href="<?php echo HOME_URL . 'views/blog.php'; ?>">BLOG</a></li>
-                    <?php if(isset($_SESSION['id_user'])) : ?>
-                        <li class="content-button-side-bar"><a class="home-text-side-bar" href="<?php echo HOME_URL . 'views/user_profil.php'; ?>">PROFIL</a></li>
-                    <?php endif; ?>
-                    <li class="content-button-side-bar"><a class="home-text-side-bar" href="<?php echo HOME_URL . 'views/contact.php'; ?>">CONTACT</a></li>
+            <?php
+//           include modal to connect
+            include PATH_PROJECT . '/views/modal_to_connect.php';
 
-                    <?php if(isset($_SESSION['role_slug']) && $_SESSION['role_slug'] == 'administrator' ) : ?>
-                        <li class="content-button-side-bar"><a class="home-text-side-bar" href="<?php echo HOME_URL . 'views/dashboard.php'; ?>">DASHBOARD</a></li>
-                    <?php endif; ?>
-                    <?php if(isset($_SESSION['id_user'])) : ?>
-                        <li class="content-button-side-bar">
-                            <a class="home-text-side-bar" href="<?= HOME_URL . 'requests/disconnect.php'; ?>">SE DECONNECTER</a>
-                        </li>
-                    <?php else : ?>
-                        <li class="content-button-side-bar">
-                            <a id="to_connect_side_bar" class="home-text-side-bar">CONNEXION</a>
-                        </li>
-                        <li class="content-button-side-bar">
-                            <a class="home-text-side-bar" href="<?php echo HOME_URL . 'views/subscribe.php'; ?>">S'inscrire</a>
-                        </li>
-                    <?php endif; ?>
-                </ul>
-            </div>
+            // include modal to connect 1024px
+            include PATH_PROJECT . '/views/modal-to-connect-1023px.php';
 
-            <!--                           include modal to connect-->
-<!--            --><?php
-//            include PATH_PROJECT . '/views/modal_to_connect.php';
-//            ?>
+//            include modal to connect side bar breackpoint 1023px
+            include PATH_PROJECT . '/views/side_bar.php';
 
-            <div class="modal_connect">
-                <form action="<?php echo HOME_URL . 'requests/login_post.php'; ?>" method="POST">
-                    <p class="modal-connect-title" >Se connecter</p>
-                    <div class="content-form-modal">
-                        <label class="label-modal-connect" for="email">Email</label>
-                        <input  class="input-modal-connect" type="text" name="email">
-                    </div>
-                    <div class="content-form-modal">
-                        <label class="label-modal-connect" for="password">Mot de passe</label>
-                        <input  class="input-modal-connect" type="password" name="password">
-                    </div>
-                    <div class="content-button-connected">
-                        <button id="popup-btn" type="submit">Se connecter</button>
-                    </div>
-                </form>
-            </div>
-            <!--   Contents modal to connect side bar 1023px-->
-            <div class="modal_connect_side_bar">
-                <form action="<?php echo HOME_URL . 'requests/login_post.php'; ?>" method="POST">
-                    <p class="modal-connect-title-side-bar" >Se connecter</p>
-                    <div class="content-form-modal-side-bar">
-                        <label class="label-modal-connect-side-bar" for="email">Email</label>
-                        <input  class="input-modal-connect-side-bar" type="text" name="email" ">
-                    </div>
-                    <div class="content-form-modal-side-bar">
-                        <label class="label-modal-connect-side-bar" for="password">Mot de passe</label>
-                        <input  class="input-modal-connect-side-bar" type="password" name="password">
-                    </div>
-                    <div class="content-button-connected-side-bar">
-                        <button id="popup_btn_side_bar" type="submit">Se connecter</button>
-                    </div>
-                </form>
-            </div>
+
+            ?>
         </header>
