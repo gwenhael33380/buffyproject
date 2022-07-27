@@ -87,26 +87,45 @@ $result = $req->fetch(PDO::FETCH_OBJ);
                     <div class="content-img-profil">
                         <img class="img-profil" src=" <?php echo HOME_URL .'assets/img/dist/profil/' . sanitize_html($result->file_name); ?>">
                     </div>
-                    <p class="information-user"><span class="span-information-user">Nom</span> : <?php echo sanitize_html($result->last_name); ?></p>
-                    <p class="information-user"><span class="span-information-user">Prénom</span> : <?php echo sanitize_html($result->first_name); ?></p>
-                    <p class="information-user"><span class="span-information-user">Pseudo</span> : <?php echo sanitize_html($result->pseudo); ?></p>
-                    <p class="information-user"><span class="span-information-user">Email</span> : <?php echo sanitize_html($result->email); ?></p>
-                    <p class="information-user"><span class="span-information-user">Rôle</span> : <?php echo $result->role_name; ?></p>
+                    <div class="content-information-user">
+                        <p class="information-user"><span class="span-information-user">Nom</span> : <span><?php echo sanitize_html($result->last_name); ?></span></p>
+
+                    </div>
+                    <div class="content-information-user">
+                        <p class="information-user"><span class="span-information-user">Prénom</span> : <span> <?php echo sanitize_html($result->first_name); ?></span></p>
+
+                    </div>
+                    <div class="content-information-user">
+                        <p class="information-user"><span class="span-information-user">Pseudo</span> : <span> <?php echo sanitize_html($result->pseudo); ?></span></p>
+
+                    </div>
+                    <div class="content-information-user">
+                        <p class="information-user"><span class="span-information-user">Email</span> : <span> <?php echo sanitize_html($result->email); ?></span></p>
+
+                    </div>
+                    <div class="content-information-user">
+                        <p class="information-user"><span class="span-information-user">Rôle</span> : <span> <?php echo $result->role_name; ?></span></p>
+
+                    </div>
+
                     <!--                    La fonction plural permet de mettre au pluriel si supperieur a 1 -->
+                    <?php if (!empty($count_article)) : ?>
                     <p class="information-user"><span class="span-information-user">Nombre d'article</span><?php echo plural($count_article); ?> : <?php echo $count_article; ?></p>
+                    <?php endif ?>
                     <p class="information-user"><span class="span-information-user">Nombre de commentaire</span><?php echo plural($count_comment); ?> : <?php echo $count_comment; ?></p>
+
                     <?php
-//                    var_dump($_COOKIE['last_visit']);
                     if(isset($_COOKIE['last_visit']))
 
                     {
-                        echo '<p class="date-last-connexion">Date de votre dernière visite : ' . $_COOKIE['last_visit'] . '</p>' ; // &#232 = "è"
+                        echo '<p class="information-user"><span class="span-information-user">Date de votre dernière visite</span> : ' . $_COOKIE['last_visit'] . '</p>' ; // &#232 = "è"
                     }
                     else
                     {
-                        echo '<p class="date-last-connexion">C\'est la première fois que vous visitez cette page</p>';
+                        echo '<p class="information-user">C\'est la première fois que vous visitez ce site</p>';
                     }
                     ?>
+
                 </div>
                 <div class="user_right">
                     <!-- Mettre a jour l'utilisateur -->
@@ -114,7 +133,7 @@ $result = $req->fetch(PDO::FETCH_OBJ);
                         <a class="button-modifie-profil"href="<?php echo HOME_URL . 'views/user_update.php?id=' . $result->id; ?>">modifier le profil</a>
                     </div>
                     <div class="content-button-profil2">
-                        <a class="button-delete_user btnDeleteProfil" >supprimer le profil</i></a>
+                        <a class="btnDeleteProfil" >supprimer le profil</i></a>
                     </div>
                     <!-- Suppression de l'utilisateur -->
                 </div>

@@ -101,7 +101,7 @@ if($id_user) {
                     <input type="hidden" name="initial_image" value="<?php echo sanitize_html($user->file_name); ?>"> <!--variable traveling through the form in hidden mode-->
                     <input type="hidden" name="MAX_FILE_SIZE" value="1048576">  <!--size restriction at 1MB or 1024*1028 bytes -->
                     <input type="file" id="picture" name="picture" accept="image/*"> <!--image chosen by the user-->
-                    <label class="label-update-picture" for="picture">Ajouter une image (jpg, jpeg, png, gif) 1Mo MAX</label>
+                    <label class="label-update-picture" for="picture">Ajouter une image (jpg, jpeg, png, gif) 1Mo MAX.</label>
                 </div>
                 <div  class="content-button-submit">
                     <input type="hidden" name="id_user" value="<?php echo $user->id; ?>">

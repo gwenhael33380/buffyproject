@@ -99,6 +99,8 @@
 .users-dashboard{
   display: flex;
   flex-wrap: wrap;
+  margin: auto;
+  justify-content: center;
 }
 
 .content_user_dashboard{
@@ -144,10 +146,31 @@
   margin: 20px 0px;
 }
 
+
+
 .favicon-update-user, .favicon-delete-user{
   font-size: 25px;
   color: #484848;
 }
+
+.delete_user_prohibited_alert{
+  position: relative;
+  left: 0%;
+  top: -6px;
+}
+
+.alert-delete-prohibited{
+  color: #484848;
+  font-size: 38px;
+  cursor: pointer;
+}
+
+.favicon-update-user:hover, .favicon-delete-user:hover, .alert-delete-prohibited:hover{
+color: $brown;
+
+}
+
+
 
 //Media query
 
@@ -200,11 +223,6 @@
   .content_user_dashboard {
     width: 400px;
   }
-
-  .info-user-dashboard {
-    margin-left: 30px;
-  }
-
 }
 
 @media screen and (max-width: 991px){
@@ -228,6 +246,10 @@
 
   .favicon-update-user, .favicon-delete-user{
     font-size: 37px;
+  }
+
+  .alert-delete-prohibited{
+  font-size: 45px;
   }
 }
 
@@ -336,8 +358,12 @@
     width: 280px;
   }
 
-  .favicon-update-user, .favicon-delete-user{
+  .favicon-update-user, .favicon-delete-user, {
     font-size: 40px;
     margin: 0 40px 0 40px;
-  }
+
+      }.alert-delete-prohibited{
+        font-size: 55px;
+      }
+
 }

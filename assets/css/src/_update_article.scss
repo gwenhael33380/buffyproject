@@ -1,6 +1,9 @@
+
+// WARNING !!! the class css have been reused from the add_article.scss form.
+
 .content_title_update_article{
   background-color: $green-o;
-  margin-top: 4%;
+  margin: 4% 0;
 }
 
 .title_update_article{
@@ -14,3 +17,56 @@
   text-shadow: 5px 1px 6px rgba(0,0,0,0.38);
 }
 
+.margin_bottom-update-article{
+  margin-bottom: 25px!important;
+}
+
+@media screen and (max-width: 1448px){
+
+  .title_update_article {
+    font-size: 60px;
+  }
+}
+@media screen and (max-width: 1199px){
+  .title_update_article {
+    font-size: 55px;
+  }
+}
+@media screen and (max-width: 1023px){
+
+  .title_update_article {
+    font-size: 45px;
+  }
+}
+@media screen and (max-width: 991px){
+
+  .title_update_article {
+    font-size: 40px;
+  }
+}
+@media screen and (max-width: 767px){
+
+  .title_update_article {
+    font-size: 32px;
+  }
+}
+@media screen and (max-width: 657px){
+
+  .title_update_article {
+    font-size: 25px;
+  }
+}
+
+@media screen and (max-width: 486px){
+
+  .title_update_article {
+    font-size: 23px;
+  }
+}
+@media screen and (max-width: 320px){
+
+  .title_update_article {
+    font-size: 20px;
+    padding: 20px 0;
+  }
+}

@@ -23,4 +23,30 @@
   width: 100%;
   z-index: 150;
 }
-                                        // Media query
+
+// Media query
+
+@media screen and (max-width: 1416px){
+
+  .msg_error, .msg_success{
+    top: 9%;
+  }
+}
+@media screen and (max-width: 1356px){
+
+  .msg_error, .msg_success{
+    top: 12%;
+  }
+}
+@media screen and (max-width: 1168px){
+
+  .msg_error, .msg_success{
+    top: 11%;
+  }
+}
+@media screen and (max-width: 576px){
+
+  .msg_error, .msg_success{
+    top: 9%;
+  }
+}

@@ -93,7 +93,7 @@ margin-right: 30px;
 }
 
 .button-modifie-profil{
-  padding: 15px 35px;
+  padding: 12px 35px;
   font-size: 17px;
   border-radius: 30px;
   color: $black;
@@ -101,6 +101,7 @@ margin-right: 30px;
   text-transform: uppercase;
   background-color: $green;
   margin-left: 10px;
+  font-family: robot-cond;
 }
 
 .button-modifie-profil:hover{
@@ -109,8 +110,9 @@ margin-right: 30px;
   color: $white;
 }
 
-.button-delete_user{
-  padding: 15px 35px;
+.btnDeleteProfil{
+  font-family: robot-cond;
+  padding: 12px 35px;
   font-size: 17px;
   border-radius: 30px;
   color: $white;
@@ -120,7 +122,7 @@ margin-right: 30px;
   cursor: pointer;
 }
 
-.button-delete_user:hover{
+.btnDeleteProfil:hover{
   background-color: $green;
   text-decoration: none;
   color: $black;
@@ -209,8 +211,56 @@ margin-right: 30px;
 }
 
 @media screen and (max-width: 486px) {
+
+  .bg-page-profil {
+    min-height: calc(34.5vh - 92px);
+    margin-top: 14.5%;
+  }
+
+  .content-information-user{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
   .content-button-profil{
 
     margin-bottom: 12%;
   }
+}
+
+@media screen and (max-width: 320px){
+
+  .bg-page-profil {
+    min-height: calc(27.5vh - 92px);
+    margin-top: 21.5%;
+  }
+
+  .content-space-personel{
+    margin-top: 40px;
+  }
+
+  .profil_user {
+    margin-top: 47px;
+  }
+
+  .space-personel {
+    font-size: 28px;
+    padding: 20px 0;
+  }
+
+  .title-first-name {
+    font-size: 25px;
+    padding: 20px 0;
+  }
+
+  .content-img-profil {
+    margin-top: 55px
+  }
+
+  .information-user {
+    margin-bottom: 8px;
+  }
+
+
+
 }

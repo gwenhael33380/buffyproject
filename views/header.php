@@ -113,7 +113,11 @@
                 </ul>
             </div>
 
-            <!--                           Contents modal to connect-->
+            <!--                           include modal to connect-->
+<!--            --><?php
+//            include PATH_PROJECT . '/views/modal_to_connect.php';
+//            ?>
+
             <div class="modal_connect">
                 <form action="<?php echo HOME_URL . 'requests/login_post.php'; ?>" method="POST">
                     <p class="modal-connect-title" >Se connecter</p>
@@ -130,7 +134,6 @@
                     </div>
                 </form>
             </div>
-
             <!--   Contents modal to connect side bar 1023px-->
             <div class="modal_connect_side_bar">
                 <form action="<?php echo HOME_URL . 'requests/login_post.php'; ?>" method="POST">

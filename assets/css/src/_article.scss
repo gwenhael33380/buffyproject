@@ -383,11 +383,6 @@ width: 81%;
 
 @media screen and (max-width: 1416px){
 
-  #add_comment_success, #update_comment_error, #update_comment_success, #error_delete_comment, #delete_article_success,
-  #delete_article_error{
-    top: 9%;
-  }
-
   .content-pseudo-creat-article{
     padding-right: 22%;
   }
@@ -402,11 +397,6 @@ width: 81%;
 }
 
 @media screen and (max-width: 1356px){
-
-  #add_comment_success, #update_comment_error, #update_comment_success,#error_delete_comment, #delete_article_success,
-  #delete_article_error{
-    top: 12%;
-  }
 
   .content-pseudo-creat-article{
     padding-right: 21%;
@@ -452,11 +442,6 @@ width: 81%;
 }
 
 @media screen and (max-width: 1168px){
-
-  #add_comment_success, #update_comment_error, #update_comment_success, #error_delete_comment, #delete_article_success,
-  #delete_article_error{
-    top: 11%;
-  }
 
   .title-page-article{
     font-size: 57px;
@@ -621,11 +606,6 @@ width: 81%;
 }
 
 @media screen and (max-width: 576px){
-
-  #add_comment_success, #update_comment_error, #update_comment_success, #error_delete_comment, #delete_article_success,
-  #delete_article_error{
-    top: 9%;
-  }
 
   .bg-img-page-article{
     min-height: calc(33vh - 92px);

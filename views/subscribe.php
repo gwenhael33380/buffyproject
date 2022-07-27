@@ -14,6 +14,12 @@ require __DIR__ . '/header.php';
 ?>
     <main class="main_subscribe content">
         <div class="bg-img-subscribe"></div>
+        <div>
+            <?php
+            if(isset($_GET['msg'])) {
+                echo $_GET['msg'];
+            } ?>
+        </div>
         <section>
            <div class="content_title_subscribe">
             <h1 class="title-subscribe">Formulaire d'inscription</h1>
@@ -48,16 +54,11 @@ require __DIR__ . '/header.php';
                         <p class="text-mdp">Le mot de passe doit comprendre entre 8 et 16 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial, et pas d'espace</p>
                     </div>
                     <div class="field-subscribe flex-label-subscribe">
-                        <label class="label-picture-subscribe" for="picture">Ajouter une image au format (jpg, jpeg, png, gif) 1Mo MAX</label>
+                        <label class="label-picture-subscribe" for="picture">Ajouter une image à votre profil (Facultatif) au format (jpg, jpeg, png, gif) 1Mo MAX.</label>
                         <input type="hidden" name="MAX_FILE_SIZE" value="1048576"> <!-- 1Mo = 1024*1024 octets -->
                         <input  type="file" id="picture" name="picture" accept="image/*">
+                        <div class="current_img"><img></div>
 
-                        <?php
-
-//                        $_GET message
-                        if(isset($_GET['msg_error'])) {
-                            echo $_GET['msg_error'];
-                        } ?>
 
                     </div>
                     <div class="content-button-form-contact">

@@ -35,6 +35,7 @@ $req->execute();
 $results = $req->fetchAll(PDO::FETCH_OBJ); ?>
 
 
+
     <main class="content bgc-dashboard">
     <div class="content-bgi-dashboard"></div>
         <!--            display of request $_GET messages-->
@@ -80,8 +81,22 @@ $results = $req->fetchAll(PDO::FETCH_OBJ); ?>
                             <p class="info-user-dashboard">Pseudo : <span class="result_pseudo span-info-user-dashboard"><?php echo sanitize_html($result->pseudo); ?></span></p>
                             <p class="info-user-dashboard">Email : <span class="span-info-user-dashboard"><?php echo sanitize_html($result->email); ?></span></p>
                             <p class="info-user-dashboard">Rôle : <span class="span-info-user-dashboard"><?php echo sanitize_html($result->role_name); ?></span></p>
-                            <p class="info-user-dashboard">Nombre article<span class="span-info-user-dashboard"><?php echo plural($count_article); ?> : <?php echo $count_article; ?></span></p>
+                            <?php if (!empty($count_article)) : ?>
+                            <p class="info-user-dashboard ">Nombre article<span class="span-info-user-dashboard"><?php echo plural($count_article); ?> : <?php echo $count_article; ?></span></p>
+                            <?php endif ?>
                             <p class="info-user-dashboard">Nombre de commentaire<span class="span-info-user-dashboard"><?php echo plural($count_comment); ?> : <?php echo $count_comment; ?></span></p>
+                            <?php
+                            //                    var_dump($_COOKIE['last_visit']);
+                            if(isset($_COOKIE['last_visit']))
+
+                            {
+                                echo '<p class="info-user-dashboard">dernière visite : ' . '<span class="span-info-user-dashboard">' . $_COOKIE['last_visit'] . '</span>' . '</p>' ; //
+                            }
+                            else
+                            {
+                                echo '<p class="info-user-dashboard">Jamais connecté</p>';
+                            }
+                            ?>
                         </div>
 
                     </div>
@@ -89,9 +104,17 @@ $results = $req->fetchAll(PDO::FETCH_OBJ); ?>
 
                         <!-- mise à jour de l'utilisateur -->
                         <a href="<?php echo HOME_URL . 'views/dashboard_update.php?id=' . $result->id; ?>"><i class="fa-solid fa-pencil favicon-update-user"></i></a>
-
+<!--                        --><?php //var_dump($_SESSION);die; ?>
                         <!-- suppression de l'utilisateur -->
+
+<!--                        --><?php if ($_SESSION['id_user'] != $result->id):?>
+
                         <a class="delete_user" href="<?php echo HOME_URL . 'requests/dashboard_delete_post.php?id=' . $result->id; ?>"><i class="fa-solid fa-trash-can favicon-delete-user"></i></a>
+
+                        <?php else: ?>
+                            <a class="delete_user_prohibited_alert"><i class="fa-solid fa-xmark alert-delete-prohibited"></i></a>
+
+                        <?php endif ?>
                     </div>
                 </div>
             <?php endforeach; ?>

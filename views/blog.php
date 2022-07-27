@@ -105,7 +105,7 @@ if(isset($_SESSION['role_slug'])) $role_slug = $_SESSION['role_slug'];
 //                time conversion function
                 $origin_date_article = $article->created_at;
                 $timestamp = strtotime($origin_date_article);
-                $newDate = date("d-m-Y à h:i:s", $timestamp);
+                $newDate = date("d-m-Y à H:i:s", $timestamp);
 
 
                 ?>

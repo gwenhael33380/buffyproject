@@ -135,10 +135,12 @@ border: none;
 }
 
 @media screen and (max-width: 657px) {
-  .bg-page-contact{
-    min-height: calc(25vh - 92px);
-    margin-top: 4.5%;
+
+  .bg-page-contact {
+    min-height: calc(23vh - 92px);
+    margin-top: 11.5%;
   }
+
   .title-form-contact{
     font-size: 39px;
   }
@@ -146,14 +148,40 @@ border: none;
 
 @media screen and (max-width: 576px) {
 
-  .bg-page-contact{
-
-    min-height: calc(23vh - 92px);
+  .bg-page-contact {
+    min-height: calc(22vh - 92px);
+    margin-top: 12.5%;
   }
+
   .title-form-contact{
     font-size: 31px;
   }
   .field-contact {
     width: 65%;
+  }
+}
+
+@media screen and (max-width: 320px){
+  .bg-page-contact {
+    min-height: calc(17vh - 92px);
+    margin-top: 22.5%;
+  }
+
+  .title-form-contact {
+    font-size: 22px;
+    padding: 20px 0;
+  }
+
+  .content-form-contact {
+    width: 114%;
+  }
+
+  .field-contact{
+    margin: 0 5%;
+    width: 76%;
+  }
+
+  .content-button-form-contact {
+    margin: 75px  33px 75px 0;
   }
 }

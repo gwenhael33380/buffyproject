@@ -10,9 +10,9 @@
   max-height: 40vh;
   width: 100%;
   background-repeat: no-repeat;
-  margin-top: 80.14px;
-
+  margin-top: 76.14px;
 }
+
 .content_title_subscribe{
   background-color: $green-o;
   margin-top: 7%;
@@ -31,7 +31,7 @@
 .field-subscribe{
   display: flex;
   flex-direction: column;
-  width: 33%;
+  width: 50%;
   margin: 0 auto;
 }
 
@@ -76,18 +76,137 @@
 
 }
 .button-submit-subscribe{
-
   background-color: $red;
   color: white;
   border: none;
   font-family: rbt-r;
-  padding: 8px 24px;
+  padding: 10px 24px;
   border-radius: 25px;
   margin-right: 15px;
   text-transform: uppercase;
-  font-size: 15px;
+  font-size: 20px;
 }
 .button-submit-subscribe:hover{
   transition-duration: .3s;
   background-color: $green;
+  color: $black;
+}
+
+
+//Media query
+
+@media screen and (max-width: 1448px){
+  .title-subscribe {
+    font-size: 55px;
+  }
+
+  .field-subscribe{
+    width: 69%;
+  }
+
+  .content_title_subscribe{
+    margin-top: 0;
+  }
+}
+
+@media screen and (max-width: 1199px){
+  .bg-img-subscribe{
+    min-height: calc(43vh - 92px);
+  }
+}
+
+@media screen and (max-width: 1023px){
+
+  .bg-img-subscribe {
+    min-height: calc(36vh - 92px);
+    margin-top: 94.14px;
+  }
+
+  .title-subscribe {
+    font-size: 50px;
+  }
+}
+
+@media screen and (max-width: 991px){
+
+  .bg-img-subscribe {
+    margin-top: 87.14px;
+  }
+}
+
+@media screen and (max-width: 767px){
+
+  .bg-img-subscribe {
+    min-height: calc(32vh - 92px);
+    margin-top: 90.14px;
+  }
+}
+
+@media screen and (max-width: 657px){
+
+  .bg-img-subscribe {
+    min-height: calc(28vh - 92px);
+    margin-top: 77.14px;
+  }
+
+  .title-subscribe {
+    font-size: 35px;
+  }
+
+  .file_form {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 576px){
+
+  .bg-img-subscribe{
+    margin-top: 69.14px;
+  }
+
+  .title-subscribe {
+    font-size: 30px;
+    padding: 25px 0;
+  }
+
+  .file_form {
+    width: 95%;
+  }
+}
+
+
+@media screen and (max-width: 486px){
+
+  .bg-img-subscribe {
+    min-height: calc(24vh - 92px)
+  }
+
+  .file_form {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 320px){
+
+  .bg-img-subscribe {
+    min-height: calc(20vh - 92px);
+    margin-top: 72.14px;
+  }
+
+  .title-subscribe {
+    font-size: 18.5px;
+    padding: 22px 0;
+  }
+
+  .field-subscribe {
+    width: 83%;
+  }
+
+  .content-button-form-contact {
+    margin: 75px 0!important;
+  }
+
+  .button-submit-subscribe{
+    margin: 0;
+  }
 }

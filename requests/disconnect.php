@@ -1,26 +1,11 @@
 <?php
 
-//    setcookie('last_visit', time() - 6000, null, null, false, true);
+$h = new DateTime('now', new DateTimeZone('EUROPE/Paris'));
+$connect_date = $h->format('d/m/Y à H\hi');
+$h->add(new DateInterval('P1Y'));
+$end_time = $h->getTimestamp();
 
-    $day = date('d'); //the day
-    $month = date('m'); //the month
-    $years = date('Y'); //the years
-//    $h = date('H'); //the years
-//    $h1 = date('i'); //the years
-//    $h2 = date('s'); //the years
-
-
-$date = ''. $day .'/'. $month .'/'. $years .''; //date format
-
-setcookie('last_visit', $date, time() + 60*60*24*365, null, null, false, true); //la création du cookie (avec httpOnly activé)
-
-
-
-
-
-
-
-//var_dump($_COOKIE['last_visit']);die;
+setcookie('last_visit', $connect_date, $end_time, '/'); //la création du cookie (avec httpOnly activé)
 
 //call function
 require dirname(__DIR__) . '/functions.php';

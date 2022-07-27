@@ -96,7 +96,7 @@ if($id_article) {
                 </div>
             </div>
 
-            <div class="content-button-add-article">
+            <div class="content-button-add-article margin_bottom-update-article">
                 <button class="button-submit-add-article" type="submit">Mettre à jour l'article</button>
             </div>
         </form>

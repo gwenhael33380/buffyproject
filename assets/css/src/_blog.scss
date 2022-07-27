@@ -1,6 +1,6 @@
 
 
-                                                                            //Blog SCSS
+//Blog SCSS
 
 .modal_delete_article{
   right: -800px;
@@ -406,22 +406,63 @@ transform-border{
 }
 
 @media screen and (max-width: 486px) {
+
   .create_article_success{
     top: 8.2%;
   }
+
   .title-blog {
     font-size: 23px;
   }
+
   .article-title{
     font-size: 24px;
   }
+
   .content-button-acces-article{
     margin-left: 82%;
   }
+
   .content-preview-article{
     width: 81%;
   }
+
   .button-prewiew-acces-blog{
     font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 320px){
+
+  .content-bgi-blog {
+    min-height: calc(16vh - 92px);
+    margin-top: 22%;
+  }
+
+  .title-blog {
+    padding: 20px;
+    font-size: 18px;
+  }
+
+  .article-title {
+    font-size: 20px;
+    padding: 20px;
+  }
+
+  .content-preview-article {
+    margin-left: 10px;
+    width: 210px;
+  }
+
+  .preview-img-article-blog {
+    margin-left: 0;
+  }
+
+  .preview-img-article-blog {
+    width: 90%;
+  }
+
+  .content-button-acces-article {
+    margin-left: 2%;
   }
 }
