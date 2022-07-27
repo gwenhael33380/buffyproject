@@ -27,14 +27,14 @@ $match_pass = check_password($pass1); // je check pour voir s'il correspond au p
 
 
 if(in_array('', $required_fields)) :
-    $msg_error = '<p class="red">Vous devez remplir le(s) champ(s) obligatoire(s)</p>';
+    $msg_error = '<p class="msg_error">Vous devez remplir le(s) champ(s) obligatoire(s)</p>';
     $empty_field = TRUE;
 else :
 
     if($pass1 != $pass2) :
-        $msg_error = '<p>Les mots de passe ne correspondent pas</p>';
+        $msg_error = '<p class="msg_error">Les mots de passe ne correspondent pas</p>';
     elseif(!$match_pass) :
-        $msg_error = '<p>Le mot de passe ne correspond pas au format exigé</p>';
+        $msg_error = '<p class="msg_error">Le mot de passe ne correspond pas au format exigé</p>';
     else :
         // on vérifie que le pseudo n'existe pas dans la BDD
         $req = $db->prepare("
@@ -65,7 +65,7 @@ else :
             $result = $req->fetch(PDO::FETCH_OBJ);
 
             if($result->count_email) : // si > 0
-                $msg_error = '<p>Ce compte existe deja avec cet adresse email</p>';
+                $msg_error = '<p class="msg_error">Ce compte existe deja avec cet adresse email</p>';
             endif;
         endif;
     endif;
@@ -73,9 +73,9 @@ else :
     if(!isset($msg_error)) :
         $error = $picture['error'];
         if(in_array($error, $error_upload)) :
-            $msg_error = '<p class="red">Erreur au moment de l\'envoi</p>';
+            $msg_error = '<p class="msg_error">Erreur au moment de l\'envoi</p>';
         elseif(in_array($error, $error_size)) :
-            $msg_error = '<p class="red">Fichier trop volumineux, ne pas dépasser 1Mo</p>';
+            $msg_error = '<p class="msg_error">Fichier trop volumineux, ne pas dépasser 1Mo</p>';
         elseif($error == 4) :
             $send_request = TRUE;
             $img_name = FALSE;
@@ -88,9 +88,9 @@ else :
 
             // on vérifie si l'extension est bien dans le tableau, sinon ce n'est pas une image
             if(!in_array($ext_img, $enabled_ext)) :
-                $msg_error = '<p class="red">Votre fichier n\'est pas une image png, jpg ou jpeg</p>';
+                $msg_error = '<p class="msg_error">Votre fichier n\'est pas une image png, jpg ou jpeg</p>';
             elseif($image_size > $size_max) :
-                $msg_error = '<p class="red">Fichier trop volumineux, ne pas dépasser 1Mo</p>';
+                $msg_error = '<p class="msg_error">Fichier trop volumineux, ne pas dépasser 1Mo</p>';
             else :
 
 
@@ -148,16 +148,16 @@ else :
             $result = $req->execute();
 
             if($result) :
-                $msg_success = '<p class="red">Vous êtes bien inscrit</p>';
+                $msg_success = '<p class="msg_success">Vous êtes bien inscrit</p>';
             else :
-                $msg_error = '<p class="red">Oups !! erreur lors de la création du profil</p>';
+                $msg_error = '<p class="msg_error">Oups !! erreur lors de la création du profil</p>';
             endif;
         endif;
     endif;
 
 endif;
     if(isset($msg_error)) {
-        header('Location:' . HOME_URL . 'views/subscribe.php?msg_error=' . $msg_error);
+        header('Location:' . HOME_URL . 'views/subscribe.php?msg=' . $msg_error);
     }
     else {
         header('Location:' . HOME_URL . '?msg=' . $msg_success);

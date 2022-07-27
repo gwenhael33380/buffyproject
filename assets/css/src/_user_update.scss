@@ -4,17 +4,6 @@
   background-color: $bg-general;
 }
 
-.error_update_user{
-  background-color: $green;
-  color: red;
-  padding: 10px;
-  font-family: robot-cond;
-  text-align: center;
-  position: fixed;
-  width: 100%;
-  z-index: 150;
-  margin-top: .5%;
-}
 .bg-img-user-update{
   background-image: url(../../img/dist/source/bg-img-user-update7.png);
   background-size: 100%;
@@ -28,6 +17,7 @@
 .content-title-user-update{
   background-color: $green-o;
 }
+
 .title-form-update{
   text-align: center;
   padding: 40px 0;
@@ -39,28 +29,33 @@
   font-family: robot-cond;
   text-shadow: 5px 1px 6px rgba(0,0,0,0.38);
 }
+
 .file_form_user_update{
   width: 80%;
   margin: 4% auto auto;
   margin-bottom: 50px;
 }
+
 .flex-form-user-update{
   display: flex;
   flex-direction: column;
   width: 44%;
   margin: 0 auto;
 }
+
 .input-user-update{
   border: none;
   border-radius: 8px;
   padding: 15px;
   box-shadow: 4px 1px 10px 0 rgba(0, 0, 0, .15);
 }
+
 .label-user-update{
   padding: 40px 0 10px 10px;
   font-family: robot-cond;
   font-size: 15px;
 }
+
 .label-update-picture{
   margin-top: 4px;
   margin-bottom: 25px;
@@ -70,9 +65,11 @@
   font-size: 13px;
   text-decoration: underline;
 }
+
 .current_img{
   width: 35%;
 }
+
 .text-mdp-user-update{
   margin-top: 12px;
   margin-bottom: 25px;
@@ -95,6 +92,7 @@ align-items: center;
   justify-content: center;
   margin-top: 25px;
 }
+
 .button-submit-user_update{
   background-color: $red;
   color: $white;
@@ -108,12 +106,15 @@ align-items: center;
   transition-duration: .3s;
   font-family: robot-cond;
 }
+
 .button-submit-user_update:hover {
 
   background-color: $green;
   color: $black;
 }
+
 @media screen and (max-width: 1448px){
+
   .bg-img-user-update{
     min-height: calc(41vh - 92px);
   }
@@ -123,10 +124,10 @@ align-items: center;
   .flex-form-user-update{
     width: 53%;
   }
-
 }
 
 @media screen and (max-width: 1302px){
+
   .bg-img-user-update{
     min-height: calc(39vh - 92px);
   }
@@ -136,51 +137,64 @@ align-items: center;
 }
 
 @media screen and (max-width: 1216px){
+
   .bg-img-user-update{
     min-height: calc(37vh - 92px);
   }
+
   .title-form-update{
     font-size: 35px;
   }
 }
 
 @media screen and (max-width: 991px){
+
   .bg-img-user-update{
     min-height: calc(33vh - 92px);
   }
+
   .title-form-update{
     font-size: 28px;
   }
+
   .current_img {
     width: 50%;
   }
 }
 
 @media screen and (max-width: 767px){
+
   .bg-img-user-update{
     min-height: calc(29vh - 92px);
   }
+
   .title-form-update{
     font-size: 25px;
   }
+
   .flex-form-user-update{
     width: 64%;
   }
+
   .current_img {
     width: 60%;
   }
 }
 
 @media screen and (max-width: 576px){
+
   .bg-img-user-update{
     min-height: calc(24vh - 92px);
   }
+
   .title-form-update{
     font-size: 20px;
   }
+
   .flex-form-user-update{
     width: 67%;
   }
+
   .text-mdp-user-update{
     margin-left: 13px;
   }
@@ -190,11 +204,17 @@ align-items: center;
   .bg-img-user-update{
     min-height: calc(22vh - 92px);
   }
+
   .title-form-update{
     font-size: 15px;
     padding: 23px 0;
   }
+
   .flex-form-user-update{
     width: 72%;
   }
+}
+
+@media screen and (max-width: 320px){
+
 }

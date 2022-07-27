@@ -113,6 +113,7 @@ transition-duration: 1s;
   right: -255%;
   transform: translate(-50%, -50%);
   transition: 1.5s ease;
+  z-index: 1000000;
 
 }
 
@@ -172,15 +173,22 @@ transition-duration: 1s;
 
 .modal_connect_side_bar {
   background: $brown-pop;
-  margin-top: 37%;
+  margin-top: 25%;
   width: 400px;
   padding: 30px 30px;
   border-radius: 10px;
   position: fixed;
   right: -255%;
-  transform: translate(-50%, -50%);
-  transition: 1.5s ease;
+  z-index: 1000000;
+}
 
+.toggle_modal_side_bar{
+  right: 50%;
+}
+
+.toggle_modal{
+  right: 30%;
+  transition: 1.5s ease;
 }
 
 .modal-connect-title-side-bar{
@@ -242,11 +250,22 @@ transition-duration: 1s;
 
 @media screen and (max-width: 1356px) {
 
+  .toggle_modal{
+    right: 19%;
+  }
+
+  .modal_connect{
+    margin-top: 25%;
+  }
   .logo-nav-bar {
     width: 8%;
   }
 }
 @media screen and (max-width: 1023px) {
+
+  .toggle_modal{
+    right: 9.7%;
+  }
 
   .logo-nav-bar {
     width: 10%;

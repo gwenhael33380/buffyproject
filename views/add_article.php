@@ -3,6 +3,7 @@
 
 //call function
 require dirname(__DIR__) . '/functions.php';
+enabled_access(array('administrator'));
 
 //call connect
 require_once PATH_PROJECT . '/connect.php';
@@ -16,7 +17,7 @@ require __DIR__ . '/header.php';
 
 //the roles that have access to the page
 //the others will be redirected to the HOME page
-enabled_access(array('administrator'));
+
 ?>
 <main class="bg-color-add-article" >
     <div class="bg-img-add-article"></div>
@@ -70,7 +71,7 @@ enabled_access(array('administrator'));
                     </div>
                 </div>
                 <div class="content-add-img-article">
-                    <label class="label-add-img-article" for="images">Ajouter une image (jpg, jpeg, png, gif)<span class="red">*</span>
+                    <label class="label-add-img-article" for="images">Ajouter une image (jpg, jpeg, png, gif) 1Mo MAX<span class="red">*</span>
                         <br>  <span class="red">N'ajoutez que des images en mode paysage.  </span> Merci de respecté cette convention. Tout manquement à cette règle fera l'objet d'une suppression de l'article concerné ! Merci pour votre compréhension.</label>
                     <input type="hidden" name="MAX_FILE_SIZE" value="1048576"> <!-- 1Mo = 1024*1024 octets -->
                     <input type="file" id="images-add-article" name="images" accept="image/*">

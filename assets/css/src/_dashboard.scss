@@ -1,60 +1,343 @@
-//SCSS Dashboard
+// CSS Dashboard
+
+
+
+.content-bgi-dashboard{
+  background-image: url(../../img/dist/source/bg_blog.png);
+  background-size: 100%;
+  min-height: calc(50vh - 92px);
+  max-height: 40vh;
+  width: 100%;
+  background-repeat: no-repeat;
+  margin-top: 5%;
+}
+
+.content-title-dashboard{
+  background-color: $green-o;
+  margin: 5% 0;
+}
+
+ .title-dashboard{
+   padding: 40px 0;
+   color: $black;
+   text-align: center;
+   text-transform: uppercase;
+   font-size: 65px;
+   letter-spacing: 1px;
+   font-family: robot-cond;
+   text-shadow: 5px 1px 6px rgba(0,0,0,0.38);
+ }
+
+ .flex-content-title-list{
+   display: flex;
+   justify-content: center;
+ }
+
+ .content-title-list{
+   display: flex;
+   justify-content: center;
+   width: 70%;
+   margin-bottom: 5%;
+   border-top: 3px solid $black;
+   border-bottom: 3px solid $black;
+ }
+ .title-list-user-dashboard{
+   text-align: center;
+   text-transform: uppercase;
+   font-size: 40px;
+   padding: 30px;
+   font-family: robot-cond;
+  }
+
+.users-dashboard{
+  margin-left: 5%;
+  padding-bottom: 50px;
+}
+
+#categoryFilter {
+  font-family: robot-cond;
+}
+
+
+.relative-position-fa{
+  position: relative;
+  z-index: 1;
+  left: 25%;
+  top: -36px;
+  font-size: 25px;
+  color: #858484;
+}
+
+.bgc-dashboard{
+  background-color: $bg-general;
+}
 
 .dashboard{
   padding-top: 150px;
 }
 
-#users_dashboard{
-
-  margin-left: 20%;
-  margin-right: 20%;
+.flex-content-search{
+  display: flex;
+  justify-content: center;
 }
 
-.user_dashboard{
-  border: 1px solid $black;
+.content-form-search{
+  display: flex;
+  flex-direction: column;
+  margin: 0 50px 50px 0;
+  align-items: center;
+}
+
+#categoryFilter{
+  width: 55%;
+  border: none;
+  border-radius: 15px;
+  padding: 15px;
+  box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
+}
+
+.users-dashboard{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.content_user_dashboard{
+  margin: 0 15px;
+  //margin-right: 20%;
+  width: 400px;
+  box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
+  border-radius: 7px;
   margin-bottom: 15px;
+  background-color: white;
 }
 
 .content_img_dashboard{
   display: flex;
   justify-content: center;
-  padding-top: 3%;
+  padding-top: 10%;
+  margin-bottom: 25px;
 }
 
-.img_dashboard{
-  width: 30%;
+.img-user-profil-dashboard{
+  width: 40%;
+  max-height: 50%;
+  border-radius: 5px;
 }
 
-.content_desc_user{
-  display: flex;
-  justify-content: center;
-  margin-bottom: 45px;
-}
-
-.desc_user_dashboard{
-  padding-left: 15%;
-}
-.desc_user_dashboard_2{
-  padding-left: 14%;
-}
-
-.content_desc_user{
-  margin-top: 10px;
-
-}
-
-.desc_user_dashboard{
-}
-
-.text_dashboard{
-  font-family: robot-cond-b;
-  font-size: 17px;
-}
-
-.span_text_dashboard{
+.info-user-dashboard{
+  text-align: justify;
+  margin-left: 50px;
   font-family: robot-cond;
+  font-weight: 700;
+  font-size: 20px;
+  min-height: 10px;
+  max-height: 50px;
 }
 
-.right_name{
-  color: green;
+.span-info-user-dashboard{
+  font-weight: 300;
+}
+
+.flex-button-dashboard{
+  display: flex;
+  justify-content: space-evenly;
+  margin: 20px 0px;
+}
+
+.favicon-update-user, .favicon-delete-user{
+  font-size: 25px;
+  color: #484848;
+}
+
+//Media query
+
+@media screen and (max-width: 1416px){
+  .title-dashboard{
+    font-size: 60px;
+  }
+  .content-bgi-dashboard{
+    min-height: calc(37vh - 92px);
+  }
+}
+
+@media screen and (max-width: 1356px) {
+
+  .img-user-profil-dashboard {
+    width: 60%;
+  }
+
+  .content_user_dashboard {
+    width: 360px;
+  }
+
+  .info-user-dashboard {
+    margin-left: 30px;
+  }
+}
+
+
+@media screen and (max-width: 1168px){
+
+  .title-dashboard{
+    font-size: 55px;
+  }
+
+  .content_user_dashboard {
+    width: 330px;
+  }
+
+  .info-user-dashboard {
+    margin-left: 15px;
+  }
+}
+
+@media screen and (max-width: 1023px){
+
+  .users-dashboard {
+    margin-left: 8%;
+  }
+
+  .content_user_dashboard {
+    width: 400px;
+  }
+
+  .info-user-dashboard {
+    margin-left: 30px;
+  }
+
+}
+
+@media screen and (max-width: 991px){
+
+  .content-bgi-dashboard{
+    min-height: calc(29vh - 92px);
+    margin-top: 9%;
+  }
+
+  .title-dashboard {
+    font-size: 45px;
+  }
+
+  .title-list-user-dashboard{
+    font-size: 30px;
+  }
+
+  .flex-button-dashboard{
+    margin: 35px 0 20px 0;
+  }
+
+  .favicon-update-user, .favicon-delete-user{
+    font-size: 37px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+
+  .content-bgi-dashboard {
+    min-height: calc(25vh - 92px);
+    margin-top: 12%;
+  }
+
+  .content-title-list{
+
+    border-top: 2px solid $black;
+    border-bottom: 2px solid $black;
+  }
+
+  .title-list-user-dashboard {
+    font-size: 25px;
+  }
+
+  .img-user-profil-dashboard{
+    width: 57%;
+  }
+
+  .info-user-dashboard {
+    margin-left: 20px;
+    font-size: 17px;
+  }
+
+
+  .relative-position-fa {
+    left: 23%;
+  }
+
+  .content_user_dashboard {
+    width: 320px;
+  }
+}
+
+@media screen and (max-width: 576px){
+
+  .content-bgi-dashboard {
+    min-height: calc(21vh - 92px);
+    margin-top: 12%;
+  }
+
+  .title-list-user-dashboard {
+    font-size: 22px;
+  }
+
+  .title-dashboard {
+    font-size: 40px;
+  }
+
+  .content-form-search{
+    margin: 20px 0 50px 0;
+  }
+
+  .users-dashboard{
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 0;
+  }
+
+  .content_user_dashboard {
+    width: 375px;
+  }
+  .info-user-dashboard {
+    margin-left: 36px;
+  }
+
+  #categoryFilter {
+    width: 65%;
+  }
+
+  .relative-position-fa{
+    display: none;
+  }
+}
+
+@media screen and (max-width: 486px){
+  .content-bgi-dashboard {
+    min-height: calc(20vh - 92px);
+    margin-top: 14%;
+  }
+}
+
+@media screen and (max-width: 320px){
+
+  .content-bgi-dashboard {
+    min-height: calc(17vh - 92px);
+    margin-top: 22%;
+  }
+
+  .title-dashboard {
+    padding: 20px;
+    font-size: 35px;
+    }
+
+  .title-list-user-dashboard {
+    font-size: 16px;
+  }
+
+  .content_user_dashboard {
+    width: 280px;
+  }
+
+  .favicon-update-user, .favicon-delete-user{
+    font-size: 40px;
+    margin: 0 40px 0 40px;
+  }
 }

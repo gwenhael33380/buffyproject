@@ -117,10 +117,10 @@ endif;
 
 //redirect after data processing with option error or success messages
 if(isset($msg_error)) {
-    header('Location:' . HOME_URL . 'views/add_article.php?msg=<p class="create_article_error">' . $msg_error . '</p>');
+    header('Location:' . HOME_URL . 'views/add_article.php?msg=<p class="create_article_error msg_success">' . $msg_error . '</p>');
 }
 else {
-    header('Location:' . HOME_URL . 'views/blog.php?msg=<p class="create_article_success">' . $msg_success . '</p>');
+    header('Location:' . HOME_URL . 'views/blog.php?msg=<p class="create_article_success msg_error">' . $msg_success . '</p>');
 
 }
 

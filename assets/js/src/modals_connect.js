@@ -11,7 +11,7 @@ const popupBtn = document.getElementById("popup-btn");
 if(to_connect) {
 
     to_connect.addEventListener("click", () => {
-        modal_connect.style.right = "30%";
+        modal_connect.classList.toggle('toggle_modal');
     });
 }
 if(popupBtn) {
@@ -33,7 +33,7 @@ const popupBtn_side_bar = document.getElementById("popup_btn_side_bar");
 if(to_connect_side_bar) {
 
     to_connect_side_bar.addEventListener("click", () => {
-        modal_connect_side_bar.style.right = "4%";
+        modal_connect_side_bar.style.right.classList.toggle('toggle_modal_side_bar');
         sideBar.classList.remove("active");
     });
 }

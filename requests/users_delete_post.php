@@ -30,8 +30,8 @@ if ($id_user) {
 
     //    redirect on success or failure
     if ($result) {
-        header('Location:' . HOME_URL . 'views/home.php?msg=<div class="green">Utilisateur supprimé</div>');
+        header('Location:' . HOME_URL . 'views/home.php?msg=<p class="msg_success">Utilisateur supprimé</p>');
     } else {
-        header('Location:' . HOME_URL . 'views/home.php?msg=<div class="red">Erreur lors de la suppression</div>');
+        header('Location:' . HOME_URL . 'views/home.php?msg=<p class="msg_error">Erreur lors de la suppression</p>');
     }
 }

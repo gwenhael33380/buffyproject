@@ -2,6 +2,7 @@
 
 require dirname(__DIR__) . '/functions.php';
 enabled_access(array('administrator', 'editor', 'user'));
+//var_dump($_COOKIE['last_visit']);die;
 
 require_once PATH_PROJECT . '/connect.php';
 define('TITLE', 'Votre profil');
@@ -9,6 +10,8 @@ require PATH_PROJECT . '/views/header.php';
 
 $msg_not_connect = '<div class="red">vous n\'êtes pas connecté</div>';
 $user_id = ($_SESSION['id_user']);
+
+
 
 
 
@@ -77,7 +80,7 @@ $result = $req->fetch(PDO::FETCH_OBJ);
         </div>
         <div class="users">
             <?php  $count_article = $result->total_articles;
-            $count_comment = $result->total_comments;?>
+            $count_comment = $result->total_comments; ?>
             <div class="user">
                 <div class="user_left">
                     <!--                   sanitize_html -> élimine la faille XSS-->
@@ -92,6 +95,18 @@ $result = $req->fetch(PDO::FETCH_OBJ);
                     <!--                    La fonction plural permet de mettre au pluriel si supperieur a 1 -->
                     <p class="information-user"><span class="span-information-user">Nombre d'article</span><?php echo plural($count_article); ?> : <?php echo $count_article; ?></p>
                     <p class="information-user"><span class="span-information-user">Nombre de commentaire</span><?php echo plural($count_comment); ?> : <?php echo $count_comment; ?></p>
+                    <?php
+//                    var_dump($_COOKIE['last_visit']);
+                    if(isset($_COOKIE['last_visit']))
+
+                    {
+                        echo '<p class="date-last-connexion">Date de votre dernière visite : ' . $_COOKIE['last_visit'] . '</p>' ; // &#232 = "è"
+                    }
+                    else
+                    {
+                        echo '<p class="date-last-connexion">C\'est la première fois que vous visitez cette page</p>';
+                    }
+                    ?>
                 </div>
                 <div class="user_right">
                     <!-- Mettre a jour l'utilisateur -->

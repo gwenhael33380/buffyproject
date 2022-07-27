@@ -26,8 +26,8 @@ if ($id_user) {
 
 //redirect after data processing with option error or success messages
     if ($result) {
-        header('Location:' . HOME_URL . 'views/dashboard.php?msg=<div class="green">Utilisateur supprimé</div>');
+        header('Location:' . HOME_URL . 'views/dashboard.php?msg=<p class="msg_success">Utilisateur supprimé</p>');
     } else {
-        header('Location:' . HOME_URL . 'views/dashboard.php?msg=<div class="red">Erreur lors de la suppression</div>');
+        header('Location:' . HOME_URL . 'views/dashboard.php?msg=<p class="msg_error">Erreur lors de la suppression</p>');
     }
 }

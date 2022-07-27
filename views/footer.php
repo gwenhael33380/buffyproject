@@ -18,6 +18,17 @@
                 <a class="link-footer" href="">Plan du site</a>
                 <a class="link-footer" href="">Mentions légal</a>
             </div>
+            <div>
+                <?php
+
+
+                $views = number_views()
+                ?>
+                <div class="content-counter">
+                    <p class="counter_views" >Il y a eu <?php echo $views ?> visite<span class="plural_function_counter font_weight_counter"><?php echo plural($views)?></span> sur le site</p>
+
+                </div>
+            </div>
 
             <!--         made by and copyright-->
             <div class="copyright">

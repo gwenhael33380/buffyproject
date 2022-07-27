@@ -27,8 +27,8 @@ if ($id_article) {
 
 //    redirect on success or failure
     if ($result) {
-        header('Location:' . HOME_URL . 'views/blog.php' . '?msg=<div class="green">Article supprimé</div>');
+        header('Location:' . HOME_URL . 'views/blog.php' . '?msg=<p id="delete_article_success" class="msg_success">Article supprimé</p>');
     } else {
-        header('Location:' . HOME_URL . 'views/blog.php' . '?msg=<div class="red">Erreur lors de la suppression</div>');
+        header('Location:' . HOME_URL . 'views/blog.php' . '?msg=<p id="delete_article_error" class="msg_error">Erreur lors de la suppression</p>');
     }
 }

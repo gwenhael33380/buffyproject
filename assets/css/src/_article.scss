@@ -1,54 +1,5 @@
+                                                                            //SCSS page article
 
-//message add comment
-#add_comment_success {
-  background-color: #c6c198;
-  color: green;
-  padding: 10px;
-  font-family: robot-cond;
-  text-align: center;
-  position: fixed;
-  top: 11%;
-  width: 100%;
-  z-index: 150;
-}
-
-#update_comment_success {
-  background-color: #c6c198;
-  color: green;
-  padding: 10px;
-  font-family: robot-cond;
-  text-align: center;
-  position: fixed;
-  top: 11%;
-  width: 100%;
-  z-index: 150;
-}
-
-#update_comment_error{
-  background-color: #c6c198;
-  color: red;
-  padding: 10px;
-  font-family: robot-cond;
-  text-align: center;
-  position: fixed;
-  top: 11%;
-  width: 100%;
-  z-index: 150;
-}
-
-#error_delete_comment{
-  background-color: #c6c198;
-  color: red;
-  padding: 10px;
-  font-family: robot-cond;
-  text-align: center;
-  position: fixed;
-  top: 11%;
-  width: 100%;
-  z-index: 150;
-}
-
-//SCSS page article
 .bg-color-page-article{
   background-color: $bg-general;
 }
@@ -432,7 +383,8 @@ width: 81%;
 
 @media screen and (max-width: 1416px){
 
-  #add_comment_success, #update_comment_error, #update_comment_success, #error_delete_comment{
+  #add_comment_success, #update_comment_error, #update_comment_success, #error_delete_comment, #delete_article_success,
+  #delete_article_error{
     top: 9%;
   }
 
@@ -451,7 +403,8 @@ width: 81%;
 
 @media screen and (max-width: 1356px){
 
-  #add_comment_success, #update_comment_error, #update_comment_success,#error_delete_comment{
+  #add_comment_success, #update_comment_error, #update_comment_success,#error_delete_comment, #delete_article_success,
+  #delete_article_error{
     top: 12%;
   }
 
@@ -500,7 +453,8 @@ width: 81%;
 
 @media screen and (max-width: 1168px){
 
-  #add_comment_success, #update_comment_error, #update_comment_success, #error_delete_comment{
+  #add_comment_success, #update_comment_error, #update_comment_success, #error_delete_comment, #delete_article_success,
+  #delete_article_error{
     top: 11%;
   }
 
@@ -668,7 +622,8 @@ width: 81%;
 
 @media screen and (max-width: 576px){
 
-  #add_comment_success, #update_comment_error, #update_comment_success, #error_delete_comment{
+  #add_comment_success, #update_comment_error, #update_comment_success, #error_delete_comment, #delete_article_success,
+  #delete_article_error{
     top: 9%;
   }
 

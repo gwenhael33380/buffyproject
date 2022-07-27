@@ -125,4 +125,8 @@
   .active>div{
     right: 175px;
   }
+
+  .toggle-btn span {
+    transition: inherit;
+  }
 }

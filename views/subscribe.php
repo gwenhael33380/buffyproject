@@ -48,7 +48,7 @@ require __DIR__ . '/header.php';
                         <p class="text-mdp">Le mot de passe doit comprendre entre 8 et 16 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial, et pas d'espace</p>
                     </div>
                     <div class="field-subscribe flex-label-subscribe">
-                        <label class="label-picture-subscribe" for="picture">Ajouter une image au format (jpg, jpeg, png, gif)</label>
+                        <label class="label-picture-subscribe" for="picture">Ajouter une image au format (jpg, jpeg, png, gif) 1Mo MAX</label>
                         <input type="hidden" name="MAX_FILE_SIZE" value="1048576"> <!-- 1Mo = 1024*1024 octets -->
                         <input  type="file" id="picture" name="picture" accept="image/*">
 

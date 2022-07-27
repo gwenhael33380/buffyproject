@@ -1,0 +1,26 @@
+// CSS code message return post PHP
+
+.msg_error{
+  background-color: #c6c198;
+  color: red;
+  padding: 10px;
+  font-family: robot-cond;
+  text-align: center;
+  position: fixed;
+  top: 11%;
+  width: 100%;
+  z-index: 150;
+}
+
+.msg_success{
+  background-color: #c6c198;
+  color: green;
+  padding: 10px;
+  font-family: robot-cond;
+  text-align: center;
+  position: fixed;
+  top: 11%;
+  width: 100%;
+  z-index: 150;
+}
+                                        // Media query

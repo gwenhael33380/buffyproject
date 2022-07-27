@@ -20,7 +20,7 @@ $extension 			= array('png', 'jpg', 'jpeg', 'gif');
 $size_max 			= 1048576;
 
 if(in_array('', $required_field)) :
-    $msg_error = 'Merci de remplir le titre et le contenu de l\'article';
+    $msg_error = '<p class="msg_error">Merci de remplir le titre et le contenu de l\'article</p>';
     header('Location:' . HOME_URL . 'views/update_article.php?id=' . $id . '&msg=' . $msg_error);
 else :
 
@@ -29,9 +29,9 @@ else :
     $curr_img 	= $_POST['current_img'];
 
     if(in_array($error, $fail_upload)) :
-        $msg_error = 'Échec au moment de la transmission de l\'image, merci de renouveler votre envoi';
+        $msg_error = '<p class="msg_error">Échec au moment de la transmission de l\'image, merci de renouveler votre envoi</p>';
     elseif(in_array($error, $oversize_file)) :
-        $msg_error = 'La taille de votre fichier ne doit pas dépasser 1 Mo';
+        $msg_error = '<p class="msg_error">La taille de votre fichier ne doit pas dépasser 1 Mo</p>';
     else :
         // reste error 0 et 4
         if($error == 4) :
@@ -47,9 +47,9 @@ else :
 
             // on vérifie si l'extension est bien dans le tableau, sinon ce n'est pas une image
             if(!in_array($ext_img, $extension)) :
-                $msg_error = 'Votre fichier n\'est pas une image png, jpg, jpeg ou gif';
+                $msg_error = '<p class="msg_error">Votre fichier n\'est pas une image png, jpg, jpeg ou gif</p>';
             elseif($image_size > $size_max) :
-                $msg_error = 'La taille de votre fichier ne doit pas dépasser 1 Mo';
+                $msg_error = '<p class="msg_error">La taille de votre fichier ne doit pas dépasser 1 Mo</p>';
             else :
                 // on créé un nom de fichier unique et aléatoire pour éviter les doublons dans le FTP (sur le serveur dans le dossier assets/img)
 
@@ -116,13 +116,13 @@ else :
 
 
             if($result) :
-                $msg_success = 'Article correctement mis à jour';
+                $msg_success = '<p class="msg_success">Article correctement mis à jour</p>';
             else:
-                $msg_error = 'Erreur lors de la soumission du formulaire, merci de retenter dans quelques instants';
+                $msg_error = '<p class="msg_error">Erreur lors de la soumission du formulaire, merci de retenter dans quelques instants</p>';
             endif;
 
         else :
-            $msg_error = 'Erreur lors du transfert, merci de retenter dans quelques instants';
+            $msg_error = '<p class="msg_error">Erreur lors du transfert, merci de retenter dans quelques instants</p>';
         endif;
 
     endif;
@@ -131,8 +131,8 @@ else :
 endif;
 
 if(isset($msg_error)) {
-    header('Location:' . HOME_URL . 'views/update_article.php?id=' . $id . '&msg=' . $msg_error . '&title=' . $title . '&content=' . $text);
+    header('Location:' . HOME_URL . 'views/update_article.php?id=' . $id . '&msg=' .$msg_error . '&title=' . $title . '&content=' . $text);
 }
 else {
-    header('Location:' . HOME_URL . 'views/blog.php?id='.'?msg=<div class="create_article_succes">' . $msg_success . '</div>');
+    header('Location:' . HOME_URL . 'views/blog.php?msg=' . $msg_success);
 }

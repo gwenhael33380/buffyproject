@@ -1,5 +1,6 @@
 <?php
 require dirname(__DIR__) . '/functions.php';
+enabled_access(array('administrator'));
 require_once PATH_PROJECT . '/connect.php';
 define('TITLE', 'Dashboard');
 require __DIR__ . '/header.php';
@@ -7,7 +8,7 @@ require __DIR__ . '/header.php';
 // recap de tous les utilisateurs
 // avec leur nom, prénom, pseudo, email, role, nombre d'articles, nombre de commentaires
 
-enabled_access(array('administrator'));
+
 
 $req = $db->query("
 	SELECT DISTINCT 
@@ -33,18 +34,33 @@ $req = $db->query("
 $req->execute();
 $results = $req->fetchAll(PDO::FETCH_OBJ); ?>
 
-    <style type="text/css">
-        .highlighted{
-            background-color: #2BA6CB; color:#FFF
-        }
-    </style>
+
+    <main class="content bgc-dashboard">
+    <div class="content-bgi-dashboard"></div>
+        <!--            display of request $_GET messages-->
+        <div class="msg-connexion">
+            <?php
+            if(isset($_GET['msg'])) {
+                echo $_GET['msg'];
+            } ?>
+        </div>
+        <div class="content-title-dashboard">
+            <div class="title-dashboard">Dashboard</div>
+        </div>
+        <div class="flex-content-title-list">
+            <div class="content-title-list">
+                <h1 class="title-list-user-dashboard">Liste des utilisateurs</h1>
+            </div>
+        </div>
 
 
-    <main class="content">
-        <div class="dashboard"></div>
-        <h1>Liste des utilisateurs</h1>
-        <label for="filter">Filtrer les pseudos</label>
-        <input id="filter" type="text" name="category" name="filter" placeholder="Trouver un utilisateur">
+            <div class="content-form-search">
+                <input name="category" id="categoryFilter" type="text" placeholder="Trouver le pseudo d'un d'utilisateur">
+                <i class="fa-solid fa-magnifying-glass relative-position-fa"></i>
+            </div>
+
+
+
         <div  class="users-dashboard">
 
             <?php foreach($results as $result) :
@@ -54,22 +70,28 @@ $results = $req->fetchAll(PDO::FETCH_OBJ); ?>
                     <div class="user_left user">
 
                         <!--                        sanitize_html permet d'évité l'injection SQL-->
-<!--                        <img class="img-user-profil-dashboard" src=" --><?php //echo HOME_URL.'assets/img/dist/profil/' . sanitize_html($result->file_name); ?><!--">-->
-                        <p class="info-user-dashboard">Nom : <span class="info"><?php echo sanitize_html($result->last_name); ?></span></p>
-                        <p class="info-user-dashboard">Prénom : <span class="info"><?php echo sanitize_html($result->first_name); ?></span></p>
-                        <p class="info-user-dashboard">Pseudo : <span class="info"><?php echo sanitize_html($result->pseudo); ?></span></p>
-                        <p class="info-user-dashboard">Email : <span class="info"><?php echo sanitize_html($result->email); ?></span></p>
-                        <p class="info-user-dashboard">Rôle : <?php echo $result->role_name; ?></p>
-                        <p class="info-user-dashboard">Nombre article<?php echo plural($count_article); ?> : <?php echo $count_article; ?></p>
-                        <p class="info-user-dashboard">Nombre de commentaire<?php echo plural($count_comment); ?> : <?php echo $count_comment; ?></p>
+                        <div class="">
+                            <div class="content_img_dashboard">
+                                <img class="img-user-profil-dashboard" src=" <?php echo HOME_URL.'assets/img/dist/profil/' . sanitize_html($result->file_name); ?>" alt="Image de l'utilisateur courant" >
+                            </div>
+
+                            <p class="info-user-dashboard">Nom : <span class="span-info-user-dashboard"><?php echo sanitize_html($result->last_name); ?></span></p>
+                            <p class="info-user-dashboard">Prénom : <span class="span-info-user-dashboard"><?php echo sanitize_html($result->first_name); ?></span></p>
+                            <p class="info-user-dashboard">Pseudo : <span class="result_pseudo span-info-user-dashboard"><?php echo sanitize_html($result->pseudo); ?></span></p>
+                            <p class="info-user-dashboard">Email : <span class="span-info-user-dashboard"><?php echo sanitize_html($result->email); ?></span></p>
+                            <p class="info-user-dashboard">Rôle : <span class="span-info-user-dashboard"><?php echo sanitize_html($result->role_name); ?></span></p>
+                            <p class="info-user-dashboard">Nombre article<span class="span-info-user-dashboard"><?php echo plural($count_article); ?> : <?php echo $count_article; ?></span></p>
+                            <p class="info-user-dashboard">Nombre de commentaire<span class="span-info-user-dashboard"><?php echo plural($count_comment); ?> : <?php echo $count_comment; ?></span></p>
+                        </div>
+
                     </div>
-                    <div class="user_right">
+                    <div class="flex-button-dashboard">
 
                         <!-- mise à jour de l'utilisateur -->
-                        <a href="<?php echo HOME_URL . 'views/dashboard_update.php?id=' . $result->id; ?>"><i class="fa-solid fa-pencil"></i></a>
+                        <a href="<?php echo HOME_URL . 'views/dashboard_update.php?id=' . $result->id; ?>"><i class="fa-solid fa-pencil favicon-update-user"></i></a>
 
                         <!-- suppression de l'utilisateur -->
-                        <a class="delete_user" href="<?php echo HOME_URL . 'requests/dashboard_delete_post.php?id=' . $result->id; ?>"><i class="fa-solid fa-trash-can"></i></a>
+                        <a class="delete_user" href="<?php echo HOME_URL . 'requests/dashboard_delete_post.php?id=' . $result->id; ?>"><i class="fa-solid fa-trash-can favicon-delete-user"></i></a>
                     </div>
                 </div>
             <?php endforeach; ?>
@@ -77,5 +99,5 @@ $results = $req->fetchAll(PDO::FETCH_OBJ); ?>
     </main>
 
 <?php
-
+include PATH_PROJECT . '/views/popup_delete_user_dashboard.php';
 require PATH_PROJECT . '/views/footer.php';

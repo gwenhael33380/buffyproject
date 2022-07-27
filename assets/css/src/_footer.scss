@@ -5,6 +5,7 @@
   text-align: center;
   color: $white;
   font-size: 23px;
+  font-family: robot-cond;
 }
 
 .footer-font-awsome{
@@ -44,13 +45,28 @@
 
 .link-footer{
   padding: 75px;
+  font-family: robot-cond;
 }
 .link-footer:hover{
    text-decoration: underline;
   color: $black;
- }
+}
 
+.content-counter{
+  border-top: 3px solid $black;
 
+}
+
+.counter_views{
+  text-align: center;
+  background-color: rgba(198, 193, 152,0.5);
+  padding: 7px 0;
+  font-family: robot-cond;
+}
+
+.font_weight_counter>span{
+  font-weight: 100;
+}
 
 
 .copyright{
@@ -58,18 +74,24 @@
   border-bottom: 3px solid $black;
   background-color: $green-o;
 }
+
 .text-copyright{
   text-align: center;
   padding-top: 15px;
+  font-family: robot-cond;
 }
+
 .text-copyright-m{
   margin-bottom: 15px;
 }
+
+
 .footer-end{
   background-color: $green-o;
 
   padding: 15px;
 }
+
 .footer-end2{
   background-color: $brown;
   padding: 25px;

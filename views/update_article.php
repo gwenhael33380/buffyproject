@@ -2,6 +2,9 @@
 //call function
 require dirname(__DIR__) . '/functions.php';
 
+//access enabled for administrator
+enabled_access(array('administrator'));
+
 //call connect
 require_once PATH_PROJECT . '/connect.php';
 
@@ -11,8 +14,7 @@ define('TITLE', 'Mise à jour d\'un article');
 //call header
 require __DIR__ . '/header.php';
 
-//access enabled for administrator
-enabled_access(array('administrator'));
+
 
 $id_article = intval($_GET['id']); //converts the value of the id to numeric
 
@@ -83,7 +85,7 @@ if($id_article) {
                 </div>
             </div>
             <div class="content-add-img-article">
-                <label class="label-add-img-article" for="images">Ajouter une image (jpg, jpeg, png, gif)<span class="red" >*</span>
+                <label class="label-add-img-article" for="images">Ajouter une image (jpg, jpeg, png, gif) 1Mo MAX<span class="red" >*</span>
                     <br>  <span class="red">N'ajoutez que des images en mode paysage.  </span> Merci de respecté cette convention. Tout manquement à cette règle fera l'objet d'une suppression de l'article concerné ! Merci pour votre compréhension.</label>
                 <input type="hidden" name="current_img" value="<?php echo sanitize_html($article->file_name); ?>"> <!--variable traveling through the form in hidden mode-->
                 <input type="hidden" name="id_image" value="<?php echo sanitize_html($article->id_image); ?>"> <!--variable traveling through the form in hidden mode-->

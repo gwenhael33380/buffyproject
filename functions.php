@@ -6,16 +6,16 @@ define('PATH_PROJECT', __DIR__);
 define('IMG_URL', HOME_URL . 'assets/img/');
 
 //define URL of site.
-define('URL_HOME','views/home.php');
-define('URL_SUBSCRIBE','views/subscribe.php');
-define('URL_USER_PROFIL','views/user_profil.php');
-define('URL_USER_UPDATE','views/user_update.php');
-define('URL_BLOG','views/blog.php');
-define('URL_ADD_ARTICLE','views/add_article.php');
-define('URL_UPDATE_ARTICLE','views/update_article.php');
-define('URL_DASHBOARD','views/dashboard.php');
-define('URL_DASHBOARD_UPDATE','views/dashboard_update.php');
-define('URL_CONTACT','views/contact.php');
+//define('URL_HOME','views/home.php');
+//define('URL_SUBSCRIBE','views/subscribe.php');
+//define('URL_USER_PROFIL','views/user_profil.php');
+//define('URL_USER_UPDATE','views/user_update.php');
+//define('URL_BLOG','views/blog.php');
+//define('URL_ADD_ARTICLE','views/add_article.php');
+//define('URL_UPDATE_ARTICLE','views/update_article.php');
+//define('URL_DASHBOARD','views/dashboard.php');
+//define('URL_DASHBOARD_UPDATE','views/dashboard_update.php');
+//define('URL_CONTACT','views/contact.php');
 
 
 
@@ -80,3 +80,26 @@ function plural($count) {
 	return $count > 1 ? '<span class="plural_function">s</span>' : '';
 }
 
+//counter views site
+function add_views ()
+{
+    $file = PATH_PROJECT .'/data/compteur';
+    $daily_file = $file . '-' . date('Y-m-d');
+    incrementer_compteur($file);
+    incrementer_compteur($daily_file);
+}
+
+function incrementer_compteur (string $file)
+{
+    $counter = 1;
+    if (file_exists($file)) {
+        $counter = (int)file_get_contents($file);
+        $counter++;
+    }
+    file_put_contents($file, $counter);
+}
+
+function number_views (): string {
+    $file =  PATH_PROJECT  . '/data/compteur';
+    return file_get_contents($file);
+}

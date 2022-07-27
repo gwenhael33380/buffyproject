@@ -3,6 +3,9 @@
 //call function
 require dirname(__DIR__) . '/functions.php';
 
+//enabled targeted role access
+enabled_access(array('administrator', 'editor', 'user'));
+
 //call connect
 require_once PATH_PROJECT . '/connect.php';
 
@@ -15,8 +18,7 @@ require __DIR__ . '/header.php';
 $id_article = intval($_GET['id']); //if the $_GET is not numeric, it will not be able to transform it into an integer
 
 
-//enabled targeted role access
-enabled_access(array('administrator', 'editor', 'user'));
+
 
 
 

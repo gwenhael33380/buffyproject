@@ -44,9 +44,9 @@ if(empty($_POST['email'])) {
 
                 //we send the email
                 if(mail($yourMail,$topic,nl2br($message),$heading)){ //the nl2br function keeps line breaks and the base64_encode function keeps accents in the title
-                    echo "Le mail à été envoyé avec succès!";
+                    echo "<p class='msg_success'>Le mail à été envoyé avec succès!</p>";
                 } else {
-                    echo "Une erreur est survenue, le mail n'a pas été envoyé";
+                    echo "<p class='msg_error'>Une erreur est survenue, le mail n'a pas été envoyé</p>";
                 }
             }
         }

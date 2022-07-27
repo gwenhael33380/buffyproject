@@ -1,13 +1,16 @@
 <?php
 
 require dirname(__DIR__) . '/functions.php'; //call function
+
+enabled_access(array('administrator', 'editor', 'user')); //enabled targeted role access
+
 require_once PATH_PROJECT . '/connect.php'; //call connect
 
 define('TITLE', 'Mise a jour du commentaire'); //title tag definition
 
 require __DIR__ . '/header.php'; //call header
 
-enabled_access(array('administrator', 'editor', 'user')); //enabled targeted role access
+
 
 $id_comment = intval($_GET['id']); // if the $_GET is not numeric, it will not be able to transform it into an integer
 $id_article = intval($_GET['id_article']);//            //                  //                      //          //

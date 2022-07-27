@@ -32,10 +32,10 @@ else :
 
     //redirect after data processing with option error or success messages
     if($result) {
-        header('Location:' . HOME_URL . 'views/article.php?id=' . $id_article . '&msg=<p id="add_comment_success">Commentaire ajouté</p>');
+        header('Location:' . HOME_URL . 'views/article.php?id=' . $id_article . '&msg=<p id="add_comment_success" class="msg_success">Commentaire ajouté</p>');
     }
     else {
-        header('Location:' . HOME_URL . 'views/add_comment.php?id=' . $id_article . '&msg=<p id="add_comment_error" class="add_comment_error"> Erreur lors de l\'ajout du commentaire</p>');
+        header('Location:' . HOME_URL . 'views/add_comment.php?id=' . $id_article . '&msg=<p id="add_comment_error" class="add_comment_error msg_error"> Erreur lors de l\'ajout du commentaire</p>');
     }
 
 endif;

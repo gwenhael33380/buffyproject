@@ -1,31 +1,5 @@
+                                                      //CCS add comment and update comment
 
-
-//message error add comment
-.add_comment_error {
-  background-color: #c6c198;
-  color: red;
-  padding: 10px;
-  font-family: robot-cond;
-  text-align: center;
-  position: fixed;
-  top: 11%;
-  width: 100%;
-  z-index: 150;
-}
-
-#comment_empty{
-  background-color: #c6c198;
-  color: red;
-  padding: 10px;
-  font-family: robot-cond;
-  text-align: center;
-  position: fixed;
-  top: 11%;
-  width: 100%;
-  z-index: 150;
-}
-
-//CCS add comment and update comment
 .bg-color-add-comment{
   background-color: $bg-general;
 }
