@@ -5,6 +5,7 @@ if (btn){
     btn.addEventListener("click", () => {
         sideBar.classList.toggle("active");
         console.log(btn);
+        console.log(sideBar)
     });
 
 }
@@ -13,5 +14,7 @@ if (content){
         sideBar.classList.remove("active");
     });
 }
+
+
 
 

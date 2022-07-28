@@ -1,0 +1,99 @@
+//modal connect
+
+.modal_connect {
+  background: $brown-pop;
+  width: 400px;
+  right: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  padding: 30px 30px;
+  border-radius: 10px;
+  position: fixed;
+  opacity: 0;
+  transition:all 500ms ease-in-out;
+  z-index: -1;
+}
+
+.param_cross{
+  font-size: 50px;
+  position: absolute;
+  left: 86%;
+  top: 7%;
+  color: $white;
+  cursor: pointer;
+
+}
+
+.param_cross:active{
+  color: $black;
+}
+
+.toggle_modal{
+  opacity:1;
+  z-index: 1000;
+
+}
+
+.content-form-modal{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.modal-connect-title{
+  text-align: center;
+  text-align: center;
+  font-family: anton;
+  padding: 10px 0;
+  font-size: 25px;
+  color: $white;
+  letter-spacing: 1px;
+}
+
+.label-modal-connect{
+  font-family: robot-cond;
+  color: $white;
+  margin: 10px 0 5px 10px;
+
+}
+
+.input-modal-connect{
+  border-radius: 20px;
+  padding: 7px 5px;
+}
+
+.content-button-connected{
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+}
+
+#popup-btn{
+  color: $white;
+  padding: 7px 15px;
+  border-radius: 25px;
+  margin-right: 15px;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size: 17px;
+  font-family: robot-cond;
+  background-color: $red;
+  border: none;
+  text-decoration: none;
+}
+
+#popup-btn:hover{
+  background-color: $green;
+  color: $black;
+}
+
+@media screen and (max-width: 566px) {
+  .modal_connect{
+    width: 350px;
+  }
+  .modal_connect{
+    font-size: 23px;
+  }
+
+}

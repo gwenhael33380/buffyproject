@@ -6,10 +6,18 @@
   padding: 5px;
   border-radius: 10px;
   position: fixed;
-  left: -120%;
-  transition: 0.6s ease;
-  margin-top: 20%;
-  transform: translate(-50%, -50%);
+  right: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  opacity: 0;
+  transition:all 500ms ease-in-out;
+  z-index: -1;
+}
+
+.toggle_modal_delete_user{
+  opacity: 1;
+  z-index: 100;
 }
 
 .title-popup-delete-user{
@@ -52,7 +60,8 @@
   font-family: robot-cond;
   font-size: 15px;
   transition-duration: .4s;
-  border: none;
+  border: none!important;
+
 }
 
 .button-delete-1{
@@ -68,15 +77,42 @@
 .button-delete-1:hover{
   background-color: $green;
   color: $black;
+  text-decoration: none;
 }
 
 .button-delete-2:hover{
   background-color: $red;
   color: $white;
+  text-decoration: none;
 }
 
-@media screen and (max-width: 1030px) {
+@media screen and (max-width: 822px) {
 
+  .popup{
+    width: 70%;
+  }
+  .text-popup-delete-user{
+    margin: 0 20px 0 20px;
+  }
+  .content-button-popup-delete-user{
+    margin-top: 15px;
+  }
+}
 
+@media screen and (max-width: 576px){
+
+  .popup{
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 478px){
+
+  .title-popup-delete-user{
+    margin: 0 10px 10px 10px
+  }
+}
+
+@media screen and (max-width: 380px){
 
 }

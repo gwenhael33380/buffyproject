@@ -87,6 +87,22 @@
 }
 
 
+@media screen and (max-width: 915px){
+
+  .toggle-btn {
+    top: 22px;
+  }
+
+  .toggle-btn span{
+    height: 7px;
+    margin-top: 7px;
+  }
+}
+
+
+
+
+
 @media screen and (max-width: 862px) {
   .toggle-btn{
     top: 23px;
@@ -94,6 +110,13 @@
   .toggle-btn span {
     height: 8px;
     margin-top: 6px;
+  }
+}
+
+@media screen and (max-width: 827px){
+
+  .toggle-btn {
+    top: 17px;
   }
 }
 
@@ -117,8 +140,45 @@
   }
 }
 
+@media screen and (max-width: 455px) {
+  .toggle-btn{
+    top: 10px;
+  }
+}
+
+@media screen and (max-width: 413px) {
+  .toggle-btn{
+    top: 7px;
+    right: 255px;
+  }
+  .toggle-btn span{
+    height: 5px;
+    margin-top: 8px;
+    width: 49px;
+  }
+}
+
+@media screen and (max-width: 391px){
+
+  .toggle-btn{
+    top: 7px;
+  }
+
+  .toggle-btn span{
+    height: 5px;
+    margin-top: 7px;
+    width: 49px;
+  }
+}
+
+@media screen and (max-width: 367px){
+  .toggle-btn{
+    top: 4px;
+  }
+}
+
 @media screen and (max-width: 320px) {
-  toggle-btn{
+  .toggle-btn{
     top: 14px;
   }
 

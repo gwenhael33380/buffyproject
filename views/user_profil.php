@@ -25,8 +25,13 @@ $req = $db->prepare("
 
 	SELECT DISTINCT 
 	    
-	    (SELECT COUNT(c.id) count_comment FROM comments c WHERE c.id_user = :user_id) total_comments, 
-	    (SELECT COUNT(a.id) count_article FROM articles a WHERE a.id_user = :user_id) total_articles, 
+	    (SELECT COUNT(c.id) count_comment
+	     FROM comments c 
+	     WHERE c.id_user = :user_id) total_comments, 
+	    
+	    (SELECT COUNT(a.id) count_article 
+	     FROM articles a 
+	     WHERE a.id_user = :user_id) total_articles, 
 	       
 	        u.*, r.id id_role, r.role_name, r.role_slug, a.id id_article, c.id id_comment, i.id as id_image, i.file_name
             FROM users u
@@ -38,30 +43,23 @@ $req = $db->prepare("
             ON c.id_user = u.id
             LEFT JOIN images i
             ON u.id_image = i.id
+            WHERE u.id = :user_id
             GROUP BY u.id
             ORDER BY r.id ASC
     ");
 $req->bindValue(':user_id', $user_id, PDO::PARAM_INT);
 
 $result= $req->execute();
+
 $result = $req->fetch(PDO::FETCH_OBJ);
 
 
 ?>
 
-<!--popup delete user-->
-    <div class="popup">
-        <h3 class="title-popup-delete-user">Etes vous sûre de vouloir supprimer votre profil ?</h3>
-        <div class="content-img-delete-user">
-            <img class="img-delete-profil" src="<?php echo HOME_URL . 'assets/img/dist/source/delete_user.jpg'; ?> " alt="Image de Sarah Michel Gelard sautant dans le vide">
-        </div>
-        <p class="text-popup-delete-user" >Cette action est irreversible et entrainera la perte de toutes vos données sur le site !</p>
-        <div class="content-button-popup-delete-user">
-            <button id="popupBtnDeleteUser" class="button-delete-user button-delete-1" >Annulé</button>
-            <a  class="button-delete-user button-delete-2" href="<?php echo HOME_URL . 'requests/users_delete_post.php?id=' . $result->id; ?>" > OK</a>
-        </div>
-    </div>
 
+<?php
+    include PATH_PROJECT . '/views/popup_delete_user_profil.php';  //include popup delete user popup_delete_user_profil.php
+?>
 <!--main section-->
     <main class="content">
         <div class="msg-connexion">

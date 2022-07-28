@@ -1,3 +1,5 @@
+
+
 <div id="side-bar">
     <div class="toggle-btn" id="btnSideBar">
         <span></span>
@@ -21,7 +23,7 @@
             </li>
         <?php else : ?>
             <li class="content-button-side-bar">
-                <a id="to_connect_side_bar" class="home-text-side-bar">CONNEXION</a>
+                <a id="to_connect_side_bar" class="to_connect home-text-side-bar">CONNEXION</a>
             </li>
             <li class="content-button-side-bar">
                 <a class="home-text-side-bar" href="<?php echo HOME_URL . 'views/subscribe.php'; ?>">S'inscrire</a>

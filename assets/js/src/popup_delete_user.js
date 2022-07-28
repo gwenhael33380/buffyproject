@@ -1,18 +1,18 @@
 const btn3 = document.querySelector(".btnDeleteProfil");
-const popup = document.querySelector(".popup");
+const content_popup = document.querySelector(".popup");
 const popupBtnDeleteUser = document.getElementById("popupBtnDeleteUser");
 
 
 if(btn3){
     btn3.addEventListener("click", () => {
-        popup.style.left = "50%";
+        content_popup.classList.toggle('toggle_modal_delete_user');
         console.log(btn3);
     });
 }
 
 if(popupBtnDeleteUser){
     popupBtnDeleteUser.addEventListener("click", () => {
-        popup.style.left = "-700px";
+        content_popup.classList.remove('toggle_modal_delete_user');
         console.log(popupBtn);
     });
 }
