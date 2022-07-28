@@ -1,0 +1,49 @@
+//include in document footer.php
+
+//banner cookie
+
+.banner{
+  border-top: 2px solid $brown;
+  border-bottom: 2px solid $brown;
+  background-color: $green-banner;
+  color: $black;
+  font-family: robot-cond;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding: 30px;
+
+
+  //Media query
+  @include phone {
+    flex-direction: column;
+    align-items: center;
+  }
+  }
+
+.text-banner p{
+  font-size: large;
+  text-align: center;
+
+  //Media query
+  @include phone {
+    margin-bottom: 25px;
+  }
+}
+
+.button-banner a{
+  color: $white;
+  padding: 10px;
+  background-color: $red;
+  border-radius: 7px;
+  text-decoration: none;
+  border: .3px solid $brown;
+}
+.button-banner a:active{
+  color: $black;
+}
+
+

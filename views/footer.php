@@ -51,4 +51,5 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     </body>
+<?php include PATH_PROJECT . '/views/banner_cookie.php'; ?>
 </html>

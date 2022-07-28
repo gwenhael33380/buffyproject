@@ -1,4 +1,9 @@
 <?php
+if (isset($_GET['cookie_accepted'])){
+
+    setcookie('cookie_accepted', 'true', time() + 365*24*3600);
+    header('location:'. HOME_URL);
+}
 
 ?>
 
