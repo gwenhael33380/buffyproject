@@ -18,7 +18,16 @@ define('META_DEFAULT', 'When writing a meta description, keep it between 140 and
 //define('URL_DASHBOARD_UPDATE','views/dashboard_update.php');
 //define('URL_CONTACT','views/contact.php');
 
-
+//function vardump
+if (!function_exists('dd')) {
+    function dd(...$args)
+    {
+        echo '<pre>';
+        var_dump(...$args);
+        echo '</pre>';
+        die;
+    }
+}
 
 // function pour vérifier si l'url courant correspond à celle du lien
 function current_url($url) {

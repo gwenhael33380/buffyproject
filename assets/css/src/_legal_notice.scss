@@ -1,0 +1,62 @@
+// CSS Legal notice
+
+.bg-page-legal-notice{
+  @extend .bg-page-contact;
+}
+
+.content-title-page-legal-notice{
+  @extend .content-title-contact;
+}
+.title-page-legal-notice{
+  @extend .title-form-contact
+}
+
+.content-legal-mention{
+  margin-left: 10%;
+}
+
+.title-legal-notice strong{
+  font-family: robslab-r;
+  font-weight: 650;
+
+}
+.title-legal-notice{
+  font-family: robslab-r;
+  font-size: 17px;
+  margin: 50px 0;
+}
+
+.title-legal-notice ~ p{
+  font-family: robslab-r;
+  font-size: 17px;
+  margin: 50px 0;
+}
+
+div.content-address-host > * {
+  font-family: robslab-r;
+  font-size: 17px;
+  margin-left: 250px;
+}
+
+div.content-address-host a:hover{
+text-decoration: underline;
+}
+.use-of-personal-data{
+
+}
+
+.content-comment-info-legal-notice{
+
+}
+
+.content-comment-info-legal-notice:nth-child(1){
+
+}
+
+.content-comment-info-legal-notice:nth-child(2){
+
+}
+
+.content-comment-info-legal-notice:nth-child(3){
+
+}

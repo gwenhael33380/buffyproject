@@ -34,7 +34,7 @@ if (isset($_GET['cookie_accepted'])){
 
         <!--    Contents link nav bar-->
             <div class="display-nav">
-                <nav id="navbar" <?php echo isset($_SESSION['user_id']) ? 'class="connect"' : 'class="disconnect"'; ?> >
+                <nav id="navbar" class="relative <?php echo isset($_SESSION['user_id']) ? 'connect' : 'disconnect'; ?>" >
                     <div class="logo-nav-bar">
                         <a href="<?= HOME_URL; ?>"><img src="<?php echo HOME_URL . 'assets/img/src/source/Logo_with.png'; ?>" alt="Logo du site"></a>
                     </div>
@@ -72,6 +72,14 @@ if (isset($_GET['cookie_accepted'])){
                         </ul>
                     </div>
                 </nav>
+                <div class="msg-connexion">
+                    <?php
+
+                    //                message $_GET
+                    if(isset($_GET['msg'])) {
+                        echo $_GET['msg'];
+                    } ?>
+                </div>
             </div>
 
             <?php

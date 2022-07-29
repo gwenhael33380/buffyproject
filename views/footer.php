@@ -14,9 +14,9 @@
 
             <!--            link to different pages of the site-->
             <div class="content-link-footer">
-                <a class="link-footer" href="">Contact</a>
-                <a class="link-footer" href="">Plan du site</a>
-                <a class="link-footer" href="">Mentions légal</a>
+                <a class="link-footer" href="<?php echo HOME_URL . 'views/contact.php'; ?>">Contact</a>
+                <a class="link-footer" href="#">Plan du site</a>
+                <a class="link-footer" href="<?php echo HOME_URL . 'views/legal_notice.php'; ?>">Mentions légal</a>
             </div>
             <div>
                 <?php
@@ -45,7 +45,6 @@
 
     <!--            CDN JS Bootstrap           -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-
     <!--          internal link JS -->
     <script type="text/javascript" src="<?php echo HOME_URL . 'assets/js/dist/scripts.min.js'; ?>"></script>
 

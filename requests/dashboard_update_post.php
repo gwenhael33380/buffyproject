@@ -1,7 +1,7 @@
 <?php
 require dirname(__DIR__) . '/functions.php';
 require_once PATH_PROJECT . '/connect.php';
-enabled_access(array('administrator', 'editor', 'user'));
+enabled_access(array('administrator'));
 
 $send_request = false;
 $initial_img = $_POST['initial_image'];
@@ -10,20 +10,16 @@ $initial_img = $_POST['initial_image'];
 $initial_pseudo = $_POST['initial_pseudo'];
 $initial_email = $_POST['initial_email'];
 
-$id_image = intval($_POST['id_image']);
-$first_name = mb_ucfirst($_POST['first_name']); // seulement la première lettre en majuscule
-$last_name     = mb_strtoupper(trim($_POST['last_name'])); // tout en majuscule
-$pseudo     = trim($_POST['pseudo']);
-$email         = filter_var(mb_strtolower(trim($_POST['email'])), FILTER_VALIDATE_EMAIL);
-$picture    = $_FILES['picture'];
+$id_image    = intval($_POST['id_image']);
+$first_name  = mb_ucfirst($_POST['first_name']); // seulement la première lettre en majuscule
+$last_name   = mb_strtoupper(trim($_POST['last_name'])); // tout en majuscule
+$pseudo      = trim($_POST['pseudo']);
+$email       = filter_var(mb_strtolower(trim($_POST['email'])), FILTER_VALIDATE_EMAIL);
+$picture     = $_FILES['picture'];
+$id_role       = intval($_POST['role']);
+$id_user      = intval($_POST['id_user']);
 
 
-
-if ($_SESSION['role_slug'] == 'administrator') {
-    $id_user = intval($_POST['id_user']);
-} else {
-    $id_user = intval($_SESSION['id_user']);
-}
 $required_fields = array($first_name, $last_name, $pseudo, $email);
 $error_upload     = array(3, 6, 7, 8);
 $error_size     = array(1, 2);
@@ -32,12 +28,12 @@ $enabled_ext     = array('jpg', 'jpeg', 'png', 'gif');
 $default_img_id = 1;
 
 $size_max         = 1048576;
+
 // same = identique
 $same_pseudo = $pseudo == $initial_pseudo ? true : false;
 $same_email = $email == $initial_email ? true : false;
 
 
-var_dump($picture['name']);
 if ($picture['name'] == ''){
     $same_picture = true;
 
@@ -148,29 +144,29 @@ else :
         if ($send_request) :
             if ($empty_pass) :
                 if ($same_email && $same_pseudo) :
-                    $request =  "UPDATE users SET first_name = :first_name, last_name = :last_name WHERE id = :id_user";
+                    $request =  "UPDATE users SET id_role = :id_role, first_name = :first_name, last_name = :last_name WHERE id = :id_user";
 
                 elseif ($same_email && !$same_pseudo) :
-                    $request =  "UPDATE users SET first_name = :first_name, last_name = :last_name, pseudo = :pseudo WHERE id = :id_user";
+                    $request =  "UPDATE users SET id_role = :id_role, first_name = :first_name, last_name = :last_name, pseudo = :pseudo WHERE id = :id_user";
 
                 elseif (!$same_email && $same_pseudo) :
-                    $request =  "UPDATE users SET first_name = :first_name, last_name = :last_name WHERE id = :id_user";
+                    $request =  "UPDATE users SET id_role = :id_role, first_name = :first_name, last_name = :last_name WHERE id = :id_user";
 
                 elseif (!$same_email && !$same_pseudo) :
-                    $request =  "UPDATE users SET first_name = :first_name, last_name = :last_name, pseudo = :pseudo, email = :email WHERE id = :id_user";
+                    $request =  "UPDATE users SET id_role = :id_role, first_name = :first_name, last_name = :last_name, pseudo = :pseudo, email = :email WHERE id = :id_user";
                 endif;
             else :
                 if ($same_email && $same_pseudo) :
-                    $request =  "UPDATE users SET first_name = :first_name, last_name = :last_name, password = :password WHERE id = :id_user";
+                    $request =  "UPDATE users SET id_role = :id_role, first_name = :first_name, last_name = :last_name, password = :password WHERE id = :id_user";
 
                 elseif ($same_email && !$same_pseudo) :
-                    $request =  "UPDATE users SET first_name = :first_name, last_name = :last_name, pseudo = :pseudo, password = :password WHERE id = :id_user";
+                    $request =  "UPDATE users SET id_role = :id_role, first_name = :first_name, last_name = :last_name, pseudo = :pseudo, password = :password WHERE id = :id_user";
 
                 elseif (!$same_email && $same_pseudo) :
-                    $request =  "UPDATE users SET first_name = :first_name, last_name = :last_name, password = :password WHERE id = :id_user";
+                    $request =  "UPDATE users SET id_role = :id_role, first_name = :first_name, last_name = :last_name, password = :password WHERE id = :id_user";
 
                 elseif (!$same_email && !$same_pseudo) :
-                    $request =  "UPDATE users SET first_name = :first_name, last_name = :last_name, pseudo = :pseudo, email = :email, password = :password WHERE id = :id_user";
+                    $request =  "UPDATE users SET id_role = :id_role, first_name = :first_name, last_name = :last_name, pseudo = :pseudo, email = :email, password = :password WHERE id = :id_user";
                 endif;
             endif;
 
@@ -182,6 +178,8 @@ else :
 
                 $req->bindValue(':first_name', $first_name, PDO::PARAM_STR);
                 $req->bindValue(':last_name', $last_name, PDO::PARAM_STR);
+                $req->bindValue(':id_user', $id_user, PDO::PARAM_INT);
+                $req->bindValue(':id_role', $id_role, PDO::PARAM_INT);
                 if (!$same_pseudo) {
                     $req->bindValue(':pseudo', $pseudo, PDO::PARAM_STR);
                 }
@@ -191,7 +189,7 @@ else :
                 if (!$empty_pass){
                     $req->bindValue(':pass', password_hash($pass1, PASSWORD_DEFAULT), PDO::PARAM_STR);
                 }
-                $req->bindValue(':id_user', $id_user, PDO::PARAM_INT);
+
 
                 $req = $req->execute();
             } else {

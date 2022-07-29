@@ -12,15 +12,6 @@ require __DIR__ . '/header.php'; //call header.php
     <main class="bg-color-home-page content" >
         <!--    Section 1 title and first section-->
         <section class=" section-1-home">
-
-            <div class="msg-connexion">
-                <?php
-
-//                message $_GET
-                if(isset($_GET['msg'])) {
-                    echo $_GET['msg'];
-                } ?>
-            </div>
             <div class="content-btn-nav-sect-1" >
                 <a class="btn-nav-sec-1 bgc-btn-sec1" href="<?php echo HOME_URL . 'views/contact.php'; ?>">Contact</a>
                 <a class="btn-nav-sec-1 bgc-btn-sec2" href="<?php echo HOME_URL . 'views/blog.php'; ?>">Blog</a>
@@ -74,6 +65,9 @@ require __DIR__ . '/header.php'; //call header.php
 
             <!--            Carousel-->
             <div class="bg-carousel">
+                <?php
+//                include PATH_PROJECT . '/views/carousel.php';
+                ?>
                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
@@ -275,6 +269,6 @@ require __DIR__ . '/header.php'; //call header.php
         </section>
     </main>
 
-<!--call footer-->
+    <!--call footer-->
 <?php
 require PATH_PROJECT . '/views/footer.php';
