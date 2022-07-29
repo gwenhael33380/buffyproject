@@ -1,13 +1,14 @@
 <?php
 
-//call function
-require dirname(__DIR__) . '/functions.php';
 
-//title tag definition
-define('TITLE', 'Page de contact');
+require dirname(__DIR__) . '/functions.php'; //call function.php
+require_once PATH_PROJECT . '/connect.php'; //call connect.php
 
-//call header
-require __DIR__ . '/header.php';
+define('TITLE', 'Page de contact'); //title tag definition
+define('META_DESCRIPTION', 'la page contact permet met à disposition de tous un formulaire pour contacter l\'administrateur du site en cas de problème lié au site ou simplement soumettre des idées sur des axes d\'améliorations du site.'); // Define meta description
+
+require __DIR__ . '/header.php'; //call header
+
 ?>
     <main class="main-page-contact content">
         <section>

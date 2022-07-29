@@ -1,14 +1,17 @@
 <?php
 
-require dirname(__DIR__) . '/functions.php';
-enabled_access(array('administrator', 'editor', 'user'));
-//var_dump($_COOKIE['last_visit']);die;
+require dirname(__DIR__) . '/functions.php'; //call function.php
 
-require_once PATH_PROJECT . '/connect.php';
-define('TITLE', 'Votre profil');
-require PATH_PROJECT . '/views/header.php';
+enabled_access(array('administrator', 'editor', 'user')); //enabled targeted role access
 
-$msg_not_connect = '<div class="red">vous n\'êtes pas connecté</div>';
+require_once PATH_PROJECT . '/connect.php'; //call connect.php
+
+define('TITLE', 'Votre profil'); //title tag definition
+require PATH_PROJECT . '/views/header.php';//call header.php
+
+define('META_DESCRIPTION', 'page permettant à l\'utilisateur de visualiser ses informations personnelles et ses données sur sa participation sur le site.  Via cette page il a la possibilité de mettre à jour son profil ou éventuellement le supprimer'); // Define meta description
+
+$msg_not_connect = '<p class="msg_error">vous n\'êtes pas connecté</p>';
 $user_id = ($_SESSION['id_user']);
 
 
@@ -33,7 +36,7 @@ $req = $db->prepare("
 	     FROM articles a 
 	     WHERE a.id_user = :user_id) total_articles, 
 	       
-	        u.*, r.id id_role, r.role_name, r.role_slug, a.id id_article, c.id id_comment, i.id as id_image, i.file_name
+	        u.id, u.id_role, u.first_name, u.last_name, u.pseudo, u.email, u.id_image, r.id id_role, r.role_name, r.role_slug, a.id id_article, c.id id_comment, i.id as id_image, i.file_name
             FROM users u
             LEFT JOIN roles r
             ON u.id_role = r.id

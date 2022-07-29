@@ -1,16 +1,13 @@
 <?php
 
-//call function
-require dirname(__DIR__) . '/functions.php';
+require dirname(__DIR__) . '/functions.php'; //call function.php
+require_once PATH_PROJECT . '/connect.php'; //call connect.php
 
-//call connect
-require_once PATH_PROJECT . '/connect.php';
+define('TITLE', 'Le blog'); //title tag definition
+define('META_DESCRIPTION', 'la page blog permet de visualiser les articles associés à cette page. Vous pouvez visualiser jusqu\'a 5 articles par page et voir le pseudo de la personne ayant publié l\'article ainsi que la date de parution.'); // Define meta description
 
-//title tag definition
-define('TITLE', 'Le blog');
 
-//call header
-require __DIR__ . '/header.php';
+require __DIR__ . '/header.php'; //call header.php
 
 //query used to count the articles
 $req = $db->query("

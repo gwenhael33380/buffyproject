@@ -1,4 +1,6 @@
 <?php
+
+//set cookie banner cookie
 if (isset($_GET['cookie_accepted'])){
 
     setcookie('cookie_accepted', 'true', time() + 365*24*3600);
@@ -20,6 +22,12 @@ if (isset($_GET['cookie_accepted'])){
     <title>Buffy Project | <?php echo TITLE; ?></title> <!--    balise title dynamic-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous"> <!--    link CDN Bootstrap-->
     <link rel="stylesheet" href="<?php echo HOME_URL . 'assets/css/dist/main.min.css'; ?>"> <!--    link CSS style-->
+    <?php  if(defined('META_DESCRIPTION')) : ?>
+    <meta name="description" content="<?php echo META_DESCRIPTION; ?>"
+    <?php else : ?>
+        <meta name="description" content="<?php echo META_DEFAULT; ?>">
+    <?php endif; ?>
+
 </head>
     <body>
         <header>

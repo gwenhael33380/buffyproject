@@ -1,16 +1,15 @@
 <?php
 
-//call function
-require dirname(__DIR__) . '/functions.php';
 
-//call connect
-require_once PATH_PROJECT . '/connect.php';
+require dirname(__DIR__) . '/functions.php'; //call function.php
+require_once PATH_PROJECT . '/connect.php'; //call connect.php
 
-//title tag definition
-define('TITLE', 'Formulaire d\'inscription');
+define('TITLE', 'Formulaire d\'inscription'); //title tag definition
+define('META_DESCRIPTION', 'Cette page permet à un internaute de s\'inscrire sur le site ByffyProject afin d\'y participer via le blog du site en entrent des informations personnelles. Une fois inscrit, l\'internaute peut immédiatement se connecter et profiter de son statut d\'utilisateur.'); // Define meta description
 
-//call header
-require __DIR__ . '/header.php';
+
+
+require __DIR__ . '/header.php'; //call header.php
 ?>
     <main class="main_subscribe content">
         <div class="bg-img-subscribe"></div>

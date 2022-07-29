@@ -1,21 +1,16 @@
 <?php
 
-//current user update with their surname, first name, nickname, email, role, password and profile picture
+require dirname(__DIR__) . '/functions.php'; //call function.php
+enabled_access(array('administrator', 'editor', 'user')); //enabled targeted role access
+require_once PATH_PROJECT . '/connect.php'; //call connect.php
 
-//call the functions file
-require dirname(__DIR__) . '/functions.php';
+define('TITLE', 'Mise à jour du profil'); //title tag definition
+define('META_DESCRIPTION', 'La page usée update permet à l\'utilisateur de mettre à jour l\'intégralité de son profil via un formulaire. qui sera soumis afin d\'effectuer la mise à jour.'); // Define meta description
+
+require __DIR__ . '/header.php'; //call header.php
 
 
-//call the connect file
-require_once PATH_PROJECT . '/connect.php';
 
-//define balise title
-define('TITLE', 'Mise à jour du profil');
-//Call the header.php file containing the nav bar
-require __DIR__ . '/header.php';
-
-//define the roles with access to the update page, this referred to the function.php file
-enabled_access(array('administrator', 'editor', 'user'));
 
 
 //user id definition
@@ -96,7 +91,7 @@ if($id_user) {
                 <div class="content-change-img-user-update">
 
 <!--                    preview of the previous image-->
-                    <div class="current_img"><img src="<?php echo IMG_URL . 'dist/profil/' . sanitize_html($user->file_name); ?>"alt="image de votre profil avant la mise a jour"></div> <!--current picture-->
+                    <div class="current_img"><img src="<?php echo HOME_URL. 'assets/img/dist/profil/' . sanitize_html($user->file_name); ?>"alt="image de votre profil avant la mise a jour"></div> <!--current picture-->
                     <input type="hidden" name="id_image" value="<?php echo $user->id_image; ?>"> <!--variable traveling through the form in hidden mode-->
                     <input type="hidden" name="initial_image" value="<?php echo sanitize_html($user->file_name); ?>"> <!--variable traveling through the form in hidden mode-->
                     <input type="hidden" name="MAX_FILE_SIZE" value="1048576">  <!--size restriction at 1MB or 1024*1028 bytes -->

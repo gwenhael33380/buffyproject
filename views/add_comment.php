@@ -1,18 +1,15 @@
 <?php
 
-//call function
-require dirname(__DIR__) . '/functions.php';
 
-//enabled targeted role access
-enabled_access(array('administrator', 'editor', 'user'));
+require dirname(__DIR__) . '/functions.php'; //call function.php
+enabled_access(array('administrator', 'editor', 'user')); //enabled targeted role access
+require_once PATH_PROJECT . '/connect.php'; //call connect.php
 
-//call connect
-require_once PATH_PROJECT . '/connect.php';
+define('TITLE', 'Ajout d\'un commentaire'); //define balise title
+define('META_DESCRIPTION', 'page permettant d\'ajouter un commentaire via un formulaire. Une fois ce dernier rempli la soumission permet d\'ajouter un commentaire à la page de l\'article concerné. L\'accessibilité est réservée aux personnes ayant créé un compte et étant connectée au site.'); // Define meta description
 
-//title tag definition
-define('TITLE', 'Ajout d\'un commentaire');
 
-//call header
+//call header.php
 require __DIR__ . '/header.php';
 
 $id_article = intval($_GET['id']); //if the $_GET is not numeric, it will not be able to transform it into an integer

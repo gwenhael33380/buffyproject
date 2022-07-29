@@ -88,6 +88,10 @@
   color: $black;
 }
 
+#popup-btn:active{
+  border: none;
+}
+
 @media screen and (max-width: 566px) {
   .modal_connect{
     width: 350px;

@@ -1,16 +1,13 @@
 <?php
 
-//call function
-require dirname(__DIR__) . '/functions.php';
 
-//call connect
-require_once PATH_PROJECT . '/connect.php';
+require dirname(__DIR__) . '/functions.php'; //call function.php
+require_once PATH_PROJECT . '/connect.php'; //call connect.php
 
-//title tag definition
-define('TITLE', 'Article');
+define('TITLE', 'Article'); //title tag definition
+define('META_DESCRIPTION', 'la page article permet de visualiser l\'article sélectionné depuis la page blog. Tout le contenu y est affiché ainsi que les commentaires associés à ce dernier. Vous pouvez aussi visualiser une prévisualisation des trois derniers articles créer où l\'article dernièrement mise à jour.'); // Define meta description
 
-//call header
-require __DIR__ . '/header.php';
+require __DIR__ . '/header.php'; //call header.php
 
 $id_article = $_GET['id'];
 $role_slug = $_SESSION['role_slug'];

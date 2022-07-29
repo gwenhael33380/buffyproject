@@ -1,10 +1,11 @@
 <?php
 
-require dirname(__DIR__) . '/functions.php';
-require_once PATH_PROJECT . '/connect.php';
-define('TITLE', 'Accueil');
+require dirname(__DIR__) . '/functions.php'; //call function.php
+require_once PATH_PROJECT . '/connect.php'; //call connect.php
 
-require __DIR__ . '/header.php';
+define('TITLE', 'Accueil');//title tag definition
+define('META_DESCRIPTION', 'Page d\'accueil du site Buffy projet le blog, cette page permet de naviguer dans les parties principales  via des liens externes du site qui sont définis par plusieurs accès au blog, la page de contact et à la page de contact, une page de présentation du site.'); // Define meta description
+require __DIR__ . '/header.php'; //call header.php
 
 
 ?>

@@ -3,7 +3,8 @@ session_start();
 
 define('HOME_URL', 'http://buffyproject/');
 define('PATH_PROJECT', __DIR__);
-define('IMG_URL', HOME_URL . 'assets/img/');
+define('META_DEFAULT', 'When writing a meta description, keep it between 140 and 160 characters so Google can display your entire message. Don’t forget to include your keyword!');
+
 
 //define URL of site.
 //define('URL_HOME','views/home.php');

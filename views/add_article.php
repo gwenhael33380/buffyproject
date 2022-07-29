@@ -1,22 +1,14 @@
 
 <?php
 
-//call function
-require dirname(__DIR__) . '/functions.php';
-enabled_access(array('administrator'));
+require dirname(__DIR__) . '/functions.php'; //call function.php
+enabled_access(array('administrator')); //enabled targeted role access
+require_once PATH_PROJECT . '/connect.php'; //call connect.php
 
-//call connect
-require_once PATH_PROJECT . '/connect.php';
+define('TITLE', 'Ajout d\'un article'); //title tag definition
+define('META_DESCRIPTION', 'Page permettant d\'ajouter des articles via un formulaire est ainsi participée à la vie active du site. Cependant cette section est réservée aux utilisateurs ayant le rôle d\'administrateur.'); // Define meta description
 
-
-//title tag definition
-define('TITLE', 'Ajout d\'un article');
-
-//call header
-require __DIR__ . '/header.php';
-
-//the roles that have access to the page
-//the others will be redirected to the HOME page
+require __DIR__ . '/header.php'; //call header.php
 
 ?>
 <main class="bg-color-add-article" >

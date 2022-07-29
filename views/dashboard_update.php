@@ -98,7 +98,7 @@ $id_user = 0;
                     <input type="hidden" name="MAX_FILE_SIZE" value="1048576"> <!-- 1Mo = 1024*1024 octets -->
                     <input type="file" id="picture" name="picture" accept="image/*">
                     <label class="label-update-picture" for="picture">Ajouter une image (jpg, jpeg, png, gif)</label>
-                    <div class="current_img"><img src="<?php echo IMG_URL . 'dist/profil/' . sanitize_html($user->file_name); ?>"alt="Image de profil actuel"></div>
+                    <div class="current_img"><img src="<?php echo HOME_URL . 'assets/img/dist/profil/' . sanitize_html($user->file_name); ?>"alt="Image de profil actuel"></div>
                 </div>
                 <button type="submit">Mettre à jour l'utilisateur</button>
                 </form>
