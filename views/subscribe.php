@@ -14,10 +14,6 @@ require __DIR__ . '/header.php'; //call header.php
     <main class="main_subscribe content">
         <div class="bg-img-subscribe"></div>
         <div>
-            <?php
-            if(isset($_GET['msg'])) {
-                echo $_GET['msg'];
-            } ?>
         </div>
         <section>
            <div class="content_title_subscribe">

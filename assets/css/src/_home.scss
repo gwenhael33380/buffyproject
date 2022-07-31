@@ -554,7 +554,7 @@
 
   .section-1-home{
     min-height: calc(74vh - 52px);
-    margin-top: 8%;
+    padding-top: 8%;
   }
 
   .connect_user_success{
@@ -668,7 +668,7 @@
 
   .section-1-home{
     min-height: calc(46vh - 52px);
-    margin-top: 12%;
+    padding-top: 12%;
   }
 
   .section-2-home {
@@ -697,7 +697,7 @@
 
   .section-1-home{
     min-height: calc(40vh - 52px);
-    margin-top: 14%;
+    padding-top: 14%;
   }
 
   .connect_user_success{
@@ -776,8 +776,8 @@
 @media screen and (max-width: 320px) {
 
   .section-1-home{
-    margin-top: 22%;
     min-height: calc(30vh - 52px);
+    padding-top: 22%;
   }
 
   .title-personage {

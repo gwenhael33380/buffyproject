@@ -12,9 +12,7 @@ require __DIR__ . '/header.php'; //call header
 ?>
     <main class="main-page-contact content">
         <section>
-            <div class="bg-page-contact">
-
-            </div>
+            <div class="bg-page-contact"></div>
             <div class="content-title-contact">
                 <h2 class="title-form-contact">Formulaire de contact</h2>
             </div>

@@ -69,15 +69,6 @@ $articles_previews = $req->fetchAll(PDO::FETCH_OBJ);
 
         <!--        section 1 content article-->
         <section>
-
-            <!--           Requests message-->
-            <div class="msg-add-comment">
-                <?php
-                if(isset($_GET['msg'])) {
-                    echo $_GET['msg'];
-                } ?>
-            </div>
-
             <div class="bg-img-page-article"></div>
             <div class="content-title-page-article">
                 <h1 class="title-page-article">Article</h1>

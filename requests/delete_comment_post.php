@@ -21,9 +21,9 @@ if($id_comment) {
 
     //redirect after data processing with option error or success messages
     if($result) {
-        header('Location:' . HOME_URL . 'views/article.php?id=' . $id_article .'&msg=<p id="delete_comment_success" class="msg_success">Commentaire supprimé</p>');
+        header('Location:' . HOME_URL . 'views/article.php?id=' . $id_article .'&msg=<p class="msg_success">Commentaire supprimé</p>');
     }
     else {
-        header('Location:' . HOME_URL .'views/article.php?id=' . $id_article . '&msg=<p id="error_delete_comment" class="msg_error"">Erreur lors de la suppression</p>');
+        header('Location:' . HOME_URL .'views/article.php?id=' . $id_article . '&msg=<p class="msg_error"">Erreur lors de la suppression</p>');
     }
 }

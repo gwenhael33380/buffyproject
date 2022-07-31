@@ -25,13 +25,6 @@ $id_article = intval($_GET['id']); //if the $_GET is not numeric, it will not be
         <section>
             <div class="bg-img-add-comment" ></div>
             <div class="msg-connexion">
-
-                <?php
-
-                //                message $_GET
-                if(isset($_GET['msg'])) {
-                    echo $_GET['msg'];
-                } ?>
             </div>
             <div class="flex-content-title-add-comment">
                 <div class="content-title-add-comment">

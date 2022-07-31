@@ -37,16 +37,6 @@ if($id_comment) {
     <main>
         <section>
             <div class="bg-img-update-comment"></div>
-            <div>
-
-                <!--           Requests message-->
-                <?php
-
-                //if content is present in the $_GET variable then it will be generated in this tag
-                if(isset($_GET['msg'])) {
-                    echo $_GET['msg'];
-                } ?>
-            </div>
             <div class="flex-content-title-add-comment">
                 <div class="content-title-add-comment">
                     <h1 class="title-add-comment">Mise à jour du commentaire</h1>

@@ -26,159 +26,139 @@
 
 // Media query
 
-//@media screen and (max-width: 1521px){
-//  .msg_error, .msg_success{
-//    top: 10%;
-//  }
-//}
-//
-//@media screen and (max-width: 1416px){
-//
-//  .msg_error, .msg_success{
-//    top: 9%;
-//  }
-//}
-//@media screen and (max-width: 1356px){
-//
-//  .msg_error, .msg_success{
-//    top: 12%;
-//  }
-//}
-//
-//@media screen and (max-width: 1257px){
-//  .msg_error, .msg_success{
-//    top: 11%;
-//  }
-//}
-//
-//@media screen and (max-width: 1155px){
-//
-//  .msg_error, .msg_success{
-//    top: 10%;
-//  }
-//}
-//
-//@media screen and (max-width: 855px){
-//
-//  .msg_error, .msg_success{
-//    top: 9.5%;
-//  }
-//}
-//
-//@media screen and (max-width: 809px){
-//
-//  .msg_error, .msg_success{
-//    top: 9%;
-//  }
-//}
-//
-//@media screen and (max-width: 767px){
-//
-//  .msg_error, .msg_success{
-//    top: 11.3%;
-//  }
-//}
-//
-//@media screen and (max-width: 729px){
-//
-//  .msg_error, .msg_success{
-//    top: 11%;
-//  }
-//}
-//
-//@media screen and (max-width: 713px){
-//
-//  .msg_error, .msg_success{
-//    top: 10.3%;
-//  }
-//}
-//
-//@media screen and (max-width: 675px){
-//
-//  .msg_error, .msg_success{
-//    top: 10%;
-//  }
-//}
-//
-//@media screen and (max-width: 653px){
-//
-//  .msg_error, .msg_success{
-//    top: 9.5%;
-//  }
-//}
-//
-//@media screen and (max-width: 653px){
-//
-//  .msg_error, .msg_success{
-//    top: 9.5%;
-//  }
-//}
-//@media screen and (max-width: 541px){
-//
-//  .msg_error, .msg_success{
-//    top: 9%;
-//  }
-//}
-//
-//@media screen and (max-width: 511px){
-//
-//  .msg_error, .msg_success{
-//    top: 8.5%;
-//  }
-//}
-//
-//@media screen and (max-width: 511px){
-//
-//  .msg_error, .msg_success{
-//    top: 8%;
-//  }
-//}
-//
-//@media screen and (max-width: 431px){
-//
-//  .msg_error, .msg_success{
-//    top: 7.5%;
-//  }
-//}
-//
-//@media screen and (max-width: 405px){
-//
-//  .msg_error, .msg_success{
-//    top: 6.9%;
-//  }
-//}
-//
-//@media screen and (max-width: 375px){
-//
-//  .msg_error, .msg_success{
-//    top: 6.5%;
-//  }
-//}
-//
-//@media screen and (max-width: 357px){
-//
-//  .msg_error, .msg_success{
-//    top: 5.9%;
-//  }
-//}
-//
-//@media screen and (max-width: 357px){
-//
-//  .msg_error, .msg_success{
-//    top: 5.5%;
-//  }
-//}
-//
-//@media screen and (max-width: 357px){
-//
-//  .msg_error, .msg_success{
-//    top: 5.5%;
-//  }
-//}
-//
-//@media screen and (max-width: 320px){
-//
-//  .msg_error, .msg_success{
-//    top: 9%;
-//  }
-//}
+@media screen and (max-width: 1842px){
+  .msg_error, .msg_success{
+    bottom: -45px;
+  }
+}
+
+@media screen and (max-width: 1660px){
+
+  .msg_error, .msg_success{
+    bottom: -40px;
+  }
+}
+@media screen and (max-width: 1356px){
+
+  .msg_error, .msg_success{
+    bottom: -63px;
+  }
+}
+
+@media screen and (max-width: 1170px){
+
+  .msg_error, .msg_success{
+    bottom: -58px;
+  }
+}
+
+@media screen and (max-width: 1023px){
+
+  .msg_error, .msg_success{
+    bottom: -75px;
+  }
+}
+
+@media screen and (max-width: 933px){
+
+  .msg_error, .msg_success{
+    bottom: -70px;
+  }
+}
+
+@media screen and (max-width: 829px){
+
+  .msg_error, .msg_success{
+    bottom: -65px;
+  }
+}
+
+@media screen and (max-width: 767px){
+
+  .msg_error, .msg_success{
+    bottom: -85px;
+  }
+}
+
+@media screen and (max-width: 707px){
+
+  .msg_error, .msg_success{
+    bottom: -79px;
+  }
+}
+
+@media screen and (max-width: 633px){
+
+  .msg_error, .msg_success{
+    bottom: -74px;
+  }
+}
+
+@media screen and (max-width: 566px){
+
+  .msg_error, .msg_success{
+    bottom: -80px;
+  }
+}
+
+@media screen and (max-width: 652px){
+
+  .msg_error, .msg_success{
+    bottom: -49px;
+  }
+}
+
+@media screen and (max-width: 633px){
+
+  .msg_error, .msg_success{
+    bottom: -49px;
+  }
+}
+
+@media screen and (max-width: 606px){
+
+  .msg_error, .msg_success{
+    bottom: -54px;
+  }
+}
+@media screen and (max-width: 566px){
+
+  .msg_error, .msg_success{
+    bottom: -57px;
+  }
+}
+
+@media screen and (max-width: 420px){
+
+  .msg_error, .msg_success {
+    bottom: -54px;
+  }
+}
+
+@media screen and (max-width: 405px){
+
+  .msg_error, .msg_success{
+    bottom: -53px;
+  }
+}
+
+@media screen and (max-width: 368px){
+
+  .msg_error, .msg_success{
+    bottom: -50px;
+  }
+}
+
+@media screen and (max-width: 334px){
+
+  .msg_error, .msg_success{
+    bottom: -48px;
+  }
+}
+
+@media screen and (max-width: 320px){
+
+  .msg_error, .msg_success{
+    bottom: -74px;
+  }
+}

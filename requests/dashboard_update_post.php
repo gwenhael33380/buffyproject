@@ -19,7 +19,6 @@ $picture     = $_FILES['picture'];
 $id_role       = intval($_POST['role']);
 $id_user      = intval($_POST['id_user']);
 
-
 $required_fields = array($first_name, $last_name, $pseudo, $email);
 $error_upload     = array(3, 6, 7, 8);
 $error_size     = array(1, 2);
@@ -71,10 +70,11 @@ else :
         $req->bindValue(':pseudo', $pseudo, PDO::PARAM_STR);
 
         $req->execute();
-        $result = $req->fetch(PDO::FETCH_OBJ);
+        $result_count_pseudo = $req->fetch(PDO::FETCH_OBJ);
 
-        if ($result->count_pseudo && !$same_pseudo) : // si > 0
+        if ($result_count_pseudo->count_pseudo && !$same_pseudo) : // si > 0
             $msg_error = '<p class="msg_error">Ce pseudo existe déjà</p>';
+
         elseif (!$same_email) :
             $req = $db->prepare("
 				SELECT COUNT(id) count_email
@@ -86,9 +86,9 @@ else :
 
             $req->execute();
 
-            $result = $req->fetch(PDO::FETCH_OBJ);
+            $result_count_email = $req->fetch(PDO::FETCH_OBJ);
 
-            if ($result->count_email && !$same_email) : // si > 0
+            if ($result_count_email->count_email && !$same_email) : // si > 0
                 $msg_error = '<p class="msg_error">Vous avez déjà un compte avec cet email</p>';
             endif;
         endif;
@@ -121,6 +121,7 @@ else :
 
                 //Creation of a unique and random file name to avoid duplicates in the FTP (on the server in the assets/img folder)
                 $img_name = uniqid() . '_' . $recept_img;
+
 
 //                create the folder if it does not exist
                 @mkdir(PATH_PROJECT . '/assets/img/dist/profil/', 0755);
@@ -171,7 +172,6 @@ else :
             endif;
 
             if ($same_picture) {
-
                 $req = $db->prepare("
                         $request;                    
                     ");
@@ -208,10 +208,14 @@ else :
                 $req2->bindValue(':file_name', $img_name, PDO::PARAM_STR);
                 $res2 = $req2->execute();
 
+
                 $sql3 = "UPDATE users SET id_image = :image WHERE id = :id_user;";
                 $req = $db->prepare("$sql3  $request;");
                 $image = $db->query('SELECT id FROM images WHERE id = LAST_INSERT_ID()')->fetch();
-
+//                dd($image);
+                $req->bindValue(':id_role', $id_role, PDO::PARAM_INT);
+                $req->bindValue(':id_user', $id_user, PDO::PARAM_INT);
+                $req->bindValue(':image', $image['id'], PDO::PARAM_INT);
                 $req->bindValue(':first_name', $first_name, PDO::PARAM_STR);
                 $req->bindValue(':last_name', $last_name, PDO::PARAM_STR);
                 if (!$same_pseudo) {
@@ -227,8 +231,9 @@ else :
                     $req->bindValue(':pass', password_hash($pass1, PASSWORD_DEFAULT), PDO::PARAM_STR);
                 endif;
 
-                $req->bindValue(':id_user', $id_user, PDO::PARAM_INT);
-                $req->bindValue(':image', $image['id']);
+
+
+
                 $result = $req->execute();
             }
 
@@ -247,5 +252,6 @@ if (isset($msg_error)) {
 } else {
     header('Location:' . HOME_URL . 'views/dashboard.php' . '?msg=' . $msg_success);
 }
+
 
 //Lecorre@!33

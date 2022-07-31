@@ -37,14 +37,6 @@ if($id_article) {
 <!--    article update form. Warning !!! use of the class of the add article form-->
 <main class="content">
     <div class="bg-img-add-article"></div>
-    <div class="msg_error">
-        <?php
-
-//        $_GET message
-        if(isset($_GET['msg'])) {
-            echo $_GET['msg'];
-        } ?>
-    </div>
     <div class="content_title_update_article">
         <h1 class="title_update_article">Formulaire de mise à jour d'un article</h1>
     </div>

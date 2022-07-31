@@ -33,7 +33,7 @@ else :
         $result = $req->fetch(PDO::FETCH_OBJ);
 
         if(!$result) : // if the result is different then the email is not in the database
-            $msg_error = "<p class=\msg_error\">Le mot de passe ou l'identifiant ne sont pas valides</p>";
+            $msg_error = "<p class=\"msg_error\">Le mot de passe ou l'identifiant ne sont pas valides</p>";
         else :
 //            The trim function removes spaces at the beginning and end of a string.
             $password = trim($_POST['password']);

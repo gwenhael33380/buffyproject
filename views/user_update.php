@@ -50,12 +50,6 @@ if($id_user) {
     <!--source code of user_update.php with use of query results and sanitize_html() "this referred to file function.php" which converts special characters into HTML entities.
     It also helps to protect against the XSS flaw -->
     <main class="main-user-update content">
-        <div class="msg-connexion">
-            <?php
-            if(isset($_GET['msg'])) {
-                echo $_GET['msg'];
-            } ?>
-        </div>
         <div class="bg-img-user-update"></div>
             <div class="content-title-user-update">
                  <h1 class="title-form-update">Formulaire de mise à jour de <?php echo sanitize_html($user->first_name); ?></h1> <!--view user content-->

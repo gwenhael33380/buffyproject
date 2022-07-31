@@ -14,14 +14,6 @@ require __DIR__ . '/header.php'; //call header.php
 <main class="bg-color-add-article" >
     <div class="bg-img-add-article"></div>
     <div class="msg-add-comment">
-
-        <!--           Requests message-->
-        <?php
-
-        //if content is present in the $_GET variable then it will be generated in this tag
-        if(isset($_GET['msg'])) {
-            echo $_GET['msg'];
-        } ?>
     </div>
     <div>
         <div class="content-title-add-article">

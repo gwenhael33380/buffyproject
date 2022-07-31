@@ -46,13 +46,6 @@ $results = $req->fetchAll(PDO::FETCH_OBJ); ?>
 
     <main class="content bgc-dashboard">
     <div class="content-bgi-dashboard"></div>
-        <!--            display of request $_GET messages-->
-        <div class="msg-connexion">
-            <?php
-            if(isset($_GET['msg'])) {
-                echo $_GET['msg'];
-            } ?>
-        </div>
         <div class="content-title-dashboard">
             <div class="title-dashboard">Dashboard</div>
         </div>

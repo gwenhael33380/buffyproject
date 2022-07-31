@@ -20,7 +20,6 @@ require __DIR__ . '/header.php'; //call header.php
                 <a href="#scroll_section_2"><img class="img-arrow" src="<?php echo HOME_URL . 'assets/img/src/source/scroll_bottom.png'; ?>" alt="bouton de scroll"></a>
                 <div id="scroll_section_2"></div>
             </div>
-
         </section>
 
         <!--    Section 2 character carousel-->
@@ -33,7 +32,6 @@ require __DIR__ . '/header.php'; //call header.php
                     <h2 class="title-personage">#Bienvenue sur Buffy Project</h2>
                 </div>
             </div>
-
             <article class="content-presentation">
                 <div class="content-text-presentation" >
                     <div class="content-img-presentation">

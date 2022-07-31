@@ -72,13 +72,6 @@ if(isset($_SESSION['role_slug'])) $role_slug = $_SESSION['role_slug'];
     <main class="content">
 
         <div class="content-bgi-blog"></div>
-        <!--            display of request $_GET messages-->
-        <div class="msg-connexion">
-            <?php
-            if(isset($_GET['msg'])) {
-                echo $_GET['msg'];
-            } ?>
-        </div>
         <div class="content-title-blog" >
 
 <!--            if $role_slug exists and if the role is administrator, then we display the icon for adding an article-->
