@@ -31,44 +31,43 @@
 }
 
 .content-form-contact{
-  width: 100%;
-  margin: 4% auto auto;
+  @extend .file_form_user_update;
 
 }
 .field-contact{
-  display: flex;
-  flex-direction: column;
-  width: 33%;
-  margin: 0 auto;
+  @extend .flex-form-user-update;
 }
 
 .red{
   color: red;
 }
-.content-button-form-contact{
+.content-button-contact{
+  margin: 50px 0;
   display: flex;
   justify-content: center;
 }
 .form-label{
   padding: 40px 0 10px 10px;
-    font-family: rbt-r;
+  font-family: rbt-r;
   font-size: 15px;
 
 }
-.input-form,
-.textarea-form{
+.input-form, .textarea-form{
   border: none;
   box-shadow: 4px 1px 10px 0 rgba(0, 0, 0, .15);
   border-radius: 8px;
   padding: 15px;
 }
+
 .textarea-form{
   padding-bottom:50px ;
 
 }
+
 .content-button-form-contact{
 margin: 75px 0;
 }
+
 .button-form{
 border: none;
   color: $white;
@@ -99,9 +98,6 @@ border: none;
   .bg-page-contact{
     min-height: calc(39vh - 92px);
   }
-  .field-contact{
-    width: 45%;
-  }
 }
 
 @media screen and (max-width: 1216px) {
@@ -117,10 +113,6 @@ border: none;
   .title-form-contact{
     font-size: 55px;
   }
-  .field-contact{
-    width: 52%;
-  }
-
 }
 
 @media screen and (max-width: 767px) {
@@ -129,9 +121,6 @@ border: none;
   }
   .title-form-contact{
     font-size: 45px;
-  }
-  .field-contact{
-    width: 58%;
   }
 }
 
@@ -157,9 +146,6 @@ border: none;
   .title-form-contact{
     font-size: 31px;
   }
-  .field-contact {
-    width: 65%;
-  }
 }
 
 @media screen and (max-width: 320px){
@@ -173,16 +159,11 @@ border: none;
     padding: 20px 0;
   }
 
-  .content-form-contact {
-    width: 114%;
-  }
-
-  .field-contact{
-    margin: 0 5%;
-    width: 76%;
-  }
-
   .content-button-form-contact {
     margin: 75px  33px 75px 0;
+  }
+
+  .textarea-form {
+    padding-bottom: 171px;
   }
 }

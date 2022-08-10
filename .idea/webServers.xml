@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="018ce4ad-6319-412f-bbdb-1fd35e187713" name="Planethoster" url="http://node163-eu.n0c.com">
+        <fileTransfer rootFolder="/public_html" host="node163-eu.n0c.com" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

@@ -8,11 +8,11 @@
 
         <div class="content-form-modal">
             <label class="label-modal-connect" for="email">Email</label>
-            <input  class="input-modal-connect" type="text" name="email">
+            <input  class="input-modal-connect" type="text" name="email" required>
         </div>
         <div class="content-form-modal">
             <label class="label-modal-connect" for="password">Mot de passe</label>
-            <input  class="input-modal-connect" type="password" name="password">
+            <input  class="input-modal-connect" type="password" name="password" required>
         </div>
         <div class="content-button-connected">
             <button id="popup-btn" type="submit">Se connecter</button>

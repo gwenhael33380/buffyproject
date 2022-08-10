@@ -71,16 +71,16 @@ if (isset($_GET['cookie_accepted'])){
                             <?php endif; ?>
                         </ul>
                     </div>
-                </nav>
-                <div class="msg-connexion">
                     <?php
 
                     //                message $_GET
                     if(isset($_GET['msg'])) {
                         echo $_GET['msg'];
                     } ?>
-                </div>
+                </nav>
+
             </div>
+
 
             <?php
 

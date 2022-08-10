@@ -49,7 +49,7 @@ if($id_article) {
 
                 <input type="hidden" name="id_article" value="<?php echo $article->id_article; ?>"> <!--view article content-->
 
-                <input id="input_title_update_article" class="input-add-article-title" minlength="3" maxlength="40"  type="text" id="title" name="title" placeholder="Veuillez renseigner un titre..." value="<?php echo sanitize_html($article->title); ?>"> <!--view article content-->
+                <input id="input_title_update_article" class="input-add-article-title" minlength="3" maxlength="40"  type="text" id="title" name="title" placeholder="Veuillez renseigner un titre..." value="<?php echo sanitize_html($article->title); ?>" required> <!--view article content-->
                 <div class="flex-counter-add-article">
                     <div id="counter_title_update_article">0</div>
                     <div>/40</div>
@@ -57,7 +57,7 @@ if($id_article) {
             </div>
             <div class="flex-form-add-article">
                 <label class="label-content-add-article" for="text">Contenu de l'article</label>
-                <textarea id="input_textarea_update_article" class="textarea-add-article-content" minlength="750" maxlength="3000" name="text" rows="10" placeholder="Contenu à renseigner, Merci de renseigner un minimum de 750 caractères et un maximum de 3000..."><?php echo sanitize_html($article->content); ?></textarea> <!--view article content-->
+                <textarea id="input_textarea_update_article" class="textarea-add-article-content" minlength="750" maxlength="3000" name="text" rows="10" placeholder="Contenu à renseigner, Merci de renseigner un minimum de 750 caractères et un maximum de 3000..." required><?php echo sanitize_html($article->content); ?></textarea> <!--view article content-->
                 <div class="flex-counter-add-article">
                     <div id="counter_content_update_article">0</div>
                     <div>/3000</div>
@@ -65,7 +65,7 @@ if($id_article) {
             </div>
             <div class="content-description-article">
                 <label class="label-content-add-article" for="alt">Veuillez renseigner une description courte de l'image</label>
-                <input id="input_alt_update_article" class="input-alt-article" minlength="5" maxlength="40" type="text" placeholder="Veuillez renseigner 10 caractères minimum, maximum 40..." name="alt"  value="<?php echo sanitize_html($article->alt); ?>"> <!--view article content-->
+                <input id="input_alt_update_article" class="input-alt-article" minlength="5" maxlength="40" type="text" placeholder="Veuillez renseigner 10 caractères minimum, maximum 40..." name="alt"  value="<?php echo sanitize_html($article->alt); ?>" required> <!--view article content-->
                 <div class="flex-counter-add-article">
                     <div id="counter_alt_update_article">0</div>
                     <div>/40</div>
@@ -79,7 +79,7 @@ if($id_article) {
                 <input type="hidden" name="MAX_FILE_SIZE" value="1048576"> <!--size restriction at 1MB or 1024*1028 bytes -->
                 <input type="file" id="picture" name="picture" accept="image/*"> <!--image chosen by the user-->
                 <div class="content-current-img-update-article">
-                    <div class="current_img"><img src="<?php echo IMG_URL . 'dist/articles/' . sanitize_html($article->file_name); ?>"></div> <!--current picture-->
+                    <div class="current_img"><img src="<?php echo HOME_URL . 'assets/img/dist/articles/' . sanitize_html($article->file_name); ?>"></div> <!--current picture-->
                 </div>
             </div>
 

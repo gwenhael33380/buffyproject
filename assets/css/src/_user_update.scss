@@ -56,6 +56,10 @@
   font-size: 15px;
 }
 
+.input-u-u{
+  margin-bottom: 10px;
+}
+
 .label-update-picture{
   margin-top: 4px;
   margin-bottom: 25px;
@@ -216,5 +220,7 @@ align-items: center;
 }
 
 @media screen and (max-width: 320px){
-
+  .flex-form-user-update {
+    width: 97%;
+  }
 }

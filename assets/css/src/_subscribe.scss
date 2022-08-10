@@ -18,11 +18,8 @@
   margin-top: 7%;
 }
 .title-subscribe{
-  text-align: center;
-  padding: 40px 0;
-  font-size: 75px;
-  letter-spacing: 5px;
-  font-family: rbt-t;
+
+  @extend .title-blog;
 }
 .file_form{
   width: 80%;
@@ -73,6 +70,23 @@
 .flex-label-subscribe{
   display: flex;
   flex-direction: column-reverse;
+}
+
+.check-box{
+  width:17px;
+  height:17px;
+}
+
+.label-checkbox{
+  margin-left: 7px;
+}
+
+.content-checkbox{
+  margin-left: 25%;
+  margin-top: 25px;
+  font-family: robot-cond;
+  display: flex;
+  align-items: center;
 
 }
 .button-submit-subscribe{
@@ -102,10 +116,6 @@
 
   .field-subscribe{
     width: 69%;
-  }
-
-  .content_title_subscribe{
-    margin-top: 0;
   }
 }
 

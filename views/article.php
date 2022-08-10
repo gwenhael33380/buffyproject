@@ -134,7 +134,7 @@ $articles_previews = $req->fetchAll(PDO::FETCH_OBJ);
 
                         <!-- delete article -->
                         <div class="content-button-delete-article">
-                            <a class="button-delete_user btnDeleteArticle" >supprimer l'article</i></a>
+                            <a class="button-delete_article btnDeleteArticle" >supprimer l'article</i></a>
                         </div>
                     </div>
                 <?php endif; ?>

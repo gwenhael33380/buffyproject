@@ -235,6 +235,7 @@ width: 81%;
   text-transform: uppercase;
   background-color: $green;
   margin-left: 10px;
+  font-family: robot-cond;
 }
 
 .button-update-article:hover{
@@ -252,6 +253,7 @@ width: 81%;
   text-transform: uppercase;
   background-color: $red;
   cursor: pointer;
+  font-family: robot-cond;
 }
 
 .button-delete_article:hover{
@@ -671,13 +673,22 @@ width: 81%;
     font-size: 22px;
   }
 
+  .content-button-article{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .content-button-update-article{
+    margin-bottom: 50px;
+  }
+
   .button-add-comment{
     margin-top: 30px;
     margin-right: 2%;
   }
 
-  .button-update-article{
-    padding: 8px 21px;
+  .button-update-article, .button-delete_article{
+    padding: 12px 21px;
     font-size: 16px;
   }
 

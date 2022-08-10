@@ -414,7 +414,6 @@
   margin: auto;
   padding: 75px 0px;
   width: 50%;
-  border-radius: 7px;
 }
 
 .content-button-acces-contact{
@@ -582,6 +581,10 @@
     justify-content: center;
   }
 
+  .button-presentation{
+  margin-right: 0;
+   }
+
   .img-presentation{
     margin-left: 0;
     margin-bottom: 0;
@@ -668,7 +671,7 @@
 
   .section-1-home{
     min-height: calc(46vh - 52px);
-    padding-top: 12%;
+    margin-top: 12%;
   }
 
   .section-2-home {
@@ -697,7 +700,7 @@
 
   .section-1-home{
     min-height: calc(40vh - 52px);
-    padding-top: 14%;
+    margin-top: 14%;
   }
 
   .connect_user_success{
@@ -777,7 +780,7 @@
 
   .section-1-home{
     min-height: calc(30vh - 52px);
-    padding-top: 22%;
+    margin-top: 22%;
   }
 
   .title-personage {

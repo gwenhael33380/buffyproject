@@ -27,7 +27,10 @@ require __DIR__ . '/header.php'; //call header.php
                 <p>QUEBEC</p>
                 <p>H7P 0G1</p>
                 <p>Canada</p>
-                <a href="tel:+33(0)176604143">Téléphone +33(0)176604143</a>
+                <div class="flex-contact-lega-notice">
+                    <a href="tel:+33(0)176604143">Téléphone +33(0)176604143</a>
+                </div>
+
             </div>
             <div class="use-of-personal-data">
                 <h2>Utilisation des données personnelles collectées</h2>
@@ -55,7 +58,7 @@ require __DIR__ . '/header.php'; //call header.php
                 </div>
                 <div class="content-comment-info-legal-notice">
                     <h3>Utilisation et transmission de vos données personnelles</h3>
-                    <p>BuffyProject Blog ne partage vos informations personnelles avec aucun tiers, hormis à des fins statistiques (Google Analytics, Bing, Jetpack).</p>
+                    <p>BuffyProject Blog ne partage vos informations personnelles avec aucun tiers.</p>
                 </div>
                 <div class="content-comment-info-legal-notice">
                     <h3>Durées de stockage de vos données</h3>
@@ -70,6 +73,9 @@ require __DIR__ . '/header.php'; //call header.php
                     <p>Pour toute question relative aux présentes conditions d’utilisation du site, vous pouvez nous écrire à l’adresse mail suivante : <a href="mailto:le.corre.gwen.hael@dev-events.com">le.corre.gwen.hael@dev-events.com</a></p>
                 </div>
             </div>
+        </div>
+        <div class="content-button-return-home-page">
+            <a href="<?php echo HOME_URL . '/views/home.php'  ?>" class="button-return-home-page">Retour à la page principal</a>
         </div>
     </section>
 </main>

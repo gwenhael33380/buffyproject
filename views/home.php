@@ -21,7 +21,6 @@ require __DIR__ . '/header.php'; //call header.php
                 <div id="scroll_section_2"></div>
             </div>
         </section>
-
         <!--    Section 2 character carousel-->
         <section  class="section-2-home">
             <div class="content-title-home">
@@ -151,7 +150,7 @@ require __DIR__ . '/header.php'; //call header.php
                                     </div>
                                 </div>
                                 <div class="card d-none d-md-block">
-                                    <img src="<?php echo HOME_URL . 'assets/img/src/carousel/9.joyce'; ?>" class="card-img-top" alt="Joyce Summers personnage secondaire">
+                                    <img src="<?php echo HOME_URL . 'assets/img/src/carousel/9.joyce.png'; ?>" class="card-img-top" alt="Joyce Summers personnage secondaire">
                                     <div class="card-body">
                                         <h3 class="card-title">Joyce Summers</h3>
                                         <div class="content-link-carousel">
@@ -173,7 +172,7 @@ require __DIR__ . '/header.php'; //call header.php
                                     </div>
                                 </div>
                                 <div class="card d-none d-md-block">
-                                    <img src="<?php echo HOME_URL . 'assets/img/src/carousel/11.cordelia'; ?>" class="card-img-top" alt="Cordelia chase personnage secondaire">
+                                    <img src="<?php echo HOME_URL . 'assets/img/src/carousel/11.cordelia.png'; ?>" class="card-img-top" alt="Cordelia chase personnage secondaire">
                                     <div class="card-body">
                                         <h5 class="card-title">Cordelia chase</h5>
                                         <div class="content-link-carousel">

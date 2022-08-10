@@ -58,25 +58,25 @@ if($id_user) {
             <form action="<?php echo HOME_URL . 'requests/user_update_post.php'; ?>" method="POST" enctype="multipart/form-data">
                 <div class="flex-form-user-update">
                     <label class="label-user-update" for="first_name">Prénom </label>
-                    <input class="input-user-update" type="text" id="first_name" name="first_name" value="<?php echo sanitize_html($user->first_name); ?>"> <!--view user content-->
+                    <input class="input-user-update" type="text" id="first_name" name="first_name" value="<?php echo sanitize_html($user->first_name); ?>" required> <!--view user content-->
                 </div>
                 <div class="flex-form-user-update">
                     <label class="label-user-update" for="last_name">Nom </label>
-                    <input class="input-user-update" type="text" id="last_name" name="last_name" value="<?php echo sanitize_html($user->last_name); ?>"> <!--view user content-->
+                    <input class="input-user-update" type="text" id="last_name" name="last_name" value="<?php echo sanitize_html($user->last_name); ?>" required> <!--view user content-->
                 </div>
                 <div class="flex-form-user-update">
                     <label class="label-user-update" for="pseudo">Pseudo </label>
                     <input type="hidden" name="initial_pseudo" value="<?php echo sanitize_html($user->pseudo); ?>"> <!--variable traveling through the form in hidden mode-->
-                    <input class="input-user-update" type="text" id="pseudo" name="pseudo" value="<?php echo sanitize_html($user->pseudo); ?>"> <!--view user content-->
+                    <input class="input-user-update" type="text" id="pseudo" name="pseudo" value="<?php echo sanitize_html($user->pseudo); ?>" required> <!--view user content-->
                 </div>
                 <div class="flex-form-user-update">
                     <label class="label-user-update" for="email">Email </label>
                     <input type="hidden" name="initial_email" value="<?php echo sanitize_html($user->email); ?>"> <!--variable traveling through the form in hidden mode-->
-                    <input class="input-user-update" type="text" id="email" name="email" value="<?php echo sanitize_html($user->email); ?>"> <!--view user content-->
+                    <input class="input-user-update" type="text" id="email" name="email" value="<?php echo sanitize_html($user->email); ?>" required> <!--view user content-->
                 </div>
                 <div class="flex-form-user-update">
                     <label class="label-user-update" for="password">Modifié le mot de passe </label>
-                    <input class="input-user-update" type="password" id="password" name="password" autocomplete="new-password" placeholder="Entrez le nouveau mot de passe..."> <!--password processing-->
+                    <input class="input-user-update input-u-u" type="password" id="password" name="password" autocomplete="new-password" placeholder="Entrez le nouveau mot de passe..."> <!--password processing-->
 
                     <!-- We repeat the password twice to check that it is correct. -->
                     <input class="input-user-update" type="password" id="password2" name="password2" placeholder="Retapez votre mot de passe...">
@@ -94,7 +94,7 @@ if($id_user) {
                 </div>
                 <div  class="content-button-submit">
                     <input type="hidden" name="id_user" value="<?php echo $user->id; ?>">
-                    <button class="button-submit-user_update" type="submit">Mettre à jour l'utilisateur</button>
+                    <button class="button-submit-user_update" type="submit">Mettre à jour votre profil</button>
                 </div>
             </form>
         </div>

@@ -7,7 +7,7 @@
   font-family: robot-cond;
   text-align: center;
   position: absolute;
-  bottom: -48px;
+  bottom: -33px;
   width: 100%;
   z-index: 150;
 }
@@ -19,7 +19,7 @@
   font-family: robot-cond;
   text-align: center;
   position: absolute;
-  bottom: -48px;
+  bottom: -33px;
   width: 100%;
   z-index: 150;
 }
@@ -28,137 +28,19 @@
 
 @media screen and (max-width: 1842px){
   .msg_error, .msg_success{
-    bottom: -45px;
+    bottom: -30px;
   }
 }
 
 @media screen and (max-width: 1660px){
 
   .msg_error, .msg_success{
-    bottom: -40px;
+    bottom: -30px;
   }
 }
-@media screen and (max-width: 1356px){
 
+@media screen and (max-width: 330px){
   .msg_error, .msg_success{
-    bottom: -63px;
-  }
-}
-
-@media screen and (max-width: 1170px){
-
-  .msg_error, .msg_success{
-    bottom: -58px;
-  }
-}
-
-@media screen and (max-width: 1023px){
-
-  .msg_error, .msg_success{
-    bottom: -75px;
-  }
-}
-
-@media screen and (max-width: 933px){
-
-  .msg_error, .msg_success{
-    bottom: -70px;
-  }
-}
-
-@media screen and (max-width: 829px){
-
-  .msg_error, .msg_success{
-    bottom: -65px;
-  }
-}
-
-@media screen and (max-width: 767px){
-
-  .msg_error, .msg_success{
-    bottom: -85px;
-  }
-}
-
-@media screen and (max-width: 707px){
-
-  .msg_error, .msg_success{
-    bottom: -79px;
-  }
-}
-
-@media screen and (max-width: 633px){
-
-  .msg_error, .msg_success{
-    bottom: -74px;
-  }
-}
-
-@media screen and (max-width: 566px){
-
-  .msg_error, .msg_success{
-    bottom: -80px;
-  }
-}
-
-@media screen and (max-width: 652px){
-
-  .msg_error, .msg_success{
-    bottom: -49px;
-  }
-}
-
-@media screen and (max-width: 633px){
-
-  .msg_error, .msg_success{
-    bottom: -49px;
-  }
-}
-
-@media screen and (max-width: 606px){
-
-  .msg_error, .msg_success{
-    bottom: -54px;
-  }
-}
-@media screen and (max-width: 566px){
-
-  .msg_error, .msg_success{
-    bottom: -57px;
-  }
-}
-
-@media screen and (max-width: 420px){
-
-  .msg_error, .msg_success {
-    bottom: -54px;
-  }
-}
-
-@media screen and (max-width: 405px){
-
-  .msg_error, .msg_success{
-    bottom: -53px;
-  }
-}
-
-@media screen and (max-width: 368px){
-
-  .msg_error, .msg_success{
-    bottom: -50px;
-  }
-}
-
-@media screen and (max-width: 334px){
-
-  .msg_error, .msg_success{
-    bottom: -48px;
-  }
-}
-
-@media screen and (max-width: 320px){
-
-  .msg_error, .msg_success{
-    bottom: -74px;
+    bottom: -35px;
   }
 }

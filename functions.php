@@ -1,22 +1,11 @@
 <?php
 session_start();
-
-define('HOME_URL', 'http://buffyproject/');
+$server_name = $_SERVER['SERVER_NAME'];
+define('HOME_URL', $server_name == 'buffyproject' ? 'http://buffyproject/' : 'https://dev-events.fr/');
 define('PATH_PROJECT', __DIR__);
 define('META_DEFAULT', 'When writing a meta description, keep it between 140 and 160 characters so Google can display your entire message. Don’t forget to include your keyword!');
 
 
-//define URL of site.
-//define('URL_HOME','views/home.php');
-//define('URL_SUBSCRIBE','views/subscribe.php');
-//define('URL_USER_PROFIL','views/user_profil.php');
-//define('URL_USER_UPDATE','views/user_update.php');
-//define('URL_BLOG','views/blog.php');
-//define('URL_ADD_ARTICLE','views/add_article.php');
-//define('URL_UPDATE_ARTICLE','views/update_article.php');
-//define('URL_DASHBOARD','views/dashboard.php');
-//define('URL_DASHBOARD_UPDATE','views/dashboard_update.php');
-//define('URL_CONTACT','views/contact.php');
 
 //function vardump
 if (!function_exists('dd')) {

@@ -37,7 +37,7 @@ $same_pseudo = $pseudo == $initial_pseudo ? true : false;
 $same_email = $email == $initial_email ? true : false;
 
 
-var_dump($picture['name']);
+
 if ($picture['name'] == ''){
     $same_picture = true;
 
@@ -154,7 +154,7 @@ else :
                     $request =  "UPDATE users SET first_name = :first_name, last_name = :last_name, pseudo = :pseudo WHERE id = :id_user";
 
                 elseif (!$same_email && $same_pseudo) :
-                    $request =  "UPDATE users SET first_name = :first_name, last_name = :last_name WHERE id = :id_user";
+                    $request =  "UPDATE users SET first_name = :first_name, last_name = :last_name , email = :email WHERE id = :id_user";
 
                 elseif (!$same_email && !$same_pseudo) :
                     $request =  "UPDATE users SET first_name = :first_name, last_name = :last_name, pseudo = :pseudo, email = :email WHERE id = :id_user";
@@ -167,7 +167,7 @@ else :
                     $request =  "UPDATE users SET first_name = :first_name, last_name = :last_name, pseudo = :pseudo, password = :password WHERE id = :id_user";
 
                 elseif (!$same_email && $same_pseudo) :
-                    $request =  "UPDATE users SET first_name = :first_name, last_name = :last_name, password = :password WHERE id = :id_user";
+                    $request =  "UPDATE users SET first_name = :first_name, last_name = :last_name, email = :email, password = :password WHERE id = :id_user";
 
                 elseif (!$same_email && !$same_pseudo) :
                     $request =  "UPDATE users SET first_name = :first_name, last_name = :last_name, pseudo = :pseudo, email = :email, password = :password WHERE id = :id_user";
@@ -195,14 +195,6 @@ else :
 
                 $req = $req->execute();
             } else {
-
-                $sql_d ="DELETE FROM images WHERE id = :id_image";
-
-                $stmt = $db->prepare($sql_d);
-
-                $stmt->bindValue(':id_image', $id_image, PDO::PARAM_INT);
-
-                $stmt->execute();
 
                 $sql2 = "INSERT INTO images (file_name) VALUES (:file_name); ";
                 $req2 = $db->prepare($sql2);

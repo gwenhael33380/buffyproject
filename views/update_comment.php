@@ -50,7 +50,7 @@ if($id_comment) {
                 <form action="<?php echo HOME_URL . 'requests/update_comment_post.php'; ?>" method="POST">
                     <div class="flex-form-add-comment">
                         <label class="label-add-comment" for="text">Contenu du commentaire</label>
-                        <textarea id="textarea_update_comment" class="textarea-content-comment" name="text" rows="10"><?php echo sanitize_html($comment->comment_content); ?></textarea> <!--view comment content-->
+                        <textarea id="textarea_update_comment" class="textarea-content-comment" name="text" rows="10" required><?php echo sanitize_html($comment->comment_content); ?></textarea> <!--view comment content-->
                         <input type="hidden" name="id_article" value="<?php echo $id_article; ?>"> <!--variable traveling through the form in hidden mode-->
                         <input type="hidden" name="id_comment" value="<?php echo $comment->id; ?>"> <!--variable traveling through the form in hidden mode-->
                         <div class="flex-counter-add-article">

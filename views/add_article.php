@@ -26,7 +26,7 @@ require __DIR__ . '/header.php'; //call header.php
             <form action="<?php echo HOME_URL . 'requests/add_article_post.php'; ?>" method="POST" enctype="multipart/form-data">
                 <div class="flex-form-add-article" >
                     <label class="label-title-add-article" for="title">Titre <span class="red" >*</span></label>
-                    <input id="input_title_add_article" class="input-add-article-title" type="text" id="title" name="title" minlength="3" maxlength="40" placeholder="Veuillez renseigner un titre, 3 caractères minimum, maximum 40...">
+                    <input id="input_title_add_article" class="input-add-article-title" type="text" id="title" name="title" minlength="3" maxlength="40" placeholder="Veuillez renseigner un titre, 3 caractères minimum, maximum 40..." required>
                     <div class="flex-counter-add-article">
 
 <!--                        character counter-->
@@ -36,7 +36,7 @@ require __DIR__ . '/header.php'; //call header.php
                 </div>
                 <div class="flex-form-add-article" >
                     <label class="label-content-add-article" for="text">Contenu de l'article <span class="red" >*</span></label>
-                    <textarea id="input_textarea_add_article" class="textarea-add-article-content" id="text" name="text" rows="10" minlength="750" maxlength="3000" placeholder="Contenu à renseigner, Merci de renseigner un minimum de 750 caractères et un maximum de 3000..."></textarea>
+                    <textarea id="input_textarea_add_article" class="textarea-add-article-content" id="text" name="text" rows="10" minlength="750" maxlength="3000" placeholder="Contenu à renseigner, Merci de renseigner un minimum de 750 caractères et un maximum de 3000..." required></textarea>
                     <div class="flex-counter-add-article">
 
                         <!--                        character counter-->
@@ -46,7 +46,7 @@ require __DIR__ . '/header.php'; //call header.php
                 </div>
                 <div class="content-description-article">
                     <label class="label-content-add-article" for="alt">Veuillez renseigner une description courte de l'image <span class="red" >*</span></label>
-                    <input id="input_alt_add_article" class="input-alt-article" minlength="5" maxlength="40" placeholder="Veuillez renseigner 5 caractères minimum, maximum 40..." type="text" name="alt">
+                    <input id="input_alt_add_article" class="input-alt-article" minlength="5" maxlength="40" placeholder="Veuillez renseigner 5 caractères minimum, maximum 40..." type="text" name="alt" required>
                     <div class="flex-counter-add-article">
 
                         <!--                        character counter-->
@@ -67,14 +67,6 @@ require __DIR__ . '/header.php'; //call header.php
         </div>
     </div>
 </main>
-
-<!--fdfsdf-->
-
-<!--dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv-->
-
-<!--dqsfvsdqv dqsfvsdqv dqsfvsdqv dqsfvsdqv-->
-
-
 
 <!--call footer-->
 <?php

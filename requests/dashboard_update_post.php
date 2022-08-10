@@ -16,10 +16,10 @@ $last_name   = mb_strtoupper(trim($_POST['last_name'])); // tout en majuscule
 $pseudo      = trim($_POST['pseudo']);
 $email       = filter_var(mb_strtolower(trim($_POST['email'])), FILTER_VALIDATE_EMAIL);
 $picture     = $_FILES['picture'];
-$id_role       = intval($_POST['role']);
-$id_user      = intval($_POST['id_user']);
+$id_role     = intval($_POST['role']);
+$id_user     = intval($_POST['id_user']);
 
-$required_fields = array($first_name, $last_name, $pseudo, $email);
+$required_fields = array($first_name, $last_name, $pseudo, $email, $id_role);
 $error_upload     = array(3, 6, 7, 8);
 $error_size     = array(1, 2);
 $enabled_ext     = array('jpg', 'jpeg', 'png', 'gif');
@@ -70,9 +70,9 @@ else :
         $req->bindValue(':pseudo', $pseudo, PDO::PARAM_STR);
 
         $req->execute();
-        $result_count_pseudo = $req->fetch(PDO::FETCH_OBJ);
+        $result = $req->fetch(PDO::FETCH_OBJ);
 
-        if ($result_count_pseudo->count_pseudo && !$same_pseudo) : // si > 0
+        if ($result->count_pseudo && !$same_pseudo) : // si > 0
             $msg_error = '<p class="msg_error">Ce pseudo existe déjà</p>';
 
         elseif (!$same_email) :
@@ -86,9 +86,9 @@ else :
 
             $req->execute();
 
-            $result_count_email = $req->fetch(PDO::FETCH_OBJ);
+            $result = $req->fetch(PDO::FETCH_OBJ);
 
-            if ($result_count_email->count_email && !$same_email) : // si > 0
+            if ($result->count_email && !$same_email) : // si > 0
                 $msg_error = '<p class="msg_error">Vous avez déjà un compte avec cet email</p>';
             endif;
         endif;
@@ -151,7 +151,7 @@ else :
                     $request =  "UPDATE users SET id_role = :id_role, first_name = :first_name, last_name = :last_name, pseudo = :pseudo WHERE id = :id_user";
 
                 elseif (!$same_email && $same_pseudo) :
-                    $request =  "UPDATE users SET id_role = :id_role, first_name = :first_name, last_name = :last_name WHERE id = :id_user";
+                    $request =  "UPDATE users SET id_role = :id_role, first_name = :first_name, last_name = :last_name, email = :email WHERE id = :id_user";
 
                 elseif (!$same_email && !$same_pseudo) :
                     $request =  "UPDATE users SET id_role = :id_role, first_name = :first_name, last_name = :last_name, pseudo = :pseudo, email = :email WHERE id = :id_user";
@@ -164,7 +164,7 @@ else :
                     $request =  "UPDATE users SET id_role = :id_role, first_name = :first_name, last_name = :last_name, pseudo = :pseudo, password = :password WHERE id = :id_user";
 
                 elseif (!$same_email && $same_pseudo) :
-                    $request =  "UPDATE users SET id_role = :id_role, first_name = :first_name, last_name = :last_name, password = :password WHERE id = :id_user";
+                    $request =  "UPDATE users SET id_role = :id_role, first_name = :first_name, last_name = :last_name, email = :email, password = :password WHERE id = :id_user";
 
                 elseif (!$same_email && !$same_pseudo) :
                     $request =  "UPDATE users SET id_role = :id_role, first_name = :first_name, last_name = :last_name, pseudo = :pseudo, email = :email, password = :password WHERE id = :id_user";
@@ -176,10 +176,11 @@ else :
                         $request;                    
                     ");
 
+                $req->bindValue(':id_role', $id_role, PDO::PARAM_INT);
                 $req->bindValue(':first_name', $first_name, PDO::PARAM_STR);
                 $req->bindValue(':last_name', $last_name, PDO::PARAM_STR);
-                $req->bindValue(':id_user', $id_user, PDO::PARAM_INT);
-                $req->bindValue(':id_role', $id_role, PDO::PARAM_INT);
+
+
                 if (!$same_pseudo) {
                     $req->bindValue(':pseudo', $pseudo, PDO::PARAM_STR);
                 }
@@ -189,18 +190,11 @@ else :
                 if (!$empty_pass){
                     $req->bindValue(':pass', password_hash($pass1, PASSWORD_DEFAULT), PDO::PARAM_STR);
                 }
-
+                $req->bindValue(':id_user', $id_user, PDO::PARAM_INT);
 
                 $req = $req->execute();
+
             } else {
-
-                $sql_d ="DELETE FROM images WHERE id = :id_image";
-
-                $stmt = $db->prepare($sql_d);
-
-                $stmt->bindValue(':id_image', $id_image, PDO::PARAM_INT);
-
-                $stmt->execute();
 
                 $sql2 = "INSERT INTO images (file_name) VALUES (:file_name); ";
                 $req2 = $db->prepare($sql2);
@@ -214,8 +208,6 @@ else :
                 $image = $db->query('SELECT id FROM images WHERE id = LAST_INSERT_ID()')->fetch();
 //                dd($image);
                 $req->bindValue(':id_role', $id_role, PDO::PARAM_INT);
-                $req->bindValue(':id_user', $id_user, PDO::PARAM_INT);
-                $req->bindValue(':image', $image['id'], PDO::PARAM_INT);
                 $req->bindValue(':first_name', $first_name, PDO::PARAM_STR);
                 $req->bindValue(':last_name', $last_name, PDO::PARAM_STR);
                 if (!$same_pseudo) {
@@ -230,10 +222,8 @@ else :
                 if (!$empty_pass) :
                     $req->bindValue(':pass', password_hash($pass1, PASSWORD_DEFAULT), PDO::PARAM_STR);
                 endif;
-
-
-
-
+                $req->bindValue(':id_user', $id_user, PDO::PARAM_INT);
+                $req->bindValue(':image', $image['id'], PDO::PARAM_INT);
                 $result = $req->execute();
             }
 
@@ -241,7 +231,7 @@ else :
             if ($result) :
                 $msg_success = '<p class="msg_success">Votre profil a bien ete mis à jours</p>';
             else :
-                $msg_error = '<p class="msg_error">erreur lors de la mise à jour du profil</p>';
+                $msg_error = '<p class="msg_error">erreur lors de la mise à jour du profil!!!!!!!!!</p>';
             endif;
         endif;
     endif;
@@ -252,6 +242,7 @@ if (isset($msg_error)) {
 } else {
     header('Location:' . HOME_URL . 'views/dashboard.php' . '?msg=' . $msg_success);
 }
-
-
+//Hdfkoqsf@!lf52
+//$2y$10$z4K3YxHwANpjYcl3cOnrauzhEDCNCb/3rcMvJr1ZC25RfftErkkVC
+//$2y$10$z4K3YxHwANpjYcl3cOnrauzhEDCNCb/3rcMvJr1ZC25RfftErkkVC
 //Lecorre@!33

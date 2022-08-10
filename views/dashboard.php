@@ -108,12 +108,12 @@ $results = $req->fetchAll(PDO::FETCH_OBJ); ?>
 <!--                        --><?php //var_dump($_SESSION);die; ?>
                         <!-- suppression de l'utilisateur -->
 
-<!--                        --><?php if ($_SESSION['id_user'] != $result->id):?>
+<!--                        --><?php if ($result->id == 16):?>
+                            <a class="delete_user_prohibited_alert"><i class="fa-solid fa-xmark alert-delete-prohibited"></i></a>
 
-                        <a class="delete_user" href="<?php echo HOME_URL . 'requests/dashboard_delete_post.php?id=' . $result->id; ?>"><i class="fa-solid fa-trash-can favicon-delete-user"></i></a>
 
                         <?php else: ?>
-                            <a class="delete_user_prohibited_alert"><i class="fa-solid fa-xmark alert-delete-prohibited"></i></a>
+                            <a class="delete_user" href="<?php echo HOME_URL . 'requests/dashboard_delete_post.php?id=' . $result->id; ?>"><i class="fa-solid fa-trash-can favicon-delete-user"></i></a>
 
                         <?php endif ?>
                     </div>

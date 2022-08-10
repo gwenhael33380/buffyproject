@@ -26,7 +26,7 @@ if(empty($user_id)){
 
 $req = $db->prepare("
 
-	SELECT DISTINCT 
+	SELECT
 	    
 	    (SELECT COUNT(c.id) count_comment
 	     FROM comments c 
