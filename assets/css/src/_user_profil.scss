@@ -214,7 +214,7 @@ margin-right: 30px;
 
   .bg-page-profil {
     min-height: calc(34.5vh - 92px);
-    margin-top: 14.5%;
+    margin-top: 9.5%;
   }
 
   .content-information-user{
@@ -222,6 +222,11 @@ margin-right: 30px;
     justify-content: center;
     flex-direction: column;
   }
+
+  .information-user{
+    font-size: 14px;
+  }
+
   .content-button-profil{
     margin-bottom: 12%;
   }

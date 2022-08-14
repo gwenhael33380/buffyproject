@@ -124,9 +124,8 @@ $articles_previews = $req->fetchAll(PDO::FETCH_OBJ);
                     </div>
                 </article>
 <!--                if rol_slug exists and it is equal to administrator, then we display the update and delete article buttons-->
-                <?php if(isset($role_slug) && $role_slug == "administrator" ) : ?>
+                <?php if(isset($role_slug) && $role_slug == "administrator" || ($role_slug == 'editor' && $article->id_user == $_SESSION['id_user'] )) : ?>
                     <div class="content-button-article">
-
                         <!-- Button update article -->
                         <div class="content-button-update-article">
                             <a class="button-update-article" href="<?php echo HOME_URL . 'views/update_article.php?id=' . $id_article; ?>">Mettre à jour</i></a>
@@ -181,8 +180,6 @@ $articles_previews = $req->fetchAll(PDO::FETCH_OBJ);
                     ||
                     (
                         $role_slug == 'editor'
-                        &&
-                        $_SESSION['id_user'] != $article->id_user // id_user connecté != id_user de l'article
                     )
                 )
                 ) : ?>
@@ -236,9 +233,9 @@ $articles_previews = $req->fetchAll(PDO::FETCH_OBJ);
 
 <!--                                                                 link of update and delete buttons how to change comment id and article id variable-->
 
-                                                    <!-- bouton update -->
+                                                    <!-- button update -->
                                                     <a class="button-update-comment" href="<?php echo HOME_URL . 'views/update_comment.php?id=' . $id_comment . '&id_article=' . $id_article; ?>"><i class="fa-solid fa-pencil"></i></a>
-                                                    <!-- bouton delete -->
+                                                    <!-- button delete -->
                                                     <a class="delete_comment" href="<?php echo HOME_URL . 'requests/delete_comment_post.php?id=' . $id_comment . '&id_article=' . $id_article; ?>"><i class="fa-solid fa-trash-can"></i></a>
                                                 <?php endif; ?>
                                             </div>

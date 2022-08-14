@@ -188,7 +188,7 @@ else :
                     $req->bindValue(':email', $email, PDO::PARAM_STR);
                 }
                 if (!$empty_pass){
-                    $req->bindValue(':pass', password_hash($pass1, PASSWORD_DEFAULT), PDO::PARAM_STR);
+                    $req->bindValue(':password', password_hash($pass1, PASSWORD_DEFAULT), PDO::PARAM_STR);
                 }
                 $req->bindValue(':id_user', $id_user, PDO::PARAM_INT);
 
@@ -220,7 +220,7 @@ else :
                 // https://www.php.net/manual/fr/function.password-hash.php
                 $req->bindValue(':id_user', $id_user, PDO::PARAM_INT);
                 if (!$empty_pass) :
-                    $req->bindValue(':pass', password_hash($pass1, PASSWORD_DEFAULT), PDO::PARAM_STR);
+                    $req->bindValue(':password', password_hash($pass1, PASSWORD_DEFAULT), PDO::PARAM_STR);
                 endif;
                 $req->bindValue(':id_user', $id_user, PDO::PARAM_INT);
                 $req->bindValue(':image', $image['id'], PDO::PARAM_INT);

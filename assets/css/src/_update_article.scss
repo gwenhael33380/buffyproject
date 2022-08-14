@@ -17,9 +17,28 @@
   text-shadow: 5px 1px 6px rgba(0,0,0,0.38);
 }
 
+.current-img-update-article{
+ border-radius: 15px;
+}
+
+.margin-bottom{
+  margin-bottom: 10px;
+}
+
+.flex-current-img-update-article{
+
+}
+
+.text-info-format-img{
+  margin-top: 10px!important;
+  width: 80%;
+}
+
 .margin_bottom-update-article{
   margin-bottom: 25px!important;
 }
+
+
 
 @media screen and (max-width: 1448px){
 
@@ -68,5 +87,10 @@
   .title_update_article {
     font-size: 20px;
     padding: 20px 0;
+  }
+
+  .text-info-format-img{
+  width: 90%;
+    text-align: justify;
   }
 }

@@ -86,29 +86,21 @@ $results = $req->fetchAll(PDO::FETCH_OBJ); ?>
                             <p class="info-user-dashboard ">Nombre article<span class="span-info-user-dashboard"><?php echo plural($count_article); ?> : <?php echo $count_article; ?></span></p>
                             <?php endif ?>
                             <p class="info-user-dashboard">Nombre de commentaire<span class="span-info-user-dashboard"><?php echo plural($count_comment); ?> : <?php echo $count_comment; ?></span></p>
-                            <?php
-                            //                    var_dump($_COOKIE['last_visit']);
-                            if(isset($_COOKIE['last_visit']))
-
-                            {
-                                echo '<p class="info-user-dashboard">dernière visite : ' . '<span class="span-info-user-dashboard">' . $_COOKIE['last_visit'] . '</span>' . '</p>' ; //
-                            }
-                            else
-                            {
-                                echo '<p class="info-user-dashboard">Jamais connecté</p>';
-                            }
-                            ?>
                         </div>
 
                     </div>
                     <div class="flex-button-dashboard">
 
-                        <!-- mise à jour de l'utilisateur -->
-                        <a href="<?php echo HOME_URL . 'views/dashboard_update.php?id=' . $result->id; ?>"><i class="fa-solid fa-pencil favicon-update-user"></i></a>
-<!--                        --><?php //var_dump($_SESSION);die; ?>
-                        <!-- suppression de l'utilisateur -->
+                         <?php if ($result->id == 16):?>
+                         <a class="update_user_prohibited_alert"><i class="fa-solid fa-xmark alert-delete-prohibited"></i></a>
 
-<!--                        --><?php if ($result->id == 16):?>
+                        <?php else: ?>
+                        <!-- update user -->
+                        <a href="<?php echo HOME_URL . 'views/dashboard_update.php?id=' . $result->id; ?>"><i class="fa-solid fa-pencil favicon-update-user"></i></a>
+                         <?php endif ?>
+                        <!-- delete user -->
+
+                            <?php if ($result->id == 16):?>
                             <a class="delete_user_prohibited_alert"><i class="fa-solid fa-xmark alert-delete-prohibited"></i></a>
 
 

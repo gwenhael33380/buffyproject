@@ -85,14 +85,19 @@ if($id_user) {
                 <div class="content-change-img-user-update">
 
 <!--                    preview of the previous image-->
-                    <div class="current_img"><img src="<?php echo HOME_URL. 'assets/img/dist/profil/' . sanitize_html($user->file_name); ?>"alt="image de votre profil avant la mise a jour"></div> <!--current picture-->
-                    <input type="hidden" name="id_image" value="<?php echo $user->id_image; ?>"> <!--variable traveling through the form in hidden mode-->
-                    <input type="hidden" name="initial_image" value="<?php echo sanitize_html($user->file_name); ?>"> <!--variable traveling through the form in hidden mode-->
-                    <input type="hidden" name="MAX_FILE_SIZE" value="1048576">  <!--size restriction at 1MB or 1024*1028 bytes -->
-                    <input type="file" id="picture" name="picture" accept="image/*"> <!--image chosen by the user-->
-                    <label class="label-update-picture" for="picture">Ajouter une image (jpg, jpeg, png, gif) 1Mo MAX.</label>
+                    <div class="current_img">
+                        <img class="current-img-user-update" src="<?php echo HOME_URL. 'assets/img/dist/profil/' . sanitize_html($user->file_name); ?>" alt="image de votre profil avant la mise a jour">
+                    </div> <!--current picture-->
+                    <div class="content-label-picture">
+                        <input type="hidden" name="id_image" value="<?php echo $user->id_image; ?>"> <!--variable traveling through the form in hidden mode-->
+                        <input type="hidden" name="initial_image" value="<?php echo sanitize_html($user->file_name); ?>"> <!--variable traveling through the form in hidden mode-->
+                        <input type="hidden" name="MAX_FILE_SIZE" value="1048576">  <!--size restriction at 1MB or 1024*1028 bytes -->
+                        <input type="file" id="picture" class="input-choice-user-update" name="picture" accept="image/*"> <!--image chosen by the user-->
+                        <label class="label-update-picture" for="picture">Ajouter une image (jpg, jpeg, png, gif) 1Mo MAX.<span class="red">*</span></label>
+                    </div>
+
                 </div>
-                <div  class="content-button-submit">
+                <div class="content-button-submit">
                     <input type="hidden" name="id_user" value="<?php echo $user->id; ?>">
                     <button class="button-submit-user_update" type="submit">Mettre à jour votre profil</button>
                 </div>

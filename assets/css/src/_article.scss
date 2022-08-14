@@ -680,6 +680,7 @@ width: 81%;
 
   .content-button-update-article{
     margin-bottom: 50px;
+    margin-left: 0;
   }
 
   .button-add-comment{
@@ -715,10 +716,6 @@ width: 81%;
 }
 
 @media screen and (max-width: 320px){
-
-  .popupDeleteArticle{
-    left: -120%;
-  }
 
   .bg-img-page-article {
     min-height: calc(25vh - 94px);

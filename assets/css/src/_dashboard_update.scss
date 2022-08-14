@@ -1,5 +1,75 @@
 //SCSS Dashboard update
 
-.title_dashboard{
-  padding-top: 300px;
+
+
+
+.main-user-update-dashboard{
+  @extend .main-user-update;
 }
+
+.bg-img-user-update-dashboard{
+  @extend .bg-img-user-update;
+}
+
+.content-title-update-user-dashboard{
+  @extend .content-title-user-update;
+  margin-top: 75px;
+}
+
+.title_dashboard{
+  @extend .title-form-update;
+}
+
+.file_form_user_update_dashboard{
+  @extend .file_form_user_update;
+}
+
+.flex-form-user-update-dashboard{
+  @extend .flex-form-user-update;
+}
+
+.label-user-update-dashboard{
+  @extend .label-user-update;
+ }
+
+.input-user-update-dashboard{
+  @extend .input-user-update;
+}
+
+.current_img_dashboard{
+  @extend .current_img;
+}
+
+.current-img-user-update-dashboard{
+  @extend  .current-img-user-update;
+  margin-bottom: 25px!important;
+}
+
+.content-change-img-user-update-dashboard{
+  @extend .content-change-img-user-update;
+  margin-top: 50px!important;
+}
+
+.content-button-submit-dashboard{
+ @extend .content-button-submit;
+ }
+
+.button-submit-update-user-dashboard{
+  background-color: $red;
+  color: $white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  margin-right: 15px;
+  text-transform: uppercase;
+  font-size: 15px;
+  transition-duration: .3s;
+  font-family: robot-cond;
+}
+
+.button-submit-update-user-dashboard:hover{
+  background-color: $green;
+  color: $black;
+}
+
+

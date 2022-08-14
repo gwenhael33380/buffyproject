@@ -72,14 +72,19 @@ if($id_article) {
                 </div>
             </div>
             <div class="content-add-img-article">
-                <label class="label-add-img-article" for="images">Ajouter une image (jpg, jpeg, png, gif) 1Mo MAX<span class="red" >*</span>
-                    <br>  <span class="red">N'ajoutez que des images en mode paysage.  </span> Merci de respecté cette convention. Tout manquement à cette règle fera l'objet d'une suppression de l'article concerné ! Merci pour votre compréhension.</label>
+                <div class ="text-info-format-img">
+                    <span class="red">*N'ajoutez que des images en mode paysage.</span> Merci de respecté cette convention. Tout manquement à cette règle fera l'objet d'une suppression de l'article concerné ! Merci pour votre compréhension.
+                </div>
+                <label class="label-add-img-article margin-bottom" for="images">Ajouter une image (jpg, jpeg, png, gif) 1Mo MAX<span class="red" >*</span></label>
+
                 <input type="hidden" name="current_img" value="<?php echo sanitize_html($article->file_name); ?>"> <!--variable traveling through the form in hidden mode-->
                 <input type="hidden" name="id_image" value="<?php echo sanitize_html($article->id_image); ?>"> <!--variable traveling through the form in hidden mode-->
                 <input type="hidden" name="MAX_FILE_SIZE" value="1048576"> <!--size restriction at 1MB or 1024*1028 bytes -->
                 <input type="file" id="picture" name="picture" accept="image/*"> <!--image chosen by the user-->
                 <div class="content-current-img-update-article">
-                    <div class="current_img"><img src="<?php echo HOME_URL . 'assets/img/dist/articles/' . sanitize_html($article->file_name); ?>"></div> <!--current picture-->
+                    <div class="current_img margin-bottom">
+                        <img class="current-img-update-article" src="<?php echo HOME_URL . 'assets/img/dist/articles/' . sanitize_html($article->file_name); ?>"> <!--current picture-->
+                    </div>
                 </div>
             </div>
 

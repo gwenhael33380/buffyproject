@@ -75,7 +75,7 @@ if(isset($_SESSION['role_slug'])) $role_slug = $_SESSION['role_slug'];
         <div class="content-title-blog" >
 
 <!--            if $role_slug exists and if the role is administrator, then we display the icon for adding an article-->
-            <h1 class="title-blog">Buffy project Le Blog <?php if(isset($role_slug) && $role_slug == 'administrator') echo "<span><a href=\"" . HOME_URL . "views/add_article.php\"><i class=\"fa-solid fa-circle-plus\"></i></a></span>"; ?></h1>
+            <h1 class="title-blog">Buffy project Le Blog <?php if(isset($role_slug) && $role_slug == 'administrator' || 'editor') echo "<span><a href=\"" . HOME_URL . "views/add_article.php\"><i class=\"fa-solid fa-circle-plus\"></i></a></span>"; ?></h1>
         </div>
         <section>
             <div class="content-content-article-blog" >
@@ -83,7 +83,6 @@ if(isset($_SESSION['role_slug'])) $role_slug = $_SESSION['role_slug'];
                     <h2 class="article-title">Les articles</h2>
                 </div>
             </div>
-
 
 
             <!--            loop foreach for displaying items-->
@@ -125,7 +124,6 @@ if(isset($_SESSION['role_slug'])) $role_slug = $_SESSION['role_slug'];
                         <div class="transform-border">
                             <div class="beefore">
                         </div>
-
 
                     </div>
                 </article>

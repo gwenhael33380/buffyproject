@@ -18,13 +18,10 @@ to_connect.forEach((modals_connect) => {
 
     popupBtn.addEventListener("click", () => {
         modal_connect.classList.remove("toggle_modal");
-
-
     });
+
     cross_btn.addEventListener("click", () => {
         modal_connect.classList.remove("toggle_modal");
-
-
     });
 });
 

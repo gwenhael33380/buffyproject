@@ -12,8 +12,8 @@
   width: 100%;
   background-repeat: no-repeat;
   margin-top: 5%;
-
 }
+
 .content-title-user-update{
   background-color: $green-o;
 }
@@ -63,15 +63,23 @@
 .label-update-picture{
   margin-top: 4px;
   margin-bottom: 25px;
-  margin-left: -52px;
   font-family: rbt-i;
   font-style: italic;
   font-size: 13px;
   text-decoration: underline;
+  display: block;
+}
+
+.input-choice-user-update{
+ margin-top: 15px;
 }
 
 .current_img{
   width: 35%;
+}
+
+.current-img-user-update{
+ border-radius: 15px;
 }
 
 .text-mdp-user-update{
@@ -149,12 +157,16 @@ align-items: center;
   .title-form-update{
     font-size: 35px;
   }
+  .input-choice-user-update{
+    margin-top: 9px;
+  }
+
 }
 
 @media screen and (max-width: 991px){
 
   .bg-img-user-update{
-    min-height: calc(33vh - 92px);
+    min-height: calc(27vh - 92px);
   }
 
   .title-form-update{
@@ -170,6 +182,7 @@ align-items: center;
 
   .bg-img-user-update{
     min-height: calc(29vh - 92px);
+    margin-top: 10%;
   }
 
   .title-form-update{
@@ -217,10 +230,18 @@ align-items: center;
   .flex-form-user-update{
     width: 72%;
   }
+
+  .current_img{
+    width: 78%;
+  }
 }
 
 @media screen and (max-width: 320px){
   .flex-form-user-update {
     width: 97%;
+  }
+  .bg-img-user-update{
+    min-height: calc(18vh - 92px);
+    margin-top: 22%;
   }
 }
