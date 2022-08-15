@@ -22,7 +22,7 @@ require __DIR__ . '/header.php'; //call header.php
             <div class="file_form">
 
                 <!--                form with the link to the processing of the subscription content-->
-                <form class="form-subscribe" action="<?php echo HOME_URL . 'requests/subscribe_post.php'; ?>" method="POST" enctype="multipart/form-data">
+                <form class="form-subscribe form_subscribe" action="<?php echo HOME_URL . 'requests/subscribe_post.php'; ?>" method="POST" enctype="multipart/form-data">
                     <div class="field-subscribe">
                         <label class="label-subscribe" for="firstNameSubscribe">Prénom<span class="red">*</span></label>
                         <input class="input-form-subscribe" type="text" id="first_name_subscribe" name="first_name" placeholder="Entrez votre prénom 3 caractères minimum..." required>
@@ -35,7 +35,7 @@ require __DIR__ . '/header.php'; //call header.php
                     </div>
                     <div class="field-subscribe">
                         <label class="label-subscribe" for="pseudo">Pseudo<span class="red">*</span></label>
-                        <input class="input-form-subscribe" type="text" id="pseudo_subscribe" name="pseudo" placeholder="Entrez votre pseudo" required>
+                        <input class="input-form-subscribe" type="text" id="pseudo_subscribe" name="pseudo" placeholder="Entrez votre pseudo">
                         <div class="errorMsgSubscribePseudo"></div>
 
                     </div>
@@ -46,7 +46,8 @@ require __DIR__ . '/header.php'; //call header.php
 
                     <div class="field-subscribe">
                         <label class="label-subscribe" for="password">Mot de passe<span class="red">*</span></label>
-                        <input class="input-form-subscribe" type="password" id="password" name="password" placeholder="Veuillez choisir votre mot de passe" required autocomplete="off">
+                        <input class="input-form-subscribe" type="password" id="password1" name="password" placeholder="Veuillez choisir votre mot de passe" required autocomplete="off">
+                        <div class="errorMsgSubscribePassword"></div>
 
                         <!-- Repeat the password twice to verify that it is correct. -->
                         <input class="input-form-subscribe input-margin" type="password" id="password2" name="password2" placeholder="Veuillez retapez votre mot de passe" required autocomplete="off">

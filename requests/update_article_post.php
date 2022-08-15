@@ -82,7 +82,7 @@ else :
 
 
                     $set_request = TRUE;
-                    $request_image =  "UPDATE images SET file_name = :file_name, alt = :alt WHERE id = :id_image";
+                    $request_image =  "UPDATE picture SET file_name = :file_name, alt = :alt WHERE id = :id_image";
                 else :
                     $set_request = FALSE;
                 endif;
@@ -91,7 +91,7 @@ else :
         if($set_request) :
             $req = $db->prepare("
                     
-					UPDATE articles SET id_user = :id_user, title = :title, content =:content, created_at = NOW()
+					UPDATE article SET id_user = :id_user, title = :title, content =:content, created_at = NOW()
 					WHERE id = :id;
                     $request_image
 				");

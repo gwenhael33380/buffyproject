@@ -17,10 +17,10 @@ if($id_article) {
 
 //    request article
     $req = $db->prepare("
-		SELECT  a.id id_article,  a.title, a.content, a.content_2, a.id_image, i.file_name, i.alt
-		FROM articles a
-		LEFT JOIN images i
-		ON a.id_image = i.id
+		SELECT  a.id id_article,  a.title, a.content, a.content_2, a.id_image, p.file_name, p.alt
+		FROM article a
+		LEFT JOIN picture p
+		ON a.id_image = p.id
 		WHERE a.id = :id
         
 	");

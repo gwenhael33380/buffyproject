@@ -17,12 +17,12 @@ else :
         $msg_error = "<p class=\"msg_error\">Merci de renseigner un email valide</p>";
     else :
         $req = $db->prepare("
-			SELECT u.*, r.role_name, r.role_slug, i.file_name
-			FROM users u
-			LEFT JOIN roles r
+			SELECT u.*, r.role_name, r.role_slug, p.file_name
+			FROM user u
+			LEFT JOIN role r
 			ON r.id = u.id_role
-			LEFT JOIN images i
-			ON i.id = u.id_image
+			LEFT JOIN picture p
+			ON p.id = u.id_image
 			WHERE u.email = :email 
 		");
         $req->execute(array(

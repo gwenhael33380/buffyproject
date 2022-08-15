@@ -16,7 +16,7 @@ if(in_array('', $_POST)) :
 else :
     //            insertion of the processed data into the database
     $req = $db->prepare("
-		INSERT INTO comments(id_user, id_article, comment_content, created_at)
+		INSERT INTO comment(id_user, id_article, comment_content, created_at)
 		VALUES (:id_user, :id_article, :content, NOW())
 	");
 

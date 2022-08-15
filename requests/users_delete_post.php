@@ -15,10 +15,10 @@ if ($id_user) {
 
     //    request deleting the user, his articles, his comments, and his image
     $req = $db->prepare("
-		DELETE FROM users WHERE id = :id;
-		DELETE FROM articles WHERE id_user = :id;
-		DELETE FROM comments WHERE id_user = :id;
-	    DELETE FROM images WHERE file_name = :id;
+		DELETE FROM user WHERE id = :id;
+		DELETE FROM article WHERE id_user = :id;
+		DELETE FROM comment WHERE id_user = :id;
+	    DELETE FROM picture WHERE file_name = :id;
 	
 	");
 
@@ -28,10 +28,14 @@ if ($id_user) {
     //    execution of the request
     $result = $req->execute();
 
+    // destroy session
+    session_destroy();
+
     //    redirect on success or failure
     if ($result) {
         header('Location:' . HOME_URL . 'views/home.php?msg=<p class="msg_success">Utilisateur supprimé</p>');
     } else {
         header('Location:' . HOME_URL . 'views/home.php?msg=<p class="msg_error">Erreur lors de la suppression</p>');
     }
+//    Azerty33380@!
 }

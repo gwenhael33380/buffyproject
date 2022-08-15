@@ -12,7 +12,7 @@ require __DIR__ . '/header.php'; //call header.php
 //query used to count the articles
 $req = $db->query("
     SELECT COUNT(id) AS count_article
-    FROM articles
+    FROM article
     ");
 $result = $req->fetchObject();
 
@@ -35,12 +35,12 @@ else {
 
 //query prepare to display articles
 $req = $db->prepare("
-       SELECT a.id, a.id_user, a.title, a.content, a.created_at, a.id_image, u.first_name, u.last_name, u.pseudo, i.file_name, i.alt
-    FROM articles a
-    LEFT JOIN users u
+       SELECT a.id, a.id_user, a.title, a.content, a.created_at, a.id_image, u.first_name, u.last_name, u.pseudo, p.file_name, p.alt
+    FROM article a
+    LEFT JOIN user u
     ON  a.id_user = u.id
-    LEFT JOIN images i
-    ON a.id_image = i.id
+    LEFT JOIN picture p
+    ON a.id_image = p.id
     
     ORDER BY a.created_at DESC
     -- offset will say from which tuple the query starts

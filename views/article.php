@@ -14,12 +14,12 @@ $role_slug = $_SESSION['role_slug'];
 
 //request article
 $req = $db->prepare("
-    SELECT a.id, a.id_user, a.title, a.content, a.created_at, a.id_image, u.pseudo, i.id as id_tab_img, i.file_name, i.alt
-    FROM articles a
-    LEFT JOIN users u
+    SELECT a.id, a.id_user, a.title, a.content, a.created_at, a.id_image, u.pseudo, p.id as id_tab_img, p.file_name, p.alt
+    FROM article a
+    LEFT JOIN user u
     ON   a.id_user = u.id
-    LEFT JOIN images i
-    ON  i.id = a.id_image 
+    LEFT JOIN picture p
+    ON  p.id = a.id_image 
     WHERE a.id = ?
     ");
 
@@ -38,10 +38,10 @@ $newDate = date("d-m-Y à h:i:s", $timestamp );
 //Request preview article
 
 $req = $db->prepare("
-    SELECT a.id, a.title, a.id_image, i.file_name, i.alt
-    FROM articles a
-    LEFT JOIN images i
-    ON  i.id = a.id_image 
+    SELECT a.id, a.title, a.id_image, p.file_name, p.alt
+    FROM article a
+    LEFT JOIN picture p
+    ON  p.id = a.id_image 
     WHERE a.id
     ORDER BY a.id DESC
     LIMIT 3
@@ -152,12 +152,12 @@ $articles_previews = $req->fetchAll(PDO::FETCH_OBJ);
 
             //request prepared comments
             $req = $db->prepare("
-                SELECT c.id, c.id_user, c.comment_content, c.created_at, u.pseudo, i.file_name
-                FROM comments c
-				INNER JOIN users u
+                SELECT c.id, c.id_user, c.comment_content, c.created_at, u.pseudo, p.file_name
+                FROM comment c
+				INNER JOIN user u
 				ON u.id = c.id_user
-				LEFT JOIN images i 
-				ON u.id_image = i.id
+				LEFT JOIN picture p 
+				ON u.id_image = p.id
 				WHERE c.id_article = ?
                 ORDER BY c.created_at DESC
 			");

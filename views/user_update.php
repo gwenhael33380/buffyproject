@@ -29,10 +29,10 @@ else {
 // !!! the prepared query is mandatory because it includes variables. !!!
 if($id_user) {
     $req = $db->prepare("
-		SELECT u.id, u.first_name, u.last_name, u.pseudo, u.email, u.id_image, i.id as id_image, i.file_name
-		FROM users u
-		LEFT JOIN images i
-	    ON u.id_image = i.id
+		SELECT u.id, u.first_name, u.last_name, u.pseudo, u.email, u.id_image, p.id as id_image, p.file_name
+		FROM user u
+		LEFT JOIN picture p
+	    ON u.id_image = p.id
 		WHERE u.id = :id
 	");
 

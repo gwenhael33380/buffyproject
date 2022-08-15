@@ -46,7 +46,7 @@ $match_pass = check_password($pass1); // je check pour voir s'il correspond au p
             $req = $db->prepare("
 			SELECT COUNT(id) count_pseudo
 			-- je compte le nombre de pseudo identique
-			FROM users
+			FROM user
 			WHERE pseudo = :pseudo
 		");
 
@@ -60,7 +60,7 @@ $match_pass = check_password($pass1); // je check pour voir s'il correspond au p
             else :
                 $req = $db->prepare("
 				SELECT COUNT(id) count_email
-				FROM users
+				FROM user
 				WHERE email = :email
 			");
 
@@ -125,15 +125,15 @@ $match_pass = check_password($pass1); // je check pour voir s'il correspond au p
             if($send_request) :
                 if($img_name) :
                     $req = $db->prepare("
-                        INSERT INTO images(file_name)
+                        INSERT INTO picture(file_name)
                         VALUES (:file_name);
-                        INSERT INTO users(id_role, first_name, last_name, pseudo, email, password, id_image)
+                        INSERT INTO user(id_role, first_name, last_name, pseudo, email, password, id_image)
                         VALUES (:id_role, :first_name, :last_name, :pseudo, :email, :password, LAST_INSERT_ID())
                     ");
                 else :
                     $req = $db->prepare("
                            
-                            INSERT INTO users(id_role, first_name, last_name, pseudo, email, password, id_image)
+                            INSERT INTO user(id_role, first_name, last_name, pseudo, email, password, id_image)
                             VALUES (:id_role, :first_name, :last_name, :pseudo, :email, :password, :id_image)
                             ");
                 endif;

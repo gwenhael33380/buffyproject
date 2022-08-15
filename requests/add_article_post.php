@@ -79,10 +79,10 @@ else :
 
 //            insertion of the processed data into the database
             $req = $db->prepare("
-				  INSERT INTO images(file_name, alt)
+				INSERT INTO picture(file_name, alt)
                 VALUE   (:file_name, :alt);
 
-                INSERT INTO articles(id_user, title, content, id_image, created_at)
+                INSERT INTO article(id_user, title, content, id_image, created_at)
 				VALUES (:id_user, :title, :content,LAST_INSERT_ID(), NOW())
               
 			");

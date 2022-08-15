@@ -29,23 +29,23 @@ $req = $db->prepare("
 	SELECT
 	    
 	    (SELECT COUNT(c.id) count_comment
-	     FROM comments c 
+	     FROM comment c 
 	     WHERE c.id_user = :user_id) total_comments, 
 	    
 	    (SELECT COUNT(a.id) count_article 
-	     FROM articles a 
+	     FROM article a 
 	     WHERE a.id_user = :user_id) total_articles, 
 	       
-	        u.id, u.id_role, u.first_name, u.last_name, u.pseudo, u.email, u.id_image, r.id id_role, r.role_name, r.role_slug, a.id id_article, c.id id_comment, i.id as id_image, i.file_name
-            FROM users u
-            LEFT JOIN roles r
+	        u.id, u.id_role, u.first_name, u.last_name, u.pseudo, u.email, u.id_image, r.id id_role, r.role_name, r.role_slug, a.id id_article, c.id id_comment, p.id as id_image, p.file_name
+            FROM user u
+            LEFT JOIN role r
             ON u.id_role = r.id
-            LEFT JOIN articles a
+            LEFT JOIN article a
             ON a.id_user = u.id
-            LEFT JOIN comments c
+            LEFT JOIN comment c
             ON c.id_user = u.id
-            LEFT JOIN images i
-            ON u.id_image = i.id
+            LEFT JOIN picture p
+            ON u.id_image = p.id
             WHERE u.id = :user_id
             GROUP BY u.id
             ORDER BY r.id ASC
