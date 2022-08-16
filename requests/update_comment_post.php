@@ -18,7 +18,7 @@ if(in_array('', $_POST)) :
 else :
 //request to update comment
     $req = $db->prepare("
-		UPDATE comments SET comment_content = :content
+		UPDATE comment SET comment_content = :content
 		WHERE id = :id -- condition pour ne mettre à jour que l'id du commentaire, pas les autres
 	");
 

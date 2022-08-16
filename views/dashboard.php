@@ -21,19 +21,19 @@ require __DIR__ . '/header.php';//call header
 $req = $db->query("
 	SELECT DISTINCT 
 	    
-	    (SELECT COUNT(c.id) count_comment FROM comments c WHERE c.id_user = u.id) total_comments, 
-	    (SELECT COUNT(a.id) count_article FROM articles a WHERE a.id_user = u.id) total_articles, 
+	    (SELECT COUNT(c.id) count_comment FROM comment c WHERE c.id_user = u.id) total_comments, 
+	    (SELECT COUNT(a.id) count_article FROM article a WHERE a.id_user = u.id) total_articles, 
 	        
-	        u.*, r.id id_role, r.role_name, r.role_slug, a.id id_article, c.id id_comment, i.id as id_image, i.file_name
-            FROM users u
-            LEFT JOIN roles r
+	        u.*, r.id id_role, r.role_name, r.role_slug, a.id id_article, c.id id_comment, p.id as id_image, p.file_name
+            FROM user u
+            LEFT JOIN role r
             ON u.id_role = r.id
-            LEFT JOIN articles a
+            LEFT JOIN article a
             ON a.id_user = u.id
-            LEFT JOIN comments c
+            LEFT JOIN comment c
             ON c.id_user = u.id
-            LEFT JOIN images i
-            ON u.id_image = i.id
+            LEFT JOIN picture p
+            ON u.id_image = p.id
             GROUP BY u.id
             ORDER BY r.id ASC
 ");
@@ -105,7 +105,7 @@ $results = $req->fetchAll(PDO::FETCH_OBJ); ?>
 
 
                         <?php else: ?>
-                            <a class="delete_user" href="<?php echo HOME_URL . 'requests/dashboard_delete_post.php?id=' . $result->id; ?>"><i class="fa-solid fa-trash-can favicon-delete-user"></i></a>
+                            <a class="delete_user" href="<?php echo HOME_URL . 'requests/users_delete_dashboard_post.php?id=' . $result->id; ?>"><i class="fa-solid fa-trash-can favicon-delete-user"></i></a>
 
                         <?php endif ?>
                     </div>

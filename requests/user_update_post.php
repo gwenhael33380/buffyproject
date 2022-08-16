@@ -68,7 +68,7 @@ else :
         $req = $db->prepare("
 			SELECT COUNT(id) count_pseudo
 			-- je compte le nombre de pseudo identique
-			FROM users
+			FROM use
 			WHERE pseudo = :pseudo
 		");
 
@@ -82,7 +82,7 @@ else :
         elseif (!$same_email) :
             $req = $db->prepare("
 				SELECT COUNT(id) count_email
-				FROM users
+				FROM user
 				WHERE email = :email
 			");
 
@@ -148,29 +148,29 @@ else :
         if ($send_request) :
             if ($empty_pass) :
                 if ($same_email && $same_pseudo) :
-                    $request =  "UPDATE users SET first_name = :first_name, last_name = :last_name WHERE id = :id_user";
+                    $request =  "UPDATE user SET first_name = :first_name, last_name = :last_name WHERE id = :id_user";
 
                 elseif ($same_email && !$same_pseudo) :
-                    $request =  "UPDATE users SET first_name = :first_name, last_name = :last_name, pseudo = :pseudo WHERE id = :id_user";
+                    $request =  "UPDATE user SET first_name = :first_name, last_name = :last_name, pseudo = :pseudo WHERE id = :id_user";
 
                 elseif (!$same_email && $same_pseudo) :
-                    $request =  "UPDATE users SET first_name = :first_name, last_name = :last_name , email = :email WHERE id = :id_user";
+                    $request =  "UPDATE user SET first_name = :first_name, last_name = :last_name , email = :email WHERE id = :id_user";
 
                 elseif (!$same_email && !$same_pseudo) :
-                    $request =  "UPDATE users SET first_name = :first_name, last_name = :last_name, pseudo = :pseudo, email = :email WHERE id = :id_user";
+                    $request =  "UPDATE user SET first_name = :first_name, last_name = :last_name, pseudo = :pseudo, email = :email WHERE id = :id_user";
                 endif;
             else :
                 if ($same_email && $same_pseudo) :
-                    $request =  "UPDATE users SET first_name = :first_name, last_name = :last_name, password = :password WHERE id = :id_user";
+                    $request =  "UPDATE user SET first_name = :first_name, last_name = :last_name, password = :password WHERE id = :id_user";
 
                 elseif ($same_email && !$same_pseudo) :
-                    $request =  "UPDATE users SET first_name = :first_name, last_name = :last_name, pseudo = :pseudo, password = :password WHERE id = :id_user";
+                    $request =  "UPDATE user SET first_name = :first_name, last_name = :last_name, pseudo = :pseudo, password = :password WHERE id = :id_user";
 
                 elseif (!$same_email && $same_pseudo) :
-                    $request =  "UPDATE users SET first_name = :first_name, last_name = :last_name, email = :email, password = :password WHERE id = :id_user";
+                    $request =  "UPDATE user SET first_name = :first_name, last_name = :last_name, email = :email, password = :password WHERE id = :id_user";
 
                 elseif (!$same_email && !$same_pseudo) :
-                    $request =  "UPDATE users SET first_name = :first_name, last_name = :last_name, pseudo = :pseudo, email = :email, password = :password WHERE id = :id_user";
+                    $request =  "UPDATE user SET first_name = :first_name, last_name = :last_name, pseudo = :pseudo, email = :email, password = :password WHERE id = :id_user";
                 endif;
             endif;
 
@@ -196,15 +196,15 @@ else :
                 $req = $req->execute();
             } else {
 
-                $sql2 = "INSERT INTO images (file_name) VALUES (:file_name); ";
+                $sql2 = "INSERT INTO picture (file_name) VALUES (:file_name); ";
                 $req2 = $db->prepare($sql2);
 
                 $req2->bindValue(':file_name', $img_name, PDO::PARAM_STR);
                 $res2 = $req2->execute();
 
-                $sql3 = "UPDATE users SET id_image = :image WHERE id = :id_user;";
+                $sql3 = "UPDATE user SET id_image = :image WHERE id = :id_user;";
                 $req = $db->prepare("$sql3  $request;");
-                $image = $db->query('SELECT id FROM images WHERE id = LAST_INSERT_ID()')->fetch();
+                $image = $db->query('SELECT id FROM picture WHERE id = LAST_INSERT_ID()')->fetch();
 
                 $req->bindValue(':first_name', $first_name, PDO::PARAM_STR);
                 $req->bindValue(':last_name', $last_name, PDO::PARAM_STR);

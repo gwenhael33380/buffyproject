@@ -11,16 +11,16 @@ $id_user = intval($_GET['id']); // si le $_GET n'est pas numerique, il ne pourra
 
 if($id_user) {
     $req = $db->prepare("
-		SELECT u.id, u.first_name, u.last_name, u.pseudo, u.email, a.id id_article, a.title, a.content, c.id id_comment, c.comment_content, r.id id_role, i.id as id_image, i.file_name
-		FROM users u
-		LEFT JOIN articles a
+		SELECT u.id, u.first_name, u.last_name, u.pseudo, u.email, a.id id_article, a.title, a.content, c.id id_comment, c.comment_content, r.id id_role, p.id as id_image, p.file_name
+		FROM user u
+		LEFT JOIN article a
 		ON u.id = a.id_user
-		LEFT JOIN comments c
+		LEFT JOIN comment c
 		ON u.id = c.id_user
-		INNER JOIN roles r
+		INNER JOIN role r
 		ON u.id_role = r.id
-		LEFT JOIN images i
-	    ON u.id_image = i.id
+		LEFT JOIN picture p
+	    ON u.id_image = p.id
 		WHERE u.id = :id
 	");
     $req->bindValue(':id', $id_user, PDO::PARAM_INT);
@@ -45,7 +45,7 @@ $id_user = 0;
         // recupération des roles
         $req = $db->query("
 		SELECT *
-		FROM roles
+		FROM role
 	");
 
         $roles = $req->fetchAll(PDO::FETCH_OBJ);

@@ -20,7 +20,7 @@ if($id_comment) {
 //    request from previous comment
     $req = $db->prepare("
 		SELECT id, comment_content
-		FROM comments
+		FROM comment
 		WHERE id = :id
 	");
 

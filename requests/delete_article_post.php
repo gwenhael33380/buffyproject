@@ -15,7 +15,7 @@ if ($id_article) {
 
 //    request to delete an article
     $req = $db->prepare("
-		DELETE FROM articles WHERE id = :id
+		DELETE FROM article WHERE id = :id
 	");
 
 //    bind value

@@ -1,6 +1,6 @@
 (function($){
 
-    $('#categoryFilter').focus().keyup(function(event){
+    $('#categoryFilter').keyup(function(event){
         let input = $(this);
         let val  = input.val();
 

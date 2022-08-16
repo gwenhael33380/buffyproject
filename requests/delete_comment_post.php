@@ -11,7 +11,7 @@ $id_article = intval($_GET['id_article']);
 //request to delete a comment
 if($id_comment) {
     $req = $db->prepare("
-		DELETE FROM comments WHERE id = :id
+		DELETE FROM comment WHERE id = :id
 	");
     //            bind values
     $req->bindValue(':id', $id_comment, PDO::PARAM_INT);
