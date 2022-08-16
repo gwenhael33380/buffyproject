@@ -2,19 +2,17 @@ const sideBar = document.querySelector("#side-bar");
 const content = document.querySelector(".content");
 const btn = document.querySelector("#btnSideBar");
 
-    btn.addEventListener("click", (event) => {
-        event.preventDefault();
+if (btn){
+    btn.addEventListener("click", () => {
         sideBar.classList.toggle("active");
     });
+}
 
-
-
-    content.addEventListener("click", (event) => {
-        event.preventDefault();
+if (content){
+    content.addEventListener("click", () => {
         sideBar.classList.remove("active");
     });
-
-
+}
 
 
 

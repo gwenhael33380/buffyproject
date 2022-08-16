@@ -199,14 +199,15 @@ else :
                 $sql2 = "INSERT INTO picture (file_name) VALUES (:file_name); ";
                 $req2 = $db->prepare($sql2);
 
+
                 $req2->bindValue(':file_name', $img_name, PDO::PARAM_STR);
                 $res2 = $req2->execute();
 
 
                 $sql3 = "UPDATE user SET id_image = :image WHERE id = :id_user;";
                 $req = $db->prepare("$sql3  $request;");
-                $image = $db->query('SELECT id FROM role WHERE id = LAST_INSERT_ID()')->fetch();
-//                dd($image);
+                $image = $db->query('SELECT id FROM picture WHERE id = LAST_INSERT_ID()')->fetch();
+
                 $req->bindValue(':id_role', $id_role, PDO::PARAM_INT);
                 $req->bindValue(':first_name', $first_name, PDO::PARAM_STR);
                 $req->bindValue(':last_name', $last_name, PDO::PARAM_STR);
@@ -225,6 +226,7 @@ else :
                 $req->bindValue(':id_user', $id_user, PDO::PARAM_INT);
                 $req->bindValue(':image', $image['id'], PDO::PARAM_INT);
                 $result = $req->execute();
+
             }
 
 
