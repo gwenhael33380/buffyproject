@@ -13,7 +13,7 @@ require __DIR__ . '/header.php'; //call header.php
         <div class="bg-page-legal-notice"></div>
 
             <div class="content-title-page-legal-notice">
-                <h1 class="title-page-legal-notice">Mentions légal</h1>
+                <h1 class="title-page-legal-notice">Mentions légales</h1>
             </div>
 
         <div class="content-legal-mention">

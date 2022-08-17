@@ -7,7 +7,7 @@ define('META_DEFAULT', 'When writing a meta description, keep it between 140 and
 
 
 
-//function vardump
+//function vardump die
 if (!function_exists('dd')) {
     function dd(...$args)
     {

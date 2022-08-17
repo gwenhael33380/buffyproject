@@ -41,24 +41,3 @@ if (last_name_subscribe_input){
     });
 }
 
-if (form){
-
-form.addEventListener("submit", (e) => {
-    // preventDefault empeche le rechargement de la page
-    let mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    let passFormat  = "#^(?=(.*[A-Z])+)(?=(.*[a-z])+)(?=(.*[\d])+)(?=.*\W)(?!.*\s).{8,16}$#";
-
-    if (cgv.checked && first_name_subscribe_input.value.length >= 3 && last_name_subscribe_input.value.length >= 3 && pseudo_subscribe_input.value.length >= 1 && email_subscribe_input.value.match(mailFormat) && password_subscribe_input.value.match(/#^(?=(.*[A-Z])+)(?=(.*[a-z])+)(?=(.*[d])+)(?=.*W)(?!.*s).{8,16}$#/)) {
-
-        first_name_subscribe_input.value = "";
-        last_name_subscribe_input.value = "";
-        email_subscribe_input.value = "";
-        password_subscribe_input.value = "";
-        cgv.checked = false;
-    } else {
-        e.preventDefault();
-        alert("Veuillez remplir tous les champs correctement !");
-    }
-});
-// Azerty33380@!
-}

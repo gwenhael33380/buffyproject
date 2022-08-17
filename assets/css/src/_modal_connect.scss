@@ -11,6 +11,7 @@
   border-radius: 10px;
   position: fixed;
   opacity: 0;
+  display: none;
   transition:all 500ms ease-in-out;
   z-index: -1;
 }
@@ -29,9 +30,9 @@
 }
 
 .toggle_modal{
+  display: block;
   opacity:1;
   z-index: 1000;
-
 }
 
 .content-form-modal{

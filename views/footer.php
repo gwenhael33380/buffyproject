@@ -16,7 +16,7 @@
             <div class="content-link-footer">
                 <a class="link-footer" href="<?php echo HOME_URL . 'views/contact.php'; ?>">Contact</a>
                 <a class="link-footer" href="#">Plan du site</a>
-                <a class="link-footer" href="<?php echo HOME_URL . 'views/legal_notice.php'; ?>">Mentions légal</a>
+                <a class="link-footer" href="<?php echo HOME_URL . 'views/legal_notice.php'; ?>">Mentions légales</a>
             </div>
             <div>
                 <?php
@@ -33,7 +33,7 @@
             <!--         made by and copyright-->
             <div class="copyright">
                 <p class="text-copyright">Fait par Gwen-Haël</p>
-                <p class="text-copyright-m text-copyright">© 2022 - BuffyProject TOUS DROITS RÉSERVÉ</p>
+                <p class="text-copyright-m text-copyright">© 2022 - BuffyProject TOUS DROITS RÉSERVÉS</p>
             </div>
             <div class="footer-end"></div>
             <div class="footer-end2"></div>

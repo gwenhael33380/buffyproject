@@ -27,7 +27,7 @@ $pass1 		= trim($_POST['password']);
 $pass2 		= trim($_POST['password2']);
 $match_pass = check_password($pass1); // je check pour voir s'il correspond au pat tern
 
-
+// Azerty33380@!
 
     if(in_array('', $required_fields)) :
         $msg_error = '<p class="msg_error">Vous devez remplir le(s) champ(s) obligatoire(s)</p>';

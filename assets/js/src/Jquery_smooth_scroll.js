@@ -2,7 +2,8 @@ $(function() {
     /**
      * Smooth scrolling to page anchor on click
      **/
-    $("a[href='#scroll_section_2']:not([href='#'])").click(function() {
+    $("a[href='#scroll_section_2']:not([href='#'])").click(function(e) {
+        e.preventDefault();
         if (
             location.hostname == this.hostname
             && this.pathname.replace(/^\//,"") == location.pathname.replace(/^\//,"")

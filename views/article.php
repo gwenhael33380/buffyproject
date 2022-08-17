@@ -33,7 +33,7 @@ $name_article = $article->title;
 //time conversion function
 $origin_date_article = $article->created_at;
 $timestamp = strtotime($origin_date_article);
-$newDate = date("d-m-Y à h:i:s", $timestamp );
+$newDate = date("d-m-Y à H:i:s", $timestamp );
 
 //Request preview article
 
