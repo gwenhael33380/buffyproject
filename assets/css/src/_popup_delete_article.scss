@@ -8,13 +8,13 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
-  opacity: 0;
+  display: none;
   transition:all 600ms ease-in-out;
   z-index: -50;
 }
 
 .toggle_modal_delete_article{
-  opacity: 1;
+  display: block;
   z-index: 100;
 }
 

@@ -45,11 +45,22 @@ require __DIR__ . '/header.php'; //call header.php
                                     Vous trouvez ici un certain nombre de ressources sur la série. Le site vous propose l'<strong>accès à un blog</strong> avec du contenu riche et varier. Pour participer, rien de plus simple ! Il vous suffit de créer un comte en cliquant sur le bouton juste en dessous et vous pourrez participer à la vie du site dès votre inscription finalisé. Nous vous souhaiton une bonne navigation et ... <strong>CTPM</strong>!
                                 </p>
                             </div>
+                            <?php if(!isset($_SESSION['role_slug']) == ''): ?>
+                                <div>
+                                    <div class="content-button-presentation" >
+                                        <a class="button-presentation" href="#">S'inscrire</a>
+                                    </div>
+                                </div>
+
+                            <?php else :
+                            ?>
                             <div>
                                 <div class="content-button-presentation" >
                                     <a class="button-presentation" href="<?php echo HOME_URL . 'views/subscribe.php'; ?>">S'inscrire</a>
                                 </div>
                             </div>
+                            <?php endif;
+                            ?>
                         </div>
                     </div>
                 </div>

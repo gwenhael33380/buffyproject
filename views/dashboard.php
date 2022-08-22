@@ -54,15 +54,11 @@ $results = $req->fetchAll(PDO::FETCH_OBJ); ?>
                 <h1 class="title-list-user-dashboard">Liste des utilisateurs</h1>
             </div>
         </div>
-
-
+<!--             search function-->
             <div class="content-form-search">
                 <input name="category" id="categoryFilter" type="text" placeholder="Trouver le pseudo d'un d'utilisateur">
                 <i class="fa-solid fa-magnifying-glass relative-position-fa"></i>
             </div>
-
-
-
         <div  class="users-dashboard">
 
             <?php foreach($results as $result) :
@@ -70,11 +66,10 @@ $results = $req->fetchAll(PDO::FETCH_OBJ); ?>
                 $count_comment = $result->total_comments; ?>
                 <div class="content_user_dashboard">
                     <div class="user_left user">
-
-                        <!--                        sanitize_html permet d'évité l'injection SQL-->
-                        <div class="">
+                        <!--                        sanitize_html avoids SQL injection-->
+                        <div>
                             <div class="content_img_dashboard">
-                                <img class="img-user-profil-dashboard" src=" <?php echo HOME_URL.'assets/img/dist/profil/' . sanitize_html($result->file_name); ?>" alt="Image de l'utilisateur courant" >
+                                <img class="img-user-profil-dashboard" src=" <?php echo HOME_URL.'assets/img/dist/profil/' . sanitize_html($result->file_name); ?>" alt="Image de l'utilisateur courant">
                             </div>
 
                             <p class="info-user-dashboard">Nom : <span class="span-info-user-dashboard"><?php echo sanitize_html($result->last_name); ?></span></p>
@@ -87,7 +82,6 @@ $results = $req->fetchAll(PDO::FETCH_OBJ); ?>
                             <?php endif ?>
                             <p class="info-user-dashboard">Nombre de commentaire<span class="span-info-user-dashboard"><?php echo plural($count_comment); ?> : <?php echo $count_comment; ?></span></p>
                         </div>
-
                     </div>
                     <div class="flex-button-dashboard">
 

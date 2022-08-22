@@ -29,22 +29,20 @@ function current_url($url) {
 
 // function to redirect to homePage if $enable_access exists and is not null
 function enabled_access(Array $enabled_access) {
-	// if($_SERVER['REQUEST_URI'] != '/') : // je verifie que je ne suis pas dans la page home sinon boucle infinie
 		if(
-			!isset($_SESSION['id_user'])  // si je ne suis pas connecté
+			!isset($_SESSION['id_user'])  // if i am not logged in
 			|| // OR
 			(
 				isset($enable_access)
 				&& // ET
 				isset($_SESSION['id_user'])
 				&&
-				// si le rôle n'est pas dans le tableau
+				// if the role is not in the table
 				!in_array($_SESSION['role_slug'], $enable_access)
 			)
 		) :
 			header('Location: ' . HOME_URL);
 		endif;
-	// endif;
 }
 
 

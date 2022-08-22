@@ -222,12 +222,14 @@
   @include flex(center, center);
   li {
     padding: 5px 10px;
+    cursor: pointer;
     a {
       text-decoration: none;
     }
   }
   .futur_page {
     font-weight: 700;
+
   }
   .active {
     color: #fff;

@@ -14,22 +14,18 @@
 
 .content-fa{
   text-align: center;
-  padding-bottom: 30px;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 15px 0 45px 0;
 }
+
 .fa-facebook-f{
   color: $white;
   font-size: 40px;
-  margin-right: 75px;
-  padding-top: 10px;
-
-
 }
 .fa-twitter{
   color: $white;
   font-size: 40px;
-  margin-right: 150px;
-  margin-left: 75px;
-
 }
 
 .fa-instagram{
@@ -40,7 +36,6 @@
 .content-link-footer{
   @include flex(center, center);
   background-color: rgba(198, 193, 152,0.5);
-
 }
 
 .link-footer{
@@ -54,7 +49,6 @@
 
 .content-counter{
   border-top: 3px solid $black;
-
 }
 
 .counter_views{
@@ -67,7 +61,6 @@
 .font_weight_counter>span{
   font-weight: 100;
 }
-
 
 .copyright{
   border-top: 3px solid $black;
@@ -85,7 +78,6 @@
   margin-bottom: 15px;
 }
 
-
 .footer-end{
   background-color: $green-o;
 
@@ -98,8 +90,15 @@
 }
 
 //Media query
+@media screen and (max-width: 904px){
 
+  .content-fa{
+    display: flex;
+    justify-content: space-around;
+  }
+}
 @media screen and (max-width: 767px) {
+
   .content-link-footer{
     flex-direction: column;
   }
@@ -110,18 +109,20 @@
   }
 }
 
-@media screen and (max-width: 320px){
-  .text-footer {
-    font-size: 20px
-  }
+@media screen and (max-width: 546px){
 
   .fa-facebook-f{
-    margin-right: -14px;
+    padding-right: 10%;
   }
-
   .fa-twitter {
-    margin-right: 60px;
+    padding: 0 30%;
   }
+  .fa-twitter {
+    margin-left: 10%;
+  }
+}
+
+@media screen and (max-width: 320px){
 
   .fa-facebook-f, .fa-twitter, .fa-instagram{
     font-size: 50px;

@@ -130,10 +130,10 @@ if(isset($_SESSION['role_slug'])) $role_slug = $_SESSION['role_slug'];
             <?php endforeach; ?>
 
             <!--            the include function calls a file external to the page and includes it in the current page-->
-            <?php include PATH_PROJECT . '/views/pagination.php'; ?>
+            <?php include PATH_PROJECT . '/views/pagination.php';
+            ?>
         </section>
     </main>
 
 <?php
-
 require PATH_PROJECT . '/views/footer.php'; //call footer

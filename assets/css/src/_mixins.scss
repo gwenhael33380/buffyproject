@@ -52,40 +52,9 @@ opérateur de comparaison
   @media (max-width: 576px){ @content }
 }
 
-//@mixin respond($breakpoint) {
-//  @if($breakpoint == 'phone') {
-//    @media(max-width: 576px) {
-//      @content;
-//    }
-//  }
-//  @else if($breakpoint == 'tab-port') {
-//    @media(max-width: 767px) {
-//      @content;
-//    }
-//  }
-//  @else if ($breakpoint == 'tab') {
-//    @media(max-width: 991px) {
-//      @content;
-//    }
-//  }
-//  @else if ($breakpoint == 'tab-land') {
-//    @media(max-width: 1023px) {
-//      @content;
-//    }
-//  }
-//  @else if ($breakpoint == 'laptop') {
-//    @media(max-width: 1199px) {
-//      @content;
-//    }
-//  }
-//  @else if ($breakpoint == 'large') {
-//    @media(max-width: 1399px) {
-//      @content;
-//    }
-//  }
-//}
 
-// mixin création de fonts-face
+
+// mixin create the fonts-face
 @mixin font-face($font-family, $fileName, $weight: normal, $style: normal) {
   @font-face {
     font-family: $font-family;
@@ -93,5 +62,4 @@ opérateur de comparaison
     font-style: $style;
     src: url('#{$filePath}#{$fileName}.ttf') format('truetype');
   }
-
 }

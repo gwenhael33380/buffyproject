@@ -68,7 +68,7 @@ else :
         $req = $db->prepare("
 			SELECT COUNT(id) count_pseudo
 			-- je compte le nombre de pseudo identique
-			FROM use
+			FROM user
 			WHERE pseudo = :pseudo
 		");
 
@@ -182,6 +182,7 @@ else :
 
                 $req->bindValue(':first_name', $first_name, PDO::PARAM_STR);
                 $req->bindValue(':last_name', $last_name, PDO::PARAM_STR);
+
                 if (!$same_pseudo) {
                     $req->bindValue(':pseudo', $pseudo, PDO::PARAM_STR);
                 }
@@ -189,7 +190,7 @@ else :
                     $req->bindValue(':email', $email, PDO::PARAM_STR);
                 }
                 if (!$empty_pass){
-                    $req->bindValue(':pass', password_hash($pass1, PASSWORD_DEFAULT), PDO::PARAM_STR);
+                    $req->bindValue(':password', password_hash($pass1, PASSWORD_DEFAULT), PDO::PARAM_STR);
                 }
                 $req->bindValue(':id_user', $id_user, PDO::PARAM_INT);
 
@@ -218,7 +219,7 @@ else :
                 // https://www.php.net/manual/fr/function.password-hash.php
                 $req->bindValue(':id_user', $id_user, PDO::PARAM_INT);
                 if (!$empty_pass) :
-                    $req->bindValue(':pass', password_hash($pass1, PASSWORD_DEFAULT), PDO::PARAM_STR);
+                    $req->bindValue(':password', password_hash($pass1, PASSWORD_DEFAULT), PDO::PARAM_STR);
                 endif;
 
                 $req->bindValue(':id_user', $id_user, PDO::PARAM_INT);

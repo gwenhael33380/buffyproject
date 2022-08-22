@@ -2,9 +2,9 @@
 require dirname(__DIR__) . '/functions.php';
 require_once PATH_PROJECT . '/connect.php';
 
-$title 		= trim($_POST['title']);
-$text 		= trim($_POST['text']);
-$alt        = trim($_POST['alt']);
+$title 		= sanitize_html($_POST['title']);
+$text 		= sanitize_html($_POST['text']);
+$alt        = sanitize_html($_POST['alt']);
 $id_image   =intval($_POST['id_image']);
 
 
@@ -20,10 +20,20 @@ $extension 			= array('png', 'jpg', 'jpeg', 'gif');
 $size_max 			= 1048576;
 
 if(in_array('', $required_field)) :
-    $msg_error = '<p class="msg_error">Merci de remplir le titre et le contenu de l\'article</p>';
+    $msg_error = '<p class="msg_error">Merci de remplir le titre et le contenu de l\'article ainsi que la description</p>';
     header('Location:' . HOME_URL . 'views/update_article.php?id=' . $id . '&msg=' . $msg_error);
 else :
-
+    if (strlen($title) <3 || strlen($title) >40):
+        $msg_error = '<p class="msg_error">Merci de remplir le contenu du titre avec le bon nombres de caractères</p>';
+    else :
+        if(strlen($text) <750 || strlen($text) >3000) :
+            $msg_error = '<p class="msg_error">Merci de remplir le contenu de l\'article avec le bon nombres de caractères</p>';
+        else :
+            if (strlen($alt) <5 || strlen($alt) >40):
+                $msg_error = '<p class="msg_error">Merci de remplir le contenu de la description avec le bon nombres de caractères</p>';
+            endif;
+        endif;
+    endif;
     $picture 	= $_FILES['picture'];
     $error 		= $picture['error'];
     $curr_img 	= $_POST['current_img'];
@@ -96,24 +106,20 @@ else :
                     $request_image
 				");
 
-
             $req->bindValue(':id', $id, PDO::PARAM_INT);
             $req->bindValue(':id_user', intval($_SESSION['id_user']), PDO::PARAM_INT); // integer
             $req->bindValue(':title', $title, PDO::PARAM_STR);
             $req->bindValue(':content', $text, PDO::PARAM_STR);
             if(!empty($request_image)) {
-            $req->bindValue(':id_image', $id_image, PDO::PARAM_INT);
-            $req->bindValue(':file_name', $img_name, PDO::PARAM_STR);
-            $req->bindValue(':alt', $alt, PDO::PARAM_STR);
+                $req->bindValue(':id_image', $id_image, PDO::PARAM_INT);
+                $req->bindValue(':file_name', $img_name, PDO::PARAM_STR);
+                $req->bindValue(':alt', $alt, PDO::PARAM_STR);
             }
 
-
-
-            // $result va stocker le résultat de ma requete UPDATE
-            // si TRUE l'insertion s'est bien déroulé
-            // si FALSE une erreur s'est produite
+            // $result will store the result of my UPDATE request
+            // if TRUE the insertion went well
+            // if FALSE an error has occurred
             $result = $req->execute();
-
 
             if($result) :
                 $msg_success = '<p class="msg_success">Article correctement mis à jour</p>';
@@ -124,10 +130,7 @@ else :
         else :
             $msg_error = '<p class="msg_error">Erreur lors du transfert, merci de retenter dans quelques instants</p>';
         endif;
-
     endif;
-
-
 endif;
 
 if(isset($msg_error)) {

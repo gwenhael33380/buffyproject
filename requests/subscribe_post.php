@@ -1,11 +1,8 @@
 <?php
 require dirname(__DIR__) . '/functions.php';
 require_once PATH_PROJECT . '/connect.php';
+
 $send_request = false;
-
-
-
-
 $id_role = 3; // il est fixe, le role en "dur"
 $first_name = mb_ucfirst($_POST['first_name']); // seulement la première lettre en majuscule
 $last_name 	= mb_strtoupper(trim($_POST['last_name'])); // tout en majuscule

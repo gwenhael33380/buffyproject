@@ -10,7 +10,7 @@ define('META_DESCRIPTION', 'la page article permet de visualiser l\'article sél
 require __DIR__ . '/header.php'; //call header.php
 
 $id_article = $_GET['id'];
-$role_slug = $_SESSION['role_slug'];
+$role_slug = isset($_SESSION['role_slug']);
 
 //request article
 $req = $db->prepare("

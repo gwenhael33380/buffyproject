@@ -1,14 +1,18 @@
 <?php
 //call function
 require dirname(__DIR__) . '/functions.php';
-
 //call connect
 require_once PATH_PROJECT . '/connect.php';
 
 //the roles that have access to the page
 //the others will be redirected to the HOME page
-enabled_access(array('administrator'));
+enabled_access(array('administrator', 'editor'));
 
+$title 		= sanitize_html($_POST['title']);
+$text 		= sanitize_html($_POST['text']);
+$alt        = sanitize_html($_POST['alt']);
+
+$required_field = array($title, $text,$alt); // champs obligatoires
 //initialization of variables with error handling, format and size
 $fail_upload 		= array(3,6,7,8);
 $oversize_file 		= array(1,2);
@@ -17,16 +21,23 @@ $extension 			= array('png', 'jpg', 'jpeg', 'gif');
 $size_max 			= 1048576;
 
 //processing of the data received in the $_POST and processing. start of condition processing with received data
-if(in_array('', $_POST)) :
-    $msg_error = 'Merci de remplir le titre et le contenu de l\'article';
+if(in_array('', $required_field)) :
+    $msg_error = 'Merci de remplir le titre et le contenu ainsi que la description de l\'article';
 else :
+    if (strlen($title) <3 || strlen($title) >40):
+        $msg_error = 'Merci de remplir le contenu du titre avec le bon nombres de caractères';
+    else :
+        if(strlen($text) <750 || strlen($text) >3000) :
+            $msg_error = 'Merci de remplir le contenu de l\'article avec le bon nombres de caractères';
+        else :
+            if (strlen($alt) <5 || strlen($alt) >40):
+                $msg_error = 'Merci de remplir le contenu de la description avec le bon nombres de caractères';
+            endif;
+        endif;
+    endif;
 
-    $title 		= trim($_POST['title']);
-    $text 		= $_POST['text'];
     $picture 	= $_FILES['images'];
     $error 		= $picture['error'];
-    $alt        = trim($_POST['alt']);
-
 
     if(in_array($error, $fail_upload)) :
         $msg_error = 'Échec au moment de la transmission de l\'image, merci de renouveler votre envoi';
@@ -117,10 +128,10 @@ endif;
 
 //redirect after data processing with option error or success messages
 if(isset($msg_error)) {
-    header('Location:' . HOME_URL . 'views/add_article.php?msg=<p class="msg_success">' . $msg_error . '</p>');
+    header('Location:' . HOME_URL . 'views/add_article.php?msg=<p class="msg_error">' . $msg_error . '</p>');
 }
 else {
-    header('Location:' . HOME_URL . 'views/blog.php?msg=<p class="msg_error">' . $msg_success . '</p>');
+    header('Location:' . HOME_URL . 'views/blog.php?msg=<p class="msg_success">' . $msg_success . '</p>');
 
 }
 

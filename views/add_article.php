@@ -21,7 +21,6 @@ require __DIR__ . '/header.php'; //call header.php
         </div>
 
         <div>
-
 <!--            add item form-->
             <form action="<?php echo HOME_URL . 'requests/add_article_post.php'; ?>" method="POST" enctype="multipart/form-data">
                 <div class="flex-form-add-article" >

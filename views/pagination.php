@@ -1,5 +1,4 @@
-<ul class="navigation
-">
+<ul class="navigation">
     <!-- left chevron -->
     <?php if($current_page == 1) : ?>
         <li class="disabled"><i class="fas fa-chevron-left"></i></li>
