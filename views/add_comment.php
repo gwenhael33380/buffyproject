@@ -28,7 +28,7 @@ $id_article = intval($_GET['id']); //if the $_GET is not numeric, it will not be
             </div>
             <div class="flex-content-title-add-comment">
                 <div class="content-title-add-comment">
-                    <h1 class="title-add-comment">Ajout de commentaire de l'article</h1>
+                    <h1 class="title-add-comment">Ajout d'un commentaire</h1>
                 </div>
             </div>
             <div class="file_form-add-comment">
@@ -37,7 +37,7 @@ $id_article = intval($_GET['id']); //if the $_GET is not numeric, it will not be
                 <form action="<?php echo HOME_URL . 'requests/add_comment_post.php'; ?>" method="POST">
                     <div class="flex-form-add-comment">
                         <label class="label-add-comment" for="text">Votre commentaire</label>
-                        <textarea id="textarea_add_comment" class="textarea-content-comment" maxlength="750"  name="text" rows="10" required></textarea>
+                        <textarea id="textarea_add_comment" class="textarea-content-comment" maxlength="750"  name="text" rows="10" required placeholder="Le contenu de votre commentaire ne doit pas excéder 750 caractères..."></textarea>
                         <div class="flex-counter-add-article margin-counter-add-article">
                             <div id="counter_content_add_comment">0</div>
                             <div>/750</div>

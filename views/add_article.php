@@ -35,7 +35,7 @@ require __DIR__ . '/header.php'; //call header.php
                 </div>
                 <div class="flex-form-add-article" >
                     <label class="label-content-add-article" for="text">Contenu de l'article <span class="red" >*</span></label>
-                    <textarea id="input_textarea_add_article" class="textarea-add-article-content" id="text" name="text" rows="10" minlength="750" maxlength="3000" placeholder="Contenu à renseigner, Merci de renseigner un minimum de 750 caractères et un maximum de 3000..." required></textarea>
+                    <textarea id="input_textarea_add_article" class="textarea-add-article-content" id="text" name="text" rows="10" minlength="750" maxlength="3000" placeholder="Merci de renseigner un minimum de 750 caractères et un maximum de 3000..." required></textarea>
                     <div class="flex-counter-add-article">
 
                         <!--                        character counter-->
@@ -55,7 +55,7 @@ require __DIR__ . '/header.php'; //call header.php
                 </div>
                 <div class="content-add-img-article">
                     <label class="label-add-img-article" for="images">Ajouter une image (jpg, jpeg, png, gif) 1Mo MAX<span class="red">*</span>
-                        <br>  <span class="red">N'ajoutez que des images en mode paysage.  </span> Merci de respecté cette convention. Tout manquement à cette règle fera l'objet d'une suppression de l'article concerné ! Merci pour votre compréhension.</label>
+                        <br>  <span class="red">N'ajoutez que des images en mode paysage.  </span> Merci de respecter cette convention. Tout manquement à cette règle fera l'objet d'une suppression de l'article concerné ! Merci pour votre compréhension.</label>
                     <input type="hidden" name="MAX_FILE_SIZE" value="1048576"> <!-- 1Mo = 1024*1024 octets -->
                     <input type="file" id="images-add-article" name="images" accept="image/*">
                 </div>

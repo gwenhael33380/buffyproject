@@ -8,6 +8,6 @@
     <p class="text-popup-delete-user" >Cette action est irreversible et entrainera la perte de toutes vos données sur le site !</p>
     <div class="content-button-popup-delete-user">
         <a id="popupBtnDeleteUser" class="button-delete-user button-delete-1" >Annulé</a>
-        <a  class="button-delete-user button-delete-2" href="<?php echo HOME_URL . 'requests/users_delete_post.php?id=' . $result->id; ?>" > OK</a>
+        <a  class="button-delete-user button-delete-2" href="<?php echo HOME_URL . 'requests/users_delete_post.php?id=' . $result->id; ?>"> OK</a>
     </div>
 </div>

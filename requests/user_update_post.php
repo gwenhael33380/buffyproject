@@ -6,18 +6,16 @@ enabled_access(array('administrator', 'editor', 'user'));
 $send_request = false;
 $initial_img = $_POST['initial_image'];
 
-// a traiter dans le user update
+// to be processed in the user update
 $initial_pseudo = $_POST['initial_pseudo'];
 $initial_email = $_POST['initial_email'];
 
 $id_image = intval($_POST['id_image']);
-$first_name = mb_ucfirst($_POST['first_name']); // seulement la première lettre en majuscule
-$last_name     = mb_strtoupper(trim($_POST['last_name'])); // tout en majuscule
+$first_name = mb_ucfirst($_POST['first_name']); // capitalize only the first letter
+$last_name     = mb_strtoupper(trim($_POST['last_name'])); // all caps
 $pseudo     = trim($_POST['pseudo']);
 $email         = filter_var(mb_strtolower(trim($_POST['email'])), FILTER_VALIDATE_EMAIL);
 $picture    = $_FILES['picture'];
-
-
 
 if ($_SESSION['role_slug'] == 'administrator') {
     $id_user = intval($_POST['id_user']);
@@ -44,7 +42,7 @@ if ($picture['name'] == ''){
 }else{
     $same_picture = false;
 }
-//var_dump($same_picture);die;
+
 
 $pass1         = trim($_POST['password']);
 $pass2         = trim($_POST['password2']);

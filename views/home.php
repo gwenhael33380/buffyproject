@@ -37,29 +37,26 @@ require __DIR__ . '/header.php'; //call header.php
                         <img class="img-presentation" src="<?php echo HOME_URL . 'assets/img/src/source/buffy-presentation.png'; ?>" alt="Image de présentation">
                     </div>
                     <div>
+
                         <div class="flex-column-present" >
                             <h3 class="content-title-presentation">Bonjour et bienvenue !</h3>
                             <div class="paragraph-presentation">
-                                <p class="text-presentation" >Vous êtes ici dans une <strong>Fan zone</strong> ce site s'adresse aux passionnés de la série et s'adresse aussi aux personnes qui souhaiterais en savoir plus sur l'univers fantastique de <strong>Buffy Contre Les Vampires</strong></p>
+                                <p class="text-presentation" >Vous êtes ici dans une <strong>Fan zone</strong> ce site s'adresse aux passionnés de la série mais aussi aux personnes qui souhaiteraient en savoir plus sur l'univers fantastique de <strong>Buffy Contre Les Vampires</strong></p>
                                 <p class="text-presentation">
-                                    Vous trouvez ici un certain nombre de ressources sur la série. Le site vous propose l'<strong>accès à un blog</strong> avec du contenu riche et varier. Pour participer, rien de plus simple ! Il vous suffit de créer un comte en cliquant sur le bouton juste en dessous et vous pourrez participer à la vie du site dès votre inscription finalisé. Nous vous souhaiton une bonne navigation et ... <strong>CTPM</strong>!
+                                    Vous trouverez ici de nombreuses ressources sur la série. Le site vous propose l'<strong>accès à un blog</strong> avec du contenu riche et varié. Pour participer, rien de plus simple ! Si vous n'avez pas de compte et si vous n'êtes pas connecté, Il vous suffit de créer un compte en cliquant sur le bouton juste en dessous et vous pourrez participer à la vie du site dès votre inscription finalisée. Nous vous souhaitons une bonne navigation et ... <strong>CTPM</strong>!
                                 </p>
                             </div>
-                            <?php if(!isset($_SESSION['role_slug']) == ''): ?>
+                            <?php  if(!isset($_SESSION['role_slug'])){
+
+                            ?>
                                 <div>
                                     <div class="content-button-presentation" >
-                                        <a class="button-presentation" href="#">S'inscrire</a>
+                                        <a class="button-presentation" href="<?php echo HOME_URL . 'views/subscribe.php'; ?>">S'inscrire</a>
                                     </div>
                                 </div>
-
-                            <?php else :
-                            ?>
-                            <div>
-                                <div class="content-button-presentation" >
-                                    <a class="button-presentation" href="<?php echo HOME_URL . 'views/subscribe.php'; ?>">S'inscrire</a>
-                                </div>
-                            </div>
-                            <?php endif;
+                            <?php }else{ ?>
+                                <div class="mb_content"></div>
+                            <?php }
                             ?>
                         </div>
                     </div>

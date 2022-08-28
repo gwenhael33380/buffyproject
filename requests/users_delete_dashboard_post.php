@@ -1,14 +1,8 @@
 <?php
-
-//call function
-require dirname(__DIR__) . '/functions.php';
-
-//call connect
-require_once PATH_PROJECT . '/connect.php';
-
-//allow user delete access to authorized role
+require dirname(__DIR__) . '/functions.php'; //call function
 enabled_access(array('administrator'));
-
+require_once PATH_PROJECT . '/connect.php'; //call connect
+//allow user delete access to authorized role
 
 $id_user = intval($_GET['id']);
 

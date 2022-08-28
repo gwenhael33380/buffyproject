@@ -1,9 +1,8 @@
 <?php
-//call function
-require dirname(__DIR__) . '/functions.php';
 
-//call connect
-require_once PATH_PROJECT . '/connect.php';
+require dirname(__DIR__) . '/functions.php'; //call function
+enabled_access(array('administrator', 'editor', 'user')); //enebled acces
+require_once PATH_PROJECT . '/connect.php'; //call connect
 
 $text = trim($_POST['text']);
 $id_article = intval($_POST['id_article']);

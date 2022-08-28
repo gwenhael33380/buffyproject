@@ -1,18 +1,13 @@
 <?php
-//call function
-require dirname(__DIR__) . '/functions.php';
-//call connect
-require_once PATH_PROJECT . '/connect.php';
-
-//the roles that have access to the page
-//the others will be redirected to the HOME page
-enabled_access(array('administrator', 'editor'));
+require dirname(__DIR__) . '/functions.php'; //call function
+enabled_access(array('administrator', 'editor')); //the others will be redirected to the HOME page, the roles that have access to the page
+require_once PATH_PROJECT . '/connect.php'; //call connect
 
 $title 		= sanitize_html($_POST['title']);
 $text 		= sanitize_html($_POST['text']);
 $alt        = sanitize_html($_POST['alt']);
 
-$required_field = array($title, $text,$alt); // champs obligatoires
+$required_field = array($title, $text,$alt); // Required fields
 //initialization of variables with error handling, format and size
 $fail_upload 		= array(3,6,7,8);
 $oversize_file 		= array(1,2);

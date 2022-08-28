@@ -1,17 +1,12 @@
-
 // Modal to connect
-
-
-// sideBar is a constant present in the document side-bar.js
-
 const modal_connect = document.querySelector(".modal_connect");
 const to_connect = document.querySelectorAll(".to_connect");
 const popupBtn = document.getElementById("popup-btn");
-const cross_btn = document.querySelector(".param_cross")
+const cross_btn = document.querySelector(".param_cross");
+const sideBar = document.getElementById("side-bar");
 
-
-to_connect.forEach((modals_connect) => {
-    modals_connect.addEventListener('click', () => {
+to_connect.forEach((to_connects) => {
+    to_connects.addEventListener('click', () => {
         modal_connect.classList.toggle('toggle_modal');
         sideBar.classList.remove("active");
     });

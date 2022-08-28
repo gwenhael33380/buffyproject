@@ -38,7 +38,7 @@ $newDate = date("d-m-Y à H:i:s", $timestamp );
 //Request preview article
 
 $req = $db->prepare("
-    SELECT a.id, a.title, a.id_image, p.file_name, p.alt
+    SELECT a.id,  a.title, a.id_image, p.file_name, p.alt
     FROM article a
     LEFT JOIN picture p
     ON  p.id = a.id_image 
@@ -60,7 +60,7 @@ $articles_previews = $req->fetchAll(PDO::FETCH_OBJ);
         <p class="text-popup-delete-article" >Cette action est irreversible et entrainera la perte de toutes les données de l'article !</p>
         <div class="content-button-popup-delete-article">
             <button id="popupBtnDeleteArticle" class="button-delete-article button-delete-article-1" >Annuler</button>
-            <a  class="button-delete-user button-delete-article-2" href="<?php echo HOME_URL . 'requests/delete_article_post.php?id=' . $article->id; ?>" > OK</a>
+            <a  class="button-delete-user button-delete-article-2" href="<?php echo HOME_URL . 'requests/delete_article_post.php?id=' . $article->id . '&id_user=' . $article->id_user; ?>" > OK</a>
         </div>
     </div>
 
@@ -124,11 +124,11 @@ $articles_previews = $req->fetchAll(PDO::FETCH_OBJ);
                     </div>
                 </article>
 <!--                if rol_slug exists and it is equal to administrator, then we display the update and delete article buttons-->
-                <?php if(isset($role_slug) && $role_slug == "administrator" || ($role_slug == 'editor' && $article->id_user == $_SESSION['id_user'] )) : ?>
+                <?php if(isset($_SESSION['id_user']) && $_SESSION['role_slug'] == "administrator" || isset($_SESSION['id_user'])  && $_SESSION['id_user'] == $article->id_user) : ?>
                     <div class="content-button-article">
                         <!-- Button update article -->
                         <div class="content-button-update-article">
-                            <a class="button-update-article" href="<?php echo HOME_URL . 'views/update_article.php?id=' . $id_article; ?>">Mettre à jour</i></a>
+                            <a class="button-update-article" href="<?php echo HOME_URL . 'views/update_article.php?id=' . $id_article . '&article_id_user=' . $article->id_user; ?>">Mettre à jour</i></a>
                         </div>
 
                         <!-- delete article -->
@@ -140,6 +140,8 @@ $articles_previews = $req->fetchAll(PDO::FETCH_OBJ);
 
             </div>
         </section>
+        <?php if (isset($_SESSION['role_slug'])) :
+        ?>
         <section class="section-2-space-comment">
             <div class="spacing-content-title-comments">
                 <div class="content-title-comments">
@@ -152,7 +154,7 @@ $articles_previews = $req->fetchAll(PDO::FETCH_OBJ);
 
             //request prepared comments
             $req = $db->prepare("
-                SELECT c.id, c.id_user, c.comment_content, c.created_at, u.pseudo, p.file_name
+                SELECT c.id, c.id_user, c.comment_content, c.created_at, u.pseudo, u.id id_user, p.file_name
                 FROM comment c
 				INNER JOIN user u
 				ON u.id = c.id_user
@@ -196,7 +198,7 @@ $articles_previews = $req->fetchAll(PDO::FETCH_OBJ);
                         //time conversion function
                         $origin_date_comment = $comment->created_at;
                         $timestamp = strtotime($origin_date_comment);
-                        $newDateComment = date("d-m-Y à h:i:s", $timestamp );
+                        $newDateComment = date("d/m/Y à H:i:s", $timestamp );
 
 
                         ?>
@@ -229,15 +231,16 @@ $articles_previews = $req->fetchAll(PDO::FETCH_OBJ);
                                                     )
                                                 ) :
                                                     $id_comment = $comment->id;
-                                                    ?>
+                                                endif; ?>
 
-<!--                                                                 link of update and delete buttons how to change comment id and article id variable-->
-
+<!--                                                               link of update and delete buttons how to change comment id and article id variable-->
+                                                    <?php if (isset($_SESSION['id_user']) && ($_SESSION['id_user'] ==  $comment->id_user || $_SESSION['role_slug'] == 'administrator')) : ?>
                                                     <!-- button update -->
-                                                    <a class="button-update-comment" href="<?php echo HOME_URL . 'views/update_comment.php?id=' . $id_comment . '&id_article=' . $id_article; ?>"><i class="fa-solid fa-pencil"></i></a>
+                                                    <a class="button-update-comment" href="<?php echo HOME_URL . 'views/update_comment.php?id=' . $id_comment . '&id_article=' . $id_article .'&comment_id_user=' . $comment->id_user; ?>"><i class="fa-solid fa-pencil"></i></a>
                                                     <!-- button delete -->
-                                                    <a class="delete_comment" href="<?php echo HOME_URL . 'requests/delete_comment_post.php?id=' . $id_comment . '&id_article=' . $id_article; ?>"><i class="fa-solid fa-trash-can"></i></a>
-                                                <?php endif; ?>
+                                                    <a class="delete_comment" href="<?php echo HOME_URL . 'requests/delete_comment_post.php?id=' . $id_comment . '&id_article=' . $id_article .'&id_user_comment=' . $comment->id_user; ?>"><i class="fa-solid fa-trash-can"></i></a>
+                                                <?php  endif;?>
+
                                             </div>
                                         </div>
                                         <div class="content-comment-article">
@@ -251,5 +254,6 @@ $articles_previews = $req->fetchAll(PDO::FETCH_OBJ);
                 </div>
             </div>
         </section>
+        <?php endif; ?>
     </main>
 <?php require __DIR__ . '/footer.php';

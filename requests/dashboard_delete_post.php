@@ -1,7 +1,7 @@
 <?php
 //call function
 require dirname(__DIR__) . '/functions.php';
-
+enabled_access(array('administrator'));
 //call connect
 require_once PATH_PROJECT . '/connect.php';
 

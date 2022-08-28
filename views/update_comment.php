@@ -2,38 +2,34 @@
 
 require dirname(__DIR__) . '/functions.php'; //call function.php
 
-enabled_access(array('administrator', 'editor', 'user')); //enabled targeted role access
+//enabled_access(array('administrator', 'editor', 'user')); //enabled targeted role access
 
 require_once PATH_PROJECT . '/connect.php'; //call connect.php
-
 define('TITLE', 'Mise a jour du commentaire'); //title tag definition
 define('META_DESCRIPTION', 'page permettant de mettre à jour un commentaires via un formulaire. Une fois ce dernier rempli la soumission permet d\'ajouter un commentaire à la page de l\'article concerné. L\'accessibilité est réservée aux personnes ayant créé un compte.'); // Define meta description
-
-require __DIR__ . '/header.php'; //call header.php
-
-
-
+$comment_id_user = $_GET['comment_id_user'];
 $id_comment = intval($_GET['id']); // if the $_GET is not numeric, it will not be able to transform it into an integer
-$id_article = intval($_GET['id_article']);//            //                  //                      //          //
-
-if($id_comment) {
+$id_article = intval($_GET['id_article']);//
+if (isset($_SESSION['id_user']) && ($_SESSION['id_user'] == $comment_id_user || $_SESSION['role_slug'] == 'administrator')){
+require __DIR__ . '/header.php'; //call header.php
+    if($id_comment) {
 //    request from previous comment
-    $req = $db->prepare("
+        $req = $db->prepare("
 		SELECT id, comment_content
 		FROM comment
 		WHERE id = :id
 	");
 
 
-    $req->bindValue(':id', $id_comment, PDO::PARAM_INT); //    bind values
+        $req->bindValue(':id', $id_comment, PDO::PARAM_INT); //    bind values
 
 
-    $req->execute(); //    execution of the request
+        $req->execute(); //    execution of the request
 
 //    we get only one result of the query
-    $comment = $req->fetch(PDO::FETCH_OBJ);
-}
-?>
+        $comment = $req->fetch(PDO::FETCH_OBJ);
+    }
+    ?>
     <main>
         <section>
             <div class="bg-img-update-comment"></div>
@@ -51,6 +47,7 @@ if($id_comment) {
                     <div class="flex-form-add-comment">
                         <label class="label-add-comment" for="text">Contenu du commentaire</label>
                         <textarea id="textarea_update_comment" class="textarea-content-comment" name="text" rows="10" required><?php echo sanitize_html($comment->comment_content); ?></textarea> <!--view comment content-->
+                        <input type="hidden" name="comment_id_user" value="<?php echo $comment_id_user; ?>"> <!--variable traveling through the form in hidden mode-->
                         <input type="hidden" name="id_article" value="<?php echo $id_article; ?>"> <!--variable traveling through the form in hidden mode-->
                         <input type="hidden" name="id_comment" value="<?php echo $comment->id; ?>"> <!--variable traveling through the form in hidden mode-->
                         <div class="flex-counter-add-article">
@@ -67,5 +64,8 @@ if($id_comment) {
     </main>
 
 
-<?php
-require __DIR__ . '/footer.php';
+    <?php
+    require __DIR__ . '/footer.php';
+}else{
+    header('Location:' . HOME_URL . '?msg=<p class="msg_error"">Vous n\'avez pas l\'autorisation d\'accédé à cette page</p>');
+}

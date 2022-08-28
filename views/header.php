@@ -1,15 +1,3 @@
-<?php
-
-//set cookie banner cookie
-if (isset($_GET['cookie_accepted'])){
-
-    setcookie('cookie_accepted', 'true', time() + 365*24*3600);
-    header('location:'. HOME_URL);
-}
-
-?>
-
-
 <!doctype html> <!--specification of language rules-->
 
 <html lang="fr"> <!--language-->
@@ -44,7 +32,7 @@ if (isset($_GET['cookie_accepted'])){
 
 <!--                        if the id_user exists then we display the link to the profile-->
                         <?php if(isset($_SESSION['id_user'])) : ?>
-                            <li class="title-nav-bar2"><a class="title-nav-bar" href="<?php echo HOME_URL . 'views/user_profil.php'; ?>">PROFIL</a></li>4
+                            <li class="title-nav-bar2"><a class="title-nav-bar" href="<?php echo HOME_URL . 'views/user_profil.php'; ?>">PROFIL</a></li>
                         <?php endif; ?>
                         <li class="title-nav-bar2"><a class="title-nav-bar" href="<?php echo HOME_URL . 'views/contact.php'; ?>">CONTACT</a></li>
 

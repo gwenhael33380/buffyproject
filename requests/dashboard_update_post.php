@@ -1,7 +1,7 @@
 <?php
 require dirname(__DIR__) . '/functions.php';
-require_once PATH_PROJECT . '/connect.php';
 enabled_access(array('administrator'));
+require_once PATH_PROJECT . '/connect.php';
 
 $send_request = false;
 $initial_img = $_POST['initial_image'];
@@ -114,7 +114,7 @@ else :
 
             // on vérifie si l'extension est bien dans le tableau, sinon ce n'est pas une image
             if (!in_array($ext_img, $enabled_ext)) :
-                $msg_error = '<p class="msg_error">Votre fichier n\'est pas une image png, jpg ou jpeg</p>';
+                $msg_error = '<p class="msg_error">Le fichier n\'est pas une image png, jpg ou jpeg</p>';
             elseif ($image_size > $size_max) :
                 $msg_error = '<p class="msg_error">Fichier trop volumineux, ne pas dépasser 1Mo</p>';
             else :
@@ -231,9 +231,9 @@ else :
 
 
             if ($result) :
-                $msg_success = '<p class="msg_success">Votre profil a bien ete mis à jours</p>';
+                $msg_success = '<p class="msg_success">Le profil a bien ete mis à jours</p>';
             else :
-                $msg_error = '<p class="msg_error">erreur lors de la mise à jour du profil!!!!!!!!!</p>';
+                $msg_error = '<p class="msg_error">erreur lors de la mise à jour du profil!</p>';
             endif;
         endif;
     endif;

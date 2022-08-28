@@ -35,7 +35,7 @@ else {
 
 //query prepare to display articles
 $req = $db->prepare("
-       SELECT a.id, a.id_user, a.title, a.content, a.created_at, a.id_image, u.first_name, u.last_name, u.pseudo, p.file_name, p.alt
+   SELECT a.id, a.id_user, a.title, a.content, a.created_at, a.id_image, u.first_name, u.last_name, u.pseudo, p.file_name, p.alt
     FROM article a
     LEFT JOIN user u
     ON  a.id_user = u.id
@@ -75,7 +75,7 @@ if(isset($_SESSION['role_slug'])) $role_slug = $_SESSION['role_slug'];
         <div class="content-title-blog" >
 
 <!--            if $role_slug exists and if the role is administrator, then we display the icon for adding an article-->
-            <h1 class="title-blog">Buffy project Le Blog <?php if(isset($role_slug) && $role_slug == 'administrator' || 'editor') echo "<span><a href=\"" . HOME_URL . "views/add_article.php\"><i class=\"fa-solid fa-circle-plus\"></i></a></span>"; ?></h1>
+            <h1 class="title-blog">Buffy project Le Blog <?php if(isset($_SESSION['role_slug']) && ($_SESSION['role_slug'] == 'administrator' ||  $_SESSION['role_slug'] == 'editor')) echo "<span><a href=\"" . HOME_URL . "views/add_article.php\"><i class=\"fa-solid fa-circle-plus\"></i></a></span>"; ?></h1>
         </div>
         <section>
             <div class="content-content-article-blog" >

@@ -15,7 +15,7 @@
             <!--            link to different pages of the site-->
             <div class="content-link-footer">
                 <a class="link-footer" href="<?php echo HOME_URL . 'views/contact.php'; ?>">Contact</a>
-                <a class="link-footer" href="#">Plan du site</a>
+                <a class="link-footer" href="<?php echo HOME_URL . 'views/legal_notice.php'; ?>">Politique de confidentialité</a>
                 <a class="link-footer" href="<?php echo HOME_URL . 'views/legal_notice.php'; ?>">Mentions légales</a>
             </div>
             <div>

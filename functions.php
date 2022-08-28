@@ -45,7 +45,6 @@ function enabled_access(Array $enabled_access) {
 		endif;
 }
 
-
 //eliminate the XSS flaw
 function sanitize_html($string) {
 

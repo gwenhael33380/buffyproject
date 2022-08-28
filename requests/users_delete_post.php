@@ -1,41 +1,43 @@
 <?php
-//call function
-require dirname(__DIR__) . '/functions.php';
 
-//call connect
-require_once PATH_PROJECT . '/connect.php';
+require dirname(__DIR__) . '/functions.php'; //call function
+enabled_access(array('administrator','editor','user')); // enabled acces
+
+require_once PATH_PROJECT . '/connect.php'; //call connect
 
 //allow user delete access to authorized role
-enabled_access(array('administrator','editor','user'));
-
-
 $id_user = intval($_GET['id']);
 
-if ($id_user) {
+if (isset($_SESSION['id_user']) && $_SESSION['id_user'] == $id_user ){
 
-    //    request deleting the user, his articles, his comments, and his image
-    $req = $db->prepare("
-		DELETE FROM user WHERE id = :id;
+
+    if ($id_user) {
+
+        //    request deleting the user, his articles, his comments, and his image
+        $req = $db->prepare("
+		DELETE FROM user    WHERE id = :id;
 		DELETE FROM article WHERE id_user = :id;
 		DELETE FROM comment WHERE id_user = :id;
 	    DELETE FROM picture WHERE file_name = :id;
 	
 	");
 
-    //    bind value
-    $req->bindValue(':id', $id_user, PDO::PARAM_INT);
 
-    //    execution of the request
-    $result = $req->execute();
+        $req->bindValue(':id', $id_user, PDO::PARAM_INT);  //    bind value
 
-    // destroy session
-    session_destroy();
 
-    //    redirect on success or failure
-    if ($result) {
-        header('Location:' . HOME_URL . 'views/home.php?msg=<p class="msg_success">Utilisateur supprimé</p>');
-    } else {
-        header('Location:' . HOME_URL . 'views/home.php?msg=<p class="msg_error">Erreur lors de la suppression</p>');
+        $result = $req->execute(); //    execution of the request
+
+        // destroy session
+//        session_destroy();
+//
+            //redirect on success or failure
+        if ($result) {
+            header('Location:' . HOME_URL . 'views/home.php?msg=<p class="msg_success">Utilisateur supprimé</p>');
+        } else {
+            header('Location:' . HOME_URL . 'views/home.php?msg=<p class="msg_error">Erreur lors de la suppression</p>');
+        }
     }
-//    Azerty33380@!
+}else{
+    header('Location:' . HOME_URL . '?msg=<p class="msg_error">Vous n\'avez pas l\autorisation de supprimer cette utilisateur</p>');
 }
