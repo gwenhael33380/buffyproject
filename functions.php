@@ -28,14 +28,12 @@ function current_url($url) {
 }
 
 // function to redirect to homePage if $enable_access exists and is not null
-function enabled_access(Array $enabled_access) {
+function enabled_access(Array $enable_access) {
 		if(
 			!isset($_SESSION['id_user'])  // if i am not logged in
 			|| // OR
 			(
 				isset($enable_access)
-				&& // ET
-				isset($_SESSION['id_user'])
 				&&
 				// if the role is not in the table
 				!in_array($_SESSION['role_slug'], $enable_access)

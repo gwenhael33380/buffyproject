@@ -1,8 +1,7 @@
 <?php
-//call function
-require dirname(__DIR__) . '/functions.php';
-enabled_access(array('administrator', 'editor', 'user'));
 
+require dirname(__DIR__) . '/functions.php'; //call function
+enabled_access(array('administrator', 'editor', 'user')); // restrict access
 require_once PATH_PROJECT . '/connect.php'; //call connect
 
 $text = trim($_POST['text']); //Remove spaces (or other characters) from the beginning and end of string
@@ -24,7 +23,8 @@ $req = $db->prepare("
 //Here we execute the prepared statement by replacing the variable "?" pending by $id_article
 $req->execute(array(':id_comment' => $id,':id_user' => $comment_id_user,  ));
 
-if (isset($_SESSION['id_user']) && ($_SESSION['id_user'] == $comment_id_user || $_SESSION['role_slug'] == 'administrator')) {
+// restrict access
+if (isset($_SESSION['id_user']) && $_SESSION['id_user'] == $comment_id_user || $_SESSION['role_slug'] == 'administrator') {
 
 
 //we process the information received by passing in the conditions

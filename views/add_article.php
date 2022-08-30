@@ -2,7 +2,7 @@
 <?php
 
 require dirname(__DIR__) . '/functions.php'; //call function.php
-enabled_access(array('administrator')); //enabled targeted role access
+enabled_access(array('administrator', 'editor')); //enabled targeted role access
 require_once PATH_PROJECT . '/connect.php'; //call connect.php
 
 define('TITLE', 'Ajout d\'un article'); //title tag definition
@@ -47,7 +47,6 @@ require __DIR__ . '/header.php'; //call header.php
                     <label class="label-content-add-article" for="alt">Veuillez renseigner une description courte de l'image <span class="red" >*</span></label>
                     <input id="input_alt_add_article" class="input-alt-article" minlength="5" maxlength="40" placeholder="Veuillez renseigner 5 caractères minimum, maximum 40..." type="text" name="alt" required>
                     <div class="flex-counter-add-article">
-
                         <!--                        character counter-->
                         <div id="counter_alt_add_article">0</div>
                         <div>/40</div>

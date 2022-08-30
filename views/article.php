@@ -124,7 +124,7 @@ $articles_previews = $req->fetchAll(PDO::FETCH_OBJ);
                     </div>
                 </article>
 <!--                if rol_slug exists and it is equal to administrator, then we display the update and delete article buttons-->
-                <?php if(isset($_SESSION['id_user']) && $_SESSION['role_slug'] == "administrator" || isset($_SESSION['id_user'])  && $_SESSION['id_user'] == $article->id_user) : ?>
+                <?php if(isset($_SESSION['id_user']) && $_SESSION['role_slug'] == "administrator" || isset($_SESSION['id_user']) && $_SESSION['id_user'] == $article->id_user) : ?>
                     <div class="content-button-article">
                         <!-- Button update article -->
                         <div class="content-button-update-article">

@@ -1,9 +1,6 @@
 <?php
-
 require dirname(__DIR__) . '/functions.php'; //call function.php
-
-//enabled_access(array('administrator', 'editor', 'user')); //enabled targeted role access
-
+enabled_access(array('administrator', 'editor', 'user')); //enabled targeted role access
 require_once PATH_PROJECT . '/connect.php'; //call connect.php
 define('TITLE', 'Mise a jour du commentaire'); //title tag definition
 define('META_DESCRIPTION', 'page permettant de mettre à jour un commentaires via un formulaire. Une fois ce dernier rempli la soumission permet d\'ajouter un commentaire à la page de l\'article concerné. L\'accessibilité est réservée aux personnes ayant créé un compte.'); // Define meta description
@@ -19,13 +16,8 @@ require __DIR__ . '/header.php'; //call header.php
 		FROM comment
 		WHERE id = :id
 	");
-
-
         $req->bindValue(':id', $id_comment, PDO::PARAM_INT); //    bind values
-
-
         $req->execute(); //    execution of the request
-
 //    we get only one result of the query
         $comment = $req->fetch(PDO::FETCH_OBJ);
     }

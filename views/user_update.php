@@ -3,16 +3,9 @@
 require dirname(__DIR__) . '/functions.php'; //call function.php
 enabled_access(array('administrator', 'editor', 'user')); //enabled targeted role access
 require_once PATH_PROJECT . '/connect.php'; //call connect.php
-
 define('TITLE', 'Mise à jour du profil'); //title tag definition
 define('META_DESCRIPTION', 'La page usée update permet à l\'utilisateur de mettre à jour l\'intégralité de son profil via un formulaire. qui sera soumis afin d\'effectuer la mise à jour.'); // Define meta description
-
 require __DIR__ . '/header.php'; //call header.php
-
-
-
-
-
 //user id definition
 $id_user = intval($_GET['id']); // I transform the $_GET into an integer with the intval() function, otherwise it cannot be interpreted as an integer
 
@@ -23,7 +16,7 @@ else {
     $id_user = intval($_SESSION['id_user']);
 }
 
-//
+
 //if the user id is present, then a prepared query is made in the database
 //
 // !!! the prepared query is mandatory because it includes variables. !!!
@@ -46,7 +39,6 @@ if($id_user) {
     $user = $req->fetch(PDO::FETCH_OBJ);
 }
 ?>
-
     <!--source code of user_update.php with use of query results and sanitize_html() "this referred to file function.php" which converts special characters into HTML entities.
     It also helps to protect against the XSS flaw -->
     <main class="main-user-update content">
@@ -89,6 +81,7 @@ if($id_user) {
                         <img class="current-img-user-update" src="<?php echo HOME_URL. 'assets/img/dist/profil/' . sanitize_html($user->file_name); ?>" alt="image de votre profil avant la mise a jour">
                     </div> <!--current picture-->
                     <div class="content-label-picture">
+                        <input type="hidden" name="id_user" value="<?php echo $user->id; ?>">
                         <input type="hidden" name="id_image" value="<?php echo $user->id_image; ?>"> <!--variable traveling through the form in hidden mode-->
                         <input type="hidden" name="initial_image" value="<?php echo sanitize_html($user->file_name); ?>"> <!--variable traveling through the form in hidden mode-->
                         <input type="hidden" name="MAX_FILE_SIZE" value="1048576">  <!--size restriction at 1MB or 1024*1028 bytes -->
@@ -98,7 +91,7 @@ if($id_user) {
 
                 </div>
                 <div class="content-button-submit">
-                    <input type="hidden" name="id_user" value="<?php echo $user->id; ?>">
+
                     <button class="button-submit-user_update" type="submit">Mettre à jour votre profil</button>
                 </div>
             </form>

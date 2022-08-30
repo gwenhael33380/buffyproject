@@ -1,10 +1,11 @@
 <?php
 require dirname(__DIR__) . '/functions.php'; //call function.php
 
+//enabled targeted role access
 enabled_access(array('administrator')); //enabled targeted role access
 
-require_once PATH_PROJECT . '/connect.php'; //call connect.php
 
+require_once PATH_PROJECT . '/connect.php'; //call connect.php
 define('TITLE', 'Dashboard');//title tag definition
 define('META_DESCRIPTION', 'la page du dashboard permet aux administrateurs de gérer l\'ensemble des utilisateurs et visualiser toutes les informations concernant la vie du site. Cette page a aussi pour fonction de mettre à jour les utilisateurs en cas d\'incident avec les identifiants ou des informations personnelles inappropriées. Cette page permet aussi la suppression d\'un utilisateur.'); // Define meta description
 
@@ -111,3 +112,5 @@ $results = $req->fetchAll(PDO::FETCH_OBJ); ?>
 <?php
 include PATH_PROJECT . '/views/popup_delete_user_dashboard.php';
 require PATH_PROJECT . '/views/footer.php';
+
+

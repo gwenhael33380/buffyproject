@@ -10,24 +10,24 @@ $yourMail="le.corre.gwen.hael@dev-events.fr";
 $email = strtolower(trim($_POST['email']));
 
 if(empty($email)) {
-    echo "Le champ mail est vide";
+    $msg_error = "Le champ mail est vide";
 } else {
     //filter_var — Filters a variable with a specified filter
     //regular expressions mail
     if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-        echo "L'adresse mail entrée est incorrecte";
+        $msg_error = "L'adresse mail entrée est incorrecte";
     }else{
 
         //we check that the subject field is correctly filled in
         if(empty($_POST['subject'])) {
-            echo "Le champ sujet est vide";
+            $msg_error = "Le champ sujet est vide";
         }else{
 
             //we check that the message field is not empty
             if(empty($_POST['message'])) {
-                echo "Le champ message est vide";
+                $msg_error = "Le champ message est vide";
             }elseif(strlen($_POST['message']) <60){
-                    echo "Veuillez saisir un minimum de 60 caractères";
+                $msg_error = "Veuillez saisir un minimum de 60 caractères";
 
             }else{
 
@@ -44,9 +44,15 @@ if(empty($email)) {
                 $sendMail = mb_send_mail($yourMail,$topic,nl2br($message),$heading); //the nl2br function keeps line breaks and the base64_encode function keeps accents in the title
                 //we send the email
                 if($sendMail){
-                    echo "<p class='msg_success'>Le mail a été envoyé avec succès !</p>";
+                    $msg_success = "<p class='msg_success'>Le mail a été envoyé avec succès !</p>";
                 } else {
-                    echo "<p class='msg_error'>Une erreur est survenue, le mail n'a pas été envoyé veuillez réessayer plus tard...</p>";
+                    $msg_error = "<p class='msg_error'>Une erreur est survenue, le mail n'a pas été envoyé veuillez réessayer plus tard...</p>";
+                }
+                if(($msg_success)) {
+                    header('Location:' . HOME_URL . 'views/subscribe.php?msg=' . $msg_success);
+                }
+                else {
+                    header('Location:' . HOME_URL . '?msg=' . $msg_error);
                 }
             }
         }

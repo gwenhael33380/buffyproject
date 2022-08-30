@@ -1,28 +1,15 @@
 <?php
-
 require dirname(__DIR__) . '/functions.php'; //call function.php
-
 enabled_access(array('administrator', 'editor', 'user')); //enabled targeted role access
-
 require_once PATH_PROJECT . '/connect.php'; //call connect.php
-
 define('TITLE', 'Votre profil'); //title tag definition
 require PATH_PROJECT . '/views/header.php';//call header.php
-
 define('META_DESCRIPTION', 'page permettant à l\'utilisateur de visualiser ses informations personnelles et ses données sur sa participation sur le site.  Via cette page il a la possibilité de mettre à jour son profil ou éventuellement le supprimer'); // Define meta description
 
 $msg_not_connect = '<p class="msg_error">vous n\'êtes pas connecté</p>';
 $user_id = ($_SESSION['id_user']);
 
 
-
-
-
-
-if(empty($user_id)){
-    header('Location:' . HOME_URL . '?msg=' . $msg_not_connect);
-
-}
 
 $req = $db->prepare("
 

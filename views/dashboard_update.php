@@ -1,12 +1,11 @@
 <?php
-// mise à jour de l'utilisateur courant
-// avec leur nom, prénom, pseudo, email, role,  lien vers les articles (update) et rajout de bouton de suppression (si admin), lien vers les commentaires (update) et rajout de bouton de suppression (si admin)
 require dirname(__DIR__) . '/functions.php';
+enabled_access(array('administrator'));
 require_once PATH_PROJECT . '/connect.php';
 define('TITLE', 'Mise a jour d\'un utilisateur');
 require __DIR__ . '/header.php';
 
-enabled_access(array('administrator'));
+
 $id_user = intval($_GET['id']); // si le $_GET n'est pas numerique, il ne pourra pas le transformer en integer
 
 if($id_user) {

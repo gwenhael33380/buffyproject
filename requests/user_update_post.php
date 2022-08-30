@@ -1,7 +1,8 @@
 <?php
 require dirname(__DIR__) . '/functions.php';
-require_once PATH_PROJECT . '/connect.php';
 enabled_access(array('administrator', 'editor', 'user'));
+require_once PATH_PROJECT . '/connect.php';
+
 
 $send_request = false;
 $initial_img = $_POST['initial_image'];
@@ -17,11 +18,9 @@ $pseudo     = trim($_POST['pseudo']);
 $email         = filter_var(mb_strtolower(trim($_POST['email'])), FILTER_VALIDATE_EMAIL);
 $picture    = $_FILES['picture'];
 
-if ($_SESSION['role_slug'] == 'administrator') {
-    $id_user = intval($_POST['id_user']);
-} else {
-    $id_user = intval($_SESSION['id_user']);
-}
+$id_user = intval($_SESSION['id_user']);
+$current_id_user = $_POST['id_user'];
+
 $required_fields = array($first_name, $last_name, $pseudo, $email);
 $error_upload     = array(3, 6, 7, 8);
 $error_size     = array(1, 2);
@@ -33,8 +32,6 @@ $size_max         = 1048576;
 // same = identique
 $same_pseudo = $pseudo == $initial_pseudo ? true : false;
 $same_email = $email == $initial_email ? true : false;
-
-
 
 if ($picture['name'] == ''){
     $same_picture = true;
@@ -49,6 +46,8 @@ $pass2         = trim($_POST['password2']);
 $empty_pass = empty($pass1) && empty($pass2) ? true : false;
 $match_pass = check_password($pass1); // je check pour voir s'il correspond au pat tern
 
+
+if (isset($_SESSION['id_user']) && $_SESSION['id_user'] == $current_id_user ){
 
 
 
@@ -240,5 +239,6 @@ if (isset($msg_error)) {
 } else {
     header('Location:' . HOME_URL . 'views/user_profil.php?id=' . $id_user . '&msg=' . $msg_success);
 }
-
-//Lecorre@!33
+}else{
+    header('Location:' . HOME_URL . '?msg=<p class="msg_error">Vous n\'avez pas l\autorisation d\'accédé à cette page</p>');
+}

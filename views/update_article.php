@@ -1,7 +1,7 @@
 <?php
 
 require dirname(__DIR__) . '/functions.php'; //call function.php
-//enabled_access(array('administrator', 'editor')); //access enabled for administrator
+enabled_access(array('administrator', 'editor')); //access enabled for administrator
 require_once PATH_PROJECT . '/connect.php'; //call connect.php
 define('TITLE', 'Mise à jour d\'un article'); //title tag definition
 define('META_DESCRIPTION', 'La page update article permet de mettre à jour un article du site BuffyProject via un formulaire çà partir de la page article d\'où l\'administrateur a soumis la requête de mettre à jour un article spécifique. '); // Define meta description

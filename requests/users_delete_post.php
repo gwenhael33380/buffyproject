@@ -7,7 +7,7 @@ require_once PATH_PROJECT . '/connect.php'; //call connect
 
 //allow user delete access to authorized role
 $id_user = intval($_GET['id']);
-
+// restrict access
 if (isset($_SESSION['id_user']) && $_SESSION['id_user'] == $id_user ){
 
 
@@ -29,7 +29,7 @@ if (isset($_SESSION['id_user']) && $_SESSION['id_user'] == $id_user ){
         $result = $req->execute(); //    execution of the request
 
         // destroy session
-//        session_destroy();
+        session_destroy();
 //
             //redirect on success or failure
         if ($result) {

@@ -7,9 +7,8 @@ require_once PATH_PROJECT . '/connect.php'; //call connect
 $id_comment = intval($_GET['id']);
 $id_article = intval($_GET['id_article']);
 $id_user_comment = intval($_GET['id_user_comment']);
-//condition access
+// restrict access
 if (isset($_SESSION['id_user']) && ($_SESSION['id_user'] == $id_user_comment || $_SESSION['role_slug'] == 'administrator')){
-
 
 //request to delete a comment
     if($id_comment) {

@@ -17,6 +17,7 @@ $oversize_file 		= array(1,2);
 $default_picture 	= 'no-image.jpg';
 $extension 			= array('png', 'jpg', 'jpeg', 'gif');
 $size_max 			= 1048576;
+// restrict access
 if (isset($_SESSION['id_user']) && $_SESSION['id_user'] == $article_id_user || $_SESSION['role_slug'] == 'administrator'){
 
 

@@ -5,11 +5,12 @@ require_once PATH_PROJECT . '/connect.php'; //call connect
 
 //the roles that have access to the page
 //the others will be redirected to the HOME page
-enabled_access(array('administrator'));
+enabled_access(array('administrator', 'editor'));
 
 $id_article = intval($_GET['id']);
 $id_user_article = intval($_GET['id_user']);
-if (isset($_SESSION['id_user']) && $_SESSION['id_user'] == $id_user_article && $_SESSION['role_slug'] == 'administrator'){
+// restrict access
+if (isset($_SESSION['id_user']) && $_SESSION['id_user'] == $id_user_article || $_SESSION['role_slug'] == 'administrator'){
 
 
     if ($id_article) {
@@ -34,6 +35,6 @@ if (isset($_SESSION['id_user']) && $_SESSION['id_user'] == $id_user_article && $
         }
     }
 }else{
-    header('Location:' . HOME_URL .'?msg=<p class="msg_error">Vous n\'avez pas l\'autorisation de supprimer cette article!!!</p>');
+    header('Location:' . HOME_URL .'?msg=<p class="msg_error">Vous n\'avez pas l\'autorisation de supprimer cette article!!</p>');
 
 }
